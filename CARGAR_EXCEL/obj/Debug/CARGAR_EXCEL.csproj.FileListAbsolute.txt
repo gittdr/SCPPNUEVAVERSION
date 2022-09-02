@@ -1,0 +1,538 @@
+D:\WorkSpaceAD\YOUTUBE\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\CARGAR_EXCEL.dll.config
+D:\WorkSpaceAD\YOUTUBE\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\CARGAR_EXCEL.dll
+D:\WorkSpaceAD\YOUTUBE\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\CARGAR_EXCEL.pdb
+D:\WorkSpaceAD\YOUTUBE\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\csc.exe
+D:\WorkSpaceAD\YOUTUBE\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\csc.exe.config
+D:\WorkSpaceAD\YOUTUBE\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\csc.rsp
+D:\WorkSpaceAD\YOUTUBE\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\csi.exe
+D:\WorkSpaceAD\YOUTUBE\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\csi.exe.config
+D:\WorkSpaceAD\YOUTUBE\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\csi.rsp
+D:\WorkSpaceAD\YOUTUBE\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\WorkSpaceAD\YOUTUBE\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\WorkSpaceAD\YOUTUBE\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\WorkSpaceAD\YOUTUBE\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\WorkSpaceAD\YOUTUBE\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\WorkSpaceAD\YOUTUBE\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\WorkSpaceAD\YOUTUBE\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\WorkSpaceAD\YOUTUBE\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\WorkSpaceAD\YOUTUBE\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\WorkSpaceAD\YOUTUBE\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\Microsoft.Managed.Core.targets
+D:\WorkSpaceAD\YOUTUBE\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\WorkSpaceAD\YOUTUBE\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\System.AppContext.dll
+D:\WorkSpaceAD\YOUTUBE\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\System.Collections.Immutable.dll
+D:\WorkSpaceAD\YOUTUBE\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\System.Console.dll
+D:\WorkSpaceAD\YOUTUBE\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\WorkSpaceAD\YOUTUBE\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\WorkSpaceAD\YOUTUBE\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\System.IO.Compression.dll
+D:\WorkSpaceAD\YOUTUBE\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\System.IO.FileSystem.dll
+D:\WorkSpaceAD\YOUTUBE\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\WorkSpaceAD\YOUTUBE\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\System.IO.Pipes.AccessControl.dll
+D:\WorkSpaceAD\YOUTUBE\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\System.IO.Pipes.dll
+D:\WorkSpaceAD\YOUTUBE\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\System.Reflection.Metadata.dll
+D:\WorkSpaceAD\YOUTUBE\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\System.Security.AccessControl.dll
+D:\WorkSpaceAD\YOUTUBE\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\System.Security.Claims.dll
+D:\WorkSpaceAD\YOUTUBE\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\WorkSpaceAD\YOUTUBE\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\WorkSpaceAD\YOUTUBE\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\WorkSpaceAD\YOUTUBE\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\WorkSpaceAD\YOUTUBE\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\System.Security.Principal.Windows.dll
+D:\WorkSpaceAD\YOUTUBE\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\WorkSpaceAD\YOUTUBE\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\System.ValueTuple.dll
+D:\WorkSpaceAD\YOUTUBE\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\WorkSpaceAD\YOUTUBE\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\System.Xml.XmlDocument.dll
+D:\WorkSpaceAD\YOUTUBE\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\System.Xml.XPath.dll
+D:\WorkSpaceAD\YOUTUBE\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\WorkSpaceAD\YOUTUBE\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\vbc.exe
+D:\WorkSpaceAD\YOUTUBE\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\vbc.exe.config
+D:\WorkSpaceAD\YOUTUBE\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\vbc.rsp
+D:\WorkSpaceAD\YOUTUBE\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\VBCSCompiler.exe
+D:\WorkSpaceAD\YOUTUBE\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\VBCSCompiler.exe.config
+D:\WorkSpaceAD\YOUTUBE\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\WorkSpaceAD\YOUTUBE\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\WorkSpaceAD\YOUTUBE\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\obj\Debug\CARGAR_EXCEL.csproj.CoreCompileInputs.cache
+D:\WorkSpaceAD\YOUTUBE\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\obj\Debug\CARGAR_EXCEL.csproj.CopyComplete
+D:\WorkSpaceAD\YOUTUBE\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\obj\Debug\CARGAR_EXCEL.dll
+D:\WorkSpaceAD\YOUTUBE\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\obj\Debug\CARGAR_EXCEL.pdb
+D:\WorkSpaceAD\YOUTUBE\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\obj\Debug\CARGAR_EXCEL.csprojAssemblyReference.cache
+D:\WorkSpaceAD\YOUTUBE\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\BouncyCastle.Crypto.dll
+D:\WorkSpaceAD\YOUTUBE\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\ICSharpCode.SharpZipLib.dll
+D:\WorkSpaceAD\YOUTUBE\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\NPOI.dll
+D:\WorkSpaceAD\YOUTUBE\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\NPOI.OOXML.dll
+D:\WorkSpaceAD\YOUTUBE\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\NPOI.OpenXml4Net.dll
+D:\WorkSpaceAD\YOUTUBE\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\NPOI.OpenXmlFormats.dll
+D:\WorkSpaceAD\YOUTUBE\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\BouncyCastle.Crypto.xml
+D:\WorkSpaceAD\YOUTUBE\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\ICSharpCode.SharpZipLib.pdb
+D:\WorkSpaceAD\YOUTUBE\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\ICSharpCode.SharpZipLib.xml
+D:\WorkSpaceAD\YOUTUBE\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\NPOI.xml
+D:\WorkSpaceAD\YOUTUBE\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\NPOI.OOXML.xml
+D:\WorkSpaceAD\YOUTUBE\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\NPOI.OpenXml4Net.xml
+C:\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\CARGAR_EXCEL.dll.config
+C:\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\CARGAR_EXCEL.dll
+C:\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\CARGAR_EXCEL.pdb
+C:\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\csc.exe
+C:\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\csc.exe.config
+C:\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\csc.rsp
+C:\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\csi.exe
+C:\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\csi.exe.config
+C:\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\csi.rsp
+C:\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\Microsoft.Managed.Core.targets
+C:\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\System.AppContext.dll
+C:\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\System.Collections.Immutable.dll
+C:\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\System.Console.dll
+C:\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\System.IO.Compression.dll
+C:\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\System.IO.FileSystem.dll
+C:\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\System.IO.Pipes.AccessControl.dll
+C:\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\System.IO.Pipes.dll
+C:\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\System.Reflection.Metadata.dll
+C:\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\System.Security.AccessControl.dll
+C:\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\System.Security.Claims.dll
+C:\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\System.Security.Principal.Windows.dll
+C:\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\System.ValueTuple.dll
+C:\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\System.Xml.XmlDocument.dll
+C:\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\System.Xml.XPath.dll
+C:\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\vbc.exe
+C:\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\vbc.exe.config
+C:\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\vbc.rsp
+C:\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\VBCSCompiler.exe
+C:\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\VBCSCompiler.exe.config
+C:\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\BouncyCastle.Crypto.dll
+C:\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\ICSharpCode.SharpZipLib.dll
+C:\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\NPOI.dll
+C:\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\NPOI.OOXML.dll
+C:\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\NPOI.OpenXml4Net.dll
+C:\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\NPOI.OpenXmlFormats.dll
+C:\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\BouncyCastle.Crypto.xml
+C:\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\ICSharpCode.SharpZipLib.pdb
+C:\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\ICSharpCode.SharpZipLib.xml
+C:\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\NPOI.xml
+C:\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\NPOI.OOXML.xml
+C:\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\NPOI.OpenXml4Net.xml
+C:\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\obj\Debug\CARGAR_EXCEL.csproj.AssemblyReference.cache
+C:\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\obj\Debug\CARGAR_EXCEL.csproj.CoreCompileInputs.cache
+C:\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\obj\Debug\CARGAR_EXCEL.csproj.CopyComplete
+C:\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\obj\Debug\CARGAR_EXCEL.dll
+C:\015_FUNCIONALIDAD CARGA EXCEL EN WEB\PROYECTO_CARGA\CARGAR_EXCEL\obj\Debug\CARGAR_EXCEL.pdb
+C:\CartaPorteCargaMasiva\PROYECTO_CARGA\CARGAR_EXCEL\bin\CARGAR_EXCEL.dll.config
+C:\CartaPorteCargaMasiva\PROYECTO_CARGA\CARGAR_EXCEL\bin\CARGAR_EXCEL.dll
+C:\CartaPorteCargaMasiva\PROYECTO_CARGA\CARGAR_EXCEL\bin\CARGAR_EXCEL.pdb
+C:\CartaPorteCargaMasiva\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\csc.exe
+C:\CartaPorteCargaMasiva\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\csc.exe.config
+C:\CartaPorteCargaMasiva\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\csc.rsp
+C:\CartaPorteCargaMasiva\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\csi.exe
+C:\CartaPorteCargaMasiva\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\csi.exe.config
+C:\CartaPorteCargaMasiva\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\csi.rsp
+C:\CartaPorteCargaMasiva\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\CartaPorteCargaMasiva\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\CartaPorteCargaMasiva\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\CartaPorteCargaMasiva\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\CartaPorteCargaMasiva\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\CartaPorteCargaMasiva\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\CartaPorteCargaMasiva\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\CartaPorteCargaMasiva\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\CartaPorteCargaMasiva\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\CartaPorteCargaMasiva\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\Microsoft.Managed.Core.targets
+C:\CartaPorteCargaMasiva\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\CartaPorteCargaMasiva\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\System.AppContext.dll
+C:\CartaPorteCargaMasiva\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\System.Collections.Immutable.dll
+C:\CartaPorteCargaMasiva\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\System.Console.dll
+C:\CartaPorteCargaMasiva\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\CartaPorteCargaMasiva\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\CartaPorteCargaMasiva\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\System.IO.Compression.dll
+C:\CartaPorteCargaMasiva\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\System.IO.FileSystem.dll
+C:\CartaPorteCargaMasiva\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\CartaPorteCargaMasiva\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\System.IO.Pipes.AccessControl.dll
+C:\CartaPorteCargaMasiva\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\System.IO.Pipes.dll
+C:\CartaPorteCargaMasiva\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\System.Reflection.Metadata.dll
+C:\CartaPorteCargaMasiva\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\System.Security.AccessControl.dll
+C:\CartaPorteCargaMasiva\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\System.Security.Claims.dll
+C:\CartaPorteCargaMasiva\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\CartaPorteCargaMasiva\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\CartaPorteCargaMasiva\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\CartaPorteCargaMasiva\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\CartaPorteCargaMasiva\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\System.Security.Principal.Windows.dll
+C:\CartaPorteCargaMasiva\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\CartaPorteCargaMasiva\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\System.ValueTuple.dll
+C:\CartaPorteCargaMasiva\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\CartaPorteCargaMasiva\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\System.Xml.XmlDocument.dll
+C:\CartaPorteCargaMasiva\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\System.Xml.XPath.dll
+C:\CartaPorteCargaMasiva\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\CartaPorteCargaMasiva\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\vbc.exe
+C:\CartaPorteCargaMasiva\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\vbc.exe.config
+C:\CartaPorteCargaMasiva\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\vbc.rsp
+C:\CartaPorteCargaMasiva\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\VBCSCompiler.exe
+C:\CartaPorteCargaMasiva\PROYECTO_CARGA\CARGAR_EXCEL\bin\roslyn\VBCSCompiler.exe.config
+C:\CartaPorteCargaMasiva\PROYECTO_CARGA\CARGAR_EXCEL\bin\BouncyCastle.Crypto.dll
+C:\CartaPorteCargaMasiva\PROYECTO_CARGA\CARGAR_EXCEL\bin\ICSharpCode.SharpZipLib.dll
+C:\CartaPorteCargaMasiva\PROYECTO_CARGA\CARGAR_EXCEL\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\CartaPorteCargaMasiva\PROYECTO_CARGA\CARGAR_EXCEL\bin\NPOI.dll
+C:\CartaPorteCargaMasiva\PROYECTO_CARGA\CARGAR_EXCEL\bin\NPOI.OOXML.dll
+C:\CartaPorteCargaMasiva\PROYECTO_CARGA\CARGAR_EXCEL\bin\NPOI.OpenXml4Net.dll
+C:\CartaPorteCargaMasiva\PROYECTO_CARGA\CARGAR_EXCEL\bin\NPOI.OpenXmlFormats.dll
+C:\CartaPorteCargaMasiva\PROYECTO_CARGA\CARGAR_EXCEL\bin\BouncyCastle.Crypto.xml
+C:\CartaPorteCargaMasiva\PROYECTO_CARGA\CARGAR_EXCEL\bin\ICSharpCode.SharpZipLib.pdb
+C:\CartaPorteCargaMasiva\PROYECTO_CARGA\CARGAR_EXCEL\bin\ICSharpCode.SharpZipLib.xml
+C:\CartaPorteCargaMasiva\PROYECTO_CARGA\CARGAR_EXCEL\bin\NPOI.xml
+C:\CartaPorteCargaMasiva\PROYECTO_CARGA\CARGAR_EXCEL\bin\NPOI.OOXML.xml
+C:\CartaPorteCargaMasiva\PROYECTO_CARGA\CARGAR_EXCEL\bin\NPOI.OpenXml4Net.xml
+C:\CartaPorteCargaMasiva\PROYECTO_CARGA\CARGAR_EXCEL\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\CartaPorteCargaMasiva\PROYECTO_CARGA\CARGAR_EXCEL\obj\Debug\CARGAR_EXCEL.csproj.AssemblyReference.cache
+C:\CartaPorteCargaMasiva\PROYECTO_CARGA\CARGAR_EXCEL\obj\Debug\CARGAR_EXCEL.csproj.CoreCompileInputs.cache
+C:\CartaPorteCargaMasiva\PROYECTO_CARGA\CARGAR_EXCEL\obj\Debug\CARGAR_EXCEL.csproj.CopyComplete
+C:\CartaPorteCargaMasiva\PROYECTO_CARGA\CARGAR_EXCEL\obj\Debug\CARGAR_EXCEL.dll
+C:\CartaPorteCargaMasiva\PROYECTO_CARGA\CARGAR_EXCEL\obj\Debug\CARGAR_EXCEL.pdb
+C:\CartaPorteCargaMasiva\CARGAMASIVAMERCANCIA\CARGAR_EXCEL\bin\CARGAR_EXCEL.dll.config
+C:\CartaPorteCargaMasiva\CARGAMASIVAMERCANCIA\CARGAR_EXCEL\bin\CARGAR_EXCEL.dll
+C:\CartaPorteCargaMasiva\CARGAMASIVAMERCANCIA\CARGAR_EXCEL\bin\CARGAR_EXCEL.pdb
+C:\CartaPorteCargaMasiva\CARGAMASIVAMERCANCIA\CARGAR_EXCEL\bin\roslyn\csc.exe
+C:\CartaPorteCargaMasiva\CARGAMASIVAMERCANCIA\CARGAR_EXCEL\bin\roslyn\csc.exe.config
+C:\CartaPorteCargaMasiva\CARGAMASIVAMERCANCIA\CARGAR_EXCEL\bin\roslyn\csc.rsp
+C:\CartaPorteCargaMasiva\CARGAMASIVAMERCANCIA\CARGAR_EXCEL\bin\roslyn\csi.exe
+C:\CartaPorteCargaMasiva\CARGAMASIVAMERCANCIA\CARGAR_EXCEL\bin\roslyn\csi.exe.config
+C:\CartaPorteCargaMasiva\CARGAMASIVAMERCANCIA\CARGAR_EXCEL\bin\roslyn\csi.rsp
+C:\CartaPorteCargaMasiva\CARGAMASIVAMERCANCIA\CARGAR_EXCEL\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\CartaPorteCargaMasiva\CARGAMASIVAMERCANCIA\CARGAR_EXCEL\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\CartaPorteCargaMasiva\CARGAMASIVAMERCANCIA\CARGAR_EXCEL\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\CartaPorteCargaMasiva\CARGAMASIVAMERCANCIA\CARGAR_EXCEL\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\CartaPorteCargaMasiva\CARGAMASIVAMERCANCIA\CARGAR_EXCEL\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\CartaPorteCargaMasiva\CARGAMASIVAMERCANCIA\CARGAR_EXCEL\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\CartaPorteCargaMasiva\CARGAMASIVAMERCANCIA\CARGAR_EXCEL\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\CartaPorteCargaMasiva\CARGAMASIVAMERCANCIA\CARGAR_EXCEL\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\CartaPorteCargaMasiva\CARGAMASIVAMERCANCIA\CARGAR_EXCEL\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\CartaPorteCargaMasiva\CARGAMASIVAMERCANCIA\CARGAR_EXCEL\bin\roslyn\Microsoft.Managed.Core.targets
+C:\CartaPorteCargaMasiva\CARGAMASIVAMERCANCIA\CARGAR_EXCEL\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\CartaPorteCargaMasiva\CARGAMASIVAMERCANCIA\CARGAR_EXCEL\bin\roslyn\System.AppContext.dll
+C:\CartaPorteCargaMasiva\CARGAMASIVAMERCANCIA\CARGAR_EXCEL\bin\roslyn\System.Collections.Immutable.dll
+C:\CartaPorteCargaMasiva\CARGAMASIVAMERCANCIA\CARGAR_EXCEL\bin\roslyn\System.Console.dll
+C:\CartaPorteCargaMasiva\CARGAMASIVAMERCANCIA\CARGAR_EXCEL\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\CartaPorteCargaMasiva\CARGAMASIVAMERCANCIA\CARGAR_EXCEL\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\CartaPorteCargaMasiva\CARGAMASIVAMERCANCIA\CARGAR_EXCEL\bin\roslyn\System.IO.Compression.dll
+C:\CartaPorteCargaMasiva\CARGAMASIVAMERCANCIA\CARGAR_EXCEL\bin\roslyn\System.IO.FileSystem.dll
+C:\CartaPorteCargaMasiva\CARGAMASIVAMERCANCIA\CARGAR_EXCEL\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\CartaPorteCargaMasiva\CARGAMASIVAMERCANCIA\CARGAR_EXCEL\bin\roslyn\System.Reflection.Metadata.dll
+C:\CartaPorteCargaMasiva\CARGAMASIVAMERCANCIA\CARGAR_EXCEL\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\CartaPorteCargaMasiva\CARGAMASIVAMERCANCIA\CARGAR_EXCEL\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\CartaPorteCargaMasiva\CARGAMASIVAMERCANCIA\CARGAR_EXCEL\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\CartaPorteCargaMasiva\CARGAMASIVAMERCANCIA\CARGAR_EXCEL\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\CartaPorteCargaMasiva\CARGAMASIVAMERCANCIA\CARGAR_EXCEL\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\CartaPorteCargaMasiva\CARGAMASIVAMERCANCIA\CARGAR_EXCEL\bin\roslyn\System.ValueTuple.dll
+C:\CartaPorteCargaMasiva\CARGAMASIVAMERCANCIA\CARGAR_EXCEL\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\CartaPorteCargaMasiva\CARGAMASIVAMERCANCIA\CARGAR_EXCEL\bin\roslyn\System.Xml.XmlDocument.dll
+C:\CartaPorteCargaMasiva\CARGAMASIVAMERCANCIA\CARGAR_EXCEL\bin\roslyn\System.Xml.XPath.dll
+C:\CartaPorteCargaMasiva\CARGAMASIVAMERCANCIA\CARGAR_EXCEL\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\CartaPorteCargaMasiva\CARGAMASIVAMERCANCIA\CARGAR_EXCEL\bin\roslyn\vbc.exe
+C:\CartaPorteCargaMasiva\CARGAMASIVAMERCANCIA\CARGAR_EXCEL\bin\roslyn\vbc.exe.config
+C:\CartaPorteCargaMasiva\CARGAMASIVAMERCANCIA\CARGAR_EXCEL\bin\roslyn\vbc.rsp
+C:\CartaPorteCargaMasiva\CARGAMASIVAMERCANCIA\CARGAR_EXCEL\bin\roslyn\VBCSCompiler.exe
+C:\CartaPorteCargaMasiva\CARGAMASIVAMERCANCIA\CARGAR_EXCEL\bin\roslyn\VBCSCompiler.exe.config
+C:\CartaPorteCargaMasiva\CARGAMASIVAMERCANCIA\CARGAR_EXCEL\bin\BouncyCastle.Crypto.dll
+C:\CartaPorteCargaMasiva\CARGAMASIVAMERCANCIA\CARGAR_EXCEL\bin\ICSharpCode.SharpZipLib.dll
+C:\CartaPorteCargaMasiva\CARGAMASIVAMERCANCIA\CARGAR_EXCEL\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\CartaPorteCargaMasiva\CARGAMASIVAMERCANCIA\CARGAR_EXCEL\bin\NPOI.dll
+C:\CartaPorteCargaMasiva\CARGAMASIVAMERCANCIA\CARGAR_EXCEL\bin\NPOI.OOXML.dll
+C:\CartaPorteCargaMasiva\CARGAMASIVAMERCANCIA\CARGAR_EXCEL\bin\NPOI.OpenXml4Net.dll
+C:\CartaPorteCargaMasiva\CARGAMASIVAMERCANCIA\CARGAR_EXCEL\bin\NPOI.OpenXmlFormats.dll
+C:\CartaPorteCargaMasiva\CARGAMASIVAMERCANCIA\CARGAR_EXCEL\bin\ICSharpCode.SharpZipLib.pdb
+C:\CartaPorteCargaMasiva\CARGAMASIVAMERCANCIA\CARGAR_EXCEL\bin\ICSharpCode.SharpZipLib.xml
+C:\CartaPorteCargaMasiva\CARGAMASIVAMERCANCIA\CARGAR_EXCEL\bin\NPOI.xml
+C:\CartaPorteCargaMasiva\CARGAMASIVAMERCANCIA\CARGAR_EXCEL\bin\NPOI.OOXML.xml
+C:\CartaPorteCargaMasiva\CARGAMASIVAMERCANCIA\CARGAR_EXCEL\bin\NPOI.OpenXml4Net.xml
+C:\CartaPorteCargaMasiva\CARGAMASIVAMERCANCIA\CARGAR_EXCEL\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\CartaPorteCargaMasiva\CARGAMASIVAMERCANCIA\CARGAR_EXCEL\obj\Debug\CARGAR_EXCEL.csproj.CoreCompileInputs.cache
+C:\CartaPorteCargaMasiva\CARGAMASIVAMERCANCIA\CARGAR_EXCEL\obj\Debug\CARGAR_EXCEL.csproj.CopyComplete
+C:\CartaPorteCargaMasiva\CARGAMASIVAMERCANCIA\CARGAR_EXCEL\obj\Debug\CARGAR_EXCEL.dll
+C:\CartaPorteCargaMasiva\CARGAMASIVAMERCANCIA\CARGAR_EXCEL\obj\Debug\CARGAR_EXCEL.pdb
+C:\CartaPorteCargaMasiva\CARGAMASIVAMERCANCIA\CARGAR_EXCEL\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\CartaPorteCargaMasiva\CARGAMASIVAMERCANCIA\CARGAR_EXCEL\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+C:\CartaPorteCargaMasiva\CARGAMASIVAMERCANCIA\CARGAR_EXCEL\bin\roslyn\System.Globalization.Calendars.dll
+C:\CartaPorteCargaMasiva\CARGAMASIVAMERCANCIA\CARGAR_EXCEL\bin\roslyn\System.IO.Compression.ZipFile.dll
+C:\CartaPorteCargaMasiva\CARGAMASIVAMERCANCIA\CARGAR_EXCEL\bin\roslyn\System.Net.Http.dll
+C:\CartaPorteCargaMasiva\CARGAMASIVAMERCANCIA\CARGAR_EXCEL\bin\roslyn\System.Net.Sockets.dll
+C:\CartaPorteCargaMasiva\CARGAMASIVAMERCANCIA\CARGAR_EXCEL\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\CartaPorteCargaMasiva\CARGAMASIVAMERCANCIA\CARGAR_EXCEL\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\CartaPorteCargaMasiva\CARGAMASIVAMERCANCIA\CARGAR_EXCEL\obj\Debug\CARGAR_EXCEL.csproj.AssemblyReference.cache
+C:\CartaPorteCargaMasiva\CARGACSV\CARGAR_EXCEL\bin\CARGAR_EXCEL.dll.config
+C:\CartaPorteCargaMasiva\CARGACSV\CARGAR_EXCEL\bin\CARGAR_EXCEL.dll
+C:\CartaPorteCargaMasiva\CARGACSV\CARGAR_EXCEL\bin\CARGAR_EXCEL.pdb
+C:\CartaPorteCargaMasiva\CARGACSV\CARGAR_EXCEL\bin\roslyn\csc.exe
+C:\CartaPorteCargaMasiva\CARGACSV\CARGAR_EXCEL\bin\roslyn\csc.exe.config
+C:\CartaPorteCargaMasiva\CARGACSV\CARGAR_EXCEL\bin\roslyn\csc.rsp
+C:\CartaPorteCargaMasiva\CARGACSV\CARGAR_EXCEL\bin\roslyn\csi.exe
+C:\CartaPorteCargaMasiva\CARGACSV\CARGAR_EXCEL\bin\roslyn\csi.exe.config
+C:\CartaPorteCargaMasiva\CARGACSV\CARGAR_EXCEL\bin\roslyn\csi.rsp
+C:\CartaPorteCargaMasiva\CARGACSV\CARGAR_EXCEL\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\CartaPorteCargaMasiva\CARGACSV\CARGAR_EXCEL\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\CartaPorteCargaMasiva\CARGACSV\CARGAR_EXCEL\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\CartaPorteCargaMasiva\CARGACSV\CARGAR_EXCEL\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\CartaPorteCargaMasiva\CARGACSV\CARGAR_EXCEL\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\CartaPorteCargaMasiva\CARGACSV\CARGAR_EXCEL\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\CartaPorteCargaMasiva\CARGACSV\CARGAR_EXCEL\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\CartaPorteCargaMasiva\CARGACSV\CARGAR_EXCEL\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\CartaPorteCargaMasiva\CARGACSV\CARGAR_EXCEL\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\CartaPorteCargaMasiva\CARGACSV\CARGAR_EXCEL\bin\roslyn\Microsoft.Managed.Core.targets
+C:\CartaPorteCargaMasiva\CARGACSV\CARGAR_EXCEL\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\CartaPorteCargaMasiva\CARGACSV\CARGAR_EXCEL\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\CartaPorteCargaMasiva\CARGACSV\CARGAR_EXCEL\bin\roslyn\System.AppContext.dll
+C:\CartaPorteCargaMasiva\CARGACSV\CARGAR_EXCEL\bin\roslyn\System.Collections.Immutable.dll
+C:\CartaPorteCargaMasiva\CARGACSV\CARGAR_EXCEL\bin\roslyn\System.Console.dll
+C:\CartaPorteCargaMasiva\CARGACSV\CARGAR_EXCEL\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+C:\CartaPorteCargaMasiva\CARGACSV\CARGAR_EXCEL\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\CartaPorteCargaMasiva\CARGACSV\CARGAR_EXCEL\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\CartaPorteCargaMasiva\CARGACSV\CARGAR_EXCEL\bin\roslyn\System.Globalization.Calendars.dll
+C:\CartaPorteCargaMasiva\CARGACSV\CARGAR_EXCEL\bin\roslyn\System.IO.Compression.dll
+C:\CartaPorteCargaMasiva\CARGACSV\CARGAR_EXCEL\bin\roslyn\System.IO.Compression.ZipFile.dll
+C:\CartaPorteCargaMasiva\CARGACSV\CARGAR_EXCEL\bin\roslyn\System.IO.FileSystem.dll
+C:\CartaPorteCargaMasiva\CARGACSV\CARGAR_EXCEL\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\CartaPorteCargaMasiva\CARGACSV\CARGAR_EXCEL\bin\roslyn\System.Net.Http.dll
+C:\CartaPorteCargaMasiva\CARGACSV\CARGAR_EXCEL\bin\roslyn\System.Net.Sockets.dll
+C:\CartaPorteCargaMasiva\CARGACSV\CARGAR_EXCEL\bin\roslyn\System.Reflection.Metadata.dll
+C:\CartaPorteCargaMasiva\CARGACSV\CARGAR_EXCEL\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\CartaPorteCargaMasiva\CARGACSV\CARGAR_EXCEL\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\CartaPorteCargaMasiva\CARGACSV\CARGAR_EXCEL\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\CartaPorteCargaMasiva\CARGACSV\CARGAR_EXCEL\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\CartaPorteCargaMasiva\CARGACSV\CARGAR_EXCEL\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\CartaPorteCargaMasiva\CARGACSV\CARGAR_EXCEL\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\CartaPorteCargaMasiva\CARGACSV\CARGAR_EXCEL\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\CartaPorteCargaMasiva\CARGACSV\CARGAR_EXCEL\bin\roslyn\System.ValueTuple.dll
+C:\CartaPorteCargaMasiva\CARGACSV\CARGAR_EXCEL\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\CartaPorteCargaMasiva\CARGACSV\CARGAR_EXCEL\bin\roslyn\System.Xml.XmlDocument.dll
+C:\CartaPorteCargaMasiva\CARGACSV\CARGAR_EXCEL\bin\roslyn\System.Xml.XPath.dll
+C:\CartaPorteCargaMasiva\CARGACSV\CARGAR_EXCEL\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\CartaPorteCargaMasiva\CARGACSV\CARGAR_EXCEL\bin\roslyn\vbc.exe
+C:\CartaPorteCargaMasiva\CARGACSV\CARGAR_EXCEL\bin\roslyn\vbc.exe.config
+C:\CartaPorteCargaMasiva\CARGACSV\CARGAR_EXCEL\bin\roslyn\vbc.rsp
+C:\CartaPorteCargaMasiva\CARGACSV\CARGAR_EXCEL\bin\roslyn\VBCSCompiler.exe
+C:\CartaPorteCargaMasiva\CARGACSV\CARGAR_EXCEL\bin\roslyn\VBCSCompiler.exe.config
+C:\CartaPorteCargaMasiva\CARGACSV\CARGAR_EXCEL\bin\BouncyCastle.Crypto.dll
+C:\CartaPorteCargaMasiva\CARGACSV\CARGAR_EXCEL\bin\ICSharpCode.SharpZipLib.dll
+C:\CartaPorteCargaMasiva\CARGACSV\CARGAR_EXCEL\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\CartaPorteCargaMasiva\CARGACSV\CARGAR_EXCEL\bin\NPOI.dll
+C:\CartaPorteCargaMasiva\CARGACSV\CARGAR_EXCEL\bin\NPOI.OOXML.dll
+C:\CartaPorteCargaMasiva\CARGACSV\CARGAR_EXCEL\bin\NPOI.OpenXml4Net.dll
+C:\CartaPorteCargaMasiva\CARGACSV\CARGAR_EXCEL\bin\NPOI.OpenXmlFormats.dll
+C:\CartaPorteCargaMasiva\CARGACSV\CARGAR_EXCEL\bin\ICSharpCode.SharpZipLib.pdb
+C:\CartaPorteCargaMasiva\CARGACSV\CARGAR_EXCEL\bin\ICSharpCode.SharpZipLib.xml
+C:\CartaPorteCargaMasiva\CARGACSV\CARGAR_EXCEL\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\CartaPorteCargaMasiva\CARGACSV\CARGAR_EXCEL\bin\NPOI.xml
+C:\CartaPorteCargaMasiva\CARGACSV\CARGAR_EXCEL\bin\NPOI.OOXML.xml
+C:\CartaPorteCargaMasiva\CARGACSV\CARGAR_EXCEL\bin\NPOI.OpenXml4Net.xml
+C:\CartaPorteCargaMasiva\CARGACSV\CARGAR_EXCEL\obj\Debug\CARGAR_EXCEL.csproj.CoreCompileInputs.cache
+C:\CartaPorteCargaMasiva\CARGACSV\CARGAR_EXCEL\obj\Debug\CARGAR_EXCEL.csproj.CopyComplete
+C:\CartaPorteCargaMasiva\CARGACSV\CARGAR_EXCEL\obj\Debug\CARGAR_EXCEL.dll
+C:\CartaPorteCargaMasiva\CARGACSV\CARGAR_EXCEL\obj\Debug\CARGAR_EXCEL.pdb
+C:\CartaPorteCargaMasiva\CARGACSV\CARGAR_EXCEL\obj\Debug\CARGAR_EXCEL.csproj.AssemblyReference.cache
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\CARGAR_EXCEL.dll.config
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\CARGAR_EXCEL.dll
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\CARGAR_EXCEL.pdb
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\roslyn\csc.exe
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\roslyn\csc.exe.config
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\roslyn\csc.rsp
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\roslyn\csi.exe
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\roslyn\csi.exe.config
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\roslyn\csi.rsp
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\roslyn\Microsoft.Managed.Core.targets
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\roslyn\System.AppContext.dll
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\roslyn\System.Collections.Immutable.dll
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\roslyn\System.Console.dll
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\roslyn\System.Globalization.Calendars.dll
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\roslyn\System.IO.Compression.dll
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\roslyn\System.IO.Compression.ZipFile.dll
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\roslyn\System.IO.FileSystem.dll
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\roslyn\System.Net.Http.dll
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\roslyn\System.Net.Sockets.dll
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\roslyn\System.Reflection.Metadata.dll
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\roslyn\System.ValueTuple.dll
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\roslyn\System.Xml.XmlDocument.dll
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\roslyn\System.Xml.XPath.dll
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\roslyn\vbc.exe
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\roslyn\vbc.exe.config
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\roslyn\vbc.rsp
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\roslyn\VBCSCompiler.exe
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\roslyn\VBCSCompiler.exe.config
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\Antlr3.Runtime.dll
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\BouncyCastle.Crypto.dll
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\ICSharpCode.SharpZipLib.dll
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\Microsoft.Web.Infrastructure.dll
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\Newtonsoft.Json.dll
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\NPOI.dll
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\NPOI.OOXML.dll
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\NPOI.OpenXml4Net.dll
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\NPOI.OpenXmlFormats.dll
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\System.Web.Helpers.dll
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\System.Web.Mvc.dll
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\System.Web.Optimization.dll
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\System.Web.Razor.dll
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\System.Web.WebPages.Deployment.dll
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\System.Web.WebPages.dll
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\System.Web.WebPages.Razor.dll
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\WebGrease.dll
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\Antlr3.Runtime.pdb
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\ICSharpCode.SharpZipLib.pdb
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\ICSharpCode.SharpZipLib.xml
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\Newtonsoft.Json.xml
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\NPOI.xml
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\NPOI.OOXML.xml
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\NPOI.OpenXml4Net.xml
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\System.Web.Helpers.xml
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\System.Web.Mvc.xml
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\System.Web.Optimization.xml
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\System.Web.Razor.xml
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\System.Web.WebPages.xml
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\System.Web.WebPages.Deployment.xml
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\System.Web.WebPages.Razor.xml
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\obj\Debug\CARGAR_EXCEL.csproj.AssemblyReference.cache
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\obj\Debug\CARGAR_EXCEL.csproj.CoreCompileInputs.cache
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\obj\Debug\CARGAR_EXCEL.csproj.CopyComplete
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\obj\Debug\CARGAR_EXCEL.dll
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\obj\Debug\CARGAR_EXCEL.pdb
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\FubarCoder.RestSharp.Portable.Core.dll
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\FubarCoder.RestSharp.Portable.HttpClient.dll
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\RestSharp.dll
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\FubarCoder.RestSharp.Portable.Core.xml
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\FubarCoder.RestSharp.Portable.HttpClient.xml
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\RestSharp.xml
+C:\CartaPorteCargaMasiva\TralixComplementoPago\CARGAR_EXCEL\bin\System.IO.Compression.dll
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\CARGAR_EXCEL.dll.config
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\CARGAR_EXCEL.dll
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\CARGAR_EXCEL.pdb
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\roslyn\csc.exe
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\roslyn\csc.exe.config
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\roslyn\csc.rsp
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\roslyn\csi.exe
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\roslyn\csi.exe.config
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\roslyn\csi.rsp
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\roslyn\Microsoft.Managed.Core.targets
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\roslyn\System.AppContext.dll
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\roslyn\System.Collections.Immutable.dll
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\roslyn\System.Console.dll
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\roslyn\System.Globalization.Calendars.dll
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\roslyn\System.IO.Compression.dll
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\roslyn\System.IO.Compression.ZipFile.dll
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\roslyn\System.IO.FileSystem.dll
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\roslyn\System.Net.Http.dll
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\roslyn\System.Net.Sockets.dll
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\roslyn\System.Reflection.Metadata.dll
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\roslyn\System.ValueTuple.dll
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\roslyn\System.Xml.XmlDocument.dll
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\roslyn\System.Xml.XPath.dll
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\roslyn\vbc.exe
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\roslyn\vbc.exe.config
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\roslyn\vbc.rsp
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\roslyn\VBCSCompiler.exe
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\roslyn\VBCSCompiler.exe.config
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\Antlr3.Runtime.dll
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\BouncyCastle.Crypto.dll
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\FubarCoder.RestSharp.Portable.Core.dll
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\FubarCoder.RestSharp.Portable.HttpClient.dll
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\ICSharpCode.SharpZipLib.dll
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\Microsoft.Web.Infrastructure.dll
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\Newtonsoft.Json.dll
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\NPOI.dll
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\NPOI.OOXML.dll
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\NPOI.OpenXml4Net.dll
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\NPOI.OpenXmlFormats.dll
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\RestSharp.dll
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\System.IO.Compression.dll
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\System.Web.Helpers.dll
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\System.Web.Mvc.dll
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\System.Web.Optimization.dll
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\System.Web.Razor.dll
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\System.Web.WebPages.Deployment.dll
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\System.Web.WebPages.dll
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\System.Web.WebPages.Razor.dll
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\WebGrease.dll
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\Antlr3.Runtime.pdb
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\FubarCoder.RestSharp.Portable.Core.xml
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\FubarCoder.RestSharp.Portable.HttpClient.xml
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\ICSharpCode.SharpZipLib.pdb
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\ICSharpCode.SharpZipLib.xml
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\Newtonsoft.Json.xml
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\NPOI.xml
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\NPOI.OOXML.xml
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\NPOI.OpenXml4Net.xml
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\RestSharp.xml
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\System.Web.Helpers.xml
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\System.Web.Mvc.xml
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\System.Web.Optimization.xml
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\System.Web.Razor.xml
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\System.Web.WebPages.xml
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\System.Web.WebPages.Deployment.xml
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\bin\System.Web.WebPages.Razor.xml
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\obj\Debug\CARGAR_EXCEL.csproj.AssemblyReference.cache
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\obj\Debug\CARGAR_EXCEL.csproj.CoreCompileInputs.cache
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\obj\Debug\CARGAR_EXCEL.csproj.CopyComplete
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\obj\Debug\CARGAR_EXCEL.dll
+C:\CartaPorteCargaMasiva\ComplementoPagoNuevaVersion\CARGAR_EXCEL\obj\Debug\CARGAR_EXCEL.pdb
