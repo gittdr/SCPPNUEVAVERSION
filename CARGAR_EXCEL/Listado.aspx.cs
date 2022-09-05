@@ -73,33 +73,38 @@ namespace CARGAR_EXCEL
                 List<ModelFact> separados8 = JsonConvert.DeserializeObject<List<ModelFact>>(await responseString28);
                 if (separados8 != null)
                 {
-                    TableRow r = new TableRow();
-                    for (int i = 0; i < numCells; i++)
+                    DataTable sae_ar = facLabControler.Elist2(folio);
+                    if (sae_ar.Rows.Count == 0)
                     {
-                        if (i == 0)
+                        TableRow r = new TableRow();
+                        for (int i = 0; i < numCells; i++)
                         {
-                            HyperLink hp1 = new HyperLink();
-                            hp1.ID = "hpIndex" + rownum.ToString();
-                            hp1.Text = "<button type='button' class='btn btn-primary'>" + item[i].ToString() + "</button>";
-                            hp1.NavigateUrl = "DetallesComplemento.aspx?factura=" + item[i].ToString();
-                            TableCell c = new TableCell();
-                            c.Controls.Add(hp1);
-                            r.Cells.Add(c);
+                            if (i == 0)
+                            {
+                                HyperLink hp1 = new HyperLink();
+                                hp1.ID = "hpIndex" + rownum.ToString();
+                                hp1.Text = "<button type='button' class='btn btn-primary'>" + item[i].ToString() + "</button>";
+                                hp1.NavigateUrl = "DetallesComplemento.aspx?factura=" + item[i].ToString();
+                                TableCell c = new TableCell();
+                                c.Controls.Add(hp1);
+                                r.Cells.Add(c);
 
+                            }
+                            else
+                            {
+                                TableCell c = new TableCell();
+                                c.Controls.Add(new LiteralControl("row "
+                                    + rownum.ToString() + ", cell " + i.ToString()));
+                                c.Text = item[i].ToString();
+                                r.Cells.Add(c);
+                            }
                         }
-                        else
-                        {
-                            TableCell c = new TableCell();
-                            c.Controls.Add(new LiteralControl("row "
-                                + rownum.ToString() + ", cell " + i.ToString()));
-                            c.Text = item[i].ToString();
-                            r.Cells.Add(c);
-                        }
+
+
+                        tablaStops.Rows.Add(r);
+                        rownum++;
                     }
-
-
-                    tablaStops.Rows.Add(r);
-                    rownum++;
+                    
                 }
             }
         }

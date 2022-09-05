@@ -24,6 +24,10 @@ namespace CARGAR_EXCEL.Controllers
         {
             return this.modelFact.getCartasPorte(factura);
         }
+        public DataTable Elist2(string identificador)
+        {
+            return this.modelFact.Elist2(identificador);
+        }
         public DataTable getDatosCPAGDOCTR(string identificador)
         {
             return this.modelFact.getDatosCPAGDOCTR(identificador);

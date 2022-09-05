@@ -5176,7 +5176,7 @@ namespace CARGAR_EXCEL
 
                         facLabControler.insertaFactura(txtFolio.Text, txtFechaFactura.Text);
                     }
-
+                    facLabControler.Elist(txtFolio.Text);
                     string msg = "¡Se ha generado correctamente el CFDi!";
                     ScriptManager.RegisterStartupScript(this, GetType(), "swal", "swal('" + msg + "', 'Carga exitosa', 'success');setTimeout(function(){window.location.href ='Listado.aspx'}, 10000)", true);
                 }
@@ -5310,6 +5310,7 @@ namespace CARGAR_EXCEL
                 txtTipoCobro.CssClass = "readOnlyTextBox";
                 generaTXT2();
                 //generadorTXT();
+                facLabControler.Elist(txtFolio.Text);
                 string msg = "¡Se genero correctamente el TXT!";
                 ScriptManager.RegisterStartupScript(this, GetType(), "swal", "swal('" + msg + "', 'Success', 'success');setTimeout(function(){window.location.href ='DownloadTxt.aspx'}, 10000)", true);
 

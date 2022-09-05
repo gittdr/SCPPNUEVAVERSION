@@ -29,7 +29,10 @@ namespace CARGAR_EXCEL.Controllers
         {
             return this.modelFact.getTipoCambio(fecha);
         }
-
+        public void Elist(string identificador)
+        {
+            this.modelFact.Elist(identificador);
+        }
         public DataTable facturasClientes()
         {
             return this.modelFact.getFacturasClientes();

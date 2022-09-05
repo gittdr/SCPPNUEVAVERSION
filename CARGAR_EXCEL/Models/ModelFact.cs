@@ -66,6 +66,58 @@ namespace CARGAR_EXCEL.Models
             }
             return dataTable;
         }
+        public DataTable Elist2(string identificador)
+        {
+
+
+            DataTable dataTable3 = new DataTable();
+            //NOS CONECTAMOS CON LA BASE DE DATOS
+            string cadena = @"Data source=172.24.16.113; Initial Catalog=TDR; User ID=sa; Password=tdr9312;Trusted_Connection=false;MultipleActiveResultSets=true";
+            using (SqlConnection cn = new SqlConnection(cadena))
+            {
+                try
+                {
+                    cn.Open();
+                    using (SqlCommand cmd = new SqlCommand("sp_nomostrarsiexiste_JC", cn))
+                    {
+                        //Le indico que es del itpo procedure
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.CommandTimeout = 1000;
+                        //Esta linea define un parametro
+                        cmd.Parameters.AddWithValue("@folio", identificador);
+                        //cmd.Parameters.AddWithValue("@foliocpag", foliocpag);
+                        //Ejecutamos el procedimiento
+                        cmd.ExecuteNonQuery();
+                        using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(cmd))
+                        {
+                            try
+                            {
+
+                                sqlDataAdapter.Fill(dataTable3);
+                                cn.Close();
+                            }
+                            catch (SqlException ex)
+                            {
+                                cn.Close();
+                                string message = ex.Message;
+
+                            }
+
+                        }
+
+                    }
+                }
+                catch (SqlException ex)
+                {
+
+                    cn.Close();
+                    string message = ex.Message;
+
+                }
+            }
+
+            return dataTable3;
+        }
         public DataTable getDatosCPAGDOC(string identificador)
         {
             DataTable dataTable2 = new DataTable();

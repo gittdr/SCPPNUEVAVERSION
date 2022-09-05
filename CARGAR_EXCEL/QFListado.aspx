@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CSinRfc.aspx.cs" Inherits="CARGAR_EXCEL.CSinRfc" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="QFListado.aspx.cs" Inherits="CARGAR_EXCEL.QFListado" %>
 
 
 <!DOCTYPE html>
@@ -103,7 +103,7 @@ nav li#user-info > span:after{
   background: #fff;
   border-radius: 10px;
   padding: 30px;
-
+  z-index: 1900;
 }
 #divLoading {
     -moz-animation: cssAnimation 0s ease-in 3s forwards;
@@ -144,18 +144,18 @@ nav li#user-info > span:after{
   </button>
         
   <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav mr-auto">
+     <ul class="navbar-nav mr-auto">
          <li class="nav-item active">
-        <asp:HyperLink ID="HyperLink3" CssClass="text-white" Style="text-decoration:none; padding-right: 20px;"  runat="server" NavegateUrl="Listado.aspx" NavigateUrl="~/Listado.aspx"><i class="fa fa-check-circle" aria-hidden="true"></i> Complementos de pago</asp:HyperLink>
+        <asp:HyperLink ID="HyperLink3" CssClass="text-white" Style="text-decoration:none; padding-right: 20px;"  runat="server" NavegateUrl="Listado.aspx" NavigateUrl="~/Listado.aspx"><b><i class="fa fa-check-circle" aria-hidden="true"></i> Complementos de pago </b></asp:HyperLink>
       </li>
       <li class="nav-item">
-        <asp:HyperLink ID="HyperLink1" CssClass="text-white" Style="text-decoration:none;padding-right: 20px;"  runat="server" NavegateUrl="CSinRfc.aspx" NavigateUrl="~/CSinRfc.aspx"><b> &nbsp;<i class="fa fa-times-circle" style="color:#f2c43e" aria-hidden="true"></i> Complementos sin RFC</b></asp:HyperLink>
+        <asp:HyperLink ID="HyperLink1" CssClass="text-white" Style="text-decoration:none;padding-right: 20px;"  runat="server" NavegateUrl="CSinRfc.aspx" NavigateUrl="~/CSinRfc.aspx"> &nbsp;<i class="fa fa-times-circle" aria-hidden="true"></i> Complementos sin RFC</asp:HyperLink>
       </li>
           <li class="nav-item">
         <asp:HyperLink ID="HyperLink4" CssClass="text-white" Style="text-decoration:none;padding-right: 20px;"  runat="server" NavegateUrl="DownloadTxt.aspx" NavigateUrl="~/DownloadTxt.aspx"> &nbsp;<i class="fa fa-arrow-circle-down" aria-hidden="true"></i> Descargas</asp:HyperLink>
       </li>
          <li class="nav-item">
-        <asp:HyperLink ID="HyperLink5" CssClass="text-white" Style="text-decoration:none;"  runat="server" NavegateUrl="QFListado.aspx" NavigateUrl="~/QFListado.aspx"> &nbsp;<i class="fa fa-trash" aria-hidden="true"></i> Papelera</asp:HyperLink>
+        <asp:HyperLink ID="HyperLink5" CssClass="text-white" Style="text-decoration:none;"  runat="server" NavegateUrl="QFListado.aspx" NavigateUrl="~/QFListado.aspx"> &nbsp;<i class="fa fa-trash" style="color:#f2c43e" aria-hidden="true"></i> Papelera</asp:HyperLink>
       </li>
     </ul>
     <%--<ul class="navbar-nav mr-auto ml-auto">
@@ -178,90 +178,45 @@ nav li#user-info > span:after{
              
 </nav>
         <div class="container-fluid mt-4">
-             <div class="card" style="box-shadow: 1px 1px 82px -2px rgba(0,0,0,0.75);-webkit-box-shadow: 1px 1px 82px -2px rgba(0,0,0,0.75);-moz-box-shadow: 1px 1px 82px -2px rgba(0,0,0,0.75);">
+                 <div class="card">
                   <div class="card-header">
-                    <b>Complementos de Pago sin RFC</b> 
+                    <b>Papelera</b>
                   </div>
                   <div class="card-body">
                     <div class="row">
-                        <%--<div class="col-sm-12">
-                            <figure class="figure">
-                              <img src="https://media-exp1.licdn.com/dms/image/C4E1BAQGA1cWuVr4JTw/company-background_10000/0/1612830472883?e=2147483647&v=beta&t=nYmnTbV2bKdoFsLYrmN-3SjNtlA7rH96uyBEnN7VY8M" class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure.">
-                              <figcaption class="figure-caption text-right">A caption for the above image.</figcaption>
-                            </figure>
-                        </div>--%>
-                        
-                        <div class="col-sm-12" style="height:80vh; overflow-y:auto">
+                        <div class="col-sm-12">
                             <div class="form-row">
-                                <%--<div class="form-group col-sm-10">
-                                  <label for="txtName">Numero de orden</label>
-                                    <asp:TextBox ID="txtName" CssClass="form-control" runat="server" Width="140" />
-                                    
-                                </div>--%>
-                                 <div class="form-group col-sm-12">
-                                   <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-                                    <asp:UpdatePanel ID="UpdatePanel1" UpdateMode="Conditional" runat="server">
-                                        <ContentTemplate>
-                                            <script type="text/javascript">
-                                                function save() {
-                                                    var brk = document.getElementById('<%= hdFiltrar2.ClientID %>')
-                                                    brk.value = "entra"
-                                                    // alert("Guardando")
-                                                }
-                                            </script>
-                                            <center>
-                                            <td><asp:HiddenField ID="hdFiltrar2" runat="server" /></td>
-
-                                            <asp:Table ID="TableFilter" class="table table-striped" runat="server">
-                                                <asp:TableRow>
-                                                    <asp:TableCell HorizontalAlign="Center">
-                                                        <asp:Label runat="server" ID="lblFiltar" Text="Filtro:" />
-                                                    </asp:TableCell><asp:TableCell HorizontalAlign="Center">
-                                                        <asp:TextBox CssClass="form-control" runat="server" ID="txtFiltro" Text="" />
-                                                    </asp:TableCell><asp:TableCell HorizontalAlign="Center">
-                                                        <asp:Button CssClass="btn btn-success" runat="server" ID="btnFiltrar" Text="Filtrar" OnClientClick="save();" />
-
-
-
-                                                    </asp:TableCell>
-                                                </asp:TableRow>
-
-                                            </asp:Table><br />
-          
-                                           
-                                             <asp:Table id="tablaStops" class="table table-striped" runat="server" Font-Names="ARIAL">
-                                                <asp:TableRow>
-                                                    <asp:TableCell HorizontalAlign="Center">
-                                                        <b>Folio</b>
-                                                    </asp:TableCell><asp:TableCell HorizontalAlign="Center">
-                                                        <b>Fecha</b>
-                                                    </asp:TableCell><asp:TableCell HorizontalAlign="Center">
-                                                        <b>Cliente</b>
-                                                    </asp:TableCell>
-                                                </asp:TableRow>
-
-                                            </asp:Table>
-                         </center>   
-                                        </ContentTemplate>
-                                    </asp:UpdatePanel>
+                                <div class="form-group col-sm-10">
+                                  <label for="FileUpload1"><b>Folio</b></label>
+                                    <asp:TextBox ID="Folio" CssClass="form-control-file" runat="server" required="true"></asp:TextBox>
+                                    <asp:RequiredFieldValidator ID="FValidator" runat="server" ErrorMessage="RequiredFielValidator" ControlToValidate="Folio" Display="Dynamic" ForeColor="Red" SetFocusOnError="True">* Campo requerido</asp:RequiredFieldValidator>
                                 </div>
-                              
+                                <div class="form-group col-sm-2">
+                                  <asp:Button ID="Button1" runat="server" Text="Registrar" CssClass="btn btn-block btn-success mt-4" OnClick="Button1_Click" />
+                                </div>
                             </div>
                         </div>
+                        <hr />
+                        
+                                
+                                    <%--<asp:HiddenField ID="TextBox1"  runat="server"></asp:HiddenField>
+                        <asp:HiddenField ID="HiddenField1"  runat="server"></asp:HiddenField>--%>
+
+                            
+                            
+                        
 
                     </div>
-                      <hr />
-                  
+                      
+                   
                   </div>
-                 
+
                 </div>
-            <div runat="server" id="divLoading" style="background-image:url(images/loading.gif);position:absolute;top:0;left:0;width:100%;height:100%;background-repeat:no-repeat;background-position:center;z-index:2000"></div>
-            
         </div>
     </form>
     
      <footer id="sticky-footer" class="flex-shrink-0 py-4 bg-dark text-white-50" style="position: relative;
-    margin-top: 10vh;background:rgba(0, 8, 20, 0.9) !important;">
+    margin-top: 100vh;background:rgba(0, 8, 20, 0.9) !important;">
     <div class="container text-center text-white">
         <a href="#form1" style="font-size:28px;text-decoration:none;color:white"><i class="fa fa-arrow-circle-up" aria-hidden="true"></i></a><br />
       <small>2022 Copyright &copy; TDR Soluciones Logísticas</small>

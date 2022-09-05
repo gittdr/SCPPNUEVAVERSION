@@ -158,6 +158,7 @@
     <Content Include="images\loading.gif" />
     <Content Include="images\login.png" />
     <Content Include="images\logo.png" />
+    <Content Include="QFListado.aspx" />
     <Content Include="Listado.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="MainPage.aspx" />
@@ -230,6 +231,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="QFListado.aspx.cs">
+      <DependentUpon>QFListado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="QFListado.aspx.designer.cs">
+      <DependentUpon>QFListado.aspx</DependentUpon>
     </Compile>
     <Compile Include="Listado.aspx.cs">
       <DependentUpon>Listado.aspx</DependentUpon>
