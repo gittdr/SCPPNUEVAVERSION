@@ -161,221 +161,224 @@ namespace CARGAR_EXCEL
                 }
             }
 
-
-            //DESDE AQUI EMPIZA EL TXT DE PRODUCCION
-            DataTable td = facLabControler.detalleFacturas(lblFact.Text,IdRecep);
-            Div1.Visible = false;
-            //Obtencion de datos------------------------------------------------------------------------------------------------------------------------ -
-
-            foreach (DataRow row in td.Rows)
+            DataTable tdr = facLabControler.detalleFacturasV(lblFact.Text, IdRecep);
+            if (tdr.Rows.Count == 1)
             {
+                Div1.Visible = false;
+                //Obtencion de datos------------------------------------------------------------------------------------------------------------------------ -
 
-
-                //01-------------------------------------------------------------------------------------------------------------------------
-                if (txtFolio.Text != row["SFolio"].ToString())
+                foreach (DataRow row in tdr.Rows)
                 {
-                    txtFechaIniOP.Text = txtFechaIniOP.Text + "\r\n" + row["IdentificadorDelDocumentoPagado"].ToString();
-                    FolioUUIDTxt.Text = row["UUIDident"].ToString();
-                    iddelpago = row["Folio"].ToString();
-                    txtFolio.Text = row["SFolio"].ToString();
-                    DateTime dt = DateTime.Parse(row["FechaHoraEmision"].ToString());
-                    txtFechaFactura.Text = dt.ToString("yyyy'/'MM'/'dd HH:mm:ss");
 
-                    // 01 - CAMPOS DE LA NUEVA VERSION
 
-                    idcomprobante = row["IdComprobante"].ToString();
-                    seriee = row["Serie"].ToString();
-                    folioe = row["Folio"].ToString();
-                    DateTime dt2 = DateTime.Parse(row["FechaHoraEmision"].ToString());
-                    fechaemision = dt2.ToString("yyyy'/'MM'/'dd HH:mm:ss");
-                    subt = row["Subtotal"].ToString();
-                    total = row["Total"].ToString();
-                    //Metodopago33 lo toma de cpagdoc
-                    txtMoneda.Text = row["Moneda"].ToString();
-                    tipocomprobante = row["TipodeComprobante"].ToString();
-                    lugarexpedicion = row["LugardeExpedición"].ToString();
-                    usocfdi = row["UsoCFDI"].ToString();
-                    if (usocfdi == "P01")
+                    //01-------------------------------------------------------------------------------------------------------------------------
+                    if (txtFolio.Text != row["SFolio"].ToString())
                     {
-                        usocfdi = "CP01";
-                    }
-                    //Etiqueta tipo documento = FAC
+                        txtFechaIniOP.Text = txtFechaIniOP.Text + "\r\n" + row["IdentificadorDelDocumentoPagado"].ToString();
+                        FolioUUIDTxt.Text = row["UUIDident"].ToString();
+                        iddelpago = row["Folio"].ToString();
+                        txtFolio.Text = row["SFolio"].ToString();
+                        DateTime dt = DateTime.Parse(row["FechaHoraEmision"].ToString());
+                        txtFechaFactura.Text = dt.ToString("yyyy'/'MM'/'dd HH:mm:ss");
 
+                        // 01 - CAMPOS DE LA NUEVA VERSION
 
-                    // 01 - FIN ----------------------------
-
-                    // 02 - CAMPOS DE LA NUEVA VERSION
-                    txtIdCliente.Text = row["IdReceptor"].ToString();
-                    txtRFC.Text = row["RFC"].ToString();
-                    txtCliente.Text = row["Nombre"].ToString();
-                    txtCP.Text = row["CódigoPostal"].ToString();
-                    descripcion = row["Descripcion"].ToString();
-                    //REGIMEN FISCAL 601
-
-                    // 02 - FIN CAMPOS DE LA NUEVA VERSION
-
-
-                    sfolio = row["SFolio"].ToString();
-
-
-
-
-
-
-                    ivat = row["TotalImpuestosTrasladados"].ToString();
-                    rett = row["TotalImpuestosRetenidos"].ToString();
-
-                    cantidadletra = row["Totalconletra"].ToString();
-                    //formadepago = row["FormaDePago"].ToString();
-                    cond = row["CondicionesdePago"].ToString();
-                    metodopago33 = row["MetodoPago"].ToString();
-
-                    tipoc = row["Tipodecambio"].ToString();
-
-
-                    confirmacion = row["Confirmación"].ToString();
-
-                    //02-------------------------------------------------------------------------------------------------------------------------
-
-                    txtIdCliente.Text = row["IdReceptor"].ToString();
-
-                    txtRFC.Text = row["RFC"].ToString();
-                    //RFC = row["RFC"].ToString();
-                    txtCliente.Text = row["Nombre"].ToString();
-                    txtPaís.Text = row["Pais"].ToString();
-                    txtCalle.Text = row["Calle"].ToString();
-                    txtNoExt.Text = row["NumeroExterior"].ToString();
-                    txtNoInt.Text = row["NumeroInterior"].ToString();
-                    txtColonia.Text = row["Colonia"].ToString();
-                    txtLocalidad.Text = row["Localidad"].ToString();
-                    txtReferencia.Text = row["Referencia"].ToString();
-                    txtMunicipio.Text = row["MunicipioDelegacion"].ToString();
-                    txtEstado.Text = row["Estado"].ToString();
-
-                    txtFechaPago.Text = row["Fechapago"].ToString();
-                    paisresidencia = row["PaísResidenciaFiscal"].ToString();
-                    numtributacion = row["NúmeroDeRegistroIdTributacion"].ToString();
-                    mailenvio = row["CorreoEnvio"].ToString();
-
-                    //04-------------------------------------------------------------------------------------------------------------------------
-
-                    consecutivoconcepto = row["ConsecutivoConcepto"].ToString();
-                    claveproductoservicio = row["ClaveProductooServicio"].ToString();
-                    numidentificacion = row["NumeroIdentificación"].ToString();
-                    claveunidad = row["ClaveUnidad"].ToString();
-                    txtUnidadMedida.Text = row["ClaveUnidad"].ToString();
-                    txtIdConcepto.Text = row["ClaveProductooServicio"].ToString();
-                    txtCantidad.Text = row["Cantidad"].ToString();
-                    cantidad = row["Cantidad"].ToString();
-                    txtMetodoPago.Text = row["MedotoDePago"].ToString();
-
-                    if (concepto == null || concepto.Equals(row["Descripcion"].ToString())) { txtConcepto.Text = row["Descripcion"].ToString(); }
-                    else { txtConcepto.Text = concepto; }
-
-
-                    if (formadepago == null || formadepago.Equals(row["Formadepagocpag"].ToString())) { txtFormaPago.Text = row["Formadepagocpag"].ToString(); }
-                    else { txtFormaPago.Text = formadepago; }
-
-
-                    valorunitario = row["ValorUnitario"].ToString();
-                    importe = row["Importe"].ToString();
-                    descuento = row["Descuento"].ToString();
-
-                    //CPAG-------------------------------------------------------------------------------------------------------------------------
-
-
-                    DateTime dtdtt = DateTime.Parse(row["Fechapago"].ToString());
-                    fechapago = dtdtt.ToString("yyyy'-'MM'-'dd'T'HH:mm:ss");
-                    DataTable ctipocambio = facLabControler.getTipoCambio(fechapago);
-                    foreach (DataRow tcambio in ctipocambio.Rows)
-                    {
-                        tipodecambiocpagd = tcambio["XCHGRATE"].ToString();
-                    }
-                    //fechapago =
-                    identificador = row["Identificador"].ToString();
-                    version = row["version"].ToString();
-                    //txtFormaPago.Text = row["Formadepagocpag"].ToString();
-                    monedacpag = row["Monedacpag"].ToString();
-                    tipodecambiocpag = row["TipoDeCambiocpag"].ToString();
-                    monto = row["Monto"].ToString();
-                    numerooperacion = row["NumeroOperacion"].ToString();
-                    txtRFCbancoEmisor.Text = row["RFCEmisorCuentaBeneficiario"].ToString();
-                    txtBancoEmisor.Text = row["NombreDelBanco"].ToString();
-                    txtCuentaPago.Text = row["NumeroCuentaOrdenante"].ToString();
-                    rfcemisorcuentaben = row["RFCEmisorCuentaBeneficario"].ToString();
-                    numcuentaben = row["NumerCuentaBeneficiario"].ToString();
-                    tipocadenapago = row["TipoCadenaPago"].ToString();
-                    certpago = row["CertificadoPago"].ToString();
-                    cadenadelpago = row["CadenaDePago"].ToString();
-                    sellodelpago = row["SelloDePago"].ToString();
-
-
-
-                    // AQUI VOY-------------------------
-                    if (txtRFC.Text != "")
-                    {
-                        DataTable detalleIdent2 = facLabControler.getDatosCPAGDOC(row["IdentificadorDelPago"].ToString(),IdRecep);
-                        if (detalleIdent2.Rows.Count > 0)
+                        idcomprobante = row["IdComprobante"].ToString();
+                        seriee = row["Serie"].ToString();
+                        folioe = row["Folio"].ToString();
+                        DateTime dt2 = DateTime.Parse(row["FechaHoraEmision"].ToString());
+                        fechaemision = dt2.ToString("yyyy'/'MM'/'dd HH:mm:ss");
+                        subt = row["Subtotal"].ToString();
+                        total = row["Total"].ToString();
+                        //Metodopago33 lo toma de cpagdoc
+                        txtMoneda.Text = row["Moneda"].ToString();
+                        tipocomprobante = row["TipodeComprobante"].ToString();
+                        lugarexpedicion = row["LugardeExpedición"].ToString();
+                        usocfdi = row["UsoCFDI"].ToString();
+                        if (usocfdi == "P01")
                         {
-                            //CPADOC DESDE GP ----------------------
+                            usocfdi = "CP01";
+                        }
+                        //Etiqueta tipo documento = FAC
 
-                            int totalmn = 1;
-                            DataSet dataSet2 = new DataSet();
-                            int totalr = detalleIdent2.Rows.Count;
-                            int x = 0;
-                            foreach (DataRow rowIdent2 in detalleIdent2.Rows)
+
+                        // 01 - FIN ----------------------------
+
+                        // 02 - CAMPOS DE LA NUEVA VERSION
+                        txtIdCliente.Text = row["IdReceptor"].ToString();
+                        txtRFC.Text = row["RFC"].ToString();
+                        txtCliente.Text = row["Nombre"].ToString();
+                        txtCP.Text = row["CódigoPostal"].ToString();
+                        descripcion = row["Descripcion"].ToString();
+                        //REGIMEN FISCAL 601
+
+                        // 02 - FIN CAMPOS DE LA NUEVA VERSION
+
+
+                        sfolio = row["SFolio"].ToString();
+
+
+
+
+
+
+                        ivat = row["TotalImpuestosTrasladados"].ToString();
+                        rett = row["TotalImpuestosRetenidos"].ToString();
+
+                        cantidadletra = row["Totalconletra"].ToString();
+                        //formadepago = row["FormaDePago"].ToString();
+                        cond = row["CondicionesdePago"].ToString();
+                        metodopago33 = row["MetodoPago"].ToString();
+
+                        tipoc = row["Tipodecambio"].ToString();
+
+
+                        confirmacion = row["Confirmación"].ToString();
+
+                        //02-------------------------------------------------------------------------------------------------------------------------
+
+                        txtIdCliente.Text = row["IdReceptor"].ToString();
+
+                        txtRFC.Text = row["RFC"].ToString();
+                        //RFC = row["RFC"].ToString();
+                        txtCliente.Text = row["Nombre"].ToString();
+                        txtPaís.Text = row["Pais"].ToString();
+                        txtCalle.Text = row["Calle"].ToString();
+                        txtNoExt.Text = row["NumeroExterior"].ToString();
+                        txtNoInt.Text = row["NumeroInterior"].ToString();
+                        txtColonia.Text = row["Colonia"].ToString();
+                        txtLocalidad.Text = row["Localidad"].ToString();
+                        txtReferencia.Text = row["Referencia"].ToString();
+                        txtMunicipio.Text = row["MunicipioDelegacion"].ToString();
+                        txtEstado.Text = row["Estado"].ToString();
+
+                        txtFechaPago.Text = row["Fechapago"].ToString();
+                        paisresidencia = row["PaísResidenciaFiscal"].ToString();
+                        numtributacion = row["NúmeroDeRegistroIdTributacion"].ToString();
+                        mailenvio = row["CorreoEnvio"].ToString();
+
+                        //04-------------------------------------------------------------------------------------------------------------------------
+
+                        consecutivoconcepto = row["ConsecutivoConcepto"].ToString();
+                        claveproductoservicio = row["ClaveProductooServicio"].ToString();
+                        numidentificacion = row["NumeroIdentificación"].ToString();
+                        claveunidad = row["ClaveUnidad"].ToString();
+                        txtUnidadMedida.Text = row["ClaveUnidad"].ToString();
+                        txtIdConcepto.Text = row["ClaveProductooServicio"].ToString();
+                        txtCantidad.Text = row["Cantidad"].ToString();
+                        cantidad = row["Cantidad"].ToString();
+                        txtMetodoPago.Text = row["MedotoDePago"].ToString();
+
+                        if (concepto == null || concepto.Equals(row["Descripcion"].ToString())) { txtConcepto.Text = row["Descripcion"].ToString(); }
+                        else { txtConcepto.Text = concepto; }
+
+
+                        if (formadepago == null || formadepago.Equals(row["Formadepagocpag"].ToString())) { txtFormaPago.Text = row["Formadepagocpag"].ToString(); }
+                        else { txtFormaPago.Text = formadepago; }
+
+
+                        valorunitario = row["ValorUnitario"].ToString();
+                        importe = row["Importe"].ToString();
+                        descuento = row["Descuento"].ToString();
+
+                        //CPAG-------------------------------------------------------------------------------------------------------------------------
+
+
+                        DateTime dtdtt = DateTime.Parse(row["Fechapago"].ToString());
+                        fechapago = dtdtt.ToString("yyyy'-'MM'-'dd'T'HH:mm:ss");
+                        DataTable ctipocambio = facLabControler.getTipoCambio(fechapago);
+                        foreach (DataRow tcambio in ctipocambio.Rows)
+                        {
+                            tipodecambiocpagd = tcambio["XCHGRATE"].ToString();
+                        }
+                        //fechapago =
+                        identificador = row["Identificador"].ToString();
+                        version = row["version"].ToString();
+                        //txtFormaPago.Text = row["Formadepagocpag"].ToString();
+                        monedacpag = row["Monedacpag"].ToString();
+                        tipodecambiocpag = row["TipoDeCambiocpag"].ToString();
+                        monto = row["Monto"].ToString();
+                        numerooperacion = row["NumeroOperacion"].ToString();
+                        txtRFCbancoEmisor.Text = row["RFCEmisorCuentaBeneficiario"].ToString();
+                        txtBancoEmisor.Text = row["NombreDelBanco"].ToString();
+                        txtCuentaPago.Text = row["NumeroCuentaOrdenante"].ToString();
+                        rfcemisorcuentaben = row["RFCEmisorCuentaBeneficario"].ToString();
+                        numcuentaben = row["NumerCuentaBeneficiario"].ToString();
+                        tipocadenapago = row["TipoCadenaPago"].ToString();
+                        certpago = row["CertificadoPago"].ToString();
+                        cadenadelpago = row["CadenaDePago"].ToString();
+                        sellodelpago = row["SelloDePago"].ToString();
+
+
+
+                        // AQUI VOY-------------------------
+                        if (txtRFC.Text != "")
+                        {
+                            DataTable detalleIdent2 = facLabControler.getDatosCPAGDOC(row["IdentificadorDelPago"].ToString(), IdRecep);
+                            if (detalleIdent2.Rows.Count > 0)
                             {
-                                identificaciondpago = rowIdent2["IdentificadorDelPago"].ToString();
-                                folioscpag = Regex.Replace(rowIdent2["Foliocpag"].ToString().Replace("SM-", "").Trim(), @"[A-Z]", "");
-                                folioscpag = Regex.Replace(rowIdent2["Foliocpag"].ToString().Replace("A", "").Trim(), @"[A-Z]", "");
-                                folioscpag = Regex.Replace(rowIdent2["Foliocpag"].ToString().Replace("B", "").Trim(), @"[A-Z]", "");
-                                folioscpag = Regex.Replace(rowIdent2["Foliocpag"].ToString().Replace("C", "").Trim(), @"[A-Z]", "");
-                                folioscpag = Regex.Replace(rowIdent2["Foliocpag"].ToString().Replace("D", "").Trim(), @"[A-Z]", "");
-                                folioscpag = Regex.Replace(rowIdent2["Foliocpag"].ToString().Replace("ND", "").Trim(), @"[A-Z]", "");
-                                folioscpag = Regex.Replace(rowIdent2["Foliocpag"].ToString().Replace(".", "").Trim(), @"[A-Z]", "");
-                                folioscpag = Regex.Replace(rowIdent2["Foliocpag"].ToString().Replace("-", "").Trim(), @"[A-Z]", "");
-                                folioscpag = Regex.Replace(rowIdent2["Foliocpag"].ToString().Replace("NS", "").Trim(), @"[A-Z]", "");
-                                importepago = rowIdent2["ImportePagado"].ToString();
-                                importeSaldoAnterior = rowIdent2["ImporteSaldoAnterior"].ToString();
-                                if (importeSaldoAnterior == "") { importeSaldoAnterior = "0.00"; }
-                                else { importeSaldoAnterior = rowIdent2["ImporteSaldoAnterior"].ToString(); }
-                                importesaldoinsoluto = rowIdent2["ImporteSaldoInsoluto"].ToString();
-                                if (importesaldoinsoluto == "") { importesaldoinsoluto = "0.00"; }
-                                else { importesaldoinsoluto = rowIdent2["ImporteSaldoInsoluto"].ToString(); }
-                                numerodeparcialidad = rowIdent2["NumeroDeParcialidad"].ToString();
-                                tipocambiocpag = rowIdent2["TipodeCambiocpagdpc"].ToString();
-                                metodopago33 = rowIdent2["MedotoDePago"].ToString();
-                                DataTable detalleIdentt = facLabControler.getDatosCPAGDOCTRL(identificaciondpago, folioscpag);
-                                if (detalleIdentt.Rows.Count > 0)
+                                //CPADOC DESDE GP ----------------------
+
+                                int totalmn = 1;
+                                DataSet dataSet2 = new DataSet();
+                                int totalr = detalleIdent2.Rows.Count;
+                                int x = 0;
+                                foreach (DataRow rowIdent2 in detalleIdent2.Rows)
                                 {
-                                    foreach (DataRow rowIdentt in detalleIdentt.Rows)
+                                    identificaciondpago = rowIdent2["IdentificadorDelPago"].ToString();
+                                    folioscpag = Regex.Replace(rowIdent2["Foliocpag"].ToString().Replace("SM-", "").Trim(), @"[A-Z]", "");
+                                    folioscpag = Regex.Replace(rowIdent2["Foliocpag"].ToString().Replace("A", "").Trim(), @"[A-Z]", "");
+                                    folioscpag = Regex.Replace(rowIdent2["Foliocpag"].ToString().Replace("B", "").Trim(), @"[A-Z]", "");
+                                    folioscpag = Regex.Replace(rowIdent2["Foliocpag"].ToString().Replace("C", "").Trim(), @"[A-Z]", "");
+                                    folioscpag = Regex.Replace(rowIdent2["Foliocpag"].ToString().Replace("D", "").Trim(), @"[A-Z]", "");
+                                    folioscpag = Regex.Replace(rowIdent2["Foliocpag"].ToString().Replace("ND", "").Trim(), @"[A-Z]", "");
+                                    folioscpag = Regex.Replace(rowIdent2["Foliocpag"].ToString().Replace(".", "").Trim(), @"[A-Z]", "");
+                                    folioscpag = Regex.Replace(rowIdent2["Foliocpag"].ToString().Replace("-", "").Trim(), @"[A-Z]", "");
+                                    folioscpag = Regex.Replace(rowIdent2["Foliocpag"].ToString().Replace("NS", "").Trim(), @"[A-Z]", "");
+                                    folioscpag = Regex.Replace(rowIdent2["Foliocpag"].ToString().Replace("F", "").Trim(), @"[A-Z]", "");
+                                    folioscpag = Regex.Replace(rowIdent2["Foliocpag"].ToString().Replace("H", "").Trim(), @"[A-Z]", "");
+                                    folioscpag = Regex.Replace(rowIdent2["Foliocpag"].ToString().Replace("K", "").Trim(), @"[A-Z]", "");
+                                    importepago = rowIdent2["ImportePagado"].ToString();
+                                    importeSaldoAnterior = rowIdent2["ImporteSaldoAnterior"].ToString();
+                                    if (importeSaldoAnterior == "") { importeSaldoAnterior = "0.00"; }
+                                    else { importeSaldoAnterior = rowIdent2["ImporteSaldoAnterior"].ToString(); }
+                                    importesaldoinsoluto = rowIdent2["ImporteSaldoInsoluto"].ToString();
+                                    if (importesaldoinsoluto == "") { importesaldoinsoluto = "0.00"; }
+                                    else { importesaldoinsoluto = rowIdent2["ImporteSaldoInsoluto"].ToString(); }
+                                    numerodeparcialidad = rowIdent2["NumeroDeParcialidad"].ToString();
+                                    tipocambiocpag = rowIdent2["TipodeCambiocpagdpc"].ToString();
+                                    metodopago33 = rowIdent2["MedotoDePago"].ToString();
+                                    DataTable detalleIdentt = facLabControler.getDatosCPAGDOCTRL(identificaciondpago, folioscpag);
+                                    if (detalleIdentt.Rows.Count > 0)
                                     {
-                                        iipagado = rowIdentt["ActualApplyToAmount"].ToString();
-                                        basecalculo = Convert.ToDecimal(iipagado);
-                                        basecalculado = basecalculo.ToString("F");
-
-                                        //SI TIENE PARCIALIDADES TOMA EL impSaldoAnterior = ActualApplyToAmount
-                                        //si no se queda igual
-
-                                        if (numerodeparcialidad == "2" || numerodeparcialidad == "3" || numerodeparcialidad == "4")
+                                        foreach (DataRow rowIdentt in detalleIdentt.Rows)
                                         {
-                                            impSaldoAnterior = rowIdentt["ActualApplyToAmount"].ToString();
-                                            if (impSaldoAnterior == "") { impSaldoAnterior = "0.00"; }
-                                            else { impSaldoAnterior = rowIdentt["ActualApplyToAmount"].ToString(); }
-                                            basecalculo2 = Convert.ToDecimal(impSaldoAnterior);
-                                            basecalculado2 = basecalculo2.ToString("F");
-                                        }
-                                        else
-                                        {
-                                            impSaldoAnterior = rowIdentt["ORTRXAMT"].ToString();
-                                            if (impSaldoAnterior == "") { impSaldoAnterior = "0.00"; }
-                                            else { impSaldoAnterior = rowIdentt["ORTRXAMT"].ToString(); }
-                                            basecalculo2 = Convert.ToDecimal(impSaldoAnterior);
-                                            basecalculado2 = basecalculo2.ToString("F");
+                                            iipagado = rowIdentt["ActualApplyToAmount"].ToString();
+                                            basecalculo = Convert.ToDecimal(iipagado);
+                                            basecalculado = basecalculo.ToString("F");
 
-                                        }
+                                            //SI TIENE PARCIALIDADES TOMA EL impSaldoAnterior = ActualApplyToAmount
+                                            //si no se queda igual
 
-                                        impSaldoInsoluto = rowIdentt["CURTRXAM"].ToString();
+                                            if (numerodeparcialidad == "2" || numerodeparcialidad == "3" || numerodeparcialidad == "4")
+                                            {
+                                                impSaldoAnterior = rowIdentt["ActualApplyToAmount"].ToString();
+                                                if (impSaldoAnterior == "") { impSaldoAnterior = "0.00"; }
+                                                else { impSaldoAnterior = rowIdentt["ActualApplyToAmount"].ToString(); }
+                                                basecalculo2 = Convert.ToDecimal(impSaldoAnterior);
+                                                basecalculado2 = basecalculo2.ToString("F");
+                                            }
+                                            else
+                                            {
+                                                impSaldoAnterior = rowIdentt["ORTRXAMT"].ToString();
+                                                if (impSaldoAnterior == "") { impSaldoAnterior = "0.00"; }
+                                                else { impSaldoAnterior = rowIdentt["ORTRXAMT"].ToString(); }
+                                                basecalculo2 = Convert.ToDecimal(impSaldoAnterior);
+                                                basecalculado2 = basecalculo2.ToString("F");
+
+                                            }
+
+                                            impSaldoInsoluto = rowIdentt["CURTRXAM"].ToString();
                                             if (impSaldoInsoluto == "") { impSaldoInsoluto = "0.00"; }
                                             else { impSaldoInsoluto = rowIdentt["CURTRXAM"].ToString(); }
                                             basecalculo3 = Convert.ToDecimal(impSaldoInsoluto);
@@ -1890,85 +1893,60 @@ namespace CARGAR_EXCEL
 
 
                                             }
-                                        
-
-                                        
 
 
 
 
 
 
+
+
+
+                                        }
                                     }
+                                    totalmn++;
+
                                 }
-                                totalmn++;
+                                decimal totald = importePagos2 + importePagos22 + importePagos7 + importePagos4 + importePagos23 + importePagos24;
 
-                            }
-                            decimal totald = importePagos2 + importePagos22 + importePagos7 + importePagos4 + importePagos23 + importePagos24;
-                            
-                            txtTotal.Text = totald.ToString("F");
+                                txtTotal.Text = totald.ToString("F");
 
-                            totaldedolares = (decimal)(Convert.ToDouble(tipodecambiocpagd) * Convert.ToDouble(txtTotal.Text));
-                            totaenpesos = totaldedolares.ToString("F");
+                                totaldedolares = (decimal)(Convert.ToDouble(tipodecambiocpagd) * Convert.ToDouble(txtTotal.Text));
+                                totaenpesos = totaldedolares.ToString("F");
 
 
-                            decimal sumatotaliva = totalfinaliva1 + totalfinaliva2 + totalfinaliva3 + totalfinaliva4 + totalfinaliva5 + totalfinaliva6;
-                            decimal.Round(sumatotaliva);
-                            totalfinaldeiva = sumatotaliva.ToString("F");
+                                decimal sumatotaliva = totalfinaliva1 + totalfinaliva2 + totalfinaliva3 + totalfinaliva4 + totalfinaliva5 + totalfinaliva6;
+                                decimal.Round(sumatotaliva);
+                                totalfinaldeiva = sumatotaliva.ToString("F");
 
 
 
 
-                            try
-                            {
-                                decimal totalRet = importePagos37 + importePagos77 + importePagos97 + importePagos99 + importePagos57 + importePagos67;
-                                TotaldeRe = totalRet.ToString();
-
-                                decimal totalTrasl = importePagos38 + importePagos78 + importePagos88 + importePagos98 + importePagos58 + importePagos68;
-                                TotaldeIva = totalTrasl.ToString();
-
-                            }
-                            catch (Exception ex)
-                            {
-                                string errors = ex.Message;
-                            }
-
-                            if (nodeToFind == true && nodeToFind2 == true)
-                            {
-
-                                f07 = "CPAG20IMPRET"
-                                 + "|" + iddelpago.Trim()
-                                 + "|" + "001"
-                                 + "|" + TotaldeRe
-                                 + "|";
-
-
-
-                                f08 = "CPAG20IMPTRA"
-                                + "|" + iddelpago.Trim()
-                                + "|" + "002"
-                                + "|" + "Tasa"
-                                + "|" + "0.160000"
-                                + "|" + TotaldeIva
-                                + "|" + totalfinaldeiva.Trim()
-                                + "|";
-
-                                
-                                decimal subtotalpre = (decimal)(Convert.ToDouble(txtTotal.Text) / ivaretencion);
-                                decimal totalredondo = decimal.Round(subtotalpre,2);
-                                subtotalfinal = totalredondo.ToString("F");
-                            }
-                            if (nodeToFind == true && nodeToFind2 == false)
-                            {
-                                //Aqui va el IF si tienen IVA e ISR los folios anteriores
-                                //Se agrega totalIVA Y totalISR
-                                if (rtiva == 1 && rtisr == 1)
+                                try
                                 {
+                                    decimal totalRet = importePagos37 + importePagos77 + importePagos97 + importePagos99 + importePagos57 + importePagos67;
+                                    TotaldeRe = totalRet.ToString();
+
+                                    decimal totalTrasl = importePagos38 + importePagos78 + importePagos88 + importePagos98 + importePagos58 + importePagos68;
+                                    TotaldeIva = totalTrasl.ToString();
+
+                                }
+                                catch (Exception ex)
+                                {
+                                    string errors = ex.Message;
+                                }
+
+                                if (nodeToFind == true && nodeToFind2 == true)
+                                {
+
                                     f07 = "CPAG20IMPRET"
-                                    + "|" + iddelpago.Trim()
-                                    + "|" + "001"
-                                    + "|" + TotaldeRe
-                                    + "|";
+                                     + "|" + iddelpago.Trim()
+                                     + "|" + "001"
+                                     + "|" + TotaldeRe
+                                     + "|";
+
+
+
                                     f08 = "CPAG20IMPTRA"
                                     + "|" + iddelpago.Trim()
                                     + "|" + "002"
@@ -1977,20 +1955,79 @@ namespace CARGAR_EXCEL
                                     + "|" + TotaldeIva
                                     + "|" + totalfinaldeiva.Trim()
                                     + "|";
+
+
                                     decimal subtotalpre = (decimal)(Convert.ToDouble(txtTotal.Text) / ivaretencion);
-                                    decimal totalredondo = decimal.Round(subtotalpre,2);
+                                    decimal totalredondo = decimal.Round(subtotalpre, 2);
                                     subtotalfinal = totalredondo.ToString("F");
                                 }
-                                else
+                                if (nodeToFind == true && nodeToFind2 == false)
                                 {
-                                    if (usdmoneda == 1)
+                                    //Aqui va el IF si tienen IVA e ISR los folios anteriores
+                                    //Se agrega totalIVA Y totalISR
+                                    if (rtiva == 1 && rtisr == 1)
                                     {
-                                        f07 = "";
-                                        f08 = "";
-                                        
+                                        f07 = "CPAG20IMPRET"
+                                        + "|" + iddelpago.Trim()
+                                        + "|" + "001"
+                                        + "|" + TotaldeRe
+                                        + "|";
+                                        f08 = "CPAG20IMPTRA"
+                                        + "|" + iddelpago.Trim()
+                                        + "|" + "002"
+                                        + "|" + "Tasa"
+                                        + "|" + "0.160000"
+                                        + "|" + TotaldeIva
+                                        + "|" + totalfinaldeiva.Trim()
+                                        + "|";
+                                        decimal subtotalpre = (decimal)(Convert.ToDouble(txtTotal.Text) / ivaretencion);
+                                        decimal totalredondo = decimal.Round(subtotalpre, 2);
+                                        subtotalfinal = totalredondo.ToString("F");
                                     }
                                     else
                                     {
+                                        if (usdmoneda == 1)
+                                        {
+                                            f07 = "";
+                                            f08 = "";
+
+                                        }
+                                        else
+                                        {
+                                            f08 = "CPAG20IMPTRA"
+                                            + "|" + iddelpago.Trim()
+                                            + "|" + "002"
+                                            + "|" + "Tasa"
+                                            + "|" + "0.160000"
+                                            + "|" + TotaldeIva
+                                            + "|" + totalfinaldeiva.Trim()
+                                            + "|";
+                                        }
+                                        if (srtiva == 3)
+                                        {
+                                            TotaldeRe = "0.00";
+                                            decimal subtotalpre = (decimal)(Convert.ToDouble(txtTotal.Text) / ivasolo);
+                                            decimal totalredondo = decimal.Round(subtotalpre, 2);
+                                            subtotalfinal = totalredondo.ToString("F");
+
+                                        }
+                                    }
+
+
+
+
+                                }
+                                if (nodeToFind == false && nodeToFind2 == true)
+                                {
+                                    //Aqui va el IF si tienen IVA e ISR los folios anteriores
+                                    //Se agrega totalIVA Y totalISR
+                                    if (rtiva == 1 && rtisr == 1)
+                                    {
+                                        f07 = "CPAG20IMPRET"
+                                        + "|" + iddelpago.Trim()
+                                        + "|" + "001"
+                                        + "|" + TotaldeRe
+                                        + "|";
                                         f08 = "CPAG20IMPTRA"
                                         + "|" + iddelpago.Trim()
                                         + "|" + "002"
@@ -2000,31 +2037,3101 @@ namespace CARGAR_EXCEL
                                         + "|" + totalfinaldeiva.Trim()
                                         + "|";
                                     }
-                                    if (srtiva == 3)
+                                    if (usdmoneda == 1)
                                     {
-                                        TotaldeRe = "0.00";
-                                        decimal subtotalpre = (decimal)(Convert.ToDouble(txtTotal.Text) / ivasolo);
-                                        decimal totalredondo = decimal.Round(subtotalpre,2);
-                                        subtotalfinal = totalredondo.ToString("F");
-                                        
+                                        f07 = "";
+                                        f08 = "";
                                     }
-                                }
-                                
-                               
-
-
-                            }
-                            if (nodeToFind == false && nodeToFind2 == true)
-                            {
-                                //Aqui va el IF si tienen IVA e ISR los folios anteriores
-                                //Se agrega totalIVA Y totalISR
-                                if (rtiva == 1 && rtisr == 1)
-                                {
-                                    f07 = "CPAG20IMPRET"
+                                    else
+                                    {
+                                        f07 = "CPAG20IMPRET"
                                     + "|" + iddelpago.Trim()
                                     + "|" + "001"
                                     + "|" + TotaldeRe
                                     + "|";
+                                    }
+
+                                }
+
+
+
+
+                            }
+                            //else
+                            //{
+                            //    //PRIMER FILTRO - PENDIENTE DE PRUEBA
+                            //    var request28 = (HttpWebRequest)WebRequest.Create("https://canal1.xsa.com.mx:9050/bf2e1036-ba47-49a0-8cd9-e04b36d5afd4/cfdis?folioEspecifico=" + row["IdentificadorDelPago"].ToString() + "&rfc=" + txtRFC.Text);
+                            //    var response28 = (HttpWebResponse)request28.GetResponse();
+                            //    var responseString28 = new StreamReader(response28.GetResponseStream()).ReadToEndAsync();
+
+
+                            //    List<ModelFact> separados8 = JsonConvert.DeserializeObject<List<ModelFact>>(await responseString28);
+
+                            //    if (separados8 != null)
+                            //    {
+                            //        foreach (var item in separados8)
+                            //        {
+
+
+                            //            string UUID = item.xmlDownload;
+
+                            //            XmlDocument xDoc = new XmlDocument();
+                            //            xDoc.Load("https://canal1.xsa.com.mx:9050" + UUID);
+                            //            var xmlTexto = xDoc.InnerXml.ToString();
+                            //            DataSet dataSet1 = new DataSet();
+                            //            XmlTextReader xtr = new XmlTextReader(xDoc.OuterXml, XmlNodeType.Element, null);
+                            //            dataSet1.ReadXml(xtr);
+                            //            foreach (DataRow rowCC in (InternalDataCollectionBase)dataSet1.Tables["Comprobante"].Rows)
+                            //            {
+                            //                lugarexpedicion = rowCC["LugarExpedicion"].ToString();
+                            //                //tipocomprobante = rowCC["TipoDeComprobante"].ToString();
+                            //                //tipodecambiocpag = rowCC["TipoCambio"].ToString();
+                            //                //total = rowCC["Total"].ToString();
+                            //                monedascpadgoc = rowCC["Moneda"].ToString();
+                            //                //formadepago = rowCC["FormaPago"].ToString();
+                            //                if (formadepago == null || formadepago == "99") { formadepago = row["Formadepagocpag"].ToString(); }
+                            //                else { formadepago = row["Formadepagocpag"].ToString(); }
+                            //                //string Ccertificado = rowCC["Certificado"].ToString();
+                            //                //string Cnocertificado = rowCC["NoCertificado"].ToString();
+                            //                //string Csello = rowCC["Sello"].ToString();
+
+                            //                idcomprobante = rowCC["Folio"].ToString();
+                            //                serie = rowCC["Serie"].ToString();
+                            //            }
+                            //            foreach (DataRow rowsr in (InternalDataCollectionBase)dataSet1.Tables["Conceptos"].Rows)
+                            //            {
+                            //                foreach (DataRow rowsrc in (InternalDataCollectionBase)dataSet1.Tables["Concepto"].Rows)
+                            //                {
+                            //                    importe = rowsrc["Importe"].ToString();
+                            //                    valorunitario = rowsrc["ValorUnitario"].ToString();
+                            //                    //descripcion = rowsrc["Descripcion"].ToString();
+                            //                    //claveunidad = rowsrc["ClaveUnidad"].ToString();
+                            //                    //cantidad = rowsrc["Cantidad"].ToString();
+                            //                    //claveproductoservicio = rowsrc["ClaveProdServ"].ToString();
+                            //                }
+                            //            }
+                            //            foreach (DataRow rowsr1 in (InternalDataCollectionBase)dataSet1.Tables["Complemento"].Rows)
+                            //            {
+                            //                foreach (DataRow rowsrcts in dataSet1.Tables["Pagos"].Rows)
+                            //                {
+                            //                    foreach (DataRow rowsrctp in dataSet1.Tables["Pago"].Rows)
+                            //                    {
+                            //                        formadepago = rowsrctp["FormaDePagoP"].ToString();
+                            //                        if (formadepago == null || formadepago == "99") { formadepago = row["Formadepagocpag"].ToString(); }
+                            //                        else { formadepago = row["Formadepagocpag"].ToString(); }
+                            //                        foreach (DataRow rowsrctpr in dataSet1.Tables["DoctoRelacionado"].Rows)
+                            //                        {
+                            //                            folio = rowsrctpr["Folio"].ToString();
+                            //                            Dserie = rowsrctpr["Serie"].ToString();
+                            //                            isaldoinsoluto = rowsrctpr["ImpSaldoInsoluto"].ToString();
+                            //                            if (isaldoinsoluto == "") { isaldoinsoluto = "0.00"; }
+                            //                            else { isaldoinsoluto = rowsrctpr["ImpSaldoInsoluto"].ToString(); }
+                            //                            ipagado = rowsrctpr["ImpPagado"].ToString();
+                            //                            interiorsaldoanterior = rowsrctpr["ImpSaldoAnt"].ToString();
+                            //                            nparcialidades = rowsrctpr["NumParcialidad"].ToString();
+                            //                            MetdodoPago = rowsrctpr["MetodoDePagoDR"].ToString();
+                            //                            monedascpadgoc = rowsrctpr["MonedaDR"].ToString();
+
+                            //                            IdentificadorDelDocumentoPagado = rowsrctpr["IdDocumento"].ToString();
+
+
+                            //                            uuidpagadas += IdentificadorDelDocumentoPagado + "\r\n";
+                            //                            Foliosrelacionados += "Serie: " + Dserie + " " + "Folio: " + folio + " " + "UUID: " + IdentificadorDelDocumentoPagado + "\r\n";
+
+                            //                            string receptor = txtIdCliente.Text.ToString().Trim();
+                            //                            string serieinvoice = "";
+                            //                            if (receptor.Equals("LIVERPOL") || receptor.Equals("LIVERDED") || receptor.Equals("ALMLIVER") || receptor.Equals("LIVERTIJ") || receptor.Equals("SFERALIV") || receptor.Equals("GLOBALIV") || receptor.Equals("SETRALIV") || receptor.Equals("FACTUMLV"))
+                            //                            {
+                            //                                serieinvoice = "TDRL";
+                            //                            }
+                            //                            else
+                            //                            {
+                            //                                serieinvoice = row["Seriecpag"].ToString();
+                            //                            }
+
+                            //                            if (folio.Length == 7 && folio.StartsWith("99"))
+                            //                            {
+                            //                                folio = folio.Substring(folio.Length - 6, 6);
+                            //                            }
+                            //                            else if (folio.Length == 8)
+                            //                            {
+                            //                                folio = folio.Substring(folio.Length - 7, 7);
+                            //                            }
+                            //                            folio = folio.Replace("-", "");
+                            //                            //validar con la serie el id de sucursal-serie
+
+
+
+                            //                            if (MetdodoPago == "PPD")
+                            //                            {
+
+                            //                                identpag = row["IdentificadorDelPago"].ToString();
+                            //                                //txtFechaIniOP.Text = "\r\n" +rowIdent["IdentificadorDelDocumentoPagado"].ToString();
+
+                            //                                //FolioUUIDTxt.Text += identpag;
+                            //                                try
+                            //                                {
+                            //                                    importePagos = importePagos + Convert.ToDecimal(ipagado);
+                            //                                    txtTotal.Text = importePagos.ToString();
+                            //                                }
+                            //                                catch (Exception ex)
+                            //                                {
+                            //                                    string errors = ex.Message;
+                            //                                }
+                            //                                if (monedascpadgoc.Trim() == "USD")
+                            //                                {
+
+
+
+                            //                                    cpagdoc = cpagdoc + ("CPAG20DOC"                           //1-Tipo De Registro
+                            //                                      + "|" + identpag                                       //2-IdentificadorDelPago
+                            //                                                                                             //+ "|" + rowIdent["IdentificadorDelDocumentoPagado"].ToString()                            //3-IdentificadorDelDocumentoPagado                                              
+                            //                                      + "|" + IdentificadorDelDocumentoPagado                                            //3-IdentificadorDelDocumentoPagado                                              
+                            //                                      + "|" + serieinvoice                                   //4-Seriecpag
+                            //                                      + "|" + folio                                      //5-Foliocpag
+                            //                                      + "|" + monedascpadgoc                                  //6-Monedacpag
+                            //                                      + "|"                                              //7-TipoCambiocpagdpc
+                            //                                      + "|" + MetdodoPago                             //8-MetodoDePago
+                            //                                      + "|" + nparcialidades                            //9-NumeroDeParcialidad
+                            //                                      + "|" + ipagado                                    //10-ImporteSaldoAnterior
+                            //                                      + "|" + ipagado                                    //11-ImportePagado                                                  
+                            //                                      + "|" + "0"                                            //12 ImporteSaldoInsoluto
+                            //                                      + "|" + "01"
+                            //                                      + "| \r\n");
+                            //                                }
+                            //                                else
+                            //                                {
+                            //                                    //----------------------------------------Seccion CPAG20PAGO -------------------------------------------------------------------
+
+                            //                                    //CPAG20PAGO (1:N)
+                            //                                    //escritor.WriteLine(
+                            //                                    //"CPAG20PAGO"                        //1-Tipo De Registro
+                            //                                    //+ "|" + identpag                    //2-IdentificadorDelPago
+                            //                                    //+ "|" + fechapago                   //3-FechaPago                                              
+                            //                                    //+ "|"  + formadepagocpag            //4-Forma de pago
+                            //                                    //+ "|" + moneda                      //5-Moneda
+                            //                                    //+ "|"                               //6-TipoDeCambiocpag
+                            //                                    //+ "|" + monto                       //7-Monto
+                            //                                    //+ "|"                               //8-NumeroOperacion
+                            //                                    //+ "|"                               //9-RFCEmisorCuentaOrdenante
+                            //                                    //+ "|"                               //10-Nombre del Banco
+                            //                                    //+ "|"                               //11-Número de Cuenta Ordenante
+                            //                                    //+ "|"                               //12-RFC Emisor Cuenta Beneficiario
+                            //                                    //+ "|"                               //13-Número de Cuenta Beneficiario
+                            //                                    //+ "|"                               //14-Tipo Cadena Pago
+                            //                                    //+ "|"                               //15-Certificado Pago
+                            //                                    //+ "|"                               //16-Cadena Pago
+                            //                                    //+ "|"                               //17-Sello de Pago                                                                                                 
+                            //                                    //+ "|"                               //Fin Del Registro
+                            //                                    //);
+
+                            //                                    //escrituraFactura += "CPAG20PAGO"    //1-Tipo De Registro
+                            //                                    //+ "|" + identpag                    //2-IdentificadorDelPago
+                            //                                    //+ "|" + fechapago                   //3-FechaPago                                              
+                            //                                    //+ "|"  + formadepagocpag            //4-Forma de pago
+                            //                                    //+ "|" + moneda                      //5-Moneda
+                            //                                    //+ "|"                               //6-TipoDeCambiocpag
+                            //                                    //+ "|" + monto                       //7-Monto
+                            //                                    //+ "|"                               //8-NumeroOperacion
+                            //                                    //+ "|"                               //9-RFCEmisorCuentaOrdenante
+                            //                                    //+ "|"                               //10-Nombre del Banco
+                            //                                    //+ "|"                               //11-Número de Cuenta Ordenante
+                            //                                    //+ "|"                               //12-RFC Emisor Cuenta Beneficiario
+                            //                                    //+ "|"                               //13-Número de Cuenta Beneficiario
+                            //                                    //+ "|"                               //14-Tipo Cadena Pago
+                            //                                    //+ "|"                               //15-Certificado Pago
+                            //                                    //+ "|"                               //16-Cadena Pago
+                            //                                    //+ "|"                               //17-Sello de Pago                                                                                                 
+                            //                                    //+ "|";                               //Fin Del Registro
+                            //                                    // -------------------------- CPAG20DOC ------------------------------------------
+                            //                                    //cpagdoc = cpagdoc + ("CPAG20DOC"                       //1-Tipo De Registro
+                            //                                    //+ "|" + identpag                                       //2-IdentificadorDelPago
+                            //                                    //+ "|" + rowIdent["IdentificadorDelDocumentoPagado"].ToString()                            //3-IdentificadorDelDocumentoPagado                                              
+                            //                                    //+ "|" + uid                            //3-IdentificadorDelDocumentoPagado                                              
+                            //                                    //+ "|" + serieinvoice                                      //4-Seriecpag
+                            //                                    //+ "|" + foliocpag                                      //5-Foliocpag
+                            //                                    //+ "|" + monedacpagdoc                                  //6-Monedacpag
+                            //                                    //+ "|" + tipocambiocpag                                 //7-TipoCambiocpagdpc Equivalencia                          
+                            //                                    //+ "|" + numerodeparcialidad                            //9-NumeroDeParcialidad
+                            //                                    //+ "|" + importeSaldoAnterior                           //10-ImporteSaldoAnterior
+                            //                                    //+ "|" + importepago                                    //11-ImportePagado                                                  
+                            //                                    //+ "|" + importesaldoinsoluto                           //12 ImporteSaldoInsoluto
+                            //                                    //+ "| \r\n");
+
+
+                            //                                    cpagdoc = cpagdoc + ("CPAG20DOC"                                              //1-Tipo De Registro
+                            //                                      + "|" + identpag                                       //2-IdentificadorDelPago
+                            //                                                                                             //+ "|" + rowIdent["IdentificadorDelDocumentoPagado"].ToString()                            //3-IdentificadorDelDocumentoPagado                                              
+                            //                                      + "|" + IdentificadorDelDocumentoPagado                            //3-IdentificadorDelDocumentoPagado                                              
+                            //                                      + "|" + serieinvoice                                      //4-Seriecpag
+                            //                                      + "|" + folio                                      //5-Foliocpag
+                            //                                      + "|" + monedascpadgoc                                  //6-Monedacpag
+                            //                                      + "|" + tipodecambiocpag                                 //7-TipoCambiocpagdpc
+                            //                                      + "|" + MetdodoPago                             //8-MetodoDePago
+                            //                                      + "|" + nparcialidades                            //9-NumeroDeParcialidad
+                            //                                      + "|" + interiorsaldoanterior                           //10-ImporteSaldoAnterior
+                            //                                      + "|" + ipagado                                    //11-ImportePagado                                                  
+                            //                                      + "|" + isaldoinsoluto                           //12 ImporteSaldoInsoluto
+                            //                                      + "|" + "02"
+                            //                                      + "| \r\n");
+                            //                                }
+
+
+
+
+                            //                                //txtFechaIniOP.Text = txtFechaIniOP.Text + "\r\n" + rowIdent["IdentificadorDelDocumentoPagado"].ToString();
+                            //                                //txtFechaIniOP.Text = txtFechaIniOP.Text + "\r\n" + uid;
+                            //                                //FolioUUIDTxt.Text = FolioUUIDTxt.Text + "\r\n" + "Serie:" + serieinvoice + " Folio:" + folio + " UUID:" + uid;
+
+
+
+
+                            //                            }
+                            //                            else
+                            //                            {
+                            //                                string msg = "Error: Los folios relacionados no existen en el canal de Tralix";
+                            //                                formularioT.Visible = false;
+                            //                                Div1.Visible = true;
+                            //                                ScriptManager.RegisterStartupScript(this, GetType(), "swal", "swal('" + msg + "', 'Error con los folios relacionados ', 'error');setTimeout(function(){window.location.href ='Listado.aspx'}, 10000)", true);
+
+                            //                            }
+
+                            //                        }
+                            //                    }
+                            //                }
+                            //            }
+                            //        }
+
+                            //    }// FIN DEL IF SEPARADOS 8
+                            //    else
+                            //    {
+                            //        //CPADOC DESDE GP ----------------------
+                            //        DataTable detalleIdent = facLabControler.getDatosCPAGDOC(row["IdentificadorDelPago"].ToString());
+
+                            //        foreach (DataRow rowIdent in detalleIdent.Rows)
+                            //        {
+                            //            identificaciondpago = rowIdent["IdentificadorDelPago"].ToString();
+                            //            folioscpag = Regex.Replace(rowIdent["Foliocpag"].ToString().Replace("SM-", "").Trim(), @"[A-Z]", "");
+                            //            importepago = rowIdent["ImportePagado"].ToString();
+                            //            importeSaldoAnterior = rowIdent["ImporteSaldoAnterior"].ToString();
+                            //            if (importeSaldoAnterior == "") { importeSaldoAnterior = "0.00"; }
+                            //            else { importeSaldoAnterior = rowIdent["ImporteSaldoAnterior"].ToString(); }
+                            //            importesaldoinsoluto = rowIdent["ImporteSaldoInsoluto"].ToString();
+                            //            if (importesaldoinsoluto == "") { importesaldoinsoluto = "0.00"; }
+                            //            else { importesaldoinsoluto = rowIdent["ImporteSaldoInsoluto"].ToString(); }
+                            //            numerodeparcialidad = rowIdent["NumeroDeParcialidad"].ToString();
+                            //            tipocambiocpag = rowIdent["TipodeCambiocpagdpc"].ToString();
+                            //            DataTable detalleIdentt = facLabControler.getDatosCPAGDOCTRL(identificaciondpago, folioscpag);
+                            //            if (detalleIdentt.Rows.Count > 0)
+                            //            {
+                            //                foreach (DataRow rowIdentt in detalleIdentt.Rows)
+                            //                {
+                            //                    iipagado = rowIdentt["ActualApplyToAmount"].ToString();
+                            //                    basecalculo = Convert.ToDecimal(iipagado);
+                            //                    basecalculado = basecalculo.ToString("F");
+                            //                    folio = Regex.Replace(rowIdentt["K3"].ToString().Replace("TDR", "").Trim(), @"[A-Z]", "");
+
+                            //                    impSaldoAnterior = rowIdentt["ORTRXAMT"].ToString();
+                            //                    if (impSaldoAnterior == "") { impSaldoAnterior = "0.00"; }
+                            //                    else { impSaldoAnterior = rowIdentt["ORTRXAMT"].ToString(); }
+                            //                    basecalculo2 = Convert.ToDecimal(impSaldoAnterior);
+                            //                    basecalculado2 = basecalculo2.ToString("F");
+
+                            //                    impSaldoInsoluto = rowIdentt["CURTRXAM"].ToString();
+                            //                    if (impSaldoInsoluto == "") { impSaldoInsoluto = "0.00"; }
+                            //                    else { impSaldoInsoluto = rowIdentt["CURTRXAM"].ToString(); }
+                            //                    basecalculo3 = Convert.ToDecimal(impSaldoInsoluto);
+                            //                    basecalculado3 = basecalculo3.ToString("F");
+
+                            //                    //txtTotal.Text = importePagos.ToString();
+                            //                    //txtTotal.Text = rowIdent["ImportePagado"].ToString();
+                            //                    string receptor = txtIdCliente.Text.ToString().Trim();
+                            //                    string serieinvoice = "";
+                            //                    if (receptor.Equals("LIVERPOL") || receptor.Equals("LIVERDED") || receptor.Equals("ALMLIVER") || receptor.Equals("LIVERTIJ") || receptor.Equals("SFERALIV") || receptor.Equals("GLOBALIV") || receptor.Equals("SETRALIV") || receptor.Equals("FACTUMLV"))
+                            //                    {
+                            //                        serieinvoice = "TDRL";
+                            //                    }
+                            //                    else
+                            //                    {
+                            //                        serieinvoice = rowIdent["Seriecpag"].ToString();
+                            //                    }
+                            //                    folio = Regex.Replace(rowIdentt["K3"].ToString().Replace("TDR", "").Trim(), @"[A-Z]", "");
+                            //                    if (folio.Length == 7 && folio.StartsWith("99"))
+                            //                    {
+                            //                        folio = folio.Substring(folio.Length - 6, 6);
+                            //                    }
+                            //                    else if (folio.Length == 8)
+                            //                    {
+                            //                        folio = folio.Substring(folio.Length - 7, 7);
+                            //                    }
+                            //                    folio = folio.Replace("-", "");
+                            //                    //validar con la serie el id de sucursal-serie
+
+                            //                    MetdodoPago = "";
+
+                            //                    // FILTRO DE LA MASTER APROBADA
+                            //                    DataTable datosMaster = facLabControler.getDatosMaster(folio);
+                            //                    if (datosMaster.Rows.Count > 0)
+                            //                    {
+
+                            //                        foreach (DataRow rowMaster in datosMaster.Rows)
+                            //                        {
+                            //                            string invoiceMaster = Regex.Replace(rowMaster[0].ToString(), @"[A-Z]", "");
+                            //                            folio = invoiceMaster;
+
+                            //                            var request27 = (HttpWebRequest)WebRequest.Create("https://canal1.xsa.com.mx:9050/bf2e1036-ba47-49a0-8cd9-e04b36d5afd4/cfdis?folioEspecifico=" + invoiceMaster + "&serie=" + serieinvoice);
+                            //                            var response27 = (HttpWebResponse)request27.GetResponse();
+                            //                            var responseString27 = new StreamReader(response27.GetResponseStream()).ReadToEndAsync();
+
+                            //                            List<ModelFact> separados7 = JsonConvert.DeserializeObject<List<ModelFact>>(await responseString27);
+                            //                            if (separados7 != null)
+                            //                            {
+                            //                                foreach (var item in separados7)
+                            //                                {
+                            //                                    uid = item.uuid;
+                            //                                    serier = item.serie;
+                            //                                    folior = item.folio;
+                            //                                    uuidpagadas += uid + "\r\n";
+
+                            //                                    Foliosrelacionados += "Serie: " + serier + " " + "Folio: " + folior + " " + "UUID: " + uid + "\r\n";
+
+
+
+                            //                                    string UUID = item.xmlDownload;
+
+                            //                                    XmlDocument xDoc = new XmlDocument();
+                            //                                    xDoc.Load("https://canal1.xsa.com.mx:9050" + UUID);
+                            //                                    var xmlTexto = xDoc.InnerXml.ToString();
+                            //                                    DataSet dataSet1 = new DataSet();
+                            //                                    XmlTextReader xtr = new XmlTextReader(xDoc.OuterXml, XmlNodeType.Element, null);
+                            //                                    dataSet1.ReadXml(xtr);
+                            //                                    if (xmlTexto.Contains("MetodoPago=\"PPD\""))
+                            //                                    {
+                            //                                        MetdodoPago = "PPD";
+                            //                                        contadorPPD++;
+                            //                                    }
+                            //                                    else if (xmlTexto.Contains("MetodoPago=\"PUE\""))
+                            //                                    {
+                            //                                        txtMetodoPago.Text = "PUE";
+                            //                                        MetdodoPago = "PUE";
+                            //                                        contadorPUE++;
+                            //                                    }
+                            //                                    if (MetdodoPago == "PPD")
+                            //                                    {
+                            //                                        foreach (DataRow rowsr in (InternalDataCollectionBase)dataSet1.Tables["Conceptos"].Rows)
+                            //                                        {
+                            //                                            foreach (DataRow rowsrc in (InternalDataCollectionBase)dataSet1.Tables["Concepto"].Rows)
+                            //                                            {
+                            //                                                importe = rowsrc["Importe"].ToString();
+                            //                                                valorunitario = rowsrc["ValorUnitario"].ToString();
+                            //                                                try
+                            //                                                {
+                            //                                                    importePagos = importePagos + Convert.ToDecimal(importe);
+                            //                                                    importe = importePagos.ToString("F");
+
+                            //                                                    valorunitarios = valorunitarios + Convert.ToDecimal(valorunitario);
+                            //                                                    valorunitario = valorunitarios.ToString("F");
+                            //                                                }
+                            //                                                catch (Exception ex)
+                            //                                                {
+                            //                                                    string errors = ex.Message;
+                            //                                                }
+                            //                                                //importe = rowsrc["Importe"].ToString();
+                            //                                                //valorunitario = rowsrc["ValorUnitario"].ToString();
+                            //                                                //descripcion = rowsrc["Descripcion"].ToString();
+                            //                                                //claveunidad = rowsrc["ClaveUnidad"].ToString();
+                            //                                                //cantidad = rowsrc["Cantidad"].ToString();
+                            //                                                //claveproductoservicio = rowsrc["ClaveProdServ"].ToString();
+                            //                                            }
+                            //                                        }
+                            //                                        foreach (DataRow rowCC in (InternalDataCollectionBase)dataSet1.Tables["Comprobante"].Rows)
+                            //                                        {
+                            //                                            lugarexpedicion = rowCC["LugarExpedicion"].ToString();
+                            //                                            //tipocomprobante = rowCC["TipoDeComprobante"].ToString();
+                            //                                            //total = rowCC["Total"].ToString();
+                            //                                            monedascpadgoc = rowCC["Moneda"].ToString();
+                            //                                            formadepago = rowCC["FormaPago"].ToString();
+                            //                                            if (formadepago == null || formadepago == "99") { formadepago = row["Formadepagocpag"].ToString(); }
+                            //                                            else { formadepago = row["Formadepagocpag"].ToString(); }
+                            //                                            //string Ccertificado = rowCC["Certificado"].ToString();
+                            //                                            //string Cnocertificado = rowCC["NoCertificado"].ToString();
+                            //                                            //string Csello = rowCC["Sello"].ToString();
+                            //                                            //tipocambiocpag = rowCC["TipoCambio"].ToString();
+                            //                                            idcomprobante = rowCC["Folio"].ToString();
+                            //                                            serie = rowCC["Serie"].ToString();
+                            //                                        }
+                            //                                        foreach (DataRow rowsr1 in (InternalDataCollectionBase)dataSet1.Tables["Complemento"].Rows)
+                            //                                        {
+                            //                                            foreach (DataRow rowsrct in (InternalDataCollectionBase)dataSet1.Tables["TimbreFiscalDigital"].Rows)
+                            //                                            {
+                            //                                                string Trfcprovcertif = rowsrct["RfcProvCertif"].ToString();
+                            //                                                string Tsellosat = rowsrct["SelloSAT"].ToString();
+                            //                                                string Tsellocfd = rowsrct["SelloCFD"].ToString();
+                            //                                                string Tnocertidicadosat = rowsrct["NoCertificadoSAT"].ToString();
+                            //                                                Tuuid = rowsrct["UUID"].ToString();
+                            //                                                string Tfechatimbrado = rowsrct["FechaTimbrado"].ToString();
+
+
+
+                            //                                            }
+                            //                                        }
+                            //                                        //FolioUUIDTxt.Text += identpag;
+                            //                                        try
+                            //                                        {
+                            //                                            importePagos2 = importePagos2 + Convert.ToDecimal(total);
+                            //                                            txtTotal.Text = importePagos2.ToString();
+                            //                                        }
+                            //                                        catch (Exception ex)
+                            //                                        {
+                            //                                            string errors = ex.Message;
+                            //                                        }
+
+                            //                                        if (monedascpadgoc.Trim() == "USD")
+                            //                                        {
+                            //                                            try
+                            //                                            {
+                            //                                                importePagos22 = importePagos22 + Convert.ToDecimal(basecalculado);
+                            //                                                txtTotal.Text = importePagos22.ToString();
+                            //                                            }
+                            //                                            catch (Exception ex)
+                            //                                            {
+                            //                                                string errors = ex.Message;
+                            //                                            }
+
+                            //                                            cpagdoc = cpagdoc + ("CPAG20DOC"                           //1-Tipo De Registro
+                            //                                               + "|" + iddelpago                                       //2-IdentificadorDelPago
+                            //                                                                                                       //+ "|" + rowIdent["IdentificadorDelDocumentoPagado"].ToString()                            //3-IdentificadorDelDocumentoPagado                                              
+                            //                                               + "|" + Tuuid                                            //3-IdentificadorDelDocumentoPagado                                              
+                            //                                               + "|" + serieinvoice                                   //4-Seriecpag
+                            //                                               + "|" + idcomprobante                                      //5-Foliocpag
+                            //                                               + "|" + monedascpadgoc                                  //6-Monedacpag
+                            //                                               + "|"  //+ tipocambiocpag                                       //7-TipoCambiocpagdpc
+
+                            //                                               + "|" + numerodeparcialidad                            //9-NumeroDeParcialidad
+                            //                                               + "|" + basecalculado.Trim()                                  //10-ImporteSaldoAnterior
+                            //                                               + "|" + basecalculado.Trim()                                  //11-ImportePagado                                                  
+                            //                                               + "|" + "0"                                            //12 ImporteSaldoInsoluto
+                            //                                               + "|" + "01"
+                            //                                               + "| \r\n");
+                            //                                        }
+                            //                                        else
+                            //                                        {
+                            //                                            cpagdoc = cpagdoc + ("CPAG20DOC"                           //1-Tipo De Registro
+                            //                                              + "|" + iddelpago                                       //2-IdentificadorDelPago
+                            //                                                                                                      //+ "|" + rowIdent["IdentificadorDelDocumentoPagado"].ToString()                            //3-IdentificadorDelDocumentoPagado                                              
+                            //                                              + "|" + Tuuid                                            //3-IdentificadorDelDocumentoPagado                                              
+                            //                                              + "|" + serieinvoice                                   //4-Seriecpag
+                            //                                              + "|" + idcomprobante                                      //5-Foliocpag
+                            //                                              + "|" + monedascpadgoc                                  //6-Monedacpag
+                            //                                              + "|" + tipocambiocpag                                             //7-TipoCambiocpagdpc
+                            //                                              + "|" + MetdodoPago                             //8-MetodoDePago
+                            //                                              + "|" + numerodeparcialidad                            //9-NumeroDeParcialidad
+                            //                                              + "|" + basecalculado2                                    //10-ImporteSaldoAnterior
+                            //                                              + "|" + basecalculado                                   //11-ImportePagado                                                  
+                            //                                              + "|" + basecalculado3                                            //12 ImporteSaldoInsoluto
+                            //                                              + "|" + "02"
+                            //                                              + "| \r\n");
+                            //                                        }
+                            //                                    }
+                            //                                    else
+                            //                                    {
+                            //                                        string msg = "Error: Los folios relacionados no existen en el canal de Tralix";
+                            //                                        formularioT.Visible = false;
+                            //                                        Div1.Visible = true;
+                            //                                        ScriptManager.RegisterStartupScript(this, GetType(), "swal", "swal('" + msg + "', 'Error con los folios relacionados ', 'error');setTimeout(function(){window.location.href ='Listado.aspx'}, 10000)", true);
+
+                            //                                    }
+
+
+                            //                                }
+                            //                            }
+
+
+                            //                        }
+
+                            //                    }
+
+                            //                    else
+                            //                    {
+
+                            //                        //3 FILTRO APROBADO
+                            //                        //AQUI TERMINA EL IF
+                            //                        k1 = rowIdentt["K1"].ToString();
+
+                            //                        k3 = Regex.Replace(rowIdentt["K3"].ToString().Replace("TDRM", "").Trim(), @"[A-Z]", "");
+                            //                        iipagado = rowIdentt["ActualApplyToAmount"].ToString();
+                            //                        basecalculo = Convert.ToDecimal(iipagado);
+                            //                        basecalculado = basecalculo.ToString("F");
+
+                            //                        var request281 = (HttpWebRequest)WebRequest.Create("https://canal1.xsa.com.mx:9050/bf2e1036-ba47-49a0-8cd9-e04b36d5afd4/cfdis?folioEspecifico=" + k3 + "&rfc=" + txtRFC.Text);
+                            //                        var response281 = (HttpWebResponse)request281.GetResponse();
+                            //                        var responseString281 = new StreamReader(response281.GetResponseStream()).ReadToEndAsync();
+
+                            //                        List<ModelFact> separados81 = JsonConvert.DeserializeObject<List<ModelFact>>(await responseString281);
+
+                            //                        if (separados81 != null)
+                            //                        {
+                            //                            contadortralix = 1;
+                            //                            foreach (var item in separados81)
+                            //                            {
+                            //                                uid = item.uuid;
+                            //                                serier = item.serie;
+                            //                                folior = item.folio;
+                            //                                uuidpagadas += uid + "\r\n";
+
+                            //                                Foliosrelacionados += "Serie: " + serier + " " + "Folio: " + folior + " " + "UUID: " + uid + "\r\n";
+
+
+
+                            //                                string UUID = item.xmlDownload;
+
+                            //                                XmlDocument xDoc = new XmlDocument();
+                            //                                xDoc.Load("https://canal1.xsa.com.mx:9050" + UUID);
+                            //                                var xmlTexto = xDoc.InnerXml.ToString();
+                            //                                DataSet dataSet1 = new DataSet();
+                            //                                XmlTextReader xtr = new XmlTextReader(xDoc.OuterXml, XmlNodeType.Element, null);
+                            //                                dataSet1.ReadXml(xtr);
+                            //                                if (xmlTexto.Contains("MetodoPago=\"PPD\""))
+                            //                                {
+                            //                                    MetdodoPago = "PPD";
+                            //                                    contadorPPD++;
+                            //                                }
+                            //                                else if (xmlTexto.Contains("MetodoPago=\"PUE\""))
+                            //                                {
+                            //                                    txtMetodoPago.Text = "PUE";
+                            //                                    MetdodoPago = "PUE";
+                            //                                    contadorPUE++;
+                            //                                }
+                            //                                if (MetdodoPago == "PPD")
+                            //                                {
+                            //                                    foreach (DataRow rowsr in (InternalDataCollectionBase)dataSet1.Tables["Conceptos"].Rows)
+                            //                                    {
+                            //                                        foreach (DataRow rowsrc in (InternalDataCollectionBase)dataSet1.Tables["Concepto"].Rows)
+                            //                                        {
+                            //                                            importe = rowsrc["Importe"].ToString();
+                            //                                            valorunitario = rowsrc["ValorUnitario"].ToString();
+                            //                                            try
+                            //                                            {
+                            //                                                importePagos = importePagos + Convert.ToDecimal(importe);
+                            //                                                importe = importePagos.ToString("F");
+
+                            //                                                valorunitarios = valorunitarios + Convert.ToDecimal(valorunitario);
+                            //                                                valorunitario = valorunitarios.ToString("F");
+                            //                                            }
+                            //                                            catch (Exception ex)
+                            //                                            {
+                            //                                                string errors = ex.Message;
+                            //                                            }
+                            //                                            //descripcion = rowsrc["Descripcion"].ToString();
+                            //                                            //claveunidad = rowsrc["ClaveUnidad"].ToString();
+                            //                                            //cantidad = rowsrc["Cantidad"].ToString();
+                            //                                            //claveproductoservicio = rowsrc["ClaveProdServ"].ToString();
+                            //                                        }
+                            //                                    }
+                            //                                    foreach (DataRow rowCC in (InternalDataCollectionBase)dataSet1.Tables["Comprobante"].Rows)
+                            //                                    {
+                            //                                        lugarexpedicion = rowCC["LugarExpedicion"].ToString();
+                            //                                        //tipocomprobante = rowCC["TipoDeComprobante"].ToString();
+                            //                                        //total = rowCC["Total"].ToString();
+                            //                                        monedascpadgoc = rowCC["Moneda"].ToString();
+                            //                                        formadepago = rowCC["FormaPago"].ToString();
+                            //                                        if (formadepago == null || formadepago == "99") { formadepago = row["Formadepagocpag"].ToString(); }
+                            //                                        else { formadepago = row["Formadepagocpag"].ToString(); }
+                            //                                        //string Ccertificado = rowCC["Certificado"].ToString();
+                            //                                        //string Cnocertificado = rowCC["NoCertificado"].ToString();
+                            //                                        //string Csello = rowCC["Sello"].ToString();
+                            //                                        //tipocambiocpag = rowCC["TipoCambio"].ToString();
+
+                            //                                        idcomprobante = rowCC["Folio"].ToString();
+                            //                                        serie = rowCC["Serie"].ToString();
+                            //                                    }
+                            //                                    foreach (DataRow rowsr1 in (InternalDataCollectionBase)dataSet1.Tables["Complemento"].Rows)
+                            //                                    {
+                            //                                        foreach (DataRow rowsrct in (InternalDataCollectionBase)dataSet1.Tables["TimbreFiscalDigital"].Rows)
+                            //                                        {
+                            //                                            string Trfcprovcertif = rowsrct["RfcProvCertif"].ToString();
+                            //                                            string Tsellosat = rowsrct["SelloSAT"].ToString();
+                            //                                            string Tsellocfd = rowsrct["SelloCFD"].ToString();
+                            //                                            string Tnocertidicadosat = rowsrct["NoCertificadoSAT"].ToString();
+                            //                                            Tuuid = rowsrct["UUID"].ToString();
+                            //                                            string Tfechatimbrado = rowsrct["FechaTimbrado"].ToString();
+
+
+
+                            //                                        }
+                            //                                    }
+                            //                                    //FolioUUIDTxt.Text += identpag;
+                            //                                    try
+                            //                                    {
+                            //                                        importePagos7 = importePagos7 + Convert.ToDecimal(basecalculado);
+                            //                                        txtTotal.Text = importePagos7.ToString("F");
+                            //                                    }
+                            //                                    catch (Exception ex)
+                            //                                    {
+                            //                                        string errors = ex.Message;
+                            //                                    }
+                            //                                    if (monedascpadgoc.Trim() == "USD")
+                            //                                    {
+                            //                                        try
+                            //                                        {
+                            //                                            importePagos22 = importePagos22 + Convert.ToDecimal(basecalculado);
+                            //                                            txtTotal.Text = importePagos22.ToString();
+                            //                                        }
+                            //                                        catch (Exception ex)
+                            //                                        {
+                            //                                            string errors = ex.Message;
+                            //                                        }
+
+                            //                                        cpagdoc = cpagdoc + ("CPAG20DOC"                           //1-Tipo De Registro
+                            //                                              + "|" + iddelpago                                       //2-IdentificadorDelPago
+                            //                                                                                                      //+ "|" + rowIdent["IdentificadorDelDocumentoPagado"].ToString()                            //3-IdentificadorDelDocumentoPagado                                              
+                            //                                              + "|" + Tuuid                                            //3-IdentificadorDelDocumentoPagado                                              
+                            //                                              + "|" + serieinvoice                                   //4-Seriecpag
+                            //                                              + "|" + idcomprobante                                      //5-Foliocpag
+                            //                                              + "|" + monedascpadgoc                                  //6-Monedacpag
+                            //                                              + "|"  //+ tipocambiocpag                                       //7-TipoCambiocpagdpc
+
+                            //                                              + "|" + numerodeparcialidad                            //9-NumeroDeParcialidad
+                            //                                              + "|" + basecalculado.Trim()                                  //10-ImporteSaldoAnterior
+                            //                                              + "|" + basecalculado.Trim()                                  //11-ImportePagado                                                  
+                            //                                              + "|" + "0"                                            //12 ImporteSaldoInsoluto
+                            //                                              + "|" + "01"
+                            //                                              + "| \r\n");
+                            //                                    }
+                            //                                    else
+                            //                                    {
+                            //                                        cpagdoc = cpagdoc + ("CPAG20DOC"                           //1-Tipo De Registro
+                            //                                          + "|" + iddelpago.Trim()                                      //2-IdentificadorDelPago
+                            //                                                                                                        //+ "|" + rowIdent["IdentificadorDelDocumentoPagado"].ToString()                            //3-IdentificadorDelDocumentoPagado                                              
+                            //                                          + "|" + Tuuid.Trim()                                          //3-IdentificadorDelDocumentoPagado                                              
+                            //                                          + "|" + serieinvoice.Trim()                                  //4-Seriecpag
+                            //                                          + "|" + idcomprobante.Trim()                                     //5-Foliocpag
+                            //                                          + "|" + monedascpadgoc.Trim()                                //6-Monedacpag
+                            //                                          + "|" + tipocambiocpag                                             //7-TipoCambiocpagdpc
+                            //                                          + "|" + MetdodoPago.Trim()                            //8-MetodoDePago
+                            //                                          + "|" + numerodeparcialidad.Trim()                            //9-NumeroDeParcialidad
+                            //                                          + "|" + basecalculado2.Trim()                                  //10-ImporteSaldoAnterior
+                            //                                          + "|" + basecalculado.Trim()                                //11-ImportePagado                                                  
+                            //                                          + "|" + basecalculado3.Trim()                                            //12 ImporteSaldoInsoluto
+                            //                                          + "|" + "02"
+                            //                                          + "| \r\n");
+                            //                                    }
+
+
+                            //                                }
+                            //                                //else
+                            //                                //{
+                            //                                //    string msg = "Error: Los folios relacionados no existen en el canal de Tralix";
+                            //                                //    formularioT.Visible = false;
+                            //                                //    Div1.Visible = true;
+                            //                                //    ScriptManager.RegisterStartupScript(this, GetType(), "swal", "swal('" + msg + "', 'Error con los folios relacionados ', 'error');setTimeout(function(){window.location.href ='Listado.aspx'}, 10000)", true);
+
+                            //                                //}
+                            //                                //AQUI FALTA AGREGAR LO QUE TIENE EL XML Y FORMAR EL TXT
+
+                            //                            }
+
+                            //                        }
+
+                            //                        //ME FALTA ESTA DE PROBAR Y GENERAR TXT
+                            //                        else
+                            //                        {
+                            //                            DataTable invoiceresult = facLabControler.getDatosInvoice(k3);
+                            //                            if (invoiceresult.Rows.Count > 0)
+                            //                            {
+                            //                                foreach (DataRow rowInvoice in invoiceresult.Rows)
+                            //                                {
+
+                            //                                    norden = rowInvoice["ord_hdrnumber"].ToString();
+                            //                                    DataTable segmentoresult = facLabControler.getDatosSegmentos(norden);
+                            //                                    foreach (DataRow seg in segmentoresult.Rows)
+                            //                                    {
+                            //                                        string Segmento = seg["Segmento"].ToString();
+
+                            //                                        var request2819 = (HttpWebRequest)WebRequest.Create("https://canal1.xsa.com.mx:9050/bf2e1036-ba47-49a0-8cd9-e04b36d5afd4/cfdis?folioEspecifico=" + Segmento + "&rfc=" + txtRFC.Text);
+                            //                                        var response2819 = (HttpWebResponse)request2819.GetResponse();
+                            //                                        var responseString2819 = new StreamReader(response2819.GetResponseStream()).ReadToEndAsync();
+
+                            //                                        List<ModelFact> separados819 = JsonConvert.DeserializeObject<List<ModelFact>>(await responseString2819);
+
+                            //                                        if (separados819 != null)
+                            //                                        {
+                            //                                            foreach (var item in separados819)
+                            //                                            {
+                            //                                                string uuid = item.uuid;
+                            //                                                string xmld = item.xmlDownload;
+                            //                                                serieinvoice = item.serie;
+
+                            //                                                uid = item.uuid;
+                            //                                                serier = item.serie;
+                            //                                                folior = item.folio;
+                            //                                                uuidpagadas += uid + "\r\n";
+
+                            //                                                Foliosrelacionados += "Serie: " + serier + " " + "Folio: " + folior + " " + "UUID: " + uid + "\r\n";
+
+                            //                                                XmlDocument xDoc = new XmlDocument();
+                            //                                                xDoc.Load("https://canal1.xsa.com.mx:9050" + xmld);
+                            //                                                var xmlTexto = xDoc.InnerXml.ToString();
+                            //                                                DataSet dataSet1 = new DataSet();
+                            //                                                XmlTextReader xtr = new XmlTextReader(xDoc.OuterXml, XmlNodeType.Element, null);
+                            //                                                dataSet1.ReadXml(xtr);
+
+                            //                                                if (xmlTexto.Contains("MetodoPago=\"PPD\""))
+                            //                                                {
+                            //                                                    MetdodoPago = "PPD";
+                            //                                                    contadorPPD++;
+                            //                                                }
+                            //                                                else if (xmlTexto.Contains("MetodoPago=\"PUE\""))
+                            //                                                {
+                            //                                                    txtMetodoPago.Text = "PUE";
+                            //                                                    MetdodoPago = "PUE";
+                            //                                                    contadorPUE++;
+                            //                                                }
+                            //                                                if (MetdodoPago == "PPD")
+                            //                                                {
+
+                            //                                                    foreach (DataRow rowsr in (InternalDataCollectionBase)dataSet1.Tables["Conceptos"].Rows)
+                            //                                                    {
+                            //                                                        foreach (DataRow rowsrc in (InternalDataCollectionBase)dataSet1.Tables["Concepto"].Rows)
+                            //                                                        {
+                            //                                                            importe = rowsrc["Importe"].ToString();
+                            //                                                            valorunitario = rowsrc["ValorUnitario"].ToString();
+                            //                                                            try
+                            //                                                            {
+                            //                                                                importePagos3 = importePagos3 + Convert.ToDecimal(importe);
+                            //                                                                importe = importePagos3.ToString("F");
+
+                            //                                                                valorunitarios = valorunitarios + Convert.ToDecimal(valorunitario);
+                            //                                                                valorunitario = valorunitarios.ToString("F");
+                            //                                                            }
+                            //                                                            catch (Exception ex)
+                            //                                                            {
+                            //                                                                string errors = ex.Message;
+                            //                                                            }
+
+                            //                                                            //descripcion = rowsrc["Descripcion"].ToString();
+                            //                                                            //claveunidad = rowsrc["ClaveUnidad"].ToString();
+                            //                                                            //cantidad = rowsrc["Cantidad"].ToString();
+                            //                                                            //claveproductoservicio = rowsrc["ClaveProdServ"].ToString();
+                            //                                                        }
+                            //                                                    }
+                            //                                                    foreach (DataRow rowCC in (InternalDataCollectionBase)dataSet1.Tables["Comprobante"].Rows)
+                            //                                                    {
+                            //                                                        lugarexpedicion = rowCC["LugarExpedicion"].ToString();
+                            //                                                        //tipocomprobante = rowCC["TipoDeComprobante"].ToString();
+                            //                                                        total = rowCC["Total"].ToString();
+                            //                                                        monedascpadgoc = rowCC["Moneda"].ToString();
+                            //                                                        formadepago = rowCC["FormaPago"].ToString();
+                            //                                                        if (formadepago == null || formadepago == "99") { formadepago = row["Formadepagocpag"].ToString(); }
+                            //                                                        else { formadepago = row["Formadepagocpag"].ToString(); }
+                            //                                                        //string Ccertificado = rowCC["Certificado"].ToString();
+                            //                                                        //string Cnocertificado = rowCC["NoCertificado"].ToString();
+                            //                                                        //string Csello = rowCC["Sello"].ToString();
+                            //                                                        //tipocambiocpag = rowCC["TipoCambio"].ToString();
+                            //                                                        idcomprobante = rowCC["Folio"].ToString();
+                            //                                                        serie = rowCC["Serie"].ToString();
+                            //                                                    }
+                            //                                                    foreach (DataRow rowsr1 in (InternalDataCollectionBase)dataSet1.Tables["Complemento"].Rows)
+                            //                                                    {
+                            //                                                        foreach (DataRow rowsrct in (InternalDataCollectionBase)dataSet1.Tables["TimbreFiscalDigital"].Rows)
+                            //                                                        {
+                            //                                                            string Trfcprovcertif = rowsrct["RfcProvCertif"].ToString();
+                            //                                                            string Tsellosat = rowsrct["SelloSAT"].ToString();
+                            //                                                            string Tsellocfd = rowsrct["SelloCFD"].ToString();
+                            //                                                            string Tnocertidicadosat = rowsrct["NoCertificadoSAT"].ToString();
+                            //                                                            Tuuid = rowsrct["UUID"].ToString();
+                            //                                                            string Tfechatimbrado = rowsrct["FechaTimbrado"].ToString();
+
+
+
+                            //                                                        }
+                            //                                                    }
+                            //                                                    //FolioUUIDTxt.Text += identpag;
+                            //                                                    try
+                            //                                                    {
+                            //                                                        importePagos4 = importePagos4 + Convert.ToDecimal(basecalculado);
+                            //                                                        txtTotal.Text = importePagos4.ToString();
+                            //                                                    }
+                            //                                                    catch (Exception ex)
+                            //                                                    {
+                            //                                                        string errors = ex.Message;
+                            //                                                    }
+                            //                                                    if (monedascpadgoc.Trim() == "USD")
+                            //                                                    {
+                            //                                                        try
+                            //                                                        {
+                            //                                                            importePagos22 = importePagos22 + Convert.ToDecimal(basecalculado);
+                            //                                                            txtTotal.Text = importePagos22.ToString();
+                            //                                                        }
+                            //                                                        catch (Exception ex)
+                            //                                                        {
+                            //                                                            string errors = ex.Message;
+                            //                                                        }
+
+                            //                                                        cpagdoc = cpagdoc + ("CPAG20DOC"                           //1-Tipo De Registro
+                            //                                                          + "|" + iddelpago                                       //2-IdentificadorDelPago
+                            //                                                                                                                  //+ "|" + rowIdent["IdentificadorDelDocumentoPagado"].ToString()                            //3-IdentificadorDelDocumentoPagado                                              
+                            //                                                          + "|" + Tuuid                                            //3-IdentificadorDelDocumentoPagado                                              
+                            //                                                          + "|" + serieinvoice                                   //4-Seriecpag
+                            //                                                          + "|" + idcomprobante                                      //5-Foliocpag
+                            //                                                          + "|" + monedascpadgoc                                  //6-Monedacpag
+                            //                                                          + "|"  //+ tipocambiocpag                                       //7-TipoCambiocpagdpc
+
+                            //                                                          + "|" + numerodeparcialidad                            //9-NumeroDeParcialidad
+                            //                                                          + "|" + basecalculado.Trim()                                  //10-ImporteSaldoAnterior
+                            //                                                          + "|" + basecalculado.Trim()                                  //11-ImportePagado                                                  
+                            //                                                          + "|" + "0"                                            //12 ImporteSaldoInsoluto
+                            //                                                          + "|" + "01"
+                            //                                                          + "| \r\n");
+                            //                                                    }
+                            //                                                    else
+                            //                                                    {
+                            //                                                        cpagdoc = cpagdoc + ("CPAG20DOC"                           //1-Tipo De Registro
+                            //                                                          + "|" + iddelpago.Trim()                                    //2-IdentificadorDelPago
+                            //                                                                                                                      //+ "|" + rowIdent["IdentificadorDelDocumentoPagado"].ToString()                            //3-IdentificadorDelDocumentoPagado                                              
+                            //                                                          + "|" + Tuuid.Trim()                                         //3-IdentificadorDelDocumentoPagado                                              
+                            //                                                          + "|" + serieinvoice.Trim()                                 //4-Seriecpag
+                            //                                                          + "|" + idcomprobante.Trim()                                    //5-Foliocpag
+                            //                                                          + "|" + monedascpadgoc.Trim()                                 //6-Monedacpag
+                            //                                                          + "|" + tipocambiocpag                                             //7-TipoCambiocpagdpc
+                            //                                                          + "|" + MetdodoPago.Trim()                            //8-MetodoDePago
+                            //                                                          + "|" + numerodeparcialidad.Trim()                          //9-NumeroDeParcialidad
+                            //                                                          + "|" + basecalculado.Trim()                                   //10-ImporteSaldoAnterior
+                            //                                                          + "|" + basecalculado.Trim()                                  //11-ImportePagado                                                  
+                            //                                                          + "|" + basecalculado.Trim()                                            //12 ImporteSaldoInsoluto
+                            //                                                          + "|" + "02"
+                            //                                                          + "| \r\n");
+                            //                                                    }
+
+                            //                                                }
+                            //                                            }
+                            //                                        }
+                            //                                    }
+                            //                                }
+
+                            //                            }
+
+                            //                        }
+                            //                        if (uid == "" && serieinvoice == "TDRA")
+                            //                        {
+                            //                            var request23 = (HttpWebRequest)WebRequest.Create("https://canal1.xsa.com.mx:9050/bf2e1036-ba47-49a0-8cd9-e04b36d5afd4/cfdis?folioEspecifico=" + folio + "&serie=" + "SAEM");
+                            //                            var response23 = (HttpWebResponse)request23.GetResponse();
+                            //                            var responseString23 = new StreamReader(response23.GetResponseStream()).ReadToEndAsync();
+
+                            //                            List<ModelFact> separados23 = JsonConvert.DeserializeObject<List<ModelFact>>(await responseString23);
+
+                            //                            foreach (var item23 in separados23)
+                            //                            {
+                            //                                uid = item23.uuid;
+
+
+                            //                                string UUID = item23.xmlDownload;
+
+                            //                                XmlDocument xDoc = new XmlDocument();
+                            //                                xDoc.Load("https://canal1.xsa.com.mx:9050" + UUID);
+                            //                                var xmlTexto = xDoc.InnerXml.ToString();
+                            //                                DataSet dataSet1 = new DataSet();
+                            //                                XmlTextReader xtr = new XmlTextReader(xDoc.OuterXml, XmlNodeType.Element, null);
+                            //                                dataSet1.ReadXml(xtr);
+                            //                                if (xmlTexto.Contains("MetodoPago=\"PPD\""))
+                            //                                {
+                            //                                    MetdodoPago = "PPD";
+                            //                                    contadorPPD++;
+                            //                                }
+                            //                                else if (xmlTexto.Contains("MetodoPago=\"PUE\""))
+                            //                                {
+                            //                                    txtMetodoPago.Text = "PUE";
+                            //                                    MetdodoPago = "PUE";
+                            //                                    contadorPUE++;
+                            //                                }
+
+                            //                            }
+                            //                        }
+
+                            //                    }
+
+
+
+
+
+
+                            //                }
+                            //            }
+                            //        }
+
+                            //        decimal totalds = importePagos2 + importePagos7 + importePagos4;
+                            //        txtTotal.Text = totalds.ToString();
+
+                            //        //AQUI TERMINA GP ---------------------
+
+
+
+
+                            //        //CPAGDOC-----------------------------------------------------------------------------------------------------------------------
+                            //        //DataTable detalleIdent = facLabControler.getDatosCPAGDOC(row["IdentificadorDelPago"].ToString());
+
+                            //        //foreach (DataRow rowIdent in detalleIdent.Rows)
+                            //        //{
+                            //        //    folio = Regex.Replace(rowIdent["Foliocpag"].ToString().Replace("TDR", "").Trim(), @"[A-Z]", "");
+
+                            //        //    //txtTotal.Text = importePagos.ToString();
+                            //        //    //txtTotal.Text = rowIdent["ImportePagado"].ToString();
+                            //        //    string receptor = txtIdCliente.Text.ToString().Trim();
+                            //        //    string serieinvoice = "";
+                            //        //    if (receptor.Equals("LIVERPOL") || receptor.Equals("LIVERDED") || receptor.Equals("ALMLIVER") || receptor.Equals("LIVERTIJ") || receptor.Equals("SFERALIV") || receptor.Equals("GLOBALIV") || receptor.Equals("SETRALIV") || receptor.Equals("FACTUMLV"))
+                            //        //    {
+                            //        //        serieinvoice = "TDRL";
+                            //        //    }
+                            //        //    else
+                            //        //    {
+                            //        //        serieinvoice = rowIdent["Seriecpag"].ToString();
+                            //        //    }
+                            //        //    folio = Regex.Replace(rowIdent["Foliocpag"].ToString().Replace("TDR", "").Trim(), @"[A-Z]", "");
+                            //        //    if (folio.Length == 7 && folio.StartsWith("99"))
+                            //        //    {
+                            //        //        folio = folio.Substring(folio.Length - 6, 6);
+                            //        //    }
+                            //        //    else if (folio.Length == 8)
+                            //        //    {
+                            //        //        folio = folio.Substring(folio.Length - 7, 7);
+                            //        //    }
+                            //        //    folio = folio.Replace("-", "");
+                            //        //    //validar con la serie el id de sucursal-serie
+
+                            //        //    MetdodoPago = "";
+
+
+
+
+
+                            //        //    DataTable datosMaster = facLabControler.getDatosMaster(folio);
+                            //        //    if (datosMaster.Rows.Count > 0)
+                            //        //    {
+
+                            //        //        foreach (DataRow rowMaster in datosMaster.Rows)
+                            //        //        {
+                            //        //            string invoiceMaster = Regex.Replace(rowMaster[0].ToString(), @"[A-Z]", "");
+                            //        //            folio = invoiceMaster;
+
+                            //        //            var request27 = (HttpWebRequest)WebRequest.Create("https://canal1.xsa.com.mx:9050/bf2e1036-ba47-49a0-8cd9-e04b36d5afd4/cfdis?folioEspecifico=" + invoiceMaster + "&serie=" + serieinvoice);
+                            //        //            var response27 = (HttpWebResponse)request27.GetResponse();
+                            //        //            var responseString27 = new StreamReader(response27.GetResponseStream()).ReadToEnd();
+
+                            //        //            List<ModelFact> separados7 = JsonConvert.DeserializeObject<List<ModelFact>>(responseString27);
+                            //        //            foreach (var item in separados7)
+                            //        //            {
+
+
+
+                            //        //                uid = item.uuid;
+                            //        //                serier = item.serie;
+                            //        //                folior = item.folio;
+                            //        //                uuidpagadas += uid + "\r\n";
+
+                            //        //                Foliosrelacionados += "Serie: " + serier + " " + "Folio: " + folior + " " + "UUID: " + uid + "\r\n";
+
+                            //        //                if (serieinvoice != "TDRL")
+                            //        //                {
+                            //        //                    string UUID = item.xmlDownload;
+
+                            //        //                    XmlDocument xDoc = new XmlDocument();
+                            //        //                    xDoc.Load("https://canal1.xsa.com.mx:9050" + UUID);
+                            //        //                    var xmlTexto = xDoc.InnerXml.ToString();
+                            //        //                    DataSet dataSet1 = new DataSet();
+                            //        //                    XmlTextReader xtr = new XmlTextReader(xDoc.OuterXml, XmlNodeType.Element, null);
+                            //        //                    dataSet1.ReadXml(xtr);
+                            //        //                    if (xmlTexto.Contains("MetodoPago=\"PPD\""))
+                            //        //                    {
+                            //        //                        MetdodoPago = "PPD";
+                            //        //                        contadorPPD++;
+                            //        //                    }
+                            //        //                    else if (xmlTexto.Contains("MetodoPago=\"PUE\""))
+                            //        //                    {
+                            //        //                        txtMetodoPago.Text = "PUE";
+                            //        //                        MetdodoPago = "PUE";
+                            //        //                        contadorPUE++;
+                            //        //                    }
+                            //        //                }
+                            //        //            }
+
+                            //        //        }
+                            //        //    }
+                            //        //    else
+                            //        //    {
+                            //        //        //INICIO DE CODIGO
+
+                            //        //        var request2 = (HttpWebRequest)WebRequest.Create("https://canal1.xsa.com.mx:9050/bf2e1036-ba47-49a0-8cd9-e04b36d5afd4/cfdis?folioEspecifico=" + folio + "&serie=" + serieinvoice);
+                            //        //        var response2 = (HttpWebResponse)request2.GetResponse();
+                            //        //        var responseString2 = new StreamReader(response2.GetResponseStream()).ReadToEnd();
+
+                            //        //        List<ModelFact> separados = JsonConvert.DeserializeObject<List<ModelFact>>(responseString2);
+                            //        //        //PONER UNA CONDICION POR SI SEPADOS ES NULL
+                            //        //        if (separados != null)
+                            //        //        {
+                            //        //            foreach (var item in separados)
+                            //        //            {
+
+
+
+                            //        //                uid = item.uuid;
+                            //        //                serier = item.serie;
+                            //        //                folior = item.folio;
+                            //        //                uuidpagadas += uid + "\r\n";
+                            //        //                Foliosrelacionados += "Serie: " + serier + " " + "Folio: " + folior + " " + "UUID: " + uid + "\r\n";
+                            //        //                if (serieinvoice != "TDRL")
+                            //        //                {
+                            //        //                    string UUID = item.xmlDownload;
+
+                            //        //                    XmlDocument xDoc = new XmlDocument();
+                            //        //                    xDoc.Load("https://canal1.xsa.com.mx:9050" + UUID);
+                            //        //                    var xmlTexto = xDoc.InnerXml.ToString();
+                            //        //                    DataSet dataSet1 = new DataSet();
+                            //        //                    XmlTextReader xtr = new XmlTextReader(xDoc.OuterXml, XmlNodeType.Element, null);
+                            //        //                    dataSet1.ReadXml(xtr);
+                            //        //                    if (xmlTexto.Contains("MetodoPago=\"PPD\""))
+                            //        //                    {
+                            //        //                        MetdodoPago = "PPD";
+                            //        //                        contadorPPD++;
+                            //        //                    }
+                            //        //                    else if (xmlTexto.Contains("MetodoPago=\"PUE\""))
+                            //        //                    {
+                            //        //                        txtMetodoPago.Text = "PUE";
+                            //        //                        MetdodoPago = "PUE";
+                            //        //                        contadorPUE++;
+                            //        //                    }
+                            //        //                }
+                            //        //            }
+
+                            //        //        }
+
+
+
+
+
+                            //        //        // FIN DE MI CODIGO 
+
+                            //        //        if (uid == "" && serieinvoice == "TDRA")
+                            //        //        {
+                            //        //            var request23 = (HttpWebRequest)WebRequest.Create("https://canal1.xsa.com.mx:9050/bf2e1036-ba47-49a0-8cd9-e04b36d5afd4/cfdis?folioEspecifico=" + folio + "&serie=" + "SAEM");
+                            //        //            var response23 = (HttpWebResponse)request23.GetResponse();
+                            //        //            var responseString23 = new StreamReader(response23.GetResponseStream()).ReadToEnd();
+
+                            //        //            List<ModelFact> separados23 = JsonConvert.DeserializeObject<List<ModelFact>>(responseString2);
+
+                            //        //            foreach (var item23 in separados23)
+                            //        //            {
+                            //        //                uid = item23.uuid;
+                            //        //                if (serieinvoice != "TDRL")
+                            //        //                {
+                            //        //                    string UUID = item23.xmlDownload;
+
+                            //        //                    XmlDocument xDoc = new XmlDocument();
+                            //        //                    xDoc.Load("https://canal1.xsa.com.mx:9050" + UUID);
+                            //        //                    var xmlTexto = xDoc.InnerXml.ToString();
+                            //        //                    DataSet dataSet1 = new DataSet();
+                            //        //                    XmlTextReader xtr = new XmlTextReader(xDoc.OuterXml, XmlNodeType.Element, null);
+                            //        //                    dataSet1.ReadXml(xtr);
+                            //        //                    if (xmlTexto.Contains("MetodoPago=\"PPD\""))
+                            //        //                    {
+                            //        //                        MetdodoPago = "PPD";
+                            //        //                        contadorPPD++;
+                            //        //                    }
+                            //        //                    else if (xmlTexto.Contains("MetodoPago=\"PUE\""))
+                            //        //                    {
+                            //        //                        txtMetodoPago.Text = "PUE";
+                            //        //                        MetdodoPago = "PUE";
+                            //        //                        contadorPUE++;
+                            //        //                    }
+                            //        //                }
+                            //        //            }
+                            //        //        }
+
+                            //        //    }
+
+                            //        //    if (MetdodoPago == "PPD")
+                            //        //    {
+
+                            //        //        identpag = rowIdent["IdentificadorDelPago"].ToString();
+                            //        //        //txtFechaIniOP.Text = "\r\n" +rowIdent["IdentificadorDelDocumentoPagado"].ToString();
+                            //        //        seriecpag = rowIdent["Seriecpag"].ToString();
+                            //        //        foliocpag = rowIdent["Foliocpag"].ToString();
+                            //        //        monedacpagdoc = rowIdent["Monedacpagdoc"].ToString();
+                            //        //        tipocambiocpag = rowIdent["TipodeCambiocpagdpc"].ToString();
+                            //        //        txtMetodoPago.Text = rowIdent["MedotoDePago"].ToString();
+                            //        //        numerodeparcialidad = rowIdent["NumeroDeParcialidad"].ToString();
+                            //        //        importeSaldoAnterior = rowIdent["ImporteSaldoAnterior"].ToString();
+                            //        //        importepago = rowIdent["ImportePagado"].ToString();
+                            //        //        importesaldoinsoluto = rowIdent["ImporteSaldoInsoluto"].ToString();
+                            //        //        //FolioUUIDTxt.Text += identpag;
+                            //        //        try
+                            //        //        {
+                            //        //            importePagos = importePagos + Convert.ToDecimal(importepago);
+                            //        //            txtTotal.Text = importePagos.ToString();
+                            //        //        }
+                            //        //        catch (Exception ex)
+                            //        //        {
+                            //        //            string errors = ex.Message;
+                            //        //        }
+
+                            //        //        //txtFechaIniOP.Text = txtFechaIniOP.Text + "\r\n" + rowIdent["IdentificadorDelDocumentoPagado"].ToString();
+                            //        //        //txtFechaIniOP.Text = txtFechaIniOP.Text + "\r\n" + uid;
+                            //        //        //FolioUUIDTxt.Text = FolioUUIDTxt.Text + "\r\n" + "Serie:" + serieinvoice + " Folio:" + folio + " UUID:" + uid;
+
+
+
+                            //        //        if (monedacpagdoc.Trim() == "USD")
+                            //        //        {
+                            //        //            cpagdoc = cpagdoc + ("CPAGDOC"                           //1-Tipo De Registro
+                            //        //              + "|" + identpag                                       //2-IdentificadorDelPago
+                            //        //                                                                     //+ "|" + rowIdent["IdentificadorDelDocumentoPagado"].ToString()                            //3-IdentificadorDelDocumentoPagado                                              
+                            //        //              + "|" + uid                                            //3-IdentificadorDelDocumentoPagado                                              
+                            //        //              + "|" + serieinvoice                                   //4-Seriecpag
+                            //        //              + "|" + foliocpag                                      //5-Foliocpag
+                            //        //              + "|" + monedacpagdoc                                  //6-Monedacpag
+                            //        //              + "|" + ""                                             //7-TipoCambiocpagdpc
+                            //        //              + "|" + txtMetodoPago.Text                             //8-MetodoDePago
+                            //        //              + "|" + numerodeparcialidad                            //9-NumeroDeParcialidad
+                            //        //              + "|" + importepago                                    //10-ImporteSaldoAnterior
+                            //        //              + "|" + importepago                                    //11-ImportePagado                                                  
+                            //        //              + "|" + "0"                                            //12 ImporteSaldoInsoluto
+                            //        //              + "| \r\n");
+                            //        //        }
+                            //        //        else
+                            //        //        {
+                            //        //            //----------------------------------------Seccion CPAG20PAGO -------------------------------------------------------------------
+
+                            //        //            //CPAG20PAGO (1:N)
+                            //        //            //escritor.WriteLine(
+                            //        //            //"CPAG20PAGO"                        //1-Tipo De Registro
+                            //        //            //+ "|" + identpag                    //2-IdentificadorDelPago
+                            //        //            //+ "|" + fechapago                   //3-FechaPago                                              
+                            //        //            //+ "|"  + formadepagocpag            //4-Forma de pago
+                            //        //            //+ "|" + moneda                      //5-Moneda
+                            //        //            //+ "|"                               //6-TipoDeCambiocpag
+                            //        //            //+ "|" + monto                       //7-Monto
+                            //        //            //+ "|"                               //8-NumeroOperacion
+                            //        //            //+ "|"                               //9-RFCEmisorCuentaOrdenante
+                            //        //            //+ "|"                               //10-Nombre del Banco
+                            //        //            //+ "|"                               //11-Número de Cuenta Ordenante
+                            //        //            //+ "|"                               //12-RFC Emisor Cuenta Beneficiario
+                            //        //            //+ "|"                               //13-Número de Cuenta Beneficiario
+                            //        //            //+ "|"                               //14-Tipo Cadena Pago
+                            //        //            //+ "|"                               //15-Certificado Pago
+                            //        //            //+ "|"                               //16-Cadena Pago
+                            //        //            //+ "|"                               //17-Sello de Pago                                                                                                 
+                            //        //            //+ "|"                               //Fin Del Registro
+                            //        //            //);
+
+                            //        //            //escrituraFactura += "CPAG20PAGO"    //1-Tipo De Registro
+                            //        //            //+ "|" + identpag                    //2-IdentificadorDelPago
+                            //        //            //+ "|" + fechapago                   //3-FechaPago                                              
+                            //        //            //+ "|"  + formadepagocpag            //4-Forma de pago
+                            //        //            //+ "|" + moneda                      //5-Moneda
+                            //        //            //+ "|"                               //6-TipoDeCambiocpag
+                            //        //            //+ "|" + monto                       //7-Monto
+                            //        //            //+ "|"                               //8-NumeroOperacion
+                            //        //            //+ "|"                               //9-RFCEmisorCuentaOrdenante
+                            //        //            //+ "|"                               //10-Nombre del Banco
+                            //        //            //+ "|"                               //11-Número de Cuenta Ordenante
+                            //        //            //+ "|"                               //12-RFC Emisor Cuenta Beneficiario
+                            //        //            //+ "|"                               //13-Número de Cuenta Beneficiario
+                            //        //            //+ "|"                               //14-Tipo Cadena Pago
+                            //        //            //+ "|"                               //15-Certificado Pago
+                            //        //            //+ "|"                               //16-Cadena Pago
+                            //        //            //+ "|"                               //17-Sello de Pago                                                                                                 
+                            //        //            //+ "|";                               //Fin Del Registro
+                            //        //            // -------------------------- CPAG20DOC ------------------------------------------
+                            //        //            //cpagdoc = cpagdoc + ("CPAG20DOC"                       //1-Tipo De Registro
+                            //        //            //+ "|" + identpag                                       //2-IdentificadorDelPago
+                            //        //            //+ "|" + rowIdent["IdentificadorDelDocumentoPagado"].ToString()                            //3-IdentificadorDelDocumentoPagado                                              
+                            //        //            //+ "|" + uid                            //3-IdentificadorDelDocumentoPagado                                              
+                            //        //            //+ "|" + serieinvoice                                      //4-Seriecpag
+                            //        //            //+ "|" + foliocpag                                      //5-Foliocpag
+                            //        //            //+ "|" + monedacpagdoc                                  //6-Monedacpag
+                            //        //            //+ "|" + tipocambiocpag                                 //7-TipoCambiocpagdpc Equivalencia                          
+                            //        //            //+ "|" + numerodeparcialidad                            //9-NumeroDeParcialidad
+                            //        //            //+ "|" + importeSaldoAnterior                           //10-ImporteSaldoAnterior
+                            //        //            //+ "|" + importepago                                    //11-ImportePagado                                                  
+                            //        //            //+ "|" + importesaldoinsoluto                           //12 ImporteSaldoInsoluto
+                            //        //            //+ "| \r\n");
+
+
+                            //        //            cpagdoc = cpagdoc + ("CPAGDOC"                                              //1-Tipo De Registro
+                            //        //              + "|" + identpag                                       //2-IdentificadorDelPago
+                            //        //                                                                     //+ "|" + rowIdent["IdentificadorDelDocumentoPagado"].ToString()                            //3-IdentificadorDelDocumentoPagado                                              
+                            //        //              + "|" + uid                            //3-IdentificadorDelDocumentoPagado                                              
+                            //        //              + "|" + serieinvoice                                      //4-Seriecpag
+                            //        //              + "|" + foliocpag                                      //5-Foliocpag
+                            //        //              + "|" + monedacpagdoc                                  //6-Monedacpag
+                            //        //              + "|" + tipocambiocpag                                 //7-TipoCambiocpagdpc
+                            //        //              + "|" + txtMetodoPago.Text                             //8-MetodoDePago
+                            //        //              + "|" + numerodeparcialidad                            //9-NumeroDeParcialidad
+                            //        //              + "|" + importeSaldoAnterior                           //10-ImporteSaldoAnterior
+                            //        //              + "|" + importepago                                    //11-ImportePagado                                                  
+                            //        //              + "|" + importesaldoinsoluto                           //12 ImporteSaldoInsoluto
+                            //        //              + "| \r\n");
+                            //        //        }
+                            //        //    }
+                            //        //    //else
+                            //        //    //{
+                            //        //    //    string msg = "Error: Los folios relacionados no existen en el canal de Tralix";
+                            //        //    //    formularioT.Visible = false;
+                            //        //    //    Div1.Visible = true;
+                            //        //    //    ScriptManager.RegisterStartupScript(this, GetType(), "swal", "swal('" + msg + "', 'Error con los folios relacionados ', 'error');setTimeout(function(){window.location.href ='Listado.aspx'}, 10000)", true);
+
+                            //        //    //}
+
+                            //        //}
+
+
+                            //    }
+                            //}
+
+
+                        }
+
+
+
+                        //AQUI VOY -------------------------------
+
+
+                        if (contadorPPD == 0 && contadorPUE > 0)
+                        {
+                            string msg = "¡La factura es PUE!, es libre de todo PPD";
+
+                            Div1.Visible = false;
+                            ScriptManager.RegisterStartupScript(this, GetType(), "swal", "swal('" + msg + "', 'La factura es PUE ', 'success');setTimeout(function(){window.location.href ='Listado.aspx'}, 10000)", true);
+                            //ScriptManager.RegisterStartupScript(this, GetType(), "swal", "swal('La factura es PUE!! y es libre de todo PPD', 'success');", true);
+                            //PopupMsg.Message1 = "La factura es PUE!! y es libre de todo PPD";
+                            //PopupMsg.ShowPopUp(0);
+                        }
+                        else
+                        {
+                            var uuidpagadas2 = uuidpagadas;
+
+                            if (uuidpagadas2 == null)
+                            {
+                                string msg = "Error: El o los folios relacionados no existen en el canal de Tralix";
+                                formularioT.Visible = false;
+                                Div1.Visible = true;
+                                ScriptManager.RegisterStartupScript(this, GetType(), "swal", "swal('" + msg + "', 'Error con los folios relacionados ', 'error');setTimeout(function(){window.location.href ='Listado.aspx'}, 10000)", true);
+                            }
+                            else
+                            {
+
+
+                                txtFechaIniOP.Text = uuidpagadas;
+                                FolioUUIDTxt.Text = Foliosrelacionados;
+
+                                txtFechaHasta.Text = "Complemento Pago";
+
+
+                                txtFechaDesde.Text = "Complemento Pago";
+
+
+                                txtTipoCobro.Text = "Complemento Pago";
+                                //generaTXTCP();
+
+
+                            }
+                        }
+
+
+                        //OTROS-------------------------------------------------------------------------------------------------------------------------
+
+                        // creamos el FolioUUID
+
+
+
+                    }
+                }
+            }
+            else
+            {
+                DataTable td = facLabControler.detalleFacturas(lblFact.Text, IdRecep);
+                Div1.Visible = false;
+                //Obtencion de datos------------------------------------------------------------------------------------------------------------------------ -
+
+                foreach (DataRow row in td.Rows)
+                {
+
+
+                    //01-------------------------------------------------------------------------------------------------------------------------
+                    if (txtFolio.Text != row["SFolio"].ToString())
+                    {
+                        txtFechaIniOP.Text = txtFechaIniOP.Text + "\r\n" + row["IdentificadorDelDocumentoPagado"].ToString();
+                        FolioUUIDTxt.Text = row["UUIDident"].ToString();
+                        iddelpago = row["Folio"].ToString();
+                        txtFolio.Text = row["SFolio"].ToString();
+                        DateTime dt = DateTime.Parse(row["FechaHoraEmision"].ToString());
+                        txtFechaFactura.Text = dt.ToString("yyyy'/'MM'/'dd HH:mm:ss");
+
+                        // 01 - CAMPOS DE LA NUEVA VERSION
+
+                        idcomprobante = row["IdComprobante"].ToString();
+                        seriee = row["Serie"].ToString();
+                        folioe = row["Folio"].ToString();
+                        DateTime dt2 = DateTime.Parse(row["FechaHoraEmision"].ToString());
+                        fechaemision = dt2.ToString("yyyy'/'MM'/'dd HH:mm:ss");
+                        subt = row["Subtotal"].ToString();
+                        total = row["Total"].ToString();
+                        //Metodopago33 lo toma de cpagdoc
+                        txtMoneda.Text = row["Moneda"].ToString();
+                        tipocomprobante = row["TipodeComprobante"].ToString();
+                        lugarexpedicion = row["LugardeExpedición"].ToString();
+                        usocfdi = row["UsoCFDI"].ToString();
+                        if (usocfdi == "P01")
+                        {
+                            usocfdi = "CP01";
+                        }
+                        //Etiqueta tipo documento = FAC
+
+
+                        // 01 - FIN ----------------------------
+
+                        // 02 - CAMPOS DE LA NUEVA VERSION
+                        txtIdCliente.Text = row["IdReceptor"].ToString();
+                        txtRFC.Text = row["RFC"].ToString();
+                        txtCliente.Text = row["Nombre"].ToString();
+                        txtCP.Text = row["CódigoPostal"].ToString();
+                        descripcion = row["Descripcion"].ToString();
+                        //REGIMEN FISCAL 601
+
+                        // 02 - FIN CAMPOS DE LA NUEVA VERSION
+
+
+                        sfolio = row["SFolio"].ToString();
+
+
+
+
+
+
+                        ivat = row["TotalImpuestosTrasladados"].ToString();
+                        rett = row["TotalImpuestosRetenidos"].ToString();
+
+                        cantidadletra = row["Totalconletra"].ToString();
+                        //formadepago = row["FormaDePago"].ToString();
+                        cond = row["CondicionesdePago"].ToString();
+                        metodopago33 = row["MetodoPago"].ToString();
+
+                        tipoc = row["Tipodecambio"].ToString();
+
+
+                        confirmacion = row["Confirmación"].ToString();
+
+                        //02-------------------------------------------------------------------------------------------------------------------------
+
+                        txtIdCliente.Text = row["IdReceptor"].ToString();
+
+                        txtRFC.Text = row["RFC"].ToString();
+                        //RFC = row["RFC"].ToString();
+                        txtCliente.Text = row["Nombre"].ToString();
+                        txtPaís.Text = row["Pais"].ToString();
+                        txtCalle.Text = row["Calle"].ToString();
+                        txtNoExt.Text = row["NumeroExterior"].ToString();
+                        txtNoInt.Text = row["NumeroInterior"].ToString();
+                        txtColonia.Text = row["Colonia"].ToString();
+                        txtLocalidad.Text = row["Localidad"].ToString();
+                        txtReferencia.Text = row["Referencia"].ToString();
+                        txtMunicipio.Text = row["MunicipioDelegacion"].ToString();
+                        txtEstado.Text = row["Estado"].ToString();
+
+                        txtFechaPago.Text = row["Fechapago"].ToString();
+                        paisresidencia = row["PaísResidenciaFiscal"].ToString();
+                        numtributacion = row["NúmeroDeRegistroIdTributacion"].ToString();
+                        mailenvio = row["CorreoEnvio"].ToString();
+
+                        //04-------------------------------------------------------------------------------------------------------------------------
+
+                        consecutivoconcepto = row["ConsecutivoConcepto"].ToString();
+                        claveproductoservicio = row["ClaveProductooServicio"].ToString();
+                        numidentificacion = row["NumeroIdentificación"].ToString();
+                        claveunidad = row["ClaveUnidad"].ToString();
+                        txtUnidadMedida.Text = row["ClaveUnidad"].ToString();
+                        txtIdConcepto.Text = row["ClaveProductooServicio"].ToString();
+                        txtCantidad.Text = row["Cantidad"].ToString();
+                        cantidad = row["Cantidad"].ToString();
+                        txtMetodoPago.Text = row["MedotoDePago"].ToString();
+
+                        if (concepto == null || concepto.Equals(row["Descripcion"].ToString())) { txtConcepto.Text = row["Descripcion"].ToString(); }
+                        else { txtConcepto.Text = concepto; }
+
+
+                        if (formadepago == null || formadepago.Equals(row["Formadepagocpag"].ToString())) { txtFormaPago.Text = row["Formadepagocpag"].ToString(); }
+                        else { txtFormaPago.Text = formadepago; }
+
+
+                        valorunitario = row["ValorUnitario"].ToString();
+                        importe = row["Importe"].ToString();
+                        descuento = row["Descuento"].ToString();
+
+                        //CPAG-------------------------------------------------------------------------------------------------------------------------
+
+
+                        DateTime dtdtt = DateTime.Parse(row["Fechapago"].ToString());
+                        fechapago = dtdtt.ToString("yyyy'-'MM'-'dd'T'HH:mm:ss");
+                        DataTable ctipocambio = facLabControler.getTipoCambio(fechapago);
+                        foreach (DataRow tcambio in ctipocambio.Rows)
+                        {
+                            tipodecambiocpagd = tcambio["XCHGRATE"].ToString();
+                        }
+                        //fechapago =
+                        identificador = row["Identificador"].ToString();
+                        version = row["version"].ToString();
+                        //txtFormaPago.Text = row["Formadepagocpag"].ToString();
+                        monedacpag = row["Monedacpag"].ToString();
+                        tipodecambiocpag = row["TipoDeCambiocpag"].ToString();
+                        monto = row["Monto"].ToString();
+                        numerooperacion = row["NumeroOperacion"].ToString();
+                        txtRFCbancoEmisor.Text = row["RFCEmisorCuentaBeneficiario"].ToString();
+                        txtBancoEmisor.Text = row["NombreDelBanco"].ToString();
+                        txtCuentaPago.Text = row["NumeroCuentaOrdenante"].ToString();
+                        rfcemisorcuentaben = row["RFCEmisorCuentaBeneficario"].ToString();
+                        numcuentaben = row["NumerCuentaBeneficiario"].ToString();
+                        tipocadenapago = row["TipoCadenaPago"].ToString();
+                        certpago = row["CertificadoPago"].ToString();
+                        cadenadelpago = row["CadenaDePago"].ToString();
+                        sellodelpago = row["SelloDePago"].ToString();
+
+
+
+                        // AQUI VOY-------------------------
+                        if (txtRFC.Text != "")
+                        {
+                            DataTable detalleIdent2 = facLabControler.getDatosCPAGDOC(row["IdentificadorDelPago"].ToString(), IdRecep);
+                            if (detalleIdent2.Rows.Count > 0)
+                            {
+                                //CPADOC DESDE GP ----------------------
+
+                                int totalmn = 1;
+                                DataSet dataSet2 = new DataSet();
+                                int totalr = detalleIdent2.Rows.Count;
+                                int x = 0;
+                                foreach (DataRow rowIdent2 in detalleIdent2.Rows)
+                                {
+                                    identificaciondpago = rowIdent2["IdentificadorDelPago"].ToString();
+                                    folioscpag = Regex.Replace(rowIdent2["Foliocpag"].ToString().Replace("SM-", "").Trim(), @"[A-Z]", "");
+                                    folioscpag = Regex.Replace(rowIdent2["Foliocpag"].ToString().Replace("A", "").Trim(), @"[A-Z]", "");
+                                    folioscpag = Regex.Replace(rowIdent2["Foliocpag"].ToString().Replace("B", "").Trim(), @"[A-Z]", "");
+                                    folioscpag = Regex.Replace(rowIdent2["Foliocpag"].ToString().Replace("C", "").Trim(), @"[A-Z]", "");
+                                    folioscpag = Regex.Replace(rowIdent2["Foliocpag"].ToString().Replace("D", "").Trim(), @"[A-Z]", "");
+                                    folioscpag = Regex.Replace(rowIdent2["Foliocpag"].ToString().Replace("ND", "").Trim(), @"[A-Z]", "");
+                                    folioscpag = Regex.Replace(rowIdent2["Foliocpag"].ToString().Replace(".", "").Trim(), @"[A-Z]", "");
+                                    folioscpag = Regex.Replace(rowIdent2["Foliocpag"].ToString().Replace("-", "").Trim(), @"[A-Z]", "");
+                                    folioscpag = Regex.Replace(rowIdent2["Foliocpag"].ToString().Replace("NS", "").Trim(), @"[A-Z]", "");
+                                    folioscpag = Regex.Replace(rowIdent2["Foliocpag"].ToString().Replace("F", "").Trim(), @"[A-Z]", "");
+                                    folioscpag = Regex.Replace(rowIdent2["Foliocpag"].ToString().Replace("H", "").Trim(), @"[A-Z]", "");
+                                    folioscpag = Regex.Replace(rowIdent2["Foliocpag"].ToString().Replace("K", "").Trim(), @"[A-Z]", "");
+                                    importepago = rowIdent2["ImportePagado"].ToString();
+                                    importeSaldoAnterior = rowIdent2["ImporteSaldoAnterior"].ToString();
+                                    if (importeSaldoAnterior == "") { importeSaldoAnterior = "0.00"; }
+                                    else { importeSaldoAnterior = rowIdent2["ImporteSaldoAnterior"].ToString(); }
+                                    importesaldoinsoluto = rowIdent2["ImporteSaldoInsoluto"].ToString();
+                                    if (importesaldoinsoluto == "") { importesaldoinsoluto = "0.00"; }
+                                    else { importesaldoinsoluto = rowIdent2["ImporteSaldoInsoluto"].ToString(); }
+                                    numerodeparcialidad = rowIdent2["NumeroDeParcialidad"].ToString();
+                                    tipocambiocpag = rowIdent2["TipodeCambiocpagdpc"].ToString();
+                                    metodopago33 = rowIdent2["MedotoDePago"].ToString();
+                                    DataTable detalleIdentt = facLabControler.getDatosCPAGDOCTRL(identificaciondpago, folioscpag);
+                                    if (detalleIdentt.Rows.Count > 0)
+                                    {
+                                        foreach (DataRow rowIdentt in detalleIdentt.Rows)
+                                        {
+                                            iipagado = rowIdentt["ActualApplyToAmount"].ToString();
+                                            basecalculo = Convert.ToDecimal(iipagado);
+                                            basecalculado = basecalculo.ToString("F");
+
+                                            //SI TIENE PARCIALIDADES TOMA EL impSaldoAnterior = ActualApplyToAmount
+                                            //si no se queda igual
+
+                                            if (numerodeparcialidad == "2" || numerodeparcialidad == "3" || numerodeparcialidad == "4")
+                                            {
+                                                impSaldoAnterior = rowIdentt["ActualApplyToAmount"].ToString();
+                                                if (impSaldoAnterior == "") { impSaldoAnterior = "0.00"; }
+                                                else { impSaldoAnterior = rowIdentt["ActualApplyToAmount"].ToString(); }
+                                                basecalculo2 = Convert.ToDecimal(impSaldoAnterior);
+                                                basecalculado2 = basecalculo2.ToString("F");
+                                            }
+                                            else
+                                            {
+                                                impSaldoAnterior = rowIdentt["ORTRXAMT"].ToString();
+                                                if (impSaldoAnterior == "") { impSaldoAnterior = "0.00"; }
+                                                else { impSaldoAnterior = rowIdentt["ORTRXAMT"].ToString(); }
+                                                basecalculo2 = Convert.ToDecimal(impSaldoAnterior);
+                                                basecalculado2 = basecalculo2.ToString("F");
+
+                                            }
+
+                                            impSaldoInsoluto = rowIdentt["CURTRXAM"].ToString();
+                                            if (impSaldoInsoluto == "") { impSaldoInsoluto = "0.00"; }
+                                            else { impSaldoInsoluto = rowIdentt["CURTRXAM"].ToString(); }
+                                            basecalculo3 = Convert.ToDecimal(impSaldoInsoluto);
+                                            basecalculado3 = basecalculo3.ToString("F");
+
+
+                                            folio = Regex.Replace(rowIdentt["K3"].ToString().Replace("TDR", "").Trim(), @"[A-Z]", "");
+
+                                            //txtTotal.Text = importePagos.ToString();
+                                            //txtTotal.Text = rowIdent["ImportePagado"].ToString();
+                                            string receptor = txtIdCliente.Text.ToString().Trim();
+                                            string serieinvoice = "";
+                                            if (receptor.Equals("LIVERPOL") || receptor.Equals("LIVERDED") || receptor.Equals("ALMLIVER") || receptor.Equals("LIVERTIJ") || receptor.Equals("SFERALIV") || receptor.Equals("GLOBALIV") || receptor.Equals("SETRALIV") || receptor.Equals("FACTUMLV"))
+                                            {
+                                                serieinvoice = "TDRL";
+                                            }
+                                            else
+                                            {
+                                                serieinvoice = rowIdent2["Seriecpag"].ToString();
+                                            }
+                                            folio = Regex.Replace(rowIdentt["K3"].ToString().Replace("TDR", "").Trim(), @"[A-Z]", "");
+                                            if (folio.Length == 7 && folio.StartsWith("99"))
+                                            {
+                                                folio = folio.Substring(folio.Length - 6, 6);
+                                            }
+                                            else if (folio.Length == 8)
+                                            {
+                                                folio = folio.Substring(folio.Length - 7, 7);
+                                            }
+                                            folio = folio.Replace("-", "");
+                                            //validar con la serie el id de sucursal-serie
+
+                                            MetdodoPago = "";
+
+                                            // FILTRO DE LA MASTER APROBADA
+                                            DataTable datosMaster = facLabControler.getDatosMaster(folio);
+                                            if (datosMaster.Rows.Count > 0)
+                                            {
+
+                                                foreach (DataRow rowMaster in datosMaster.Rows)
+                                                {
+                                                    string invoiceMaster = Regex.Replace(rowMaster[0].ToString(), @"[A-Z]", "");
+                                                    folio = invoiceMaster;
+                                                    int nm = Int32.Parse(invoiceMaster);
+                                                    var request27 = (HttpWebRequest)WebRequest.Create("https://canal1.xsa.com.mx:9050/bf2e1036-ba47-49a0-8cd9-e04b36d5afd4/cfdis?folioEspecifico=" + nm + "&serie=" + serieinvoice);
+                                                    var response27 = (HttpWebResponse)request27.GetResponse();
+                                                    var responseString27 = new StreamReader(response27.GetResponseStream()).ReadToEndAsync();
+
+                                                    List<ModelFact> separados7 = JsonConvert.DeserializeObject<List<ModelFact>>(await responseString27);
+                                                    if (separados7 != null)
+                                                    {
+                                                        foreach (var item in separados7)
+                                                        {
+                                                            uid = item.uuid;
+                                                            serier = item.serie;
+                                                            folior = item.folio;
+                                                            fechap = item.fecha;
+                                                            uuidpagadas += uid + "\r\n";
+
+                                                            Foliosrelacionados += "Serie: " + serier + " " + "Folio: " + folior + " " + "UUID: " + uid + "\r\n";
+
+
+
+                                                            string UUID = item.xmlDownload;
+
+                                                            XmlDocument xDoc = new XmlDocument();
+                                                            xDoc.Load("https://canal1.xsa.com.mx:9050" + UUID);
+                                                            var xmlTexto = xDoc.InnerXml.ToString();
+                                                            DataSet dataSet1 = new DataSet();
+                                                            XmlTextReader xtr = new XmlTextReader(xDoc.OuterXml, XmlNodeType.Element, null);
+                                                            dataSet1.ReadXml(xtr);
+                                                            if (xmlTexto.Contains("MetodoPago=\"PPD\""))
+                                                            {
+                                                                MetdodoPago = "PPD";
+                                                                contadorPPD++;
+                                                            }
+                                                            else if (xmlTexto.Contains("MetodoPago=\"PUE\""))
+                                                            {
+                                                                txtMetodoPago.Text = "PUE";
+                                                                MetdodoPago = "PUE";
+                                                                contadorPUE++;
+                                                            }
+                                                            if (MetdodoPago == "PPD")
+                                                            {
+                                                                foreach (DataRow rowm in (InternalDataCollectionBase)dataSet1.Tables["Emisor"].Rows)
+                                                                {
+                                                                    regimenfiscal = rowm["RegimenFiscal"].ToString();
+                                                                }
+                                                                foreach (DataRow rowsr in (InternalDataCollectionBase)dataSet1.Tables["Conceptos"].Rows)
+                                                                {
+                                                                    foreach (DataRow rowsrc in (InternalDataCollectionBase)dataSet1.Tables["Concepto"].Rows)
+                                                                    {
+                                                                        importe = rowsrc["Importe"].ToString();
+                                                                        valorunitario = rowsrc["ValorUnitario"].ToString();
+                                                                        try
+                                                                        {
+                                                                            importePagos = importePagos + Convert.ToDecimal(importe);
+                                                                            importe = importePagos.ToString("F");
+
+                                                                            valorunitarios = valorunitarios + Convert.ToDecimal(valorunitario);
+                                                                            valorunitario = valorunitarios.ToString("F");
+                                                                        }
+                                                                        catch (Exception ex)
+                                                                        {
+                                                                            string errors = ex.Message;
+                                                                        }
+                                                                        //importe = rowsrc["Importe"].ToString();
+                                                                        //valorunitario = rowsrc["ValorUnitario"].ToString();
+                                                                        //descripcion = rowsrc["Descripcion"].ToString();
+                                                                        //claveunidad = rowsrc["ClaveUnidad"].ToString();
+                                                                        //cantidad = rowsrc["Cantidad"].ToString();
+                                                                        //claveproductoservicio = rowsrc["ClaveProdServ"].ToString();
+                                                                    }
+                                                                }
+                                                                foreach (DataRow rowCC in (InternalDataCollectionBase)dataSet1.Tables["Comprobante"].Rows)
+                                                                {
+                                                                    lugarexpedicion = rowCC["LugarExpedicion"].ToString();
+                                                                    //tipocomprobante = rowCC["TipoDeComprobante"].ToString();
+                                                                    //total = rowCC["Total"].ToString();
+                                                                    monedascpadgoc = rowCC["Moneda"].ToString();
+                                                                    formadepago = rowCC["FormaPago"].ToString();
+                                                                    if (formadepago == null || formadepago == "99") { formadepago = row["Formadepagocpag"].ToString(); }
+                                                                    else { formadepago = row["Formadepagocpag"].ToString(); }
+                                                                    //string Ccertificado = rowCC["Certificado"].ToString();
+                                                                    //string Cnocertificado = rowCC["NoCertificado"].ToString();
+                                                                    //string Csello = rowCC["Sello"].ToString();
+                                                                    tipodecambiocpag = rowCC["TipoCambio"].ToString();
+                                                                    idcomprobante = rowCC["Folio"].ToString();
+
+                                                                    serie = rowCC["Serie"].ToString();
+                                                                }
+                                                                foreach (DataRow rowsr1 in (InternalDataCollectionBase)dataSet1.Tables["Complemento"].Rows)
+                                                                {
+                                                                    foreach (DataRow rowsrct in (InternalDataCollectionBase)dataSet1.Tables["TimbreFiscalDigital"].Rows)
+                                                                    {
+                                                                        string Trfcprovcertif = rowsrct["RfcProvCertif"].ToString();
+                                                                        string Tsellosat = rowsrct["SelloSAT"].ToString();
+                                                                        string Tsellocfd = rowsrct["SelloCFD"].ToString();
+                                                                        string Tnocertidicadosat = rowsrct["NoCertificadoSAT"].ToString();
+                                                                        Tuuid = rowsrct["UUID"].ToString();
+                                                                        string Tfechatimbrado = rowsrct["FechaTimbrado"].ToString();
+
+
+
+                                                                    }
+                                                                }
+                                                                //FolioUUIDTxt.Text += identpag;
+                                                                try
+                                                                {
+                                                                    importePagos2 = importePagos2 + Convert.ToDecimal(basecalculado);
+
+                                                                    txtTotal.Text = importePagos2.ToString("F");
+                                                                }
+                                                                catch (Exception ex)
+                                                                {
+                                                                    string errors = ex.Message;
+                                                                }
+
+
+                                                                nodeToFind = xmlTexto.Contains("Traslado");
+                                                                nodeToFind2 = xmlTexto.Contains("Retencion");
+                                                                if (nodeToFind != false && nodeToFind2 != false)
+                                                                {
+                                                                    //AQUI VA EL CODIGO PARA FORMAR EL TXT DE TRASLADO Y RETENCION, TOTALES DEL TRASLADO Y RETENCIIONES
+                                                                    try
+                                                                    {
+                                                                        subtotalf = (decimal)(Convert.ToDouble(basecalculado) / ivaretencion);
+                                                                        subtotalfinal = subtotalf.ToString("F");
+
+
+
+                                                                        totalfinaliva1 = totalfinaliva1 + Convert.ToDecimal(subtotalfinal);
+                                                                        totalfinaldeiva = totalfinaliva1.ToString("F");
+                                                                    }
+                                                                    catch (Exception ex)
+                                                                    {
+                                                                        string errors = ex.Message;
+                                                                    }
+                                                                    totalIva = (decimal)(ivaa * Convert.ToDouble(subtotalfinal));
+                                                                    totaliva = totalIva.ToString("F");
+                                                                    totalIsr = (decimal)(isrr * Convert.ToDouble(subtotalfinal));
+                                                                    totalisr = totalIsr.ToString("F");
+                                                                    if (totalmn == totalr)
+                                                                    {
+                                                                        if06 = "CPAG20DOCIMPTRA"
+                                                                    + "|" + iddelpago.Trim()
+
+                                                                    + "|" + Tuuid.Trim()
+                                                                    + "|" + "002"
+                                                                    + "|" + "Tasa"
+                                                                    + "|" + "0.160000"
+                                                                    + "|" + totaliva
+                                                                    //+ "|" + retencion
+                                                                    + "|" + subtotalfinal.Trim()
+                                                                    + "|";
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        if06 = "CPAG20DOCIMPTRA"
+                                                                    + "|" + iddelpago.Trim()
+
+                                                                    + "|" + Tuuid.Trim()
+                                                                    + "|" + "002"
+                                                                    + "|" + "Tasa"
+                                                                    + "|" + "0.160000"
+                                                                    + "|" + totaliva
+                                                                    //+ "|" + retencion
+                                                                    + "|" + subtotalfinal.Trim()
+                                                                    + "| \r\n";
+                                                                    }
+
+
+
+                                                                    if05 = "CPAG20DOCIMPRET"
+                                                                    + "|" + iddelpago.Trim()
+
+                                                                    + "|" + Tuuid.Trim()
+                                                                    + "|" + "001"
+                                                                    + "|" + "Tasa"
+                                                                    + "|" + "0.040000"
+                                                                    + "|" + totalisr
+                                                                    //+ "|" + iva.Trim()
+                                                                    + "|" + subtotalfinal.Trim()
+                                                                    + "| \r\n";
+
+
+
+
+                                                                    try
+                                                                    {
+                                                                        importePagos57 = importePagos57 + Convert.ToDecimal(totalisr);
+                                                                        rtisr = 1;
+                                                                    }
+                                                                    catch (Exception ex)
+                                                                    {
+                                                                        string errors = ex.Message;
+                                                                    }
+
+
+
+                                                                    try
+                                                                    {
+                                                                        importePagos58 = importePagos58 + Convert.ToDecimal(totaliva);
+                                                                        rtiva = 1;
+                                                                    }
+                                                                    catch (Exception ex)
+                                                                    {
+                                                                        string errors = ex.Message;
+                                                                    }
+
+
+
+
+
+
+                                                                    //AQUI TERMINA
+
+                                                                }
+                                                                if (nodeToFind == false && nodeToFind2 == true)
+                                                                {
+                                                                    //AQUI VA EL CODIGO PARA FORMAR EL TXT DE TRASLADO Y RETENCION, TOTALES DEL TRASLADO Y RETENCIIONES
+                                                                    totalIva = (decimal)(ivaa * Convert.ToDouble(basecalculado));
+                                                                    totaliva = totalIva.ToString("F");
+                                                                    totalIsr = (decimal)(isrr * Convert.ToDouble(basecalculado));
+                                                                    totalisr = totalIsr.ToString("F");
+                                                                    if (totalmn == totalr)
+                                                                    {
+                                                                        if05 = "CPAG20DOCIMPRET"
+                                                                     + "|" + iddelpago.Trim()
+
+                                                                     + "|" + Tuuid.Trim()
+                                                                     + "|" + "001"
+                                                                     + "|" + "Tasa"
+                                                                     + "|" + "0.040000"
+                                                                     + "|" + totalisr
+                                                                     //+ "|" + iva.Trim()
+                                                                     + "|" + basecalculado.Trim()
+                                                                     + "|";
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        if05 = "CPAG20DOCIMPRET"
+                                                                    + "|" + iddelpago.Trim()
+
+                                                                    + "|" + Tuuid.Trim()
+                                                                    + "|" + "001"
+                                                                    + "|" + "Tasa"
+                                                                    + "|" + "0.040000"
+                                                                    + "|" + totalisr
+                                                                    //+ "|" + iva.Trim()
+                                                                    + "|" + basecalculado.Trim()
+                                                                    + "| \r\n";
+
+                                                                    }
+                                                                    if06 = "";
+
+
+                                                                    try
+                                                                    {
+                                                                        importePagos67 = importePagos67 + Convert.ToDecimal(totalisr);
+
+
+                                                                    }
+                                                                    catch (Exception ex)
+                                                                    {
+                                                                        string errors = ex.Message;
+                                                                    }
+
+                                                                    //f07 = "CPAG20IMPRET"
+                                                                    //+ "|" + iddelpago.Trim()
+                                                                    //+ "|" + "001"
+                                                                    //+ "|" + TotaldeRe
+                                                                    //+ "|";
+                                                                    //f08 = "";
+
+
+                                                                    //AQUI TERMINA
+                                                                }
+                                                                if (nodeToFind == true && nodeToFind2 == false)
+                                                                {
+                                                                    //AQUI VERIFICA LA MONEDA SI SON DOLARES
+
+
+                                                                    try
+                                                                    {
+                                                                        subtotalf = (decimal)(Convert.ToDouble(basecalculado) / ivasolo);
+                                                                        subtotalfinal = subtotalf.ToString("F");
+                                                                        totalfinaliva4 = totalfinaliva4 + Convert.ToDecimal(subtotalfinal);
+                                                                        totalfinaldeiva = totalfinaliva4.ToString("F");
+                                                                    }
+                                                                    catch (Exception ex)
+                                                                    {
+                                                                        string errors = ex.Message;
+                                                                    }
+                                                                    totalIva = (decimal)(ivaa * Convert.ToDouble(subtotalfinal));
+                                                                    totaliva = totalIva.ToString("F");
+
+                                                                    if (totalmn == totalr)
+                                                                    {
+                                                                        if06 = "CPAG20DOCIMPTRA"
+                                                                    + "|" + iddelpago.Trim()
+
+                                                                    + "|" + Tuuid.Trim()
+                                                                    + "|" + "002"
+                                                                    + "|" + "Tasa"
+                                                                    + "|" + "0.160000"
+                                                                    + "|" + totaliva
+                                                                    //+ "|" + retencion
+                                                                    + "|" + subtotalfinal.Trim()
+                                                                    + "|";
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        if06 = "CPAG20DOCIMPTRA"
+                                                                    + "|" + iddelpago.Trim()
+
+                                                                    + "|" + Tuuid.Trim()
+                                                                    + "|" + "002"
+                                                                    + "|" + "Tasa"
+                                                                    + "|" + "0.160000"
+                                                                    + "|" + totaliva
+                                                                    //+ "|" + retencion
+                                                                    + "|" + subtotalfinal.Trim()
+                                                                    + "| \r\n";
+                                                                    }
+
+
+
+                                                                    if05 = "";
+
+
+
+
+
+                                                                    try
+                                                                    {
+                                                                        importePagos88 = importePagos88 + Convert.ToDecimal(totaliva);
+                                                                        srtiva = 3;
+                                                                    }
+                                                                    catch (Exception ex)
+                                                                    {
+                                                                        string errors = ex.Message;
+                                                                    }
+
+                                                                    // FIN DOLARES
+
+
+
+
+
+                                                                }
+
+                                                                if (monedascpadgoc.Trim() == "USD")
+                                                                {
+
+
+                                                                    cpagdoc = cpagdoc + (
+                                                                               "CPAG20DOC"                           //1-Tipo De Registro
+                                                                         + "|" + iddelpago.Trim()                    //2-IdentificadorDelPago  
+                                                                         + "|" + Tuuid.Trim()                        //3-IdentificadorDelDocumentoPagado                                              
+                                                                         + "|" + serieinvoice.Trim()                 //4-Seriecpag
+                                                                         + "|" + idcomprobante.Trim()                //5-Foliocpag
+                                                                         + "|" + monedascpadgoc.Trim()               //6-Monedacpag
+                                                                         + "|" + "1"                                      //7-Equivalencia
+                                                                         + "|" + numerodeparcialidad.Trim()          //8-NumeroDeParcialidad
+                                                                         + "|" + basecalculado.Trim()               //9-ImporteSaldoAnterior
+                                                                         + "|" + basecalculado.Trim()                //10-ImportePagado                                                    
+                                                                               + "|" + "0"                                            //12 ImporteSaldoInsoluto
+                                                                               + "|" + "01"
+                                                                               + "| \r\n");
+
+                                                                    usdmoneda = 1;
+                                                                }
+                                                                else
+                                                                {
+                                                                    if (nodeToFind != false && nodeToFind2 != false)
+                                                                    {
+                                                                        if (totalmn == totalr)
+                                                                        {
+                                                                            cpagdoc = cpagdoc + (
+                                                                               "CPAG20DOC"                           //1-Tipo De Registro
+                                                                         + "|" + iddelpago.Trim()                    //2-IdentificadorDelPago  
+                                                                         + "|" + Tuuid.Trim()                        //3-IdentificadorDelDocumentoPagado                                              
+                                                                         + "|" + serieinvoice.Trim()                 //4-Seriecpag
+                                                                         + "|" + idcomprobante.Trim()                //5-Foliocpag
+                                                                         + "|" + monedascpadgoc.Trim()               //6-Monedacpag
+                                                                         + "|" + "1"                                     //7-Equivalencia
+                                                                         + "|" + numerodeparcialidad.Trim()          //8-NumeroDeParcialidad
+                                                                         + "|" + basecalculado2.Trim()               //9-ImporteSaldoAnterior
+                                                                         + "|" + basecalculado.Trim()                //10-ImportePagado                                                  
+                                                                         + "|" + basecalculado3.Trim()               //11-ImporteSaldoInsoluto
+                                                                         + "|" + "02"                                //12-ObjetoDeImpuesto
+                                                                         + "| \r\n")
+                                                                         + if05
+                                                                         + if06;
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                            cpagdoc = cpagdoc + (
+                                                                               "CPAG20DOC"                           //1-Tipo De Registro
+                                                                         + "|" + iddelpago.Trim()                    //2-IdentificadorDelPago  
+                                                                         + "|" + Tuuid.Trim()                        //3-IdentificadorDelDocumentoPagado                                              
+                                                                         + "|" + serieinvoice.Trim()                 //4-Seriecpag
+                                                                         + "|" + idcomprobante.Trim()                //5-Foliocpag
+                                                                         + "|" + monedascpadgoc.Trim()               //6-Monedacpag
+                                                                         + "|" + "1"                                     //7-Equivalencia
+                                                                         + "|" + numerodeparcialidad.Trim()          //8-NumeroDeParcialidad
+                                                                         + "|" + basecalculado2.Trim()               //9-ImporteSaldoAnterior
+                                                                         + "|" + basecalculado.Trim()                //10-ImportePagado                                                  
+                                                                         + "|" + basecalculado3.Trim()               //11-ImporteSaldoInsoluto
+                                                                         + "|" + "02"                                //12-ObjetoDeImpuesto
+                                                                         + "| \r\n")
+                                                                         + if05
+                                                                         + if06;
+                                                                        }
+
+                                                                    }
+                                                                    if (nodeToFind == false && nodeToFind2 == true)
+                                                                    {
+                                                                        cpagdoc = cpagdoc + (
+                                                                               "CPAG20DOC"                           //1-Tipo De Registro
+                                                                         + "|" + iddelpago.Trim()                    //2-IdentificadorDelPago  
+                                                                         + "|" + Tuuid.Trim()                        //3-IdentificadorDelDocumentoPagado                                              
+                                                                         + "|" + serieinvoice.Trim()                 //4-Seriecpag
+                                                                         + "|" + idcomprobante.Trim()                //5-Foliocpag
+                                                                         + "|" + monedascpadgoc.Trim()               //6-Monedacpag
+                                                                         + "|" + "1"                                     //7-Equivalencia
+                                                                         + "|" + numerodeparcialidad.Trim()          //8-NumeroDeParcialidad
+                                                                         + "|" + basecalculado2.Trim()               //9-ImporteSaldoAnterior
+                                                                         + "|" + basecalculado.Trim()                //10-ImportePagado                                                  
+                                                                         + "|" + basecalculado3.Trim()               //11-ImporteSaldoInsoluto
+                                                                         + "|" + "02"                                //12-ObjetoDeImpuesto
+                                                                         + "| \r\n")
+                                                                         + if05;
+
+                                                                    }
+                                                                    if (nodeToFind == true && nodeToFind2 == false)
+                                                                    {
+                                                                        cpagdoc = cpagdoc + (
+                                                                              "CPAG20DOC"                           //1-Tipo De Registro
+                                                                        + "|" + iddelpago.Trim()                    //2-IdentificadorDelPago  
+                                                                        + "|" + Tuuid.Trim()                        //3-IdentificadorDelDocumentoPagado                                              
+                                                                        + "|" + serieinvoice.Trim()                 //4-Seriecpag
+                                                                        + "|" + idcomprobante.Trim()                //5-Foliocpag
+                                                                        + "|" + monedascpadgoc.Trim()               //6-Monedacpag
+                                                                        + "|" + "1"                                     //7-Equivalencia
+                                                                        + "|" + numerodeparcialidad.Trim()          //8-NumeroDeParcialidad
+                                                                        + "|" + basecalculado2.Trim()               //9-ImporteSaldoAnterior
+                                                                        + "|" + basecalculado.Trim()                //10-ImportePagado                                                  
+                                                                        + "|" + basecalculado3.Trim()               //11-ImporteSaldoInsoluto
+                                                                        + "|" + "02"                                //12-ObjetoDeImpuesto
+                                                                        + "| \r\n")
+                                                                        + if06;
+                                                                    }
+                                                                }
+
+                                                            }
+                                                            else
+                                                            {
+                                                                string msg = "Error: Los folios relacionados no existen en el canal de Tralix";
+                                                                formularioT.Visible = false;
+                                                                Div1.Visible = true;
+                                                                ScriptManager.RegisterStartupScript(this, GetType(), "swal", "swal('" + msg + "', 'Error con los folios relacionados ', 'error');setTimeout(function(){window.location.href ='Listado.aspx'}, 10000)", true);
+
+                                                            }
+
+
+                                                        }
+                                                    }
+
+
+                                                }
+
+                                            }
+
+                                            else
+                                            {
+
+                                                //3 FILTRO APROBADO
+                                                //AQUI TERMINA EL IF
+                                                k1 = rowIdentt["K1"].ToString();
+
+                                                k3 = Regex.Replace(rowIdentt["K3"].ToString().Replace("TDRM", "").Trim(), @"[A-Z]", "");
+                                                iipagado = rowIdentt["ActualApplyToAmount"].ToString();
+                                                basecalculo = Convert.ToDecimal(iipagado);
+                                                basecalculado = basecalculo.ToString("F");
+                                                int kk3 = Int32.Parse(k3);
+                                                var request281 = (HttpWebRequest)WebRequest.Create("https://canal1.xsa.com.mx:9050/bf2e1036-ba47-49a0-8cd9-e04b36d5afd4/cfdis?folioEspecifico=" + kk3 + "&rfc=" + txtRFC.Text);
+                                                var response281 = (HttpWebResponse)request281.GetResponse();
+                                                var responseString281 = new StreamReader(response281.GetResponseStream()).ReadToEndAsync();
+
+                                                List<ModelFact> separados81 = JsonConvert.DeserializeObject<List<ModelFact>>(await responseString281);
+
+                                                if (separados81 != null)
+                                                {
+                                                    contadortralix = 1;
+
+                                                    foreach (var item in separados81)
+                                                    {
+                                                        uid = item.uuid;
+                                                        serier = item.serie;
+                                                        folior = item.folio;
+                                                        uuidpagadas += uid + "\r\n";
+
+                                                        Foliosrelacionados += "Serie: " + serier + " " + "Folio: " + folior + " " + "UUID: " + uid + "\r\n";
+
+
+
+                                                        string UUID = item.xmlDownload;
+
+                                                        XmlDocument xDoc = new XmlDocument();
+                                                        xDoc.Load("https://canal1.xsa.com.mx:9050" + UUID);
+                                                        var xmlTexto = xDoc.InnerXml.ToString();
+                                                        XmlElement root = xDoc.DocumentElement;
+                                                        DataSet dataSet1 = new DataSet();
+                                                        XmlTextReader xtr = new XmlTextReader(xDoc.OuterXml, XmlNodeType.Element, null);
+                                                        dataSet1.ReadXml(xtr);
+
+
+
+                                                        if (xmlTexto.Contains("MetodoPago=\"PPD\""))
+                                                        {
+                                                            MetdodoPago = "PPD";
+                                                            contadorPPD++;
+                                                        }
+                                                        else if (xmlTexto.Contains("MetodoPago=\"PUE\""))
+                                                        {
+                                                            txtMetodoPago.Text = "PUE";
+                                                            MetdodoPago = "PUE";
+                                                            contadorPUE++;
+                                                        }
+                                                        if (MetdodoPago == "PPD")
+                                                        {
+
+                                                            foreach (DataRow rowm in (InternalDataCollectionBase)dataSet1.Tables["Emisor"].Rows)
+                                                            {
+                                                                regimenfiscal = rowm["RegimenFiscal"].ToString();
+                                                            }
+
+                                                            foreach (DataRow rowsr in (InternalDataCollectionBase)dataSet1.Tables["Conceptos"].Rows)
+                                                            {
+                                                                foreach (DataRow rowsrc in (InternalDataCollectionBase)dataSet1.Tables["Concepto"].Rows)
+                                                                {
+                                                                    importe = rowsrc["Importe"].ToString();
+                                                                    valorunitario = rowsrc["ValorUnitario"].ToString();
+                                                                    try
+                                                                    {
+                                                                        importePagos = importePagos + Convert.ToDecimal(importe);
+                                                                        importe = importePagos.ToString("F");
+
+                                                                        valorunitarios = valorunitarios + Convert.ToDecimal(valorunitario);
+                                                                        valorunitario = valorunitarios.ToString("F");
+                                                                    }
+                                                                    catch (Exception ex)
+                                                                    {
+                                                                        string errors = ex.Message;
+                                                                    }
+                                                                    //descripcion = rowsrc["Descripcion"].ToString();
+                                                                    //claveunidad = rowsrc["ClaveUnidad"].ToString();
+                                                                    //cantidad = rowsrc["Cantidad"].ToString();
+                                                                    //claveproductoservicio = rowsrc["ClaveProdServ"].ToString();
+                                                                }
+                                                            }
+                                                            foreach (DataRow rowCC in (InternalDataCollectionBase)dataSet1.Tables["Comprobante"].Rows)
+                                                            {
+                                                                lugarexpedicion = rowCC["LugarExpedicion"].ToString();
+                                                                //tipocomprobante = rowCC["TipoDeComprobante"].ToString();
+                                                                //total = rowCC["Total"].ToString();
+                                                                monedascpadgoc = rowCC["Moneda"].ToString();
+                                                                formadepago = rowCC["FormaPago"].ToString();
+                                                                if (formadepago == null || formadepago == "99") { formadepago = row["Formadepagocpag"].ToString(); }
+                                                                else { formadepago = row["Formadepagocpag"].ToString(); }
+                                                                //string Ccertificado = rowCC["Certificado"].ToString();
+                                                                //string Cnocertificado = rowCC["NoCertificado"].ToString();
+                                                                //string Csello = rowCC["Sello"].ToString();
+                                                                tipodecambiocpag = rowCC["TipoCambio"].ToString();
+
+                                                                idcomprobante = rowCC["Folio"].ToString();
+                                                                serie = rowCC["Serie"].ToString();
+                                                            }
+                                                            foreach (DataRow rowsr1 in (InternalDataCollectionBase)dataSet1.Tables["Complemento"].Rows)
+                                                            {
+                                                                foreach (DataRow rowsrct in (InternalDataCollectionBase)dataSet1.Tables["TimbreFiscalDigital"].Rows)
+                                                                {
+                                                                    string Trfcprovcertif = rowsrct["RfcProvCertif"].ToString();
+                                                                    string Tsellosat = rowsrct["SelloSAT"].ToString();
+                                                                    string Tsellocfd = rowsrct["SelloCFD"].ToString();
+                                                                    string Tnocertidicadosat = rowsrct["NoCertificadoSAT"].ToString();
+                                                                    Tuuid = rowsrct["UUID"].ToString();
+                                                                    string Tfechatimbrado = rowsrct["FechaTimbrado"].ToString();
+
+
+
+                                                                }
+                                                            }
+                                                            //FolioUUIDTxt.Text += identpag;
+                                                            try
+                                                            {
+                                                                importePagos7 = importePagos7 + Convert.ToDecimal(basecalculado);
+                                                                txtTotal.Text = importePagos7.ToString("F");
+                                                            }
+                                                            catch (Exception ex)
+                                                            {
+                                                                string errors = ex.Message;
+                                                            }
+
+                                                            nodeToFind = xmlTexto.Contains("Traslado");
+                                                            nodeToFind2 = xmlTexto.Contains("Retencion"); ;
+                                                            if (nodeToFind != false && nodeToFind2 != false)
+                                                            {
+                                                                //AQUI VA EL CODIGO PARA FORMAR EL TXT DE TRASLADO Y RETENCION, TOTALES DEL TRASLADO Y RETENCIIONES
+                                                                try
+                                                                {
+                                                                    subtotalf = (decimal)(Convert.ToDouble(basecalculado) / ivaretencion);
+                                                                    subtotalfinal = subtotalf.ToString("F");
+                                                                    totalfinaliva3 = totalfinaliva3 + Convert.ToDecimal(subtotalfinal);
+                                                                    totalfinaldeiva = totalfinaliva3.ToString("F");
+                                                                }
+                                                                catch (Exception ex)
+                                                                {
+                                                                    string errors = ex.Message;
+                                                                }
+                                                                totalIva = (decimal)(ivaa * Convert.ToDouble(subtotalfinal));
+                                                                totaliva = totalIva.ToString("F");
+                                                                //AQUI VA EL CODIGO PARA FORMAR EL TXT DE TRASLADO Y RETENCION, TOTALES DEL TRASLADO Y RETENCIIONES
+
+                                                                totalIsr = (decimal)(isrr * Convert.ToDouble(subtotalfinal));
+                                                                totalisr = totalIsr.ToString("F");
+                                                                if (totalmn == totalr)
+                                                                {
+                                                                    if06 = "CPAG20DOCIMPTRA"
+                                                                + "|" + iddelpago.Trim()
+
+                                                                + "|" + Tuuid.Trim()
+                                                                + "|" + "002"
+                                                                + "|" + "Tasa"
+                                                                + "|" + "0.160000"
+                                                                + "|" + totaliva
+                                                                //+ "|" + retencion
+                                                                + "|" + subtotalfinal.Trim()
+                                                                + "|";
+                                                                }
+                                                                else
+                                                                {
+                                                                    if06 = "CPAG20DOCIMPTRA"
+                                                                + "|" + iddelpago.Trim()
+
+                                                                + "|" + Tuuid.Trim()
+                                                                + "|" + "002"
+                                                                + "|" + "Tasa"
+                                                                + "|" + "0.160000"
+                                                                + "|" + totaliva
+                                                                //+ "|" + retencion
+                                                                + "|" + subtotalfinal.Trim()
+                                                                + "| \r\n";
+                                                                }
+
+
+
+                                                                if05 = "CPAG20DOCIMPRET"
+                                                                + "|" + iddelpago.Trim()
+
+                                                                + "|" + Tuuid.Trim()
+                                                                + "|" + "001"
+                                                                + "|" + "Tasa"
+                                                                + "|" + "0.040000"
+                                                                + "|" + totalisr
+                                                                //+ "|" + iva.Trim()
+                                                                + "|" + subtotalfinal.Trim()
+                                                                + "| \r\n";
+
+
+
+
+                                                                try
+                                                                {
+                                                                    importePagos77 = importePagos77 + Convert.ToDecimal(totalisr);
+                                                                    rtisr = 1;
+
+                                                                }
+                                                                catch (Exception ex)
+                                                                {
+                                                                    string errors = ex.Message;
+                                                                }
+
+
+
+                                                                try
+                                                                {
+                                                                    importePagos78 = importePagos78 + Convert.ToDecimal(totaliva);
+                                                                    rtiva = 1;
+                                                                }
+                                                                catch (Exception ex)
+                                                                {
+                                                                    string errors = ex.Message;
+                                                                }
+
+
+
+
+
+                                                                //AQUI TERMINA
+
+                                                            }
+                                                            if (nodeToFind == false && nodeToFind2 == true)
+                                                            {
+                                                                //AQUI VA EL CODIGO PARA FORMAR EL TXT DE TRASLADO Y RETENCION, TOTALES DEL TRASLADO Y RETENCIIONES
+                                                                totalIva = (decimal)(ivaa * Convert.ToDouble(basecalculado));
+                                                                totaliva = totalIva.ToString("F");
+                                                                totalIsr = (decimal)(isrr * Convert.ToDouble(basecalculado));
+                                                                totalisr = totalIsr.ToString("F");
+                                                                if (totalmn == totalr)
+                                                                {
+                                                                    if05 = "CPAG20DOCIMPRET"
+                                                                 + "|" + iddelpago.Trim()
+
+                                                                 + "|" + Tuuid.Trim()
+                                                                 + "|" + "001"
+                                                                 + "|" + "Tasa"
+                                                                 + "|" + "0.040000"
+                                                                 + "|" + totalisr
+                                                                 //+ "|" + iva.Trim()
+                                                                 + "|" + basecalculado.Trim()
+                                                                 + "|";
+                                                                }
+                                                                else
+                                                                {
+                                                                    if05 = "CPAG20DOCIMPRET"
+                                                                + "|" + iddelpago.Trim()
+
+                                                                + "|" + Tuuid.Trim()
+                                                                + "|" + "001"
+                                                                + "|" + "Tasa"
+                                                                + "|" + "0.040000"
+                                                                + "|" + totalisr
+                                                                //+ "|" + iva.Trim()
+                                                                + "|" + basecalculado.Trim()
+                                                                + "| \r\n";
+
+                                                                }
+                                                                if06 = "";
+
+
+                                                                try
+                                                                {
+                                                                    importePagos97 = importePagos97 + Convert.ToDecimal(totalisr);
+                                                                    srtisr = 2;
+
+                                                                }
+                                                                catch (Exception ex)
+                                                                {
+                                                                    string errors = ex.Message;
+                                                                }
+
+                                                                //f07 = "CPAG20IMPRET"
+                                                                //+ "|" + iddelpago.Trim()
+                                                                //+ "|" + "001"
+                                                                //+ "|" + TotaldeRe
+                                                                //+ "|";
+                                                                //f08 = "";
+
+
+                                                                //AQUI TERMINA
+                                                            }
+                                                            if (nodeToFind == true && nodeToFind2 == false)
+                                                            {
+                                                                //AQUI VERIFICA LA MONEDA SI SON DOLARES
+
+
+                                                                try
+                                                                {
+                                                                    subtotalf = (decimal)(Convert.ToDouble(basecalculado) / ivasolo);
+                                                                    subtotalfinal = subtotalf.ToString("F");
+                                                                    totalfinaliva4 = totalfinaliva4 + Convert.ToDecimal(subtotalfinal);
+                                                                    totalfinaldeiva = totalfinaliva4.ToString("F");
+                                                                }
+                                                                catch (Exception ex)
+                                                                {
+                                                                    string errors = ex.Message;
+                                                                }
+                                                                totalIva = (decimal)(ivaa * Convert.ToDouble(subtotalfinal));
+                                                                totaliva = totalIva.ToString("F");
+
+                                                                if (totalmn == totalr)
+                                                                {
+                                                                    if06 = "CPAG20DOCIMPTRA"
+                                                                + "|" + iddelpago.Trim()
+
+                                                                + "|" + Tuuid.Trim()
+                                                                + "|" + "002"
+                                                                + "|" + "Tasa"
+                                                                + "|" + "0.160000"
+                                                                + "|" + totaliva
+                                                                //+ "|" + retencion
+                                                                + "|" + subtotalfinal.Trim()
+                                                                + "|";
+                                                                }
+                                                                else
+                                                                {
+                                                                    if06 = "CPAG20DOCIMPTRA"
+                                                                + "|" + iddelpago.Trim()
+
+                                                                + "|" + Tuuid.Trim()
+                                                                + "|" + "002"
+                                                                + "|" + "Tasa"
+                                                                + "|" + "0.160000"
+                                                                + "|" + totaliva
+                                                                //+ "|" + retencion
+                                                                + "|" + subtotalfinal.Trim()
+                                                                + "| \r\n";
+                                                                }
+
+
+
+                                                                if05 = "";
+
+
+
+
+
+                                                                try
+                                                                {
+                                                                    importePagos88 = importePagos88 + Convert.ToDecimal(totaliva);
+                                                                    srtiva = 3;
+                                                                }
+                                                                catch (Exception ex)
+                                                                {
+                                                                    string errors = ex.Message;
+                                                                }
+
+                                                                // FIN DOLARES
+
+
+
+
+
+                                                            }
+
+                                                            if (monedascpadgoc.Trim() == "USD")
+                                                            {
+
+
+                                                                cpagdoc = cpagdoc + (
+                                                                               "CPAG20DOC"                           //1-Tipo De Registro
+                                                                         + "|" + iddelpago.Trim()                    //2-IdentificadorDelPago  
+                                                                         + "|" + Tuuid.Trim()                        //3-IdentificadorDelDocumentoPagado                                              
+                                                                         + "|" + serieinvoice.Trim()                 //4-Seriecpag
+                                                                         + "|" + idcomprobante.Trim()                //5-Foliocpag
+                                                                         + "|" + monedascpadgoc.Trim()               //6-Monedacpag
+                                                                         + "|" + "1"                                      //7-Equivalencia
+                                                                         + "|" + numerodeparcialidad.Trim()          //8-NumeroDeParcialidad
+                                                                         + "|" + basecalculado.Trim()               //9-ImporteSaldoAnterior
+                                                                         + "|" + basecalculado.Trim()                //10-ImportePagado                                                    
+                                                                               + "|" + "0"                                            //12 ImporteSaldoInsoluto
+                                                                               + "|" + "01"
+                                                                               + "| \r\n");
+
+                                                                usdmoneda = 1;
+                                                            }
+                                                            else
+                                                            {
+                                                                if (nodeToFind != false && nodeToFind2 != false)
+                                                                {
+                                                                    if (totalmn == totalr)
+                                                                    {
+                                                                        cpagdoc = cpagdoc + (
+                                                                               "CPAG20DOC"                           //1-Tipo De Registro
+                                                                         + "|" + iddelpago.Trim()                    //2-IdentificadorDelPago  
+                                                                         + "|" + Tuuid.Trim()                        //3-IdentificadorDelDocumentoPagado                                              
+                                                                         + "|" + serieinvoice.Trim()                 //4-Seriecpag
+                                                                         + "|" + idcomprobante.Trim()                //5-Foliocpag
+                                                                         + "|" + monedascpadgoc.Trim()               //6-Monedacpag
+                                                                         + "|" + "1"                                      //7-Equivalencia
+                                                                         + "|" + numerodeparcialidad.Trim()          //8-NumeroDeParcialidad
+                                                                         + "|" + basecalculado2.Trim()               //9-ImporteSaldoAnterior
+                                                                         + "|" + basecalculado.Trim()                //10-ImportePagado                                                  
+                                                                         + "|" + basecalculado3.Trim()               //11-ImporteSaldoInsoluto
+                                                                         + "|" + "02"                                //12-ObjetoDeImpuesto
+                                                                         + "| \r\n")
+                                                                         + if05
+                                                                         + if06;
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        cpagdoc = cpagdoc + (
+                                                                               "CPAG20DOC"                           //1-Tipo De Registro
+                                                                         + "|" + iddelpago.Trim()                    //2-IdentificadorDelPago  
+                                                                         + "|" + Tuuid.Trim()                        //3-IdentificadorDelDocumentoPagado                                              
+                                                                         + "|" + serieinvoice.Trim()                 //4-Seriecpag
+                                                                         + "|" + idcomprobante.Trim()                //5-Foliocpag
+                                                                         + "|" + monedascpadgoc.Trim()               //6-Monedacpag
+                                                                         + "|" + "1"                                      //7-Equivalencia
+                                                                         + "|" + numerodeparcialidad.Trim()          //8-NumeroDeParcialidad
+                                                                         + "|" + basecalculado2.Trim()               //9-ImporteSaldoAnterior
+                                                                         + "|" + basecalculado.Trim()                //10-ImportePagado                                                  
+                                                                         + "|" + basecalculado3.Trim()               //11-ImporteSaldoInsoluto
+                                                                         + "|" + "02"                                //12-ObjetoDeImpuesto
+                                                                         + "| \r\n")
+                                                                         + if05
+                                                                         + if06;
+                                                                    }
+
+                                                                }
+                                                                if (nodeToFind == false && nodeToFind2 == true)
+                                                                {
+                                                                    cpagdoc = cpagdoc + (
+                                                                              "CPAG20DOC"                           //1-Tipo De Registro
+                                                                        + "|" + iddelpago.Trim()                    //2-IdentificadorDelPago  
+                                                                        + "|" + Tuuid.Trim()                        //3-IdentificadorDelDocumentoPagado                                              
+                                                                        + "|" + serieinvoice.Trim()                 //4-Seriecpag
+                                                                        + "|" + idcomprobante.Trim()                //5-Foliocpag
+                                                                        + "|" + monedascpadgoc.Trim()               //6-Monedacpag
+                                                                        + "|" + "1"                                      //7-Equivalencia
+                                                                        + "|" + numerodeparcialidad.Trim()          //8-NumeroDeParcialidad
+                                                                        + "|" + basecalculado2.Trim()               //9-ImporteSaldoAnterior
+                                                                        + "|" + basecalculado.Trim()                //10-ImportePagado                                                  
+                                                                        + "|" + basecalculado3.Trim()               //11-ImporteSaldoInsoluto
+                                                                        + "|" + "02"                                //12-ObjetoDeImpuesto
+                                                                        + "| \r\n")
+                                                                        + if05;
+
+                                                                }
+                                                                if (nodeToFind == true && nodeToFind2 == false)
+                                                                {
+                                                                    cpagdoc = cpagdoc + (
+                                                                              "CPAG20DOC"                           //1-Tipo De Registro
+                                                                        + "|" + iddelpago.Trim()                    //2-IdentificadorDelPago  
+                                                                        + "|" + Tuuid.Trim()                        //3-IdentificadorDelDocumentoPagado                                              
+                                                                        + "|" + serieinvoice.Trim()                 //4-Seriecpag
+                                                                        + "|" + idcomprobante.Trim()                //5-Foliocpag
+                                                                        + "|" + monedascpadgoc.Trim()               //6-Monedacpag
+                                                                        + "|" + "1"                                      //7-Equivalencia
+                                                                        + "|" + numerodeparcialidad.Trim()          //8-NumeroDeParcialidad
+                                                                        + "|" + basecalculado2.Trim()               //9-ImporteSaldoAnterior
+                                                                        + "|" + basecalculado.Trim()                //10-ImportePagado                                                  
+                                                                        + "|" + basecalculado3.Trim()               //11-ImporteSaldoInsoluto
+                                                                        + "|" + "02"                                //12-ObjetoDeImpuesto
+                                                                        + "| \r\n")
+                                                                        + if06;
+                                                                }
+                                                            }
+                                                        }
+                                                        //else
+                                                        //{
+                                                        //    string msg = "Error: Los folios relacionados no existen en el canal de Tralix";
+                                                        //    formularioT.Visible = false;
+                                                        //    Div1.Visible = true;
+                                                        //    ScriptManager.RegisterStartupScript(this, GetType(), "swal", "swal('" + msg + "', 'Error con los folios relacionados ', 'error');setTimeout(function(){window.location.href ='Listado.aspx'}, 10000)", true);
+
+                                                        //}
+                                                        //AQUI FALTA AGREGAR LO QUE TIENE EL XML Y FORMAR EL TXT
+
+
+                                                    }
+
+                                                }
+                                                else
+                                                {
+
+                                                    DataTable invoiceresult = facLabControler.getDatosInvoice(k3);
+                                                    if (invoiceresult.Rows.Count > 0)
+                                                    {
+                                                        foreach (DataRow rowInvoice in invoiceresult.Rows)
+                                                        {
+
+                                                            norden = rowInvoice["ord_hdrnumber"].ToString();
+                                                            DataTable segmentoresult = facLabControler.getDatosSegmentos(norden);
+
+                                                            foreach (DataRow seg in segmentoresult.Rows)
+                                                            {
+                                                                string Segmento = seg["Segmento"].ToString();
+                                                                int s3 = Int32.Parse(Segmento);
+                                                                var request2819 = (HttpWebRequest)WebRequest.Create("https://canal1.xsa.com.mx:9050/bf2e1036-ba47-49a0-8cd9-e04b36d5afd4/cfdis?folioEspecifico=" + s3 + "&rfc=" + txtRFC.Text);
+                                                                var response2819 = (HttpWebResponse)request2819.GetResponse();
+                                                                var responseString2819 = new StreamReader(response2819.GetResponseStream()).ReadToEndAsync();
+
+                                                                List<ModelFact> separados819 = JsonConvert.DeserializeObject<List<ModelFact>>(await responseString2819);
+
+                                                                if (separados819 != null)
+                                                                {
+                                                                    //int totalmn = 1;
+                                                                    //DataSet dataSet2 = new DataSet();
+                                                                    //int totalr = separados819.Count;
+                                                                    //int x = 0;
+                                                                    foreach (var item in separados819)
+                                                                    {
+                                                                        string uuid = item.uuid;
+                                                                        string xmld = item.xmlDownload;
+                                                                        serieinvoice = item.serie;
+
+                                                                        uid = item.uuid;
+                                                                        serier = item.serie;
+                                                                        folior = item.folio;
+                                                                        uuidpagadas += uid + "\r\n";
+
+                                                                        Foliosrelacionados += "Serie: " + serier + " " + "Folio: " + folior + " " + "UUID: " + uid + "\r\n";
+
+                                                                        XmlDocument xDoc = new XmlDocument();
+                                                                        xDoc.Load("https://canal1.xsa.com.mx:9050" + xmld);
+                                                                        var xmlTexto = xDoc.InnerXml.ToString();
+                                                                        DataSet dataSet1 = new DataSet();
+                                                                        XmlTextReader xtr = new XmlTextReader(xDoc.OuterXml, XmlNodeType.Element, null);
+                                                                        dataSet1.ReadXml(xtr);
+
+                                                                        if (xmlTexto.Contains("MetodoPago=\"PPD\""))
+                                                                        {
+                                                                            MetdodoPago = "PPD";
+                                                                            contadorPPD++;
+                                                                        }
+                                                                        else if (xmlTexto.Contains("MetodoPago=\"PUE\""))
+                                                                        {
+                                                                            txtMetodoPago.Text = "PUE";
+                                                                            MetdodoPago = "PUE";
+                                                                            contadorPUE++;
+                                                                        }
+                                                                        if (MetdodoPago == "PPD")
+                                                                        {
+                                                                            foreach (DataRow rowm in (InternalDataCollectionBase)dataSet1.Tables["Emisor"].Rows)
+                                                                            {
+                                                                                regimenfiscal = rowm["RegimenFiscal"].ToString();
+                                                                            }
+                                                                            foreach (DataRow rowsr in (InternalDataCollectionBase)dataSet1.Tables["Conceptos"].Rows)
+                                                                            {
+                                                                                foreach (DataRow rowsrc in (InternalDataCollectionBase)dataSet1.Tables["Concepto"].Rows)
+                                                                                {
+                                                                                    importe = rowsrc["Importe"].ToString();
+                                                                                    valorunitario = rowsrc["ValorUnitario"].ToString();
+                                                                                    try
+                                                                                    {
+                                                                                        //importePagos77 = importePagos77 + Convert.ToDecimal(importe);
+                                                                                        //importe = importePagos77.ToString("F");
+
+                                                                                        //valorunitarios = valorunitarios + Convert.ToDecimal(valorunitario);
+                                                                                        //valorunitario = valorunitarios.ToString("F");
+                                                                                    }
+                                                                                    catch (Exception ex)
+                                                                                    {
+                                                                                        string errors = ex.Message;
+                                                                                    }
+
+                                                                                    //descripcion = rowsrc["Descripcion"].ToString();
+                                                                                    //claveunidad = rowsrc["ClaveUnidad"].ToString();
+                                                                                    //cantidad = rowsrc["Cantidad"].ToString();
+                                                                                    //claveproductoservicio = rowsrc["ClaveProdServ"].ToString();
+                                                                                }
+                                                                            }
+                                                                            foreach (DataRow rowCC in (InternalDataCollectionBase)dataSet1.Tables["Comprobante"].Rows)
+                                                                            {
+                                                                                lugarexpedicion = rowCC["LugarExpedicion"].ToString();
+                                                                                //tipocomprobante = rowCC["TipoDeComprobante"].ToString();
+                                                                                //total = rowCC["Total"].ToString();
+                                                                                monedascpadgoc = rowCC["Moneda"].ToString();
+                                                                                formadepago = rowCC["FormaPago"].ToString();
+                                                                                if (formadepago == null || formadepago == "99") { formadepago = row["Formadepagocpag"].ToString(); }
+                                                                                else { formadepago = row["Formadepagocpag"].ToString(); }
+                                                                                //string Ccertificado = rowCC["Certificado"].ToString();
+                                                                                //string Cnocertificado = rowCC["NoCertificado"].ToString();
+                                                                                //string Csello = rowCC["Sello"].ToString();
+                                                                                tipodecambiocpag = rowCC["TipoCambio"].ToString();
+                                                                                idcomprobante = rowCC["Folio"].ToString();
+                                                                                serie = rowCC["Serie"].ToString();
+                                                                            }
+                                                                            foreach (DataRow rowsr1 in (InternalDataCollectionBase)dataSet1.Tables["Complemento"].Rows)
+                                                                            {
+                                                                                foreach (DataRow rowsrct in (InternalDataCollectionBase)dataSet1.Tables["TimbreFiscalDigital"].Rows)
+                                                                                {
+                                                                                    string Trfcprovcertif = rowsrct["RfcProvCertif"].ToString();
+                                                                                    string Tsellosat = rowsrct["SelloSAT"].ToString();
+                                                                                    string Tsellocfd = rowsrct["SelloCFD"].ToString();
+                                                                                    string Tnocertidicadosat = rowsrct["NoCertificadoSAT"].ToString();
+                                                                                    Tuuid = rowsrct["UUID"].ToString();
+                                                                                    string Tfechatimbrado = rowsrct["FechaTimbrado"].ToString();
+
+
+
+                                                                                }
+                                                                            }
+                                                                            //FolioUUIDTxt.Text += identpag;
+                                                                            try
+                                                                            {
+                                                                                importePagos4 = importePagos4 + Convert.ToDecimal(basecalculado);
+                                                                                txtTotal.Text = importePagos4.ToString("F");
+                                                                            }
+                                                                            catch (Exception ex)
+                                                                            {
+                                                                                string errors = ex.Message;
+                                                                            }
+
+                                                                            nodeToFind = xmlTexto.Contains("Traslado");
+                                                                            nodeToFind2 = xmlTexto.Contains("Retencion"); ;
+                                                                            if (nodeToFind != false && nodeToFind2 != false)
+                                                                            {
+                                                                                try
+                                                                                {
+                                                                                    subtotalf = (decimal)(Convert.ToDouble(basecalculado) / ivaretencion);
+                                                                                    subtotalfinal = subtotalf.ToString("F");
+                                                                                    totalfinaliva5 = totalfinaliva5 + Convert.ToDecimal(subtotalfinal);
+                                                                                    totalfinaldeiva = totalfinaliva5.ToString("F");
+                                                                                }
+                                                                                catch (Exception ex)
+                                                                                {
+                                                                                    string errors = ex.Message;
+                                                                                }
+                                                                                totalIva = (decimal)(ivaa * Convert.ToDouble(subtotalfinal));
+                                                                                totaliva = totalIva.ToString("F");
+                                                                                //AQUI VA EL CODIGO PARA FORMAR EL TXT DE TRASLADO Y RETENCION, TOTALES DEL TRASLADO Y RETENCIIONES
+
+                                                                                totalIsr = (decimal)(isrr * Convert.ToDouble(subtotalfinal));
+                                                                                totalisr = totalIsr.ToString("F");
+                                                                                if (totalmn == totalr)
+                                                                                {
+                                                                                    if06 = "CPAG20DOCIMPTRA"
+                                                                                + "|" + iddelpago.Trim()
+
+                                                                                + "|" + Tuuid.Trim()
+                                                                                + "|" + "002"
+                                                                                + "|" + "Tasa"
+                                                                                + "|" + "0.160000"
+                                                                                + "|" + totaliva
+                                                                                //+ "|" + retencion
+                                                                                + "|" + subtotalfinal.Trim()
+                                                                                + "|";
+                                                                                }
+                                                                                else
+                                                                                {
+                                                                                    if06 = "CPAG20DOCIMPTRA"
+                                                                                + "|" + iddelpago.Trim()
+
+                                                                                + "|" + Tuuid.Trim()
+                                                                                + "|" + "002"
+                                                                                + "|" + "Tasa"
+                                                                                + "|" + "0.160000"
+                                                                                + "|" + totaliva
+                                                                                //+ "|" + retencion
+                                                                                + "|" + subtotalfinal.Trim()
+                                                                                + "| \r\n";
+                                                                                }
+
+
+
+                                                                                if05 = "CPAG20DOCIMPRET"
+                                                                                + "|" + iddelpago.Trim()
+
+                                                                                + "|" + Tuuid.Trim()
+                                                                                + "|" + "001"
+                                                                                + "|" + "Tasa"
+                                                                                + "|" + "0.040000"
+                                                                                + "|" + totalisr
+                                                                                //+ "|" + iva.Trim()
+                                                                                + "|" + subtotalfinal.Trim()
+                                                                                + "| \r\n";
+
+
+                                                                                try
+                                                                                {
+                                                                                    importePagos37 = importePagos37 + Convert.ToDecimal(totalisr);
+                                                                                    rtisr = 1;
+
+                                                                                }
+                                                                                catch (Exception ex)
+                                                                                {
+                                                                                    string errors = ex.Message;
+                                                                                }
+
+
+
+                                                                                try
+                                                                                {
+                                                                                    importePagos38 = importePagos38 + Convert.ToDecimal(totaliva);
+                                                                                    rtiva = 1;
+                                                                                }
+                                                                                catch (Exception ex)
+                                                                                {
+                                                                                    string errors = ex.Message;
+                                                                                }
+
+
+
+
+
+
+                                                                                //AQUI TERMINA
+
+                                                                            }
+                                                                            if (nodeToFind == false && nodeToFind2 == true)
+                                                                            {
+                                                                                //AQUI VA EL CODIGO PARA FORMAR EL TXT DE TRASLADO Y RETENCION, TOTALES DEL TRASLADO Y RETENCIIONES
+                                                                                totalIva = (decimal)(ivaa * Convert.ToDouble(basecalculado));
+                                                                                totaliva = totalIva.ToString("F");
+                                                                                totalIsr = (decimal)(isrr * Convert.ToDouble(basecalculado));
+                                                                                totalisr = totalIsr.ToString("F");
+                                                                                if (totalmn == totalr)
+                                                                                {
+                                                                                    if05 = "CPAG20DOCIMPRET"
+                                                                                 + "|" + iddelpago.Trim()
+
+                                                                                 + "|" + Tuuid.Trim()
+                                                                                 + "|" + "001"
+                                                                                 + "|" + "Tasa"
+                                                                                 + "|" + "0.040000"
+                                                                                 + "|" + totalisr
+                                                                                 //+ "|" + iva.Trim()
+                                                                                 + "|" + basecalculado.Trim()
+                                                                                 + "|";
+                                                                                }
+                                                                                else
+                                                                                {
+                                                                                    if05 = "CPAG20DOCIMPRET"
+                                                                                + "|" + iddelpago.Trim()
+
+                                                                                + "|" + Tuuid.Trim()
+                                                                                + "|" + "001"
+                                                                                + "|" + "Tasa"
+                                                                                + "|" + "0.040000"
+                                                                                + "|" + totalisr
+                                                                                //+ "|" + iva.Trim()
+                                                                                + "|" + basecalculado.Trim()
+                                                                                + "| \r\n";
+
+                                                                                }
+                                                                                if06 = "";
+
+
+                                                                                try
+                                                                                {
+                                                                                    importePagos99 = importePagos99 + Convert.ToDecimal(totalisr);
+                                                                                    srtisr = 2;
+
+                                                                                }
+                                                                                catch (Exception ex)
+                                                                                {
+                                                                                    string errors = ex.Message;
+                                                                                }
+
+                                                                                //f07 = "CPAG20IMPRET"
+                                                                                //+ "|" + iddelpago.Trim()
+                                                                                //+ "|" + "001"
+                                                                                //+ "|" + TotaldeRe
+                                                                                //+ "|";
+                                                                                //f08 = "";
+
+
+                                                                                //AQUI TERMINA
+                                                                            }
+                                                                            if (nodeToFind == true && nodeToFind2 == false)
+                                                                            {
+                                                                                //AQUI VERIFICA LA MONEDA SI SON DOLARES
+
+
+                                                                                try
+                                                                                {
+                                                                                    subtotalf = (decimal)(Convert.ToDouble(basecalculado) / ivasolo);
+                                                                                    subtotalfinal = subtotalf.ToString("F");
+                                                                                    totalfinaliva4 = totalfinaliva4 + Convert.ToDecimal(subtotalfinal);
+                                                                                    totalfinaldeiva = totalfinaliva4.ToString("F");
+                                                                                }
+                                                                                catch (Exception ex)
+                                                                                {
+                                                                                    string errors = ex.Message;
+                                                                                }
+                                                                                totalIva = (decimal)(ivaa * Convert.ToDouble(subtotalfinal));
+                                                                                totaliva = totalIva.ToString("F");
+
+                                                                                if (totalmn == totalr)
+                                                                                {
+                                                                                    if06 = "CPAG20DOCIMPTRA"
+                                                                                + "|" + iddelpago.Trim()
+
+                                                                                + "|" + Tuuid.Trim()
+                                                                                + "|" + "002"
+                                                                                + "|" + "Tasa"
+                                                                                + "|" + "0.160000"
+                                                                                + "|" + totaliva
+                                                                                //+ "|" + retencion
+                                                                                + "|" + subtotalfinal.Trim()
+                                                                                + "|";
+                                                                                }
+                                                                                else
+                                                                                {
+                                                                                    if06 = "CPAG20DOCIMPTRA"
+                                                                                + "|" + iddelpago.Trim()
+
+                                                                                + "|" + Tuuid.Trim()
+                                                                                + "|" + "002"
+                                                                                + "|" + "Tasa"
+                                                                                + "|" + "0.160000"
+                                                                                + "|" + totaliva
+                                                                                //+ "|" + retencion
+                                                                                + "|" + subtotalfinal.Trim()
+                                                                                + "| \r\n";
+                                                                                }
+
+
+
+                                                                                if05 = "";
+
+
+
+
+
+                                                                                try
+                                                                                {
+                                                                                    importePagos88 = importePagos88 + Convert.ToDecimal(totaliva);
+                                                                                    srtiva = 3;
+                                                                                }
+                                                                                catch (Exception ex)
+                                                                                {
+                                                                                    string errors = ex.Message;
+                                                                                }
+
+                                                                                // FIN DOLARES
+
+
+
+
+
+                                                                            }
+
+                                                                            if (monedascpadgoc.Trim() == "USD")
+                                                                            {
+
+                                                                                cpagdoc = cpagdoc + (
+                                                                                                                                                                                                                                           "CPAG20DOC"                           //1-Tipo De Registro
+                                                                                                                                                     + "|" + iddelpago.Trim()                    //2-IdentificadorDelPago  
+                                                                                                                                                     + "|" + Tuuid.Trim()                        //3-IdentificadorDelDocumentoPagado                                              
+                                                                                                                                                     + "|" + serieinvoice.Trim()                 //4-Seriecpag
+                                                                                                                                                     + "|" + idcomprobante.Trim()                //5-Foliocpag
+                                                                                                                                                     + "|" + monedascpadgoc.Trim()               //6-Monedacpag
+                                                                                                                                                     + "|" + "1"                                      //7-Equivalencia
+                                                                                                                                                     + "|" + numerodeparcialidad.Trim()          //8-NumeroDeParcialidad
+                                                                                                                                                     + "|" + basecalculado.Trim()               //9-ImporteSaldoAnterior
+                                                                                                                                                     + "|" + basecalculado.Trim()                //10-ImportePagado                                                    
+                                                                                                                                                           + "|" + "0"                                            //12 ImporteSaldoInsoluto
+                                                                                                                                                           + "|" + "01"
+                                                                                                                                                           + "| \r\n");
+
+
+
+                                                                                usdmoneda = 1;
+                                                                            }
+                                                                            else
+                                                                            {
+                                                                                if (nodeToFind != false && nodeToFind2 != false)
+                                                                                {
+                                                                                    if (totalmn == totalr)
+                                                                                    {
+                                                                                        cpagdoc = cpagdoc + (
+                                                                              "CPAG20DOC"                           //1-Tipo De Registro
+                                                                        + "|" + iddelpago.Trim()                    //2-IdentificadorDelPago  
+                                                                        + "|" + Tuuid.Trim()                        //3-IdentificadorDelDocumentoPagado                                              
+                                                                        + "|" + serieinvoice.Trim()                 //4-Seriecpag
+                                                                        + "|" + idcomprobante.Trim()                //5-Foliocpag
+                                                                        + "|" + monedascpadgoc.Trim()               //6-Monedacpag
+                                                                        + "|" + "1"                                    //7-Equivalencia
+                                                                        + "|" + numerodeparcialidad.Trim()          //8-NumeroDeParcialidad
+                                                                        + "|" + basecalculado2.Trim()               //9-ImporteSaldoAnterior
+                                                                        + "|" + basecalculado.Trim()                //10-ImportePagado                                                  
+                                                                        + "|" + basecalculado3.Trim()               //11-ImporteSaldoInsoluto
+                                                                        + "|" + "02"                                //12-ObjetoDeImpuesto
+                                                                        + "| \r\n")
+                                                                        + if05
+                                                                        + if06;
+                                                                                    }
+                                                                                    else
+                                                                                    {
+                                                                                        cpagdoc = cpagdoc + (
+                                                                              "CPAG20DOC"                           //1-Tipo De Registro
+                                                                        + "|" + iddelpago.Trim()                    //2-IdentificadorDelPago  
+                                                                        + "|" + Tuuid.Trim()                        //3-IdentificadorDelDocumentoPagado                                              
+                                                                        + "|" + serieinvoice.Trim()                 //4-Seriecpag
+                                                                        + "|" + idcomprobante.Trim()                //5-Foliocpag
+                                                                        + "|" + monedascpadgoc.Trim()               //6-Monedacpag
+                                                                        + "|" + "1"                                    //7-Equivalencia
+                                                                        + "|" + numerodeparcialidad.Trim()          //8-NumeroDeParcialidad
+                                                                        + "|" + basecalculado2.Trim()               //9-ImporteSaldoAnterior
+                                                                        + "|" + basecalculado.Trim()                //10-ImportePagado                                                  
+                                                                        + "|" + basecalculado3.Trim()               //11-ImporteSaldoInsoluto
+                                                                        + "|" + "02"                                //12-ObjetoDeImpuesto
+                                                                        + "| \r\n")
+                                                                        + if05
+                                                                        + if06;
+                                                                                    }
+                                                                                }
+                                                                                if (nodeToFind == false && nodeToFind2 == true)
+                                                                                {
+                                                                                    cpagdoc = cpagdoc + (
+                                                                              "CPAG20DOC"                           //1-Tipo De Registro
+                                                                        + "|" + iddelpago.Trim()                    //2-IdentificadorDelPago  
+                                                                        + "|" + Tuuid.Trim()                        //3-IdentificadorDelDocumentoPagado                                              
+                                                                        + "|" + serieinvoice.Trim()                 //4-Seriecpag
+                                                                        + "|" + idcomprobante.Trim()                //5-Foliocpag
+                                                                        + "|" + monedascpadgoc.Trim()               //6-Monedacpag
+                                                                        + "|" + "1"                                     //7-Equivalencia
+                                                                        + "|" + numerodeparcialidad.Trim()          //8-NumeroDeParcialidad
+                                                                        + "|" + basecalculado2.Trim()               //9-ImporteSaldoAnterior
+                                                                        + "|" + basecalculado.Trim()                //10-ImportePagado                                                  
+                                                                        + "|" + basecalculado3.Trim()               //11-ImporteSaldoInsoluto
+                                                                        + "|" + "02"                                //12-ObjetoDeImpuesto
+                                                                        + "| \r\n")
+                                                                        + if05;
+
+                                                                                }
+                                                                                if (nodeToFind == true && nodeToFind2 == false)
+                                                                                {
+                                                                                    cpagdoc = cpagdoc + (
+                                                                              "CPAG20DOC"                           //1-Tipo De Registro
+                                                                        + "|" + iddelpago.Trim()                    //2-IdentificadorDelPago  
+                                                                        + "|" + Tuuid.Trim()                        //3-IdentificadorDelDocumentoPagado                                              
+                                                                        + "|" + serieinvoice.Trim()                 //4-Seriecpag
+                                                                        + "|" + idcomprobante.Trim()                //5-Foliocpag
+                                                                        + "|" + monedascpadgoc.Trim()               //6-Monedacpag
+                                                                        + "|" + "1"                                     //7-Equivalencia
+                                                                        + "|" + numerodeparcialidad.Trim()          //8-NumeroDeParcialidad
+                                                                        + "|" + basecalculado2.Trim()               //9-ImporteSaldoAnterior
+                                                                        + "|" + basecalculado.Trim()                //10-ImportePagado                                                  
+                                                                        + "|" + basecalculado3.Trim()               //11-ImporteSaldoInsoluto
+                                                                        + "|" + "02"                                //12-ObjetoDeImpuesto
+                                                                        + "| \r\n")
+                                                                        + if06;
+                                                                                }
+
+                                                                            }
+
+                                                                        }
+
+                                                                    }
+                                                                }
+
+                                                            }
+                                                        }
+
+                                                    }
+
+                                                }
+                                                if (uid == "" && serieinvoice == "TDRA")
+                                                {
+                                                    int fl = Int32.Parse(folio);
+                                                    var request23 = (HttpWebRequest)WebRequest.Create("https://canal1.xsa.com.mx:9050/bf2e1036-ba47-49a0-8cd9-e04b36d5afd4/cfdis?folioEspecifico=" + fl + "&serie=" + "SAEM");
+                                                    var response23 = (HttpWebResponse)request23.GetResponse();
+                                                    var responseString23 = new StreamReader(response23.GetResponseStream()).ReadToEndAsync();
+
+                                                    List<ModelFact> separados23 = JsonConvert.DeserializeObject<List<ModelFact>>(await responseString23);
+
+                                                    foreach (var item23 in separados23)
+                                                    {
+                                                        uid = item23.uuid;
+
+
+                                                        string UUID = item23.xmlDownload;
+
+                                                        XmlDocument xDoc = new XmlDocument();
+                                                        xDoc.Load("https://canal1.xsa.com.mx:9050" + UUID);
+                                                        var xmlTexto = xDoc.InnerXml.ToString();
+                                                        DataSet dataSet1 = new DataSet();
+                                                        XmlTextReader xtr = new XmlTextReader(xDoc.OuterXml, XmlNodeType.Element, null);
+                                                        dataSet1.ReadXml(xtr);
+                                                        if (xmlTexto.Contains("MetodoPago=\"PPD\""))
+                                                        {
+                                                            MetdodoPago = "PPD";
+                                                            contadorPPD++;
+                                                        }
+                                                        else if (xmlTexto.Contains("MetodoPago=\"PUE\""))
+                                                        {
+                                                            txtMetodoPago.Text = "PUE";
+                                                            MetdodoPago = "PUE";
+                                                            contadorPUE++;
+                                                        }
+
+                                                    }
+                                                }
+                                                //ME FALTA ESTA DE PROBAR Y GENERAR TXT
+
+
+                                            }
+
+
+
+
+
+
+
+
+
+                                        }
+                                    }
+                                    totalmn++;
+
+                                }
+                                decimal totald = importePagos2 + importePagos22 + importePagos7 + importePagos4 + importePagos23 + importePagos24;
+
+                                txtTotal.Text = totald.ToString("F");
+
+                                totaldedolares = (decimal)(Convert.ToDouble(tipodecambiocpagd) * Convert.ToDouble(txtTotal.Text));
+                                totaenpesos = totaldedolares.ToString("F");
+
+
+                                decimal sumatotaliva = totalfinaliva1 + totalfinaliva2 + totalfinaliva3 + totalfinaliva4 + totalfinaliva5 + totalfinaliva6;
+                                decimal.Round(sumatotaliva);
+                                totalfinaldeiva = sumatotaliva.ToString("F");
+
+
+
+
+                                try
+                                {
+                                    decimal totalRet = importePagos37 + importePagos77 + importePagos97 + importePagos99 + importePagos57 + importePagos67;
+                                    TotaldeRe = totalRet.ToString();
+
+                                    decimal totalTrasl = importePagos38 + importePagos78 + importePagos88 + importePagos98 + importePagos58 + importePagos68;
+                                    TotaldeIva = totalTrasl.ToString();
+
+                                }
+                                catch (Exception ex)
+                                {
+                                    string errors = ex.Message;
+                                }
+
+                                if (nodeToFind == true && nodeToFind2 == true)
+                                {
+
+                                    f07 = "CPAG20IMPRET"
+                                     + "|" + iddelpago.Trim()
+                                     + "|" + "001"
+                                     + "|" + TotaldeRe
+                                     + "|";
+
+
+
                                     f08 = "CPAG20IMPTRA"
                                     + "|" + iddelpago.Trim()
                                     + "|" + "002"
@@ -2033,1315 +5140,1400 @@ namespace CARGAR_EXCEL
                                     + "|" + TotaldeIva
                                     + "|" + totalfinaldeiva.Trim()
                                     + "|";
+
+
+                                    decimal subtotalpre = (decimal)(Convert.ToDouble(txtTotal.Text) / ivaretencion);
+                                    decimal totalredondo = decimal.Round(subtotalpre, 2);
+                                    subtotalfinal = totalredondo.ToString("F");
                                 }
-                                if (usdmoneda == 1)
+                                if (nodeToFind == true && nodeToFind2 == false)
                                 {
-                                    f07 = "";
-                                    f08 = "";
+                                    //Aqui va el IF si tienen IVA e ISR los folios anteriores
+                                    //Se agrega totalIVA Y totalISR
+                                    if (rtiva == 1 && rtisr == 1)
+                                    {
+                                        f07 = "CPAG20IMPRET"
+                                        + "|" + iddelpago.Trim()
+                                        + "|" + "001"
+                                        + "|" + TotaldeRe
+                                        + "|";
+                                        f08 = "CPAG20IMPTRA"
+                                        + "|" + iddelpago.Trim()
+                                        + "|" + "002"
+                                        + "|" + "Tasa"
+                                        + "|" + "0.160000"
+                                        + "|" + TotaldeIva
+                                        + "|" + totalfinaldeiva.Trim()
+                                        + "|";
+                                        decimal subtotalpre = (decimal)(Convert.ToDouble(txtTotal.Text) / ivaretencion);
+                                        decimal totalredondo = decimal.Round(subtotalpre, 2);
+                                        subtotalfinal = totalredondo.ToString("F");
+                                    }
+                                    else
+                                    {
+                                        if (usdmoneda == 1)
+                                        {
+                                            f07 = "";
+                                            f08 = "";
+
+                                        }
+                                        else
+                                        {
+                                            f08 = "CPAG20IMPTRA"
+                                            + "|" + iddelpago.Trim()
+                                            + "|" + "002"
+                                            + "|" + "Tasa"
+                                            + "|" + "0.160000"
+                                            + "|" + TotaldeIva
+                                            + "|" + totalfinaldeiva.Trim()
+                                            + "|";
+                                        }
+                                        if (srtiva == 3)
+                                        {
+                                            TotaldeRe = "0.00";
+                                            decimal subtotalpre = (decimal)(Convert.ToDouble(txtTotal.Text) / ivasolo);
+                                            decimal totalredondo = decimal.Round(subtotalpre, 2);
+                                            subtotalfinal = totalredondo.ToString("F");
+
+                                        }
+                                    }
+
+
+
+
                                 }
-                                else
+                                if (nodeToFind == false && nodeToFind2 == true)
                                 {
-                                    f07 = "CPAG20IMPRET"
-                                + "|" + iddelpago.Trim()
-                                + "|" + "001"
-                                + "|" + TotaldeRe
-                                + "|";
+                                    //Aqui va el IF si tienen IVA e ISR los folios anteriores
+                                    //Se agrega totalIVA Y totalISR
+                                    if (rtiva == 1 && rtisr == 1)
+                                    {
+                                        f07 = "CPAG20IMPRET"
+                                        + "|" + iddelpago.Trim()
+                                        + "|" + "001"
+                                        + "|" + TotaldeRe
+                                        + "|";
+                                        f08 = "CPAG20IMPTRA"
+                                        + "|" + iddelpago.Trim()
+                                        + "|" + "002"
+                                        + "|" + "Tasa"
+                                        + "|" + "0.160000"
+                                        + "|" + TotaldeIva
+                                        + "|" + totalfinaldeiva.Trim()
+                                        + "|";
+                                    }
+                                    if (usdmoneda == 1)
+                                    {
+                                        f07 = "";
+                                        f08 = "";
+                                    }
+                                    else
+                                    {
+                                        f07 = "CPAG20IMPRET"
+                                    + "|" + iddelpago.Trim()
+                                    + "|" + "001"
+                                    + "|" + TotaldeRe
+                                    + "|";
+                                    }
+
                                 }
+
+
+
 
                             }
+                            //else
+                            //{
+                            //    //PRIMER FILTRO - PENDIENTE DE PRUEBA
+                            //    var request28 = (HttpWebRequest)WebRequest.Create("https://canal1.xsa.com.mx:9050/bf2e1036-ba47-49a0-8cd9-e04b36d5afd4/cfdis?folioEspecifico=" + row["IdentificadorDelPago"].ToString() + "&rfc=" + txtRFC.Text);
+                            //    var response28 = (HttpWebResponse)request28.GetResponse();
+                            //    var responseString28 = new StreamReader(response28.GetResponseStream()).ReadToEndAsync();
+
+
+                            //    List<ModelFact> separados8 = JsonConvert.DeserializeObject<List<ModelFact>>(await responseString28);
+
+                            //    if (separados8 != null)
+                            //    {
+                            //        foreach (var item in separados8)
+                            //        {
+
+
+                            //            string UUID = item.xmlDownload;
+
+                            //            XmlDocument xDoc = new XmlDocument();
+                            //            xDoc.Load("https://canal1.xsa.com.mx:9050" + UUID);
+                            //            var xmlTexto = xDoc.InnerXml.ToString();
+                            //            DataSet dataSet1 = new DataSet();
+                            //            XmlTextReader xtr = new XmlTextReader(xDoc.OuterXml, XmlNodeType.Element, null);
+                            //            dataSet1.ReadXml(xtr);
+                            //            foreach (DataRow rowCC in (InternalDataCollectionBase)dataSet1.Tables["Comprobante"].Rows)
+                            //            {
+                            //                lugarexpedicion = rowCC["LugarExpedicion"].ToString();
+                            //                //tipocomprobante = rowCC["TipoDeComprobante"].ToString();
+                            //                //tipodecambiocpag = rowCC["TipoCambio"].ToString();
+                            //                //total = rowCC["Total"].ToString();
+                            //                monedascpadgoc = rowCC["Moneda"].ToString();
+                            //                //formadepago = rowCC["FormaPago"].ToString();
+                            //                if (formadepago == null || formadepago == "99") { formadepago = row["Formadepagocpag"].ToString(); }
+                            //                else { formadepago = row["Formadepagocpag"].ToString(); }
+                            //                //string Ccertificado = rowCC["Certificado"].ToString();
+                            //                //string Cnocertificado = rowCC["NoCertificado"].ToString();
+                            //                //string Csello = rowCC["Sello"].ToString();
+
+                            //                idcomprobante = rowCC["Folio"].ToString();
+                            //                serie = rowCC["Serie"].ToString();
+                            //            }
+                            //            foreach (DataRow rowsr in (InternalDataCollectionBase)dataSet1.Tables["Conceptos"].Rows)
+                            //            {
+                            //                foreach (DataRow rowsrc in (InternalDataCollectionBase)dataSet1.Tables["Concepto"].Rows)
+                            //                {
+                            //                    importe = rowsrc["Importe"].ToString();
+                            //                    valorunitario = rowsrc["ValorUnitario"].ToString();
+                            //                    //descripcion = rowsrc["Descripcion"].ToString();
+                            //                    //claveunidad = rowsrc["ClaveUnidad"].ToString();
+                            //                    //cantidad = rowsrc["Cantidad"].ToString();
+                            //                    //claveproductoservicio = rowsrc["ClaveProdServ"].ToString();
+                            //                }
+                            //            }
+                            //            foreach (DataRow rowsr1 in (InternalDataCollectionBase)dataSet1.Tables["Complemento"].Rows)
+                            //            {
+                            //                foreach (DataRow rowsrcts in dataSet1.Tables["Pagos"].Rows)
+                            //                {
+                            //                    foreach (DataRow rowsrctp in dataSet1.Tables["Pago"].Rows)
+                            //                    {
+                            //                        formadepago = rowsrctp["FormaDePagoP"].ToString();
+                            //                        if (formadepago == null || formadepago == "99") { formadepago = row["Formadepagocpag"].ToString(); }
+                            //                        else { formadepago = row["Formadepagocpag"].ToString(); }
+                            //                        foreach (DataRow rowsrctpr in dataSet1.Tables["DoctoRelacionado"].Rows)
+                            //                        {
+                            //                            folio = rowsrctpr["Folio"].ToString();
+                            //                            Dserie = rowsrctpr["Serie"].ToString();
+                            //                            isaldoinsoluto = rowsrctpr["ImpSaldoInsoluto"].ToString();
+                            //                            if (isaldoinsoluto == "") { isaldoinsoluto = "0.00"; }
+                            //                            else { isaldoinsoluto = rowsrctpr["ImpSaldoInsoluto"].ToString(); }
+                            //                            ipagado = rowsrctpr["ImpPagado"].ToString();
+                            //                            interiorsaldoanterior = rowsrctpr["ImpSaldoAnt"].ToString();
+                            //                            nparcialidades = rowsrctpr["NumParcialidad"].ToString();
+                            //                            MetdodoPago = rowsrctpr["MetodoDePagoDR"].ToString();
+                            //                            monedascpadgoc = rowsrctpr["MonedaDR"].ToString();
+
+                            //                            IdentificadorDelDocumentoPagado = rowsrctpr["IdDocumento"].ToString();
+
+
+                            //                            uuidpagadas += IdentificadorDelDocumentoPagado + "\r\n";
+                            //                            Foliosrelacionados += "Serie: " + Dserie + " " + "Folio: " + folio + " " + "UUID: " + IdentificadorDelDocumentoPagado + "\r\n";
+
+                            //                            string receptor = txtIdCliente.Text.ToString().Trim();
+                            //                            string serieinvoice = "";
+                            //                            if (receptor.Equals("LIVERPOL") || receptor.Equals("LIVERDED") || receptor.Equals("ALMLIVER") || receptor.Equals("LIVERTIJ") || receptor.Equals("SFERALIV") || receptor.Equals("GLOBALIV") || receptor.Equals("SETRALIV") || receptor.Equals("FACTUMLV"))
+                            //                            {
+                            //                                serieinvoice = "TDRL";
+                            //                            }
+                            //                            else
+                            //                            {
+                            //                                serieinvoice = row["Seriecpag"].ToString();
+                            //                            }
+
+                            //                            if (folio.Length == 7 && folio.StartsWith("99"))
+                            //                            {
+                            //                                folio = folio.Substring(folio.Length - 6, 6);
+                            //                            }
+                            //                            else if (folio.Length == 8)
+                            //                            {
+                            //                                folio = folio.Substring(folio.Length - 7, 7);
+                            //                            }
+                            //                            folio = folio.Replace("-", "");
+                            //                            //validar con la serie el id de sucursal-serie
 
 
 
-                            
+                            //                            if (MetdodoPago == "PPD")
+                            //                            {
+
+                            //                                identpag = row["IdentificadorDelPago"].ToString();
+                            //                                //txtFechaIniOP.Text = "\r\n" +rowIdent["IdentificadorDelDocumentoPagado"].ToString();
+
+                            //                                //FolioUUIDTxt.Text += identpag;
+                            //                                try
+                            //                                {
+                            //                                    importePagos = importePagos + Convert.ToDecimal(ipagado);
+                            //                                    txtTotal.Text = importePagos.ToString();
+                            //                                }
+                            //                                catch (Exception ex)
+                            //                                {
+                            //                                    string errors = ex.Message;
+                            //                                }
+                            //                                if (monedascpadgoc.Trim() == "USD")
+                            //                                {
+
+
+
+                            //                                    cpagdoc = cpagdoc + ("CPAG20DOC"                           //1-Tipo De Registro
+                            //                                      + "|" + identpag                                       //2-IdentificadorDelPago
+                            //                                                                                             //+ "|" + rowIdent["IdentificadorDelDocumentoPagado"].ToString()                            //3-IdentificadorDelDocumentoPagado                                              
+                            //                                      + "|" + IdentificadorDelDocumentoPagado                                            //3-IdentificadorDelDocumentoPagado                                              
+                            //                                      + "|" + serieinvoice                                   //4-Seriecpag
+                            //                                      + "|" + folio                                      //5-Foliocpag
+                            //                                      + "|" + monedascpadgoc                                  //6-Monedacpag
+                            //                                      + "|"                                              //7-TipoCambiocpagdpc
+                            //                                      + "|" + MetdodoPago                             //8-MetodoDePago
+                            //                                      + "|" + nparcialidades                            //9-NumeroDeParcialidad
+                            //                                      + "|" + ipagado                                    //10-ImporteSaldoAnterior
+                            //                                      + "|" + ipagado                                    //11-ImportePagado                                                  
+                            //                                      + "|" + "0"                                            //12 ImporteSaldoInsoluto
+                            //                                      + "|" + "01"
+                            //                                      + "| \r\n");
+                            //                                }
+                            //                                else
+                            //                                {
+                            //                                    //----------------------------------------Seccion CPAG20PAGO -------------------------------------------------------------------
+
+                            //                                    //CPAG20PAGO (1:N)
+                            //                                    //escritor.WriteLine(
+                            //                                    //"CPAG20PAGO"                        //1-Tipo De Registro
+                            //                                    //+ "|" + identpag                    //2-IdentificadorDelPago
+                            //                                    //+ "|" + fechapago                   //3-FechaPago                                              
+                            //                                    //+ "|"  + formadepagocpag            //4-Forma de pago
+                            //                                    //+ "|" + moneda                      //5-Moneda
+                            //                                    //+ "|"                               //6-TipoDeCambiocpag
+                            //                                    //+ "|" + monto                       //7-Monto
+                            //                                    //+ "|"                               //8-NumeroOperacion
+                            //                                    //+ "|"                               //9-RFCEmisorCuentaOrdenante
+                            //                                    //+ "|"                               //10-Nombre del Banco
+                            //                                    //+ "|"                               //11-Número de Cuenta Ordenante
+                            //                                    //+ "|"                               //12-RFC Emisor Cuenta Beneficiario
+                            //                                    //+ "|"                               //13-Número de Cuenta Beneficiario
+                            //                                    //+ "|"                               //14-Tipo Cadena Pago
+                            //                                    //+ "|"                               //15-Certificado Pago
+                            //                                    //+ "|"                               //16-Cadena Pago
+                            //                                    //+ "|"                               //17-Sello de Pago                                                                                                 
+                            //                                    //+ "|"                               //Fin Del Registro
+                            //                                    //);
+
+                            //                                    //escrituraFactura += "CPAG20PAGO"    //1-Tipo De Registro
+                            //                                    //+ "|" + identpag                    //2-IdentificadorDelPago
+                            //                                    //+ "|" + fechapago                   //3-FechaPago                                              
+                            //                                    //+ "|"  + formadepagocpag            //4-Forma de pago
+                            //                                    //+ "|" + moneda                      //5-Moneda
+                            //                                    //+ "|"                               //6-TipoDeCambiocpag
+                            //                                    //+ "|" + monto                       //7-Monto
+                            //                                    //+ "|"                               //8-NumeroOperacion
+                            //                                    //+ "|"                               //9-RFCEmisorCuentaOrdenante
+                            //                                    //+ "|"                               //10-Nombre del Banco
+                            //                                    //+ "|"                               //11-Número de Cuenta Ordenante
+                            //                                    //+ "|"                               //12-RFC Emisor Cuenta Beneficiario
+                            //                                    //+ "|"                               //13-Número de Cuenta Beneficiario
+                            //                                    //+ "|"                               //14-Tipo Cadena Pago
+                            //                                    //+ "|"                               //15-Certificado Pago
+                            //                                    //+ "|"                               //16-Cadena Pago
+                            //                                    //+ "|"                               //17-Sello de Pago                                                                                                 
+                            //                                    //+ "|";                               //Fin Del Registro
+                            //                                    // -------------------------- CPAG20DOC ------------------------------------------
+                            //                                    //cpagdoc = cpagdoc + ("CPAG20DOC"                       //1-Tipo De Registro
+                            //                                    //+ "|" + identpag                                       //2-IdentificadorDelPago
+                            //                                    //+ "|" + rowIdent["IdentificadorDelDocumentoPagado"].ToString()                            //3-IdentificadorDelDocumentoPagado                                              
+                            //                                    //+ "|" + uid                            //3-IdentificadorDelDocumentoPagado                                              
+                            //                                    //+ "|" + serieinvoice                                      //4-Seriecpag
+                            //                                    //+ "|" + foliocpag                                      //5-Foliocpag
+                            //                                    //+ "|" + monedacpagdoc                                  //6-Monedacpag
+                            //                                    //+ "|" + tipocambiocpag                                 //7-TipoCambiocpagdpc Equivalencia                          
+                            //                                    //+ "|" + numerodeparcialidad                            //9-NumeroDeParcialidad
+                            //                                    //+ "|" + importeSaldoAnterior                           //10-ImporteSaldoAnterior
+                            //                                    //+ "|" + importepago                                    //11-ImportePagado                                                  
+                            //                                    //+ "|" + importesaldoinsoluto                           //12 ImporteSaldoInsoluto
+                            //                                    //+ "| \r\n");
+
+
+                            //                                    cpagdoc = cpagdoc + ("CPAG20DOC"                                              //1-Tipo De Registro
+                            //                                      + "|" + identpag                                       //2-IdentificadorDelPago
+                            //                                                                                             //+ "|" + rowIdent["IdentificadorDelDocumentoPagado"].ToString()                            //3-IdentificadorDelDocumentoPagado                                              
+                            //                                      + "|" + IdentificadorDelDocumentoPagado                            //3-IdentificadorDelDocumentoPagado                                              
+                            //                                      + "|" + serieinvoice                                      //4-Seriecpag
+                            //                                      + "|" + folio                                      //5-Foliocpag
+                            //                                      + "|" + monedascpadgoc                                  //6-Monedacpag
+                            //                                      + "|" + tipodecambiocpag                                 //7-TipoCambiocpagdpc
+                            //                                      + "|" + MetdodoPago                             //8-MetodoDePago
+                            //                                      + "|" + nparcialidades                            //9-NumeroDeParcialidad
+                            //                                      + "|" + interiorsaldoanterior                           //10-ImporteSaldoAnterior
+                            //                                      + "|" + ipagado                                    //11-ImportePagado                                                  
+                            //                                      + "|" + isaldoinsoluto                           //12 ImporteSaldoInsoluto
+                            //                                      + "|" + "02"
+                            //                                      + "| \r\n");
+                            //                                }
+
+
+
+
+                            //                                //txtFechaIniOP.Text = txtFechaIniOP.Text + "\r\n" + rowIdent["IdentificadorDelDocumentoPagado"].ToString();
+                            //                                //txtFechaIniOP.Text = txtFechaIniOP.Text + "\r\n" + uid;
+                            //                                //FolioUUIDTxt.Text = FolioUUIDTxt.Text + "\r\n" + "Serie:" + serieinvoice + " Folio:" + folio + " UUID:" + uid;
+
+
+
+
+                            //                            }
+                            //                            else
+                            //                            {
+                            //                                string msg = "Error: Los folios relacionados no existen en el canal de Tralix";
+                            //                                formularioT.Visible = false;
+                            //                                Div1.Visible = true;
+                            //                                ScriptManager.RegisterStartupScript(this, GetType(), "swal", "swal('" + msg + "', 'Error con los folios relacionados ', 'error');setTimeout(function(){window.location.href ='Listado.aspx'}, 10000)", true);
+
+                            //                            }
+
+                            //                        }
+                            //                    }
+                            //                }
+                            //            }
+                            //        }
+
+                            //    }// FIN DEL IF SEPARADOS 8
+                            //    else
+                            //    {
+                            //        //CPADOC DESDE GP ----------------------
+                            //        DataTable detalleIdent = facLabControler.getDatosCPAGDOC(row["IdentificadorDelPago"].ToString());
+
+                            //        foreach (DataRow rowIdent in detalleIdent.Rows)
+                            //        {
+                            //            identificaciondpago = rowIdent["IdentificadorDelPago"].ToString();
+                            //            folioscpag = Regex.Replace(rowIdent["Foliocpag"].ToString().Replace("SM-", "").Trim(), @"[A-Z]", "");
+                            //            importepago = rowIdent["ImportePagado"].ToString();
+                            //            importeSaldoAnterior = rowIdent["ImporteSaldoAnterior"].ToString();
+                            //            if (importeSaldoAnterior == "") { importeSaldoAnterior = "0.00"; }
+                            //            else { importeSaldoAnterior = rowIdent["ImporteSaldoAnterior"].ToString(); }
+                            //            importesaldoinsoluto = rowIdent["ImporteSaldoInsoluto"].ToString();
+                            //            if (importesaldoinsoluto == "") { importesaldoinsoluto = "0.00"; }
+                            //            else { importesaldoinsoluto = rowIdent["ImporteSaldoInsoluto"].ToString(); }
+                            //            numerodeparcialidad = rowIdent["NumeroDeParcialidad"].ToString();
+                            //            tipocambiocpag = rowIdent["TipodeCambiocpagdpc"].ToString();
+                            //            DataTable detalleIdentt = facLabControler.getDatosCPAGDOCTRL(identificaciondpago, folioscpag);
+                            //            if (detalleIdentt.Rows.Count > 0)
+                            //            {
+                            //                foreach (DataRow rowIdentt in detalleIdentt.Rows)
+                            //                {
+                            //                    iipagado = rowIdentt["ActualApplyToAmount"].ToString();
+                            //                    basecalculo = Convert.ToDecimal(iipagado);
+                            //                    basecalculado = basecalculo.ToString("F");
+                            //                    folio = Regex.Replace(rowIdentt["K3"].ToString().Replace("TDR", "").Trim(), @"[A-Z]", "");
+
+                            //                    impSaldoAnterior = rowIdentt["ORTRXAMT"].ToString();
+                            //                    if (impSaldoAnterior == "") { impSaldoAnterior = "0.00"; }
+                            //                    else { impSaldoAnterior = rowIdentt["ORTRXAMT"].ToString(); }
+                            //                    basecalculo2 = Convert.ToDecimal(impSaldoAnterior);
+                            //                    basecalculado2 = basecalculo2.ToString("F");
+
+                            //                    impSaldoInsoluto = rowIdentt["CURTRXAM"].ToString();
+                            //                    if (impSaldoInsoluto == "") { impSaldoInsoluto = "0.00"; }
+                            //                    else { impSaldoInsoluto = rowIdentt["CURTRXAM"].ToString(); }
+                            //                    basecalculo3 = Convert.ToDecimal(impSaldoInsoluto);
+                            //                    basecalculado3 = basecalculo3.ToString("F");
+
+                            //                    //txtTotal.Text = importePagos.ToString();
+                            //                    //txtTotal.Text = rowIdent["ImportePagado"].ToString();
+                            //                    string receptor = txtIdCliente.Text.ToString().Trim();
+                            //                    string serieinvoice = "";
+                            //                    if (receptor.Equals("LIVERPOL") || receptor.Equals("LIVERDED") || receptor.Equals("ALMLIVER") || receptor.Equals("LIVERTIJ") || receptor.Equals("SFERALIV") || receptor.Equals("GLOBALIV") || receptor.Equals("SETRALIV") || receptor.Equals("FACTUMLV"))
+                            //                    {
+                            //                        serieinvoice = "TDRL";
+                            //                    }
+                            //                    else
+                            //                    {
+                            //                        serieinvoice = rowIdent["Seriecpag"].ToString();
+                            //                    }
+                            //                    folio = Regex.Replace(rowIdentt["K3"].ToString().Replace("TDR", "").Trim(), @"[A-Z]", "");
+                            //                    if (folio.Length == 7 && folio.StartsWith("99"))
+                            //                    {
+                            //                        folio = folio.Substring(folio.Length - 6, 6);
+                            //                    }
+                            //                    else if (folio.Length == 8)
+                            //                    {
+                            //                        folio = folio.Substring(folio.Length - 7, 7);
+                            //                    }
+                            //                    folio = folio.Replace("-", "");
+                            //                    //validar con la serie el id de sucursal-serie
+
+                            //                    MetdodoPago = "";
+
+                            //                    // FILTRO DE LA MASTER APROBADA
+                            //                    DataTable datosMaster = facLabControler.getDatosMaster(folio);
+                            //                    if (datosMaster.Rows.Count > 0)
+                            //                    {
+
+                            //                        foreach (DataRow rowMaster in datosMaster.Rows)
+                            //                        {
+                            //                            string invoiceMaster = Regex.Replace(rowMaster[0].ToString(), @"[A-Z]", "");
+                            //                            folio = invoiceMaster;
+
+                            //                            var request27 = (HttpWebRequest)WebRequest.Create("https://canal1.xsa.com.mx:9050/bf2e1036-ba47-49a0-8cd9-e04b36d5afd4/cfdis?folioEspecifico=" + invoiceMaster + "&serie=" + serieinvoice);
+                            //                            var response27 = (HttpWebResponse)request27.GetResponse();
+                            //                            var responseString27 = new StreamReader(response27.GetResponseStream()).ReadToEndAsync();
+
+                            //                            List<ModelFact> separados7 = JsonConvert.DeserializeObject<List<ModelFact>>(await responseString27);
+                            //                            if (separados7 != null)
+                            //                            {
+                            //                                foreach (var item in separados7)
+                            //                                {
+                            //                                    uid = item.uuid;
+                            //                                    serier = item.serie;
+                            //                                    folior = item.folio;
+                            //                                    uuidpagadas += uid + "\r\n";
+
+                            //                                    Foliosrelacionados += "Serie: " + serier + " " + "Folio: " + folior + " " + "UUID: " + uid + "\r\n";
+
+
+
+                            //                                    string UUID = item.xmlDownload;
+
+                            //                                    XmlDocument xDoc = new XmlDocument();
+                            //                                    xDoc.Load("https://canal1.xsa.com.mx:9050" + UUID);
+                            //                                    var xmlTexto = xDoc.InnerXml.ToString();
+                            //                                    DataSet dataSet1 = new DataSet();
+                            //                                    XmlTextReader xtr = new XmlTextReader(xDoc.OuterXml, XmlNodeType.Element, null);
+                            //                                    dataSet1.ReadXml(xtr);
+                            //                                    if (xmlTexto.Contains("MetodoPago=\"PPD\""))
+                            //                                    {
+                            //                                        MetdodoPago = "PPD";
+                            //                                        contadorPPD++;
+                            //                                    }
+                            //                                    else if (xmlTexto.Contains("MetodoPago=\"PUE\""))
+                            //                                    {
+                            //                                        txtMetodoPago.Text = "PUE";
+                            //                                        MetdodoPago = "PUE";
+                            //                                        contadorPUE++;
+                            //                                    }
+                            //                                    if (MetdodoPago == "PPD")
+                            //                                    {
+                            //                                        foreach (DataRow rowsr in (InternalDataCollectionBase)dataSet1.Tables["Conceptos"].Rows)
+                            //                                        {
+                            //                                            foreach (DataRow rowsrc in (InternalDataCollectionBase)dataSet1.Tables["Concepto"].Rows)
+                            //                                            {
+                            //                                                importe = rowsrc["Importe"].ToString();
+                            //                                                valorunitario = rowsrc["ValorUnitario"].ToString();
+                            //                                                try
+                            //                                                {
+                            //                                                    importePagos = importePagos + Convert.ToDecimal(importe);
+                            //                                                    importe = importePagos.ToString("F");
+
+                            //                                                    valorunitarios = valorunitarios + Convert.ToDecimal(valorunitario);
+                            //                                                    valorunitario = valorunitarios.ToString("F");
+                            //                                                }
+                            //                                                catch (Exception ex)
+                            //                                                {
+                            //                                                    string errors = ex.Message;
+                            //                                                }
+                            //                                                //importe = rowsrc["Importe"].ToString();
+                            //                                                //valorunitario = rowsrc["ValorUnitario"].ToString();
+                            //                                                //descripcion = rowsrc["Descripcion"].ToString();
+                            //                                                //claveunidad = rowsrc["ClaveUnidad"].ToString();
+                            //                                                //cantidad = rowsrc["Cantidad"].ToString();
+                            //                                                //claveproductoservicio = rowsrc["ClaveProdServ"].ToString();
+                            //                                            }
+                            //                                        }
+                            //                                        foreach (DataRow rowCC in (InternalDataCollectionBase)dataSet1.Tables["Comprobante"].Rows)
+                            //                                        {
+                            //                                            lugarexpedicion = rowCC["LugarExpedicion"].ToString();
+                            //                                            //tipocomprobante = rowCC["TipoDeComprobante"].ToString();
+                            //                                            //total = rowCC["Total"].ToString();
+                            //                                            monedascpadgoc = rowCC["Moneda"].ToString();
+                            //                                            formadepago = rowCC["FormaPago"].ToString();
+                            //                                            if (formadepago == null || formadepago == "99") { formadepago = row["Formadepagocpag"].ToString(); }
+                            //                                            else { formadepago = row["Formadepagocpag"].ToString(); }
+                            //                                            //string Ccertificado = rowCC["Certificado"].ToString();
+                            //                                            //string Cnocertificado = rowCC["NoCertificado"].ToString();
+                            //                                            //string Csello = rowCC["Sello"].ToString();
+                            //                                            //tipocambiocpag = rowCC["TipoCambio"].ToString();
+                            //                                            idcomprobante = rowCC["Folio"].ToString();
+                            //                                            serie = rowCC["Serie"].ToString();
+                            //                                        }
+                            //                                        foreach (DataRow rowsr1 in (InternalDataCollectionBase)dataSet1.Tables["Complemento"].Rows)
+                            //                                        {
+                            //                                            foreach (DataRow rowsrct in (InternalDataCollectionBase)dataSet1.Tables["TimbreFiscalDigital"].Rows)
+                            //                                            {
+                            //                                                string Trfcprovcertif = rowsrct["RfcProvCertif"].ToString();
+                            //                                                string Tsellosat = rowsrct["SelloSAT"].ToString();
+                            //                                                string Tsellocfd = rowsrct["SelloCFD"].ToString();
+                            //                                                string Tnocertidicadosat = rowsrct["NoCertificadoSAT"].ToString();
+                            //                                                Tuuid = rowsrct["UUID"].ToString();
+                            //                                                string Tfechatimbrado = rowsrct["FechaTimbrado"].ToString();
+
+
+
+                            //                                            }
+                            //                                        }
+                            //                                        //FolioUUIDTxt.Text += identpag;
+                            //                                        try
+                            //                                        {
+                            //                                            importePagos2 = importePagos2 + Convert.ToDecimal(total);
+                            //                                            txtTotal.Text = importePagos2.ToString();
+                            //                                        }
+                            //                                        catch (Exception ex)
+                            //                                        {
+                            //                                            string errors = ex.Message;
+                            //                                        }
+
+                            //                                        if (monedascpadgoc.Trim() == "USD")
+                            //                                        {
+                            //                                            try
+                            //                                            {
+                            //                                                importePagos22 = importePagos22 + Convert.ToDecimal(basecalculado);
+                            //                                                txtTotal.Text = importePagos22.ToString();
+                            //                                            }
+                            //                                            catch (Exception ex)
+                            //                                            {
+                            //                                                string errors = ex.Message;
+                            //                                            }
+
+                            //                                            cpagdoc = cpagdoc + ("CPAG20DOC"                           //1-Tipo De Registro
+                            //                                               + "|" + iddelpago                                       //2-IdentificadorDelPago
+                            //                                                                                                       //+ "|" + rowIdent["IdentificadorDelDocumentoPagado"].ToString()                            //3-IdentificadorDelDocumentoPagado                                              
+                            //                                               + "|" + Tuuid                                            //3-IdentificadorDelDocumentoPagado                                              
+                            //                                               + "|" + serieinvoice                                   //4-Seriecpag
+                            //                                               + "|" + idcomprobante                                      //5-Foliocpag
+                            //                                               + "|" + monedascpadgoc                                  //6-Monedacpag
+                            //                                               + "|"  //+ tipocambiocpag                                       //7-TipoCambiocpagdpc
+
+                            //                                               + "|" + numerodeparcialidad                            //9-NumeroDeParcialidad
+                            //                                               + "|" + basecalculado.Trim()                                  //10-ImporteSaldoAnterior
+                            //                                               + "|" + basecalculado.Trim()                                  //11-ImportePagado                                                  
+                            //                                               + "|" + "0"                                            //12 ImporteSaldoInsoluto
+                            //                                               + "|" + "01"
+                            //                                               + "| \r\n");
+                            //                                        }
+                            //                                        else
+                            //                                        {
+                            //                                            cpagdoc = cpagdoc + ("CPAG20DOC"                           //1-Tipo De Registro
+                            //                                              + "|" + iddelpago                                       //2-IdentificadorDelPago
+                            //                                                                                                      //+ "|" + rowIdent["IdentificadorDelDocumentoPagado"].ToString()                            //3-IdentificadorDelDocumentoPagado                                              
+                            //                                              + "|" + Tuuid                                            //3-IdentificadorDelDocumentoPagado                                              
+                            //                                              + "|" + serieinvoice                                   //4-Seriecpag
+                            //                                              + "|" + idcomprobante                                      //5-Foliocpag
+                            //                                              + "|" + monedascpadgoc                                  //6-Monedacpag
+                            //                                              + "|" + tipocambiocpag                                             //7-TipoCambiocpagdpc
+                            //                                              + "|" + MetdodoPago                             //8-MetodoDePago
+                            //                                              + "|" + numerodeparcialidad                            //9-NumeroDeParcialidad
+                            //                                              + "|" + basecalculado2                                    //10-ImporteSaldoAnterior
+                            //                                              + "|" + basecalculado                                   //11-ImportePagado                                                  
+                            //                                              + "|" + basecalculado3                                            //12 ImporteSaldoInsoluto
+                            //                                              + "|" + "02"
+                            //                                              + "| \r\n");
+                            //                                        }
+                            //                                    }
+                            //                                    else
+                            //                                    {
+                            //                                        string msg = "Error: Los folios relacionados no existen en el canal de Tralix";
+                            //                                        formularioT.Visible = false;
+                            //                                        Div1.Visible = true;
+                            //                                        ScriptManager.RegisterStartupScript(this, GetType(), "swal", "swal('" + msg + "', 'Error con los folios relacionados ', 'error');setTimeout(function(){window.location.href ='Listado.aspx'}, 10000)", true);
+
+                            //                                    }
+
+
+                            //                                }
+                            //                            }
+
+
+                            //                        }
+
+                            //                    }
+
+                            //                    else
+                            //                    {
+
+                            //                        //3 FILTRO APROBADO
+                            //                        //AQUI TERMINA EL IF
+                            //                        k1 = rowIdentt["K1"].ToString();
+
+                            //                        k3 = Regex.Replace(rowIdentt["K3"].ToString().Replace("TDRM", "").Trim(), @"[A-Z]", "");
+                            //                        iipagado = rowIdentt["ActualApplyToAmount"].ToString();
+                            //                        basecalculo = Convert.ToDecimal(iipagado);
+                            //                        basecalculado = basecalculo.ToString("F");
+
+                            //                        var request281 = (HttpWebRequest)WebRequest.Create("https://canal1.xsa.com.mx:9050/bf2e1036-ba47-49a0-8cd9-e04b36d5afd4/cfdis?folioEspecifico=" + k3 + "&rfc=" + txtRFC.Text);
+                            //                        var response281 = (HttpWebResponse)request281.GetResponse();
+                            //                        var responseString281 = new StreamReader(response281.GetResponseStream()).ReadToEndAsync();
+
+                            //                        List<ModelFact> separados81 = JsonConvert.DeserializeObject<List<ModelFact>>(await responseString281);
+
+                            //                        if (separados81 != null)
+                            //                        {
+                            //                            contadortralix = 1;
+                            //                            foreach (var item in separados81)
+                            //                            {
+                            //                                uid = item.uuid;
+                            //                                serier = item.serie;
+                            //                                folior = item.folio;
+                            //                                uuidpagadas += uid + "\r\n";
+
+                            //                                Foliosrelacionados += "Serie: " + serier + " " + "Folio: " + folior + " " + "UUID: " + uid + "\r\n";
+
+
+
+                            //                                string UUID = item.xmlDownload;
+
+                            //                                XmlDocument xDoc = new XmlDocument();
+                            //                                xDoc.Load("https://canal1.xsa.com.mx:9050" + UUID);
+                            //                                var xmlTexto = xDoc.InnerXml.ToString();
+                            //                                DataSet dataSet1 = new DataSet();
+                            //                                XmlTextReader xtr = new XmlTextReader(xDoc.OuterXml, XmlNodeType.Element, null);
+                            //                                dataSet1.ReadXml(xtr);
+                            //                                if (xmlTexto.Contains("MetodoPago=\"PPD\""))
+                            //                                {
+                            //                                    MetdodoPago = "PPD";
+                            //                                    contadorPPD++;
+                            //                                }
+                            //                                else if (xmlTexto.Contains("MetodoPago=\"PUE\""))
+                            //                                {
+                            //                                    txtMetodoPago.Text = "PUE";
+                            //                                    MetdodoPago = "PUE";
+                            //                                    contadorPUE++;
+                            //                                }
+                            //                                if (MetdodoPago == "PPD")
+                            //                                {
+                            //                                    foreach (DataRow rowsr in (InternalDataCollectionBase)dataSet1.Tables["Conceptos"].Rows)
+                            //                                    {
+                            //                                        foreach (DataRow rowsrc in (InternalDataCollectionBase)dataSet1.Tables["Concepto"].Rows)
+                            //                                        {
+                            //                                            importe = rowsrc["Importe"].ToString();
+                            //                                            valorunitario = rowsrc["ValorUnitario"].ToString();
+                            //                                            try
+                            //                                            {
+                            //                                                importePagos = importePagos + Convert.ToDecimal(importe);
+                            //                                                importe = importePagos.ToString("F");
+
+                            //                                                valorunitarios = valorunitarios + Convert.ToDecimal(valorunitario);
+                            //                                                valorunitario = valorunitarios.ToString("F");
+                            //                                            }
+                            //                                            catch (Exception ex)
+                            //                                            {
+                            //                                                string errors = ex.Message;
+                            //                                            }
+                            //                                            //descripcion = rowsrc["Descripcion"].ToString();
+                            //                                            //claveunidad = rowsrc["ClaveUnidad"].ToString();
+                            //                                            //cantidad = rowsrc["Cantidad"].ToString();
+                            //                                            //claveproductoservicio = rowsrc["ClaveProdServ"].ToString();
+                            //                                        }
+                            //                                    }
+                            //                                    foreach (DataRow rowCC in (InternalDataCollectionBase)dataSet1.Tables["Comprobante"].Rows)
+                            //                                    {
+                            //                                        lugarexpedicion = rowCC["LugarExpedicion"].ToString();
+                            //                                        //tipocomprobante = rowCC["TipoDeComprobante"].ToString();
+                            //                                        //total = rowCC["Total"].ToString();
+                            //                                        monedascpadgoc = rowCC["Moneda"].ToString();
+                            //                                        formadepago = rowCC["FormaPago"].ToString();
+                            //                                        if (formadepago == null || formadepago == "99") { formadepago = row["Formadepagocpag"].ToString(); }
+                            //                                        else { formadepago = row["Formadepagocpag"].ToString(); }
+                            //                                        //string Ccertificado = rowCC["Certificado"].ToString();
+                            //                                        //string Cnocertificado = rowCC["NoCertificado"].ToString();
+                            //                                        //string Csello = rowCC["Sello"].ToString();
+                            //                                        //tipocambiocpag = rowCC["TipoCambio"].ToString();
+
+                            //                                        idcomprobante = rowCC["Folio"].ToString();
+                            //                                        serie = rowCC["Serie"].ToString();
+                            //                                    }
+                            //                                    foreach (DataRow rowsr1 in (InternalDataCollectionBase)dataSet1.Tables["Complemento"].Rows)
+                            //                                    {
+                            //                                        foreach (DataRow rowsrct in (InternalDataCollectionBase)dataSet1.Tables["TimbreFiscalDigital"].Rows)
+                            //                                        {
+                            //                                            string Trfcprovcertif = rowsrct["RfcProvCertif"].ToString();
+                            //                                            string Tsellosat = rowsrct["SelloSAT"].ToString();
+                            //                                            string Tsellocfd = rowsrct["SelloCFD"].ToString();
+                            //                                            string Tnocertidicadosat = rowsrct["NoCertificadoSAT"].ToString();
+                            //                                            Tuuid = rowsrct["UUID"].ToString();
+                            //                                            string Tfechatimbrado = rowsrct["FechaTimbrado"].ToString();
+
+
+
+                            //                                        }
+                            //                                    }
+                            //                                    //FolioUUIDTxt.Text += identpag;
+                            //                                    try
+                            //                                    {
+                            //                                        importePagos7 = importePagos7 + Convert.ToDecimal(basecalculado);
+                            //                                        txtTotal.Text = importePagos7.ToString("F");
+                            //                                    }
+                            //                                    catch (Exception ex)
+                            //                                    {
+                            //                                        string errors = ex.Message;
+                            //                                    }
+                            //                                    if (monedascpadgoc.Trim() == "USD")
+                            //                                    {
+                            //                                        try
+                            //                                        {
+                            //                                            importePagos22 = importePagos22 + Convert.ToDecimal(basecalculado);
+                            //                                            txtTotal.Text = importePagos22.ToString();
+                            //                                        }
+                            //                                        catch (Exception ex)
+                            //                                        {
+                            //                                            string errors = ex.Message;
+                            //                                        }
+
+                            //                                        cpagdoc = cpagdoc + ("CPAG20DOC"                           //1-Tipo De Registro
+                            //                                              + "|" + iddelpago                                       //2-IdentificadorDelPago
+                            //                                                                                                      //+ "|" + rowIdent["IdentificadorDelDocumentoPagado"].ToString()                            //3-IdentificadorDelDocumentoPagado                                              
+                            //                                              + "|" + Tuuid                                            //3-IdentificadorDelDocumentoPagado                                              
+                            //                                              + "|" + serieinvoice                                   //4-Seriecpag
+                            //                                              + "|" + idcomprobante                                      //5-Foliocpag
+                            //                                              + "|" + monedascpadgoc                                  //6-Monedacpag
+                            //                                              + "|"  //+ tipocambiocpag                                       //7-TipoCambiocpagdpc
+
+                            //                                              + "|" + numerodeparcialidad                            //9-NumeroDeParcialidad
+                            //                                              + "|" + basecalculado.Trim()                                  //10-ImporteSaldoAnterior
+                            //                                              + "|" + basecalculado.Trim()                                  //11-ImportePagado                                                  
+                            //                                              + "|" + "0"                                            //12 ImporteSaldoInsoluto
+                            //                                              + "|" + "01"
+                            //                                              + "| \r\n");
+                            //                                    }
+                            //                                    else
+                            //                                    {
+                            //                                        cpagdoc = cpagdoc + ("CPAG20DOC"                           //1-Tipo De Registro
+                            //                                          + "|" + iddelpago.Trim()                                      //2-IdentificadorDelPago
+                            //                                                                                                        //+ "|" + rowIdent["IdentificadorDelDocumentoPagado"].ToString()                            //3-IdentificadorDelDocumentoPagado                                              
+                            //                                          + "|" + Tuuid.Trim()                                          //3-IdentificadorDelDocumentoPagado                                              
+                            //                                          + "|" + serieinvoice.Trim()                                  //4-Seriecpag
+                            //                                          + "|" + idcomprobante.Trim()                                     //5-Foliocpag
+                            //                                          + "|" + monedascpadgoc.Trim()                                //6-Monedacpag
+                            //                                          + "|" + tipocambiocpag                                             //7-TipoCambiocpagdpc
+                            //                                          + "|" + MetdodoPago.Trim()                            //8-MetodoDePago
+                            //                                          + "|" + numerodeparcialidad.Trim()                            //9-NumeroDeParcialidad
+                            //                                          + "|" + basecalculado2.Trim()                                  //10-ImporteSaldoAnterior
+                            //                                          + "|" + basecalculado.Trim()                                //11-ImportePagado                                                  
+                            //                                          + "|" + basecalculado3.Trim()                                            //12 ImporteSaldoInsoluto
+                            //                                          + "|" + "02"
+                            //                                          + "| \r\n");
+                            //                                    }
+
+
+                            //                                }
+                            //                                //else
+                            //                                //{
+                            //                                //    string msg = "Error: Los folios relacionados no existen en el canal de Tralix";
+                            //                                //    formularioT.Visible = false;
+                            //                                //    Div1.Visible = true;
+                            //                                //    ScriptManager.RegisterStartupScript(this, GetType(), "swal", "swal('" + msg + "', 'Error con los folios relacionados ', 'error');setTimeout(function(){window.location.href ='Listado.aspx'}, 10000)", true);
+
+                            //                                //}
+                            //                                //AQUI FALTA AGREGAR LO QUE TIENE EL XML Y FORMAR EL TXT
+
+                            //                            }
+
+                            //                        }
+
+                            //                        //ME FALTA ESTA DE PROBAR Y GENERAR TXT
+                            //                        else
+                            //                        {
+                            //                            DataTable invoiceresult = facLabControler.getDatosInvoice(k3);
+                            //                            if (invoiceresult.Rows.Count > 0)
+                            //                            {
+                            //                                foreach (DataRow rowInvoice in invoiceresult.Rows)
+                            //                                {
+
+                            //                                    norden = rowInvoice["ord_hdrnumber"].ToString();
+                            //                                    DataTable segmentoresult = facLabControler.getDatosSegmentos(norden);
+                            //                                    foreach (DataRow seg in segmentoresult.Rows)
+                            //                                    {
+                            //                                        string Segmento = seg["Segmento"].ToString();
+
+                            //                                        var request2819 = (HttpWebRequest)WebRequest.Create("https://canal1.xsa.com.mx:9050/bf2e1036-ba47-49a0-8cd9-e04b36d5afd4/cfdis?folioEspecifico=" + Segmento + "&rfc=" + txtRFC.Text);
+                            //                                        var response2819 = (HttpWebResponse)request2819.GetResponse();
+                            //                                        var responseString2819 = new StreamReader(response2819.GetResponseStream()).ReadToEndAsync();
+
+                            //                                        List<ModelFact> separados819 = JsonConvert.DeserializeObject<List<ModelFact>>(await responseString2819);
+
+                            //                                        if (separados819 != null)
+                            //                                        {
+                            //                                            foreach (var item in separados819)
+                            //                                            {
+                            //                                                string uuid = item.uuid;
+                            //                                                string xmld = item.xmlDownload;
+                            //                                                serieinvoice = item.serie;
+
+                            //                                                uid = item.uuid;
+                            //                                                serier = item.serie;
+                            //                                                folior = item.folio;
+                            //                                                uuidpagadas += uid + "\r\n";
+
+                            //                                                Foliosrelacionados += "Serie: " + serier + " " + "Folio: " + folior + " " + "UUID: " + uid + "\r\n";
+
+                            //                                                XmlDocument xDoc = new XmlDocument();
+                            //                                                xDoc.Load("https://canal1.xsa.com.mx:9050" + xmld);
+                            //                                                var xmlTexto = xDoc.InnerXml.ToString();
+                            //                                                DataSet dataSet1 = new DataSet();
+                            //                                                XmlTextReader xtr = new XmlTextReader(xDoc.OuterXml, XmlNodeType.Element, null);
+                            //                                                dataSet1.ReadXml(xtr);
+
+                            //                                                if (xmlTexto.Contains("MetodoPago=\"PPD\""))
+                            //                                                {
+                            //                                                    MetdodoPago = "PPD";
+                            //                                                    contadorPPD++;
+                            //                                                }
+                            //                                                else if (xmlTexto.Contains("MetodoPago=\"PUE\""))
+                            //                                                {
+                            //                                                    txtMetodoPago.Text = "PUE";
+                            //                                                    MetdodoPago = "PUE";
+                            //                                                    contadorPUE++;
+                            //                                                }
+                            //                                                if (MetdodoPago == "PPD")
+                            //                                                {
+
+                            //                                                    foreach (DataRow rowsr in (InternalDataCollectionBase)dataSet1.Tables["Conceptos"].Rows)
+                            //                                                    {
+                            //                                                        foreach (DataRow rowsrc in (InternalDataCollectionBase)dataSet1.Tables["Concepto"].Rows)
+                            //                                                        {
+                            //                                                            importe = rowsrc["Importe"].ToString();
+                            //                                                            valorunitario = rowsrc["ValorUnitario"].ToString();
+                            //                                                            try
+                            //                                                            {
+                            //                                                                importePagos3 = importePagos3 + Convert.ToDecimal(importe);
+                            //                                                                importe = importePagos3.ToString("F");
+
+                            //                                                                valorunitarios = valorunitarios + Convert.ToDecimal(valorunitario);
+                            //                                                                valorunitario = valorunitarios.ToString("F");
+                            //                                                            }
+                            //                                                            catch (Exception ex)
+                            //                                                            {
+                            //                                                                string errors = ex.Message;
+                            //                                                            }
+
+                            //                                                            //descripcion = rowsrc["Descripcion"].ToString();
+                            //                                                            //claveunidad = rowsrc["ClaveUnidad"].ToString();
+                            //                                                            //cantidad = rowsrc["Cantidad"].ToString();
+                            //                                                            //claveproductoservicio = rowsrc["ClaveProdServ"].ToString();
+                            //                                                        }
+                            //                                                    }
+                            //                                                    foreach (DataRow rowCC in (InternalDataCollectionBase)dataSet1.Tables["Comprobante"].Rows)
+                            //                                                    {
+                            //                                                        lugarexpedicion = rowCC["LugarExpedicion"].ToString();
+                            //                                                        //tipocomprobante = rowCC["TipoDeComprobante"].ToString();
+                            //                                                        total = rowCC["Total"].ToString();
+                            //                                                        monedascpadgoc = rowCC["Moneda"].ToString();
+                            //                                                        formadepago = rowCC["FormaPago"].ToString();
+                            //                                                        if (formadepago == null || formadepago == "99") { formadepago = row["Formadepagocpag"].ToString(); }
+                            //                                                        else { formadepago = row["Formadepagocpag"].ToString(); }
+                            //                                                        //string Ccertificado = rowCC["Certificado"].ToString();
+                            //                                                        //string Cnocertificado = rowCC["NoCertificado"].ToString();
+                            //                                                        //string Csello = rowCC["Sello"].ToString();
+                            //                                                        //tipocambiocpag = rowCC["TipoCambio"].ToString();
+                            //                                                        idcomprobante = rowCC["Folio"].ToString();
+                            //                                                        serie = rowCC["Serie"].ToString();
+                            //                                                    }
+                            //                                                    foreach (DataRow rowsr1 in (InternalDataCollectionBase)dataSet1.Tables["Complemento"].Rows)
+                            //                                                    {
+                            //                                                        foreach (DataRow rowsrct in (InternalDataCollectionBase)dataSet1.Tables["TimbreFiscalDigital"].Rows)
+                            //                                                        {
+                            //                                                            string Trfcprovcertif = rowsrct["RfcProvCertif"].ToString();
+                            //                                                            string Tsellosat = rowsrct["SelloSAT"].ToString();
+                            //                                                            string Tsellocfd = rowsrct["SelloCFD"].ToString();
+                            //                                                            string Tnocertidicadosat = rowsrct["NoCertificadoSAT"].ToString();
+                            //                                                            Tuuid = rowsrct["UUID"].ToString();
+                            //                                                            string Tfechatimbrado = rowsrct["FechaTimbrado"].ToString();
+
+
+
+                            //                                                        }
+                            //                                                    }
+                            //                                                    //FolioUUIDTxt.Text += identpag;
+                            //                                                    try
+                            //                                                    {
+                            //                                                        importePagos4 = importePagos4 + Convert.ToDecimal(basecalculado);
+                            //                                                        txtTotal.Text = importePagos4.ToString();
+                            //                                                    }
+                            //                                                    catch (Exception ex)
+                            //                                                    {
+                            //                                                        string errors = ex.Message;
+                            //                                                    }
+                            //                                                    if (monedascpadgoc.Trim() == "USD")
+                            //                                                    {
+                            //                                                        try
+                            //                                                        {
+                            //                                                            importePagos22 = importePagos22 + Convert.ToDecimal(basecalculado);
+                            //                                                            txtTotal.Text = importePagos22.ToString();
+                            //                                                        }
+                            //                                                        catch (Exception ex)
+                            //                                                        {
+                            //                                                            string errors = ex.Message;
+                            //                                                        }
+
+                            //                                                        cpagdoc = cpagdoc + ("CPAG20DOC"                           //1-Tipo De Registro
+                            //                                                          + "|" + iddelpago                                       //2-IdentificadorDelPago
+                            //                                                                                                                  //+ "|" + rowIdent["IdentificadorDelDocumentoPagado"].ToString()                            //3-IdentificadorDelDocumentoPagado                                              
+                            //                                                          + "|" + Tuuid                                            //3-IdentificadorDelDocumentoPagado                                              
+                            //                                                          + "|" + serieinvoice                                   //4-Seriecpag
+                            //                                                          + "|" + idcomprobante                                      //5-Foliocpag
+                            //                                                          + "|" + monedascpadgoc                                  //6-Monedacpag
+                            //                                                          + "|"  //+ tipocambiocpag                                       //7-TipoCambiocpagdpc
+
+                            //                                                          + "|" + numerodeparcialidad                            //9-NumeroDeParcialidad
+                            //                                                          + "|" + basecalculado.Trim()                                  //10-ImporteSaldoAnterior
+                            //                                                          + "|" + basecalculado.Trim()                                  //11-ImportePagado                                                  
+                            //                                                          + "|" + "0"                                            //12 ImporteSaldoInsoluto
+                            //                                                          + "|" + "01"
+                            //                                                          + "| \r\n");
+                            //                                                    }
+                            //                                                    else
+                            //                                                    {
+                            //                                                        cpagdoc = cpagdoc + ("CPAG20DOC"                           //1-Tipo De Registro
+                            //                                                          + "|" + iddelpago.Trim()                                    //2-IdentificadorDelPago
+                            //                                                                                                                      //+ "|" + rowIdent["IdentificadorDelDocumentoPagado"].ToString()                            //3-IdentificadorDelDocumentoPagado                                              
+                            //                                                          + "|" + Tuuid.Trim()                                         //3-IdentificadorDelDocumentoPagado                                              
+                            //                                                          + "|" + serieinvoice.Trim()                                 //4-Seriecpag
+                            //                                                          + "|" + idcomprobante.Trim()                                    //5-Foliocpag
+                            //                                                          + "|" + monedascpadgoc.Trim()                                 //6-Monedacpag
+                            //                                                          + "|" + tipocambiocpag                                             //7-TipoCambiocpagdpc
+                            //                                                          + "|" + MetdodoPago.Trim()                            //8-MetodoDePago
+                            //                                                          + "|" + numerodeparcialidad.Trim()                          //9-NumeroDeParcialidad
+                            //                                                          + "|" + basecalculado.Trim()                                   //10-ImporteSaldoAnterior
+                            //                                                          + "|" + basecalculado.Trim()                                  //11-ImportePagado                                                  
+                            //                                                          + "|" + basecalculado.Trim()                                            //12 ImporteSaldoInsoluto
+                            //                                                          + "|" + "02"
+                            //                                                          + "| \r\n");
+                            //                                                    }
+
+                            //                                                }
+                            //                                            }
+                            //                                        }
+                            //                                    }
+                            //                                }
+
+                            //                            }
+
+                            //                        }
+                            //                        if (uid == "" && serieinvoice == "TDRA")
+                            //                        {
+                            //                            var request23 = (HttpWebRequest)WebRequest.Create("https://canal1.xsa.com.mx:9050/bf2e1036-ba47-49a0-8cd9-e04b36d5afd4/cfdis?folioEspecifico=" + folio + "&serie=" + "SAEM");
+                            //                            var response23 = (HttpWebResponse)request23.GetResponse();
+                            //                            var responseString23 = new StreamReader(response23.GetResponseStream()).ReadToEndAsync();
+
+                            //                            List<ModelFact> separados23 = JsonConvert.DeserializeObject<List<ModelFact>>(await responseString23);
+
+                            //                            foreach (var item23 in separados23)
+                            //                            {
+                            //                                uid = item23.uuid;
+
+
+                            //                                string UUID = item23.xmlDownload;
+
+                            //                                XmlDocument xDoc = new XmlDocument();
+                            //                                xDoc.Load("https://canal1.xsa.com.mx:9050" + UUID);
+                            //                                var xmlTexto = xDoc.InnerXml.ToString();
+                            //                                DataSet dataSet1 = new DataSet();
+                            //                                XmlTextReader xtr = new XmlTextReader(xDoc.OuterXml, XmlNodeType.Element, null);
+                            //                                dataSet1.ReadXml(xtr);
+                            //                                if (xmlTexto.Contains("MetodoPago=\"PPD\""))
+                            //                                {
+                            //                                    MetdodoPago = "PPD";
+                            //                                    contadorPPD++;
+                            //                                }
+                            //                                else if (xmlTexto.Contains("MetodoPago=\"PUE\""))
+                            //                                {
+                            //                                    txtMetodoPago.Text = "PUE";
+                            //                                    MetdodoPago = "PUE";
+                            //                                    contadorPUE++;
+                            //                                }
+
+                            //                            }
+                            //                        }
+
+                            //                    }
+
+
+
+
+
+
+                            //                }
+                            //            }
+                            //        }
+
+                            //        decimal totalds = importePagos2 + importePagos7 + importePagos4;
+                            //        txtTotal.Text = totalds.ToString();
+
+                            //        //AQUI TERMINA GP ---------------------
+
+
+
+
+                            //        //CPAGDOC-----------------------------------------------------------------------------------------------------------------------
+                            //        //DataTable detalleIdent = facLabControler.getDatosCPAGDOC(row["IdentificadorDelPago"].ToString());
+
+                            //        //foreach (DataRow rowIdent in detalleIdent.Rows)
+                            //        //{
+                            //        //    folio = Regex.Replace(rowIdent["Foliocpag"].ToString().Replace("TDR", "").Trim(), @"[A-Z]", "");
+
+                            //        //    //txtTotal.Text = importePagos.ToString();
+                            //        //    //txtTotal.Text = rowIdent["ImportePagado"].ToString();
+                            //        //    string receptor = txtIdCliente.Text.ToString().Trim();
+                            //        //    string serieinvoice = "";
+                            //        //    if (receptor.Equals("LIVERPOL") || receptor.Equals("LIVERDED") || receptor.Equals("ALMLIVER") || receptor.Equals("LIVERTIJ") || receptor.Equals("SFERALIV") || receptor.Equals("GLOBALIV") || receptor.Equals("SETRALIV") || receptor.Equals("FACTUMLV"))
+                            //        //    {
+                            //        //        serieinvoice = "TDRL";
+                            //        //    }
+                            //        //    else
+                            //        //    {
+                            //        //        serieinvoice = rowIdent["Seriecpag"].ToString();
+                            //        //    }
+                            //        //    folio = Regex.Replace(rowIdent["Foliocpag"].ToString().Replace("TDR", "").Trim(), @"[A-Z]", "");
+                            //        //    if (folio.Length == 7 && folio.StartsWith("99"))
+                            //        //    {
+                            //        //        folio = folio.Substring(folio.Length - 6, 6);
+                            //        //    }
+                            //        //    else if (folio.Length == 8)
+                            //        //    {
+                            //        //        folio = folio.Substring(folio.Length - 7, 7);
+                            //        //    }
+                            //        //    folio = folio.Replace("-", "");
+                            //        //    //validar con la serie el id de sucursal-serie
+
+                            //        //    MetdodoPago = "";
+
+
+
+
+
+                            //        //    DataTable datosMaster = facLabControler.getDatosMaster(folio);
+                            //        //    if (datosMaster.Rows.Count > 0)
+                            //        //    {
+
+                            //        //        foreach (DataRow rowMaster in datosMaster.Rows)
+                            //        //        {
+                            //        //            string invoiceMaster = Regex.Replace(rowMaster[0].ToString(), @"[A-Z]", "");
+                            //        //            folio = invoiceMaster;
+
+                            //        //            var request27 = (HttpWebRequest)WebRequest.Create("https://canal1.xsa.com.mx:9050/bf2e1036-ba47-49a0-8cd9-e04b36d5afd4/cfdis?folioEspecifico=" + invoiceMaster + "&serie=" + serieinvoice);
+                            //        //            var response27 = (HttpWebResponse)request27.GetResponse();
+                            //        //            var responseString27 = new StreamReader(response27.GetResponseStream()).ReadToEnd();
+
+                            //        //            List<ModelFact> separados7 = JsonConvert.DeserializeObject<List<ModelFact>>(responseString27);
+                            //        //            foreach (var item in separados7)
+                            //        //            {
+
+
+
+                            //        //                uid = item.uuid;
+                            //        //                serier = item.serie;
+                            //        //                folior = item.folio;
+                            //        //                uuidpagadas += uid + "\r\n";
+
+                            //        //                Foliosrelacionados += "Serie: " + serier + " " + "Folio: " + folior + " " + "UUID: " + uid + "\r\n";
+
+                            //        //                if (serieinvoice != "TDRL")
+                            //        //                {
+                            //        //                    string UUID = item.xmlDownload;
+
+                            //        //                    XmlDocument xDoc = new XmlDocument();
+                            //        //                    xDoc.Load("https://canal1.xsa.com.mx:9050" + UUID);
+                            //        //                    var xmlTexto = xDoc.InnerXml.ToString();
+                            //        //                    DataSet dataSet1 = new DataSet();
+                            //        //                    XmlTextReader xtr = new XmlTextReader(xDoc.OuterXml, XmlNodeType.Element, null);
+                            //        //                    dataSet1.ReadXml(xtr);
+                            //        //                    if (xmlTexto.Contains("MetodoPago=\"PPD\""))
+                            //        //                    {
+                            //        //                        MetdodoPago = "PPD";
+                            //        //                        contadorPPD++;
+                            //        //                    }
+                            //        //                    else if (xmlTexto.Contains("MetodoPago=\"PUE\""))
+                            //        //                    {
+                            //        //                        txtMetodoPago.Text = "PUE";
+                            //        //                        MetdodoPago = "PUE";
+                            //        //                        contadorPUE++;
+                            //        //                    }
+                            //        //                }
+                            //        //            }
+
+                            //        //        }
+                            //        //    }
+                            //        //    else
+                            //        //    {
+                            //        //        //INICIO DE CODIGO
+
+                            //        //        var request2 = (HttpWebRequest)WebRequest.Create("https://canal1.xsa.com.mx:9050/bf2e1036-ba47-49a0-8cd9-e04b36d5afd4/cfdis?folioEspecifico=" + folio + "&serie=" + serieinvoice);
+                            //        //        var response2 = (HttpWebResponse)request2.GetResponse();
+                            //        //        var responseString2 = new StreamReader(response2.GetResponseStream()).ReadToEnd();
+
+                            //        //        List<ModelFact> separados = JsonConvert.DeserializeObject<List<ModelFact>>(responseString2);
+                            //        //        //PONER UNA CONDICION POR SI SEPADOS ES NULL
+                            //        //        if (separados != null)
+                            //        //        {
+                            //        //            foreach (var item in separados)
+                            //        //            {
+
+
+
+                            //        //                uid = item.uuid;
+                            //        //                serier = item.serie;
+                            //        //                folior = item.folio;
+                            //        //                uuidpagadas += uid + "\r\n";
+                            //        //                Foliosrelacionados += "Serie: " + serier + " " + "Folio: " + folior + " " + "UUID: " + uid + "\r\n";
+                            //        //                if (serieinvoice != "TDRL")
+                            //        //                {
+                            //        //                    string UUID = item.xmlDownload;
+
+                            //        //                    XmlDocument xDoc = new XmlDocument();
+                            //        //                    xDoc.Load("https://canal1.xsa.com.mx:9050" + UUID);
+                            //        //                    var xmlTexto = xDoc.InnerXml.ToString();
+                            //        //                    DataSet dataSet1 = new DataSet();
+                            //        //                    XmlTextReader xtr = new XmlTextReader(xDoc.OuterXml, XmlNodeType.Element, null);
+                            //        //                    dataSet1.ReadXml(xtr);
+                            //        //                    if (xmlTexto.Contains("MetodoPago=\"PPD\""))
+                            //        //                    {
+                            //        //                        MetdodoPago = "PPD";
+                            //        //                        contadorPPD++;
+                            //        //                    }
+                            //        //                    else if (xmlTexto.Contains("MetodoPago=\"PUE\""))
+                            //        //                    {
+                            //        //                        txtMetodoPago.Text = "PUE";
+                            //        //                        MetdodoPago = "PUE";
+                            //        //                        contadorPUE++;
+                            //        //                    }
+                            //        //                }
+                            //        //            }
+
+                            //        //        }
+
+
+
+
+
+                            //        //        // FIN DE MI CODIGO 
+
+                            //        //        if (uid == "" && serieinvoice == "TDRA")
+                            //        //        {
+                            //        //            var request23 = (HttpWebRequest)WebRequest.Create("https://canal1.xsa.com.mx:9050/bf2e1036-ba47-49a0-8cd9-e04b36d5afd4/cfdis?folioEspecifico=" + folio + "&serie=" + "SAEM");
+                            //        //            var response23 = (HttpWebResponse)request23.GetResponse();
+                            //        //            var responseString23 = new StreamReader(response23.GetResponseStream()).ReadToEnd();
+
+                            //        //            List<ModelFact> separados23 = JsonConvert.DeserializeObject<List<ModelFact>>(responseString2);
+
+                            //        //            foreach (var item23 in separados23)
+                            //        //            {
+                            //        //                uid = item23.uuid;
+                            //        //                if (serieinvoice != "TDRL")
+                            //        //                {
+                            //        //                    string UUID = item23.xmlDownload;
+
+                            //        //                    XmlDocument xDoc = new XmlDocument();
+                            //        //                    xDoc.Load("https://canal1.xsa.com.mx:9050" + UUID);
+                            //        //                    var xmlTexto = xDoc.InnerXml.ToString();
+                            //        //                    DataSet dataSet1 = new DataSet();
+                            //        //                    XmlTextReader xtr = new XmlTextReader(xDoc.OuterXml, XmlNodeType.Element, null);
+                            //        //                    dataSet1.ReadXml(xtr);
+                            //        //                    if (xmlTexto.Contains("MetodoPago=\"PPD\""))
+                            //        //                    {
+                            //        //                        MetdodoPago = "PPD";
+                            //        //                        contadorPPD++;
+                            //        //                    }
+                            //        //                    else if (xmlTexto.Contains("MetodoPago=\"PUE\""))
+                            //        //                    {
+                            //        //                        txtMetodoPago.Text = "PUE";
+                            //        //                        MetdodoPago = "PUE";
+                            //        //                        contadorPUE++;
+                            //        //                    }
+                            //        //                }
+                            //        //            }
+                            //        //        }
+
+                            //        //    }
+
+                            //        //    if (MetdodoPago == "PPD")
+                            //        //    {
+
+                            //        //        identpag = rowIdent["IdentificadorDelPago"].ToString();
+                            //        //        //txtFechaIniOP.Text = "\r\n" +rowIdent["IdentificadorDelDocumentoPagado"].ToString();
+                            //        //        seriecpag = rowIdent["Seriecpag"].ToString();
+                            //        //        foliocpag = rowIdent["Foliocpag"].ToString();
+                            //        //        monedacpagdoc = rowIdent["Monedacpagdoc"].ToString();
+                            //        //        tipocambiocpag = rowIdent["TipodeCambiocpagdpc"].ToString();
+                            //        //        txtMetodoPago.Text = rowIdent["MedotoDePago"].ToString();
+                            //        //        numerodeparcialidad = rowIdent["NumeroDeParcialidad"].ToString();
+                            //        //        importeSaldoAnterior = rowIdent["ImporteSaldoAnterior"].ToString();
+                            //        //        importepago = rowIdent["ImportePagado"].ToString();
+                            //        //        importesaldoinsoluto = rowIdent["ImporteSaldoInsoluto"].ToString();
+                            //        //        //FolioUUIDTxt.Text += identpag;
+                            //        //        try
+                            //        //        {
+                            //        //            importePagos = importePagos + Convert.ToDecimal(importepago);
+                            //        //            txtTotal.Text = importePagos.ToString();
+                            //        //        }
+                            //        //        catch (Exception ex)
+                            //        //        {
+                            //        //            string errors = ex.Message;
+                            //        //        }
+
+                            //        //        //txtFechaIniOP.Text = txtFechaIniOP.Text + "\r\n" + rowIdent["IdentificadorDelDocumentoPagado"].ToString();
+                            //        //        //txtFechaIniOP.Text = txtFechaIniOP.Text + "\r\n" + uid;
+                            //        //        //FolioUUIDTxt.Text = FolioUUIDTxt.Text + "\r\n" + "Serie:" + serieinvoice + " Folio:" + folio + " UUID:" + uid;
+
+
+
+                            //        //        if (monedacpagdoc.Trim() == "USD")
+                            //        //        {
+                            //        //            cpagdoc = cpagdoc + ("CPAGDOC"                           //1-Tipo De Registro
+                            //        //              + "|" + identpag                                       //2-IdentificadorDelPago
+                            //        //                                                                     //+ "|" + rowIdent["IdentificadorDelDocumentoPagado"].ToString()                            //3-IdentificadorDelDocumentoPagado                                              
+                            //        //              + "|" + uid                                            //3-IdentificadorDelDocumentoPagado                                              
+                            //        //              + "|" + serieinvoice                                   //4-Seriecpag
+                            //        //              + "|" + foliocpag                                      //5-Foliocpag
+                            //        //              + "|" + monedacpagdoc                                  //6-Monedacpag
+                            //        //              + "|" + ""                                             //7-TipoCambiocpagdpc
+                            //        //              + "|" + txtMetodoPago.Text                             //8-MetodoDePago
+                            //        //              + "|" + numerodeparcialidad                            //9-NumeroDeParcialidad
+                            //        //              + "|" + importepago                                    //10-ImporteSaldoAnterior
+                            //        //              + "|" + importepago                                    //11-ImportePagado                                                  
+                            //        //              + "|" + "0"                                            //12 ImporteSaldoInsoluto
+                            //        //              + "| \r\n");
+                            //        //        }
+                            //        //        else
+                            //        //        {
+                            //        //            //----------------------------------------Seccion CPAG20PAGO -------------------------------------------------------------------
+
+                            //        //            //CPAG20PAGO (1:N)
+                            //        //            //escritor.WriteLine(
+                            //        //            //"CPAG20PAGO"                        //1-Tipo De Registro
+                            //        //            //+ "|" + identpag                    //2-IdentificadorDelPago
+                            //        //            //+ "|" + fechapago                   //3-FechaPago                                              
+                            //        //            //+ "|"  + formadepagocpag            //4-Forma de pago
+                            //        //            //+ "|" + moneda                      //5-Moneda
+                            //        //            //+ "|"                               //6-TipoDeCambiocpag
+                            //        //            //+ "|" + monto                       //7-Monto
+                            //        //            //+ "|"                               //8-NumeroOperacion
+                            //        //            //+ "|"                               //9-RFCEmisorCuentaOrdenante
+                            //        //            //+ "|"                               //10-Nombre del Banco
+                            //        //            //+ "|"                               //11-Número de Cuenta Ordenante
+                            //        //            //+ "|"                               //12-RFC Emisor Cuenta Beneficiario
+                            //        //            //+ "|"                               //13-Número de Cuenta Beneficiario
+                            //        //            //+ "|"                               //14-Tipo Cadena Pago
+                            //        //            //+ "|"                               //15-Certificado Pago
+                            //        //            //+ "|"                               //16-Cadena Pago
+                            //        //            //+ "|"                               //17-Sello de Pago                                                                                                 
+                            //        //            //+ "|"                               //Fin Del Registro
+                            //        //            //);
+
+                            //        //            //escrituraFactura += "CPAG20PAGO"    //1-Tipo De Registro
+                            //        //            //+ "|" + identpag                    //2-IdentificadorDelPago
+                            //        //            //+ "|" + fechapago                   //3-FechaPago                                              
+                            //        //            //+ "|"  + formadepagocpag            //4-Forma de pago
+                            //        //            //+ "|" + moneda                      //5-Moneda
+                            //        //            //+ "|"                               //6-TipoDeCambiocpag
+                            //        //            //+ "|" + monto                       //7-Monto
+                            //        //            //+ "|"                               //8-NumeroOperacion
+                            //        //            //+ "|"                               //9-RFCEmisorCuentaOrdenante
+                            //        //            //+ "|"                               //10-Nombre del Banco
+                            //        //            //+ "|"                               //11-Número de Cuenta Ordenante
+                            //        //            //+ "|"                               //12-RFC Emisor Cuenta Beneficiario
+                            //        //            //+ "|"                               //13-Número de Cuenta Beneficiario
+                            //        //            //+ "|"                               //14-Tipo Cadena Pago
+                            //        //            //+ "|"                               //15-Certificado Pago
+                            //        //            //+ "|"                               //16-Cadena Pago
+                            //        //            //+ "|"                               //17-Sello de Pago                                                                                                 
+                            //        //            //+ "|";                               //Fin Del Registro
+                            //        //            // -------------------------- CPAG20DOC ------------------------------------------
+                            //        //            //cpagdoc = cpagdoc + ("CPAG20DOC"                       //1-Tipo De Registro
+                            //        //            //+ "|" + identpag                                       //2-IdentificadorDelPago
+                            //        //            //+ "|" + rowIdent["IdentificadorDelDocumentoPagado"].ToString()                            //3-IdentificadorDelDocumentoPagado                                              
+                            //        //            //+ "|" + uid                            //3-IdentificadorDelDocumentoPagado                                              
+                            //        //            //+ "|" + serieinvoice                                      //4-Seriecpag
+                            //        //            //+ "|" + foliocpag                                      //5-Foliocpag
+                            //        //            //+ "|" + monedacpagdoc                                  //6-Monedacpag
+                            //        //            //+ "|" + tipocambiocpag                                 //7-TipoCambiocpagdpc Equivalencia                          
+                            //        //            //+ "|" + numerodeparcialidad                            //9-NumeroDeParcialidad
+                            //        //            //+ "|" + importeSaldoAnterior                           //10-ImporteSaldoAnterior
+                            //        //            //+ "|" + importepago                                    //11-ImportePagado                                                  
+                            //        //            //+ "|" + importesaldoinsoluto                           //12 ImporteSaldoInsoluto
+                            //        //            //+ "| \r\n");
+
+
+                            //        //            cpagdoc = cpagdoc + ("CPAGDOC"                                              //1-Tipo De Registro
+                            //        //              + "|" + identpag                                       //2-IdentificadorDelPago
+                            //        //                                                                     //+ "|" + rowIdent["IdentificadorDelDocumentoPagado"].ToString()                            //3-IdentificadorDelDocumentoPagado                                              
+                            //        //              + "|" + uid                            //3-IdentificadorDelDocumentoPagado                                              
+                            //        //              + "|" + serieinvoice                                      //4-Seriecpag
+                            //        //              + "|" + foliocpag                                      //5-Foliocpag
+                            //        //              + "|" + monedacpagdoc                                  //6-Monedacpag
+                            //        //              + "|" + tipocambiocpag                                 //7-TipoCambiocpagdpc
+                            //        //              + "|" + txtMetodoPago.Text                             //8-MetodoDePago
+                            //        //              + "|" + numerodeparcialidad                            //9-NumeroDeParcialidad
+                            //        //              + "|" + importeSaldoAnterior                           //10-ImporteSaldoAnterior
+                            //        //              + "|" + importepago                                    //11-ImportePagado                                                  
+                            //        //              + "|" + importesaldoinsoluto                           //12 ImporteSaldoInsoluto
+                            //        //              + "| \r\n");
+                            //        //        }
+                            //        //    }
+                            //        //    //else
+                            //        //    //{
+                            //        //    //    string msg = "Error: Los folios relacionados no existen en el canal de Tralix";
+                            //        //    //    formularioT.Visible = false;
+                            //        //    //    Div1.Visible = true;
+                            //        //    //    ScriptManager.RegisterStartupScript(this, GetType(), "swal", "swal('" + msg + "', 'Error con los folios relacionados ', 'error');setTimeout(function(){window.location.href ='Listado.aspx'}, 10000)", true);
+
+                            //        //    //}
+
+                            //        //}
+
+
+                            //    }
+                            //}
+
+
                         }
-                        //else
-                        //{
-                        //    //PRIMER FILTRO - PENDIENTE DE PRUEBA
-                        //    var request28 = (HttpWebRequest)WebRequest.Create("https://canal1.xsa.com.mx:9050/bf2e1036-ba47-49a0-8cd9-e04b36d5afd4/cfdis?folioEspecifico=" + row["IdentificadorDelPago"].ToString() + "&rfc=" + txtRFC.Text);
-                        //    var response28 = (HttpWebResponse)request28.GetResponse();
-                        //    var responseString28 = new StreamReader(response28.GetResponseStream()).ReadToEndAsync();
 
 
-                        //    List<ModelFact> separados8 = JsonConvert.DeserializeObject<List<ModelFact>>(await responseString28);
 
-                        //    if (separados8 != null)
-                        //    {
-                        //        foreach (var item in separados8)
-                        //        {
+                        //AQUI VOY -------------------------------
 
 
-                        //            string UUID = item.xmlDownload;
-
-                        //            XmlDocument xDoc = new XmlDocument();
-                        //            xDoc.Load("https://canal1.xsa.com.mx:9050" + UUID);
-                        //            var xmlTexto = xDoc.InnerXml.ToString();
-                        //            DataSet dataSet1 = new DataSet();
-                        //            XmlTextReader xtr = new XmlTextReader(xDoc.OuterXml, XmlNodeType.Element, null);
-                        //            dataSet1.ReadXml(xtr);
-                        //            foreach (DataRow rowCC in (InternalDataCollectionBase)dataSet1.Tables["Comprobante"].Rows)
-                        //            {
-                        //                lugarexpedicion = rowCC["LugarExpedicion"].ToString();
-                        //                //tipocomprobante = rowCC["TipoDeComprobante"].ToString();
-                        //                //tipodecambiocpag = rowCC["TipoCambio"].ToString();
-                        //                //total = rowCC["Total"].ToString();
-                        //                monedascpadgoc = rowCC["Moneda"].ToString();
-                        //                //formadepago = rowCC["FormaPago"].ToString();
-                        //                if (formadepago == null || formadepago == "99") { formadepago = row["Formadepagocpag"].ToString(); }
-                        //                else { formadepago = row["Formadepagocpag"].ToString(); }
-                        //                //string Ccertificado = rowCC["Certificado"].ToString();
-                        //                //string Cnocertificado = rowCC["NoCertificado"].ToString();
-                        //                //string Csello = rowCC["Sello"].ToString();
-
-                        //                idcomprobante = rowCC["Folio"].ToString();
-                        //                serie = rowCC["Serie"].ToString();
-                        //            }
-                        //            foreach (DataRow rowsr in (InternalDataCollectionBase)dataSet1.Tables["Conceptos"].Rows)
-                        //            {
-                        //                foreach (DataRow rowsrc in (InternalDataCollectionBase)dataSet1.Tables["Concepto"].Rows)
-                        //                {
-                        //                    importe = rowsrc["Importe"].ToString();
-                        //                    valorunitario = rowsrc["ValorUnitario"].ToString();
-                        //                    //descripcion = rowsrc["Descripcion"].ToString();
-                        //                    //claveunidad = rowsrc["ClaveUnidad"].ToString();
-                        //                    //cantidad = rowsrc["Cantidad"].ToString();
-                        //                    //claveproductoservicio = rowsrc["ClaveProdServ"].ToString();
-                        //                }
-                        //            }
-                        //            foreach (DataRow rowsr1 in (InternalDataCollectionBase)dataSet1.Tables["Complemento"].Rows)
-                        //            {
-                        //                foreach (DataRow rowsrcts in dataSet1.Tables["Pagos"].Rows)
-                        //                {
-                        //                    foreach (DataRow rowsrctp in dataSet1.Tables["Pago"].Rows)
-                        //                    {
-                        //                        formadepago = rowsrctp["FormaDePagoP"].ToString();
-                        //                        if (formadepago == null || formadepago == "99") { formadepago = row["Formadepagocpag"].ToString(); }
-                        //                        else { formadepago = row["Formadepagocpag"].ToString(); }
-                        //                        foreach (DataRow rowsrctpr in dataSet1.Tables["DoctoRelacionado"].Rows)
-                        //                        {
-                        //                            folio = rowsrctpr["Folio"].ToString();
-                        //                            Dserie = rowsrctpr["Serie"].ToString();
-                        //                            isaldoinsoluto = rowsrctpr["ImpSaldoInsoluto"].ToString();
-                        //                            if (isaldoinsoluto == "") { isaldoinsoluto = "0.00"; }
-                        //                            else { isaldoinsoluto = rowsrctpr["ImpSaldoInsoluto"].ToString(); }
-                        //                            ipagado = rowsrctpr["ImpPagado"].ToString();
-                        //                            interiorsaldoanterior = rowsrctpr["ImpSaldoAnt"].ToString();
-                        //                            nparcialidades = rowsrctpr["NumParcialidad"].ToString();
-                        //                            MetdodoPago = rowsrctpr["MetodoDePagoDR"].ToString();
-                        //                            monedascpadgoc = rowsrctpr["MonedaDR"].ToString();
-
-                        //                            IdentificadorDelDocumentoPagado = rowsrctpr["IdDocumento"].ToString();
-
-
-                        //                            uuidpagadas += IdentificadorDelDocumentoPagado + "\r\n";
-                        //                            Foliosrelacionados += "Serie: " + Dserie + " " + "Folio: " + folio + " " + "UUID: " + IdentificadorDelDocumentoPagado + "\r\n";
-
-                        //                            string receptor = txtIdCliente.Text.ToString().Trim();
-                        //                            string serieinvoice = "";
-                        //                            if (receptor.Equals("LIVERPOL") || receptor.Equals("LIVERDED") || receptor.Equals("ALMLIVER") || receptor.Equals("LIVERTIJ") || receptor.Equals("SFERALIV") || receptor.Equals("GLOBALIV") || receptor.Equals("SETRALIV") || receptor.Equals("FACTUMLV"))
-                        //                            {
-                        //                                serieinvoice = "TDRL";
-                        //                            }
-                        //                            else
-                        //                            {
-                        //                                serieinvoice = row["Seriecpag"].ToString();
-                        //                            }
-
-                        //                            if (folio.Length == 7 && folio.StartsWith("99"))
-                        //                            {
-                        //                                folio = folio.Substring(folio.Length - 6, 6);
-                        //                            }
-                        //                            else if (folio.Length == 8)
-                        //                            {
-                        //                                folio = folio.Substring(folio.Length - 7, 7);
-                        //                            }
-                        //                            folio = folio.Replace("-", "");
-                        //                            //validar con la serie el id de sucursal-serie
-
-
-
-                        //                            if (MetdodoPago == "PPD")
-                        //                            {
-
-                        //                                identpag = row["IdentificadorDelPago"].ToString();
-                        //                                //txtFechaIniOP.Text = "\r\n" +rowIdent["IdentificadorDelDocumentoPagado"].ToString();
-
-                        //                                //FolioUUIDTxt.Text += identpag;
-                        //                                try
-                        //                                {
-                        //                                    importePagos = importePagos + Convert.ToDecimal(ipagado);
-                        //                                    txtTotal.Text = importePagos.ToString();
-                        //                                }
-                        //                                catch (Exception ex)
-                        //                                {
-                        //                                    string errors = ex.Message;
-                        //                                }
-                        //                                if (monedascpadgoc.Trim() == "USD")
-                        //                                {
-
-
-
-                        //                                    cpagdoc = cpagdoc + ("CPAG20DOC"                           //1-Tipo De Registro
-                        //                                      + "|" + identpag                                       //2-IdentificadorDelPago
-                        //                                                                                             //+ "|" + rowIdent["IdentificadorDelDocumentoPagado"].ToString()                            //3-IdentificadorDelDocumentoPagado                                              
-                        //                                      + "|" + IdentificadorDelDocumentoPagado                                            //3-IdentificadorDelDocumentoPagado                                              
-                        //                                      + "|" + serieinvoice                                   //4-Seriecpag
-                        //                                      + "|" + folio                                      //5-Foliocpag
-                        //                                      + "|" + monedascpadgoc                                  //6-Monedacpag
-                        //                                      + "|"                                              //7-TipoCambiocpagdpc
-                        //                                      + "|" + MetdodoPago                             //8-MetodoDePago
-                        //                                      + "|" + nparcialidades                            //9-NumeroDeParcialidad
-                        //                                      + "|" + ipagado                                    //10-ImporteSaldoAnterior
-                        //                                      + "|" + ipagado                                    //11-ImportePagado                                                  
-                        //                                      + "|" + "0"                                            //12 ImporteSaldoInsoluto
-                        //                                      + "|" + "01"
-                        //                                      + "| \r\n");
-                        //                                }
-                        //                                else
-                        //                                {
-                        //                                    //----------------------------------------Seccion CPAG20PAGO -------------------------------------------------------------------
-
-                        //                                    //CPAG20PAGO (1:N)
-                        //                                    //escritor.WriteLine(
-                        //                                    //"CPAG20PAGO"                        //1-Tipo De Registro
-                        //                                    //+ "|" + identpag                    //2-IdentificadorDelPago
-                        //                                    //+ "|" + fechapago                   //3-FechaPago                                              
-                        //                                    //+ "|"  + formadepagocpag            //4-Forma de pago
-                        //                                    //+ "|" + moneda                      //5-Moneda
-                        //                                    //+ "|"                               //6-TipoDeCambiocpag
-                        //                                    //+ "|" + monto                       //7-Monto
-                        //                                    //+ "|"                               //8-NumeroOperacion
-                        //                                    //+ "|"                               //9-RFCEmisorCuentaOrdenante
-                        //                                    //+ "|"                               //10-Nombre del Banco
-                        //                                    //+ "|"                               //11-Número de Cuenta Ordenante
-                        //                                    //+ "|"                               //12-RFC Emisor Cuenta Beneficiario
-                        //                                    //+ "|"                               //13-Número de Cuenta Beneficiario
-                        //                                    //+ "|"                               //14-Tipo Cadena Pago
-                        //                                    //+ "|"                               //15-Certificado Pago
-                        //                                    //+ "|"                               //16-Cadena Pago
-                        //                                    //+ "|"                               //17-Sello de Pago                                                                                                 
-                        //                                    //+ "|"                               //Fin Del Registro
-                        //                                    //);
-
-                        //                                    //escrituraFactura += "CPAG20PAGO"    //1-Tipo De Registro
-                        //                                    //+ "|" + identpag                    //2-IdentificadorDelPago
-                        //                                    //+ "|" + fechapago                   //3-FechaPago                                              
-                        //                                    //+ "|"  + formadepagocpag            //4-Forma de pago
-                        //                                    //+ "|" + moneda                      //5-Moneda
-                        //                                    //+ "|"                               //6-TipoDeCambiocpag
-                        //                                    //+ "|" + monto                       //7-Monto
-                        //                                    //+ "|"                               //8-NumeroOperacion
-                        //                                    //+ "|"                               //9-RFCEmisorCuentaOrdenante
-                        //                                    //+ "|"                               //10-Nombre del Banco
-                        //                                    //+ "|"                               //11-Número de Cuenta Ordenante
-                        //                                    //+ "|"                               //12-RFC Emisor Cuenta Beneficiario
-                        //                                    //+ "|"                               //13-Número de Cuenta Beneficiario
-                        //                                    //+ "|"                               //14-Tipo Cadena Pago
-                        //                                    //+ "|"                               //15-Certificado Pago
-                        //                                    //+ "|"                               //16-Cadena Pago
-                        //                                    //+ "|"                               //17-Sello de Pago                                                                                                 
-                        //                                    //+ "|";                               //Fin Del Registro
-                        //                                    // -------------------------- CPAG20DOC ------------------------------------------
-                        //                                    //cpagdoc = cpagdoc + ("CPAG20DOC"                       //1-Tipo De Registro
-                        //                                    //+ "|" + identpag                                       //2-IdentificadorDelPago
-                        //                                    //+ "|" + rowIdent["IdentificadorDelDocumentoPagado"].ToString()                            //3-IdentificadorDelDocumentoPagado                                              
-                        //                                    //+ "|" + uid                            //3-IdentificadorDelDocumentoPagado                                              
-                        //                                    //+ "|" + serieinvoice                                      //4-Seriecpag
-                        //                                    //+ "|" + foliocpag                                      //5-Foliocpag
-                        //                                    //+ "|" + monedacpagdoc                                  //6-Monedacpag
-                        //                                    //+ "|" + tipocambiocpag                                 //7-TipoCambiocpagdpc Equivalencia                          
-                        //                                    //+ "|" + numerodeparcialidad                            //9-NumeroDeParcialidad
-                        //                                    //+ "|" + importeSaldoAnterior                           //10-ImporteSaldoAnterior
-                        //                                    //+ "|" + importepago                                    //11-ImportePagado                                                  
-                        //                                    //+ "|" + importesaldoinsoluto                           //12 ImporteSaldoInsoluto
-                        //                                    //+ "| \r\n");
-
-
-                        //                                    cpagdoc = cpagdoc + ("CPAG20DOC"                                              //1-Tipo De Registro
-                        //                                      + "|" + identpag                                       //2-IdentificadorDelPago
-                        //                                                                                             //+ "|" + rowIdent["IdentificadorDelDocumentoPagado"].ToString()                            //3-IdentificadorDelDocumentoPagado                                              
-                        //                                      + "|" + IdentificadorDelDocumentoPagado                            //3-IdentificadorDelDocumentoPagado                                              
-                        //                                      + "|" + serieinvoice                                      //4-Seriecpag
-                        //                                      + "|" + folio                                      //5-Foliocpag
-                        //                                      + "|" + monedascpadgoc                                  //6-Monedacpag
-                        //                                      + "|" + tipodecambiocpag                                 //7-TipoCambiocpagdpc
-                        //                                      + "|" + MetdodoPago                             //8-MetodoDePago
-                        //                                      + "|" + nparcialidades                            //9-NumeroDeParcialidad
-                        //                                      + "|" + interiorsaldoanterior                           //10-ImporteSaldoAnterior
-                        //                                      + "|" + ipagado                                    //11-ImportePagado                                                  
-                        //                                      + "|" + isaldoinsoluto                           //12 ImporteSaldoInsoluto
-                        //                                      + "|" + "02"
-                        //                                      + "| \r\n");
-                        //                                }
-
-
-
-
-                        //                                //txtFechaIniOP.Text = txtFechaIniOP.Text + "\r\n" + rowIdent["IdentificadorDelDocumentoPagado"].ToString();
-                        //                                //txtFechaIniOP.Text = txtFechaIniOP.Text + "\r\n" + uid;
-                        //                                //FolioUUIDTxt.Text = FolioUUIDTxt.Text + "\r\n" + "Serie:" + serieinvoice + " Folio:" + folio + " UUID:" + uid;
-
-
-
-
-                        //                            }
-                        //                            else
-                        //                            {
-                        //                                string msg = "Error: Los folios relacionados no existen en el canal de Tralix";
-                        //                                formularioT.Visible = false;
-                        //                                Div1.Visible = true;
-                        //                                ScriptManager.RegisterStartupScript(this, GetType(), "swal", "swal('" + msg + "', 'Error con los folios relacionados ', 'error');setTimeout(function(){window.location.href ='Listado.aspx'}, 10000)", true);
-
-                        //                            }
-
-                        //                        }
-                        //                    }
-                        //                }
-                        //            }
-                        //        }
-
-                        //    }// FIN DEL IF SEPARADOS 8
-                        //    else
-                        //    {
-                        //        //CPADOC DESDE GP ----------------------
-                        //        DataTable detalleIdent = facLabControler.getDatosCPAGDOC(row["IdentificadorDelPago"].ToString());
-
-                        //        foreach (DataRow rowIdent in detalleIdent.Rows)
-                        //        {
-                        //            identificaciondpago = rowIdent["IdentificadorDelPago"].ToString();
-                        //            folioscpag = Regex.Replace(rowIdent["Foliocpag"].ToString().Replace("SM-", "").Trim(), @"[A-Z]", "");
-                        //            importepago = rowIdent["ImportePagado"].ToString();
-                        //            importeSaldoAnterior = rowIdent["ImporteSaldoAnterior"].ToString();
-                        //            if (importeSaldoAnterior == "") { importeSaldoAnterior = "0.00"; }
-                        //            else { importeSaldoAnterior = rowIdent["ImporteSaldoAnterior"].ToString(); }
-                        //            importesaldoinsoluto = rowIdent["ImporteSaldoInsoluto"].ToString();
-                        //            if (importesaldoinsoluto == "") { importesaldoinsoluto = "0.00"; }
-                        //            else { importesaldoinsoluto = rowIdent["ImporteSaldoInsoluto"].ToString(); }
-                        //            numerodeparcialidad = rowIdent["NumeroDeParcialidad"].ToString();
-                        //            tipocambiocpag = rowIdent["TipodeCambiocpagdpc"].ToString();
-                        //            DataTable detalleIdentt = facLabControler.getDatosCPAGDOCTRL(identificaciondpago, folioscpag);
-                        //            if (detalleIdentt.Rows.Count > 0)
-                        //            {
-                        //                foreach (DataRow rowIdentt in detalleIdentt.Rows)
-                        //                {
-                        //                    iipagado = rowIdentt["ActualApplyToAmount"].ToString();
-                        //                    basecalculo = Convert.ToDecimal(iipagado);
-                        //                    basecalculado = basecalculo.ToString("F");
-                        //                    folio = Regex.Replace(rowIdentt["K3"].ToString().Replace("TDR", "").Trim(), @"[A-Z]", "");
-
-                        //                    impSaldoAnterior = rowIdentt["ORTRXAMT"].ToString();
-                        //                    if (impSaldoAnterior == "") { impSaldoAnterior = "0.00"; }
-                        //                    else { impSaldoAnterior = rowIdentt["ORTRXAMT"].ToString(); }
-                        //                    basecalculo2 = Convert.ToDecimal(impSaldoAnterior);
-                        //                    basecalculado2 = basecalculo2.ToString("F");
-
-                        //                    impSaldoInsoluto = rowIdentt["CURTRXAM"].ToString();
-                        //                    if (impSaldoInsoluto == "") { impSaldoInsoluto = "0.00"; }
-                        //                    else { impSaldoInsoluto = rowIdentt["CURTRXAM"].ToString(); }
-                        //                    basecalculo3 = Convert.ToDecimal(impSaldoInsoluto);
-                        //                    basecalculado3 = basecalculo3.ToString("F");
-
-                        //                    //txtTotal.Text = importePagos.ToString();
-                        //                    //txtTotal.Text = rowIdent["ImportePagado"].ToString();
-                        //                    string receptor = txtIdCliente.Text.ToString().Trim();
-                        //                    string serieinvoice = "";
-                        //                    if (receptor.Equals("LIVERPOL") || receptor.Equals("LIVERDED") || receptor.Equals("ALMLIVER") || receptor.Equals("LIVERTIJ") || receptor.Equals("SFERALIV") || receptor.Equals("GLOBALIV") || receptor.Equals("SETRALIV") || receptor.Equals("FACTUMLV"))
-                        //                    {
-                        //                        serieinvoice = "TDRL";
-                        //                    }
-                        //                    else
-                        //                    {
-                        //                        serieinvoice = rowIdent["Seriecpag"].ToString();
-                        //                    }
-                        //                    folio = Regex.Replace(rowIdentt["K3"].ToString().Replace("TDR", "").Trim(), @"[A-Z]", "");
-                        //                    if (folio.Length == 7 && folio.StartsWith("99"))
-                        //                    {
-                        //                        folio = folio.Substring(folio.Length - 6, 6);
-                        //                    }
-                        //                    else if (folio.Length == 8)
-                        //                    {
-                        //                        folio = folio.Substring(folio.Length - 7, 7);
-                        //                    }
-                        //                    folio = folio.Replace("-", "");
-                        //                    //validar con la serie el id de sucursal-serie
-
-                        //                    MetdodoPago = "";
-
-                        //                    // FILTRO DE LA MASTER APROBADA
-                        //                    DataTable datosMaster = facLabControler.getDatosMaster(folio);
-                        //                    if (datosMaster.Rows.Count > 0)
-                        //                    {
-
-                        //                        foreach (DataRow rowMaster in datosMaster.Rows)
-                        //                        {
-                        //                            string invoiceMaster = Regex.Replace(rowMaster[0].ToString(), @"[A-Z]", "");
-                        //                            folio = invoiceMaster;
-
-                        //                            var request27 = (HttpWebRequest)WebRequest.Create("https://canal1.xsa.com.mx:9050/bf2e1036-ba47-49a0-8cd9-e04b36d5afd4/cfdis?folioEspecifico=" + invoiceMaster + "&serie=" + serieinvoice);
-                        //                            var response27 = (HttpWebResponse)request27.GetResponse();
-                        //                            var responseString27 = new StreamReader(response27.GetResponseStream()).ReadToEndAsync();
-
-                        //                            List<ModelFact> separados7 = JsonConvert.DeserializeObject<List<ModelFact>>(await responseString27);
-                        //                            if (separados7 != null)
-                        //                            {
-                        //                                foreach (var item in separados7)
-                        //                                {
-                        //                                    uid = item.uuid;
-                        //                                    serier = item.serie;
-                        //                                    folior = item.folio;
-                        //                                    uuidpagadas += uid + "\r\n";
-
-                        //                                    Foliosrelacionados += "Serie: " + serier + " " + "Folio: " + folior + " " + "UUID: " + uid + "\r\n";
-
-
-
-                        //                                    string UUID = item.xmlDownload;
-
-                        //                                    XmlDocument xDoc = new XmlDocument();
-                        //                                    xDoc.Load("https://canal1.xsa.com.mx:9050" + UUID);
-                        //                                    var xmlTexto = xDoc.InnerXml.ToString();
-                        //                                    DataSet dataSet1 = new DataSet();
-                        //                                    XmlTextReader xtr = new XmlTextReader(xDoc.OuterXml, XmlNodeType.Element, null);
-                        //                                    dataSet1.ReadXml(xtr);
-                        //                                    if (xmlTexto.Contains("MetodoPago=\"PPD\""))
-                        //                                    {
-                        //                                        MetdodoPago = "PPD";
-                        //                                        contadorPPD++;
-                        //                                    }
-                        //                                    else if (xmlTexto.Contains("MetodoPago=\"PUE\""))
-                        //                                    {
-                        //                                        txtMetodoPago.Text = "PUE";
-                        //                                        MetdodoPago = "PUE";
-                        //                                        contadorPUE++;
-                        //                                    }
-                        //                                    if (MetdodoPago == "PPD")
-                        //                                    {
-                        //                                        foreach (DataRow rowsr in (InternalDataCollectionBase)dataSet1.Tables["Conceptos"].Rows)
-                        //                                        {
-                        //                                            foreach (DataRow rowsrc in (InternalDataCollectionBase)dataSet1.Tables["Concepto"].Rows)
-                        //                                            {
-                        //                                                importe = rowsrc["Importe"].ToString();
-                        //                                                valorunitario = rowsrc["ValorUnitario"].ToString();
-                        //                                                try
-                        //                                                {
-                        //                                                    importePagos = importePagos + Convert.ToDecimal(importe);
-                        //                                                    importe = importePagos.ToString("F");
-
-                        //                                                    valorunitarios = valorunitarios + Convert.ToDecimal(valorunitario);
-                        //                                                    valorunitario = valorunitarios.ToString("F");
-                        //                                                }
-                        //                                                catch (Exception ex)
-                        //                                                {
-                        //                                                    string errors = ex.Message;
-                        //                                                }
-                        //                                                //importe = rowsrc["Importe"].ToString();
-                        //                                                //valorunitario = rowsrc["ValorUnitario"].ToString();
-                        //                                                //descripcion = rowsrc["Descripcion"].ToString();
-                        //                                                //claveunidad = rowsrc["ClaveUnidad"].ToString();
-                        //                                                //cantidad = rowsrc["Cantidad"].ToString();
-                        //                                                //claveproductoservicio = rowsrc["ClaveProdServ"].ToString();
-                        //                                            }
-                        //                                        }
-                        //                                        foreach (DataRow rowCC in (InternalDataCollectionBase)dataSet1.Tables["Comprobante"].Rows)
-                        //                                        {
-                        //                                            lugarexpedicion = rowCC["LugarExpedicion"].ToString();
-                        //                                            //tipocomprobante = rowCC["TipoDeComprobante"].ToString();
-                        //                                            //total = rowCC["Total"].ToString();
-                        //                                            monedascpadgoc = rowCC["Moneda"].ToString();
-                        //                                            formadepago = rowCC["FormaPago"].ToString();
-                        //                                            if (formadepago == null || formadepago == "99") { formadepago = row["Formadepagocpag"].ToString(); }
-                        //                                            else { formadepago = row["Formadepagocpag"].ToString(); }
-                        //                                            //string Ccertificado = rowCC["Certificado"].ToString();
-                        //                                            //string Cnocertificado = rowCC["NoCertificado"].ToString();
-                        //                                            //string Csello = rowCC["Sello"].ToString();
-                        //                                            //tipocambiocpag = rowCC["TipoCambio"].ToString();
-                        //                                            idcomprobante = rowCC["Folio"].ToString();
-                        //                                            serie = rowCC["Serie"].ToString();
-                        //                                        }
-                        //                                        foreach (DataRow rowsr1 in (InternalDataCollectionBase)dataSet1.Tables["Complemento"].Rows)
-                        //                                        {
-                        //                                            foreach (DataRow rowsrct in (InternalDataCollectionBase)dataSet1.Tables["TimbreFiscalDigital"].Rows)
-                        //                                            {
-                        //                                                string Trfcprovcertif = rowsrct["RfcProvCertif"].ToString();
-                        //                                                string Tsellosat = rowsrct["SelloSAT"].ToString();
-                        //                                                string Tsellocfd = rowsrct["SelloCFD"].ToString();
-                        //                                                string Tnocertidicadosat = rowsrct["NoCertificadoSAT"].ToString();
-                        //                                                Tuuid = rowsrct["UUID"].ToString();
-                        //                                                string Tfechatimbrado = rowsrct["FechaTimbrado"].ToString();
-
-
-
-                        //                                            }
-                        //                                        }
-                        //                                        //FolioUUIDTxt.Text += identpag;
-                        //                                        try
-                        //                                        {
-                        //                                            importePagos2 = importePagos2 + Convert.ToDecimal(total);
-                        //                                            txtTotal.Text = importePagos2.ToString();
-                        //                                        }
-                        //                                        catch (Exception ex)
-                        //                                        {
-                        //                                            string errors = ex.Message;
-                        //                                        }
-
-                        //                                        if (monedascpadgoc.Trim() == "USD")
-                        //                                        {
-                        //                                            try
-                        //                                            {
-                        //                                                importePagos22 = importePagos22 + Convert.ToDecimal(basecalculado);
-                        //                                                txtTotal.Text = importePagos22.ToString();
-                        //                                            }
-                        //                                            catch (Exception ex)
-                        //                                            {
-                        //                                                string errors = ex.Message;
-                        //                                            }
-
-                        //                                            cpagdoc = cpagdoc + ("CPAG20DOC"                           //1-Tipo De Registro
-                        //                                               + "|" + iddelpago                                       //2-IdentificadorDelPago
-                        //                                                                                                       //+ "|" + rowIdent["IdentificadorDelDocumentoPagado"].ToString()                            //3-IdentificadorDelDocumentoPagado                                              
-                        //                                               + "|" + Tuuid                                            //3-IdentificadorDelDocumentoPagado                                              
-                        //                                               + "|" + serieinvoice                                   //4-Seriecpag
-                        //                                               + "|" + idcomprobante                                      //5-Foliocpag
-                        //                                               + "|" + monedascpadgoc                                  //6-Monedacpag
-                        //                                               + "|"  //+ tipocambiocpag                                       //7-TipoCambiocpagdpc
-
-                        //                                               + "|" + numerodeparcialidad                            //9-NumeroDeParcialidad
-                        //                                               + "|" + basecalculado.Trim()                                  //10-ImporteSaldoAnterior
-                        //                                               + "|" + basecalculado.Trim()                                  //11-ImportePagado                                                  
-                        //                                               + "|" + "0"                                            //12 ImporteSaldoInsoluto
-                        //                                               + "|" + "01"
-                        //                                               + "| \r\n");
-                        //                                        }
-                        //                                        else
-                        //                                        {
-                        //                                            cpagdoc = cpagdoc + ("CPAG20DOC"                           //1-Tipo De Registro
-                        //                                              + "|" + iddelpago                                       //2-IdentificadorDelPago
-                        //                                                                                                      //+ "|" + rowIdent["IdentificadorDelDocumentoPagado"].ToString()                            //3-IdentificadorDelDocumentoPagado                                              
-                        //                                              + "|" + Tuuid                                            //3-IdentificadorDelDocumentoPagado                                              
-                        //                                              + "|" + serieinvoice                                   //4-Seriecpag
-                        //                                              + "|" + idcomprobante                                      //5-Foliocpag
-                        //                                              + "|" + monedascpadgoc                                  //6-Monedacpag
-                        //                                              + "|" + tipocambiocpag                                             //7-TipoCambiocpagdpc
-                        //                                              + "|" + MetdodoPago                             //8-MetodoDePago
-                        //                                              + "|" + numerodeparcialidad                            //9-NumeroDeParcialidad
-                        //                                              + "|" + basecalculado2                                    //10-ImporteSaldoAnterior
-                        //                                              + "|" + basecalculado                                   //11-ImportePagado                                                  
-                        //                                              + "|" + basecalculado3                                            //12 ImporteSaldoInsoluto
-                        //                                              + "|" + "02"
-                        //                                              + "| \r\n");
-                        //                                        }
-                        //                                    }
-                        //                                    else
-                        //                                    {
-                        //                                        string msg = "Error: Los folios relacionados no existen en el canal de Tralix";
-                        //                                        formularioT.Visible = false;
-                        //                                        Div1.Visible = true;
-                        //                                        ScriptManager.RegisterStartupScript(this, GetType(), "swal", "swal('" + msg + "', 'Error con los folios relacionados ', 'error');setTimeout(function(){window.location.href ='Listado.aspx'}, 10000)", true);
-
-                        //                                    }
-
-
-                        //                                }
-                        //                            }
-
-
-                        //                        }
-
-                        //                    }
-
-                        //                    else
-                        //                    {
-
-                        //                        //3 FILTRO APROBADO
-                        //                        //AQUI TERMINA EL IF
-                        //                        k1 = rowIdentt["K1"].ToString();
-
-                        //                        k3 = Regex.Replace(rowIdentt["K3"].ToString().Replace("TDRM", "").Trim(), @"[A-Z]", "");
-                        //                        iipagado = rowIdentt["ActualApplyToAmount"].ToString();
-                        //                        basecalculo = Convert.ToDecimal(iipagado);
-                        //                        basecalculado = basecalculo.ToString("F");
-
-                        //                        var request281 = (HttpWebRequest)WebRequest.Create("https://canal1.xsa.com.mx:9050/bf2e1036-ba47-49a0-8cd9-e04b36d5afd4/cfdis?folioEspecifico=" + k3 + "&rfc=" + txtRFC.Text);
-                        //                        var response281 = (HttpWebResponse)request281.GetResponse();
-                        //                        var responseString281 = new StreamReader(response281.GetResponseStream()).ReadToEndAsync();
-
-                        //                        List<ModelFact> separados81 = JsonConvert.DeserializeObject<List<ModelFact>>(await responseString281);
-
-                        //                        if (separados81 != null)
-                        //                        {
-                        //                            contadortralix = 1;
-                        //                            foreach (var item in separados81)
-                        //                            {
-                        //                                uid = item.uuid;
-                        //                                serier = item.serie;
-                        //                                folior = item.folio;
-                        //                                uuidpagadas += uid + "\r\n";
-
-                        //                                Foliosrelacionados += "Serie: " + serier + " " + "Folio: " + folior + " " + "UUID: " + uid + "\r\n";
-
-
-
-                        //                                string UUID = item.xmlDownload;
-
-                        //                                XmlDocument xDoc = new XmlDocument();
-                        //                                xDoc.Load("https://canal1.xsa.com.mx:9050" + UUID);
-                        //                                var xmlTexto = xDoc.InnerXml.ToString();
-                        //                                DataSet dataSet1 = new DataSet();
-                        //                                XmlTextReader xtr = new XmlTextReader(xDoc.OuterXml, XmlNodeType.Element, null);
-                        //                                dataSet1.ReadXml(xtr);
-                        //                                if (xmlTexto.Contains("MetodoPago=\"PPD\""))
-                        //                                {
-                        //                                    MetdodoPago = "PPD";
-                        //                                    contadorPPD++;
-                        //                                }
-                        //                                else if (xmlTexto.Contains("MetodoPago=\"PUE\""))
-                        //                                {
-                        //                                    txtMetodoPago.Text = "PUE";
-                        //                                    MetdodoPago = "PUE";
-                        //                                    contadorPUE++;
-                        //                                }
-                        //                                if (MetdodoPago == "PPD")
-                        //                                {
-                        //                                    foreach (DataRow rowsr in (InternalDataCollectionBase)dataSet1.Tables["Conceptos"].Rows)
-                        //                                    {
-                        //                                        foreach (DataRow rowsrc in (InternalDataCollectionBase)dataSet1.Tables["Concepto"].Rows)
-                        //                                        {
-                        //                                            importe = rowsrc["Importe"].ToString();
-                        //                                            valorunitario = rowsrc["ValorUnitario"].ToString();
-                        //                                            try
-                        //                                            {
-                        //                                                importePagos = importePagos + Convert.ToDecimal(importe);
-                        //                                                importe = importePagos.ToString("F");
-
-                        //                                                valorunitarios = valorunitarios + Convert.ToDecimal(valorunitario);
-                        //                                                valorunitario = valorunitarios.ToString("F");
-                        //                                            }
-                        //                                            catch (Exception ex)
-                        //                                            {
-                        //                                                string errors = ex.Message;
-                        //                                            }
-                        //                                            //descripcion = rowsrc["Descripcion"].ToString();
-                        //                                            //claveunidad = rowsrc["ClaveUnidad"].ToString();
-                        //                                            //cantidad = rowsrc["Cantidad"].ToString();
-                        //                                            //claveproductoservicio = rowsrc["ClaveProdServ"].ToString();
-                        //                                        }
-                        //                                    }
-                        //                                    foreach (DataRow rowCC in (InternalDataCollectionBase)dataSet1.Tables["Comprobante"].Rows)
-                        //                                    {
-                        //                                        lugarexpedicion = rowCC["LugarExpedicion"].ToString();
-                        //                                        //tipocomprobante = rowCC["TipoDeComprobante"].ToString();
-                        //                                        //total = rowCC["Total"].ToString();
-                        //                                        monedascpadgoc = rowCC["Moneda"].ToString();
-                        //                                        formadepago = rowCC["FormaPago"].ToString();
-                        //                                        if (formadepago == null || formadepago == "99") { formadepago = row["Formadepagocpag"].ToString(); }
-                        //                                        else { formadepago = row["Formadepagocpag"].ToString(); }
-                        //                                        //string Ccertificado = rowCC["Certificado"].ToString();
-                        //                                        //string Cnocertificado = rowCC["NoCertificado"].ToString();
-                        //                                        //string Csello = rowCC["Sello"].ToString();
-                        //                                        //tipocambiocpag = rowCC["TipoCambio"].ToString();
-
-                        //                                        idcomprobante = rowCC["Folio"].ToString();
-                        //                                        serie = rowCC["Serie"].ToString();
-                        //                                    }
-                        //                                    foreach (DataRow rowsr1 in (InternalDataCollectionBase)dataSet1.Tables["Complemento"].Rows)
-                        //                                    {
-                        //                                        foreach (DataRow rowsrct in (InternalDataCollectionBase)dataSet1.Tables["TimbreFiscalDigital"].Rows)
-                        //                                        {
-                        //                                            string Trfcprovcertif = rowsrct["RfcProvCertif"].ToString();
-                        //                                            string Tsellosat = rowsrct["SelloSAT"].ToString();
-                        //                                            string Tsellocfd = rowsrct["SelloCFD"].ToString();
-                        //                                            string Tnocertidicadosat = rowsrct["NoCertificadoSAT"].ToString();
-                        //                                            Tuuid = rowsrct["UUID"].ToString();
-                        //                                            string Tfechatimbrado = rowsrct["FechaTimbrado"].ToString();
-
-
-
-                        //                                        }
-                        //                                    }
-                        //                                    //FolioUUIDTxt.Text += identpag;
-                        //                                    try
-                        //                                    {
-                        //                                        importePagos7 = importePagos7 + Convert.ToDecimal(basecalculado);
-                        //                                        txtTotal.Text = importePagos7.ToString("F");
-                        //                                    }
-                        //                                    catch (Exception ex)
-                        //                                    {
-                        //                                        string errors = ex.Message;
-                        //                                    }
-                        //                                    if (monedascpadgoc.Trim() == "USD")
-                        //                                    {
-                        //                                        try
-                        //                                        {
-                        //                                            importePagos22 = importePagos22 + Convert.ToDecimal(basecalculado);
-                        //                                            txtTotal.Text = importePagos22.ToString();
-                        //                                        }
-                        //                                        catch (Exception ex)
-                        //                                        {
-                        //                                            string errors = ex.Message;
-                        //                                        }
-
-                        //                                        cpagdoc = cpagdoc + ("CPAG20DOC"                           //1-Tipo De Registro
-                        //                                              + "|" + iddelpago                                       //2-IdentificadorDelPago
-                        //                                                                                                      //+ "|" + rowIdent["IdentificadorDelDocumentoPagado"].ToString()                            //3-IdentificadorDelDocumentoPagado                                              
-                        //                                              + "|" + Tuuid                                            //3-IdentificadorDelDocumentoPagado                                              
-                        //                                              + "|" + serieinvoice                                   //4-Seriecpag
-                        //                                              + "|" + idcomprobante                                      //5-Foliocpag
-                        //                                              + "|" + monedascpadgoc                                  //6-Monedacpag
-                        //                                              + "|"  //+ tipocambiocpag                                       //7-TipoCambiocpagdpc
-
-                        //                                              + "|" + numerodeparcialidad                            //9-NumeroDeParcialidad
-                        //                                              + "|" + basecalculado.Trim()                                  //10-ImporteSaldoAnterior
-                        //                                              + "|" + basecalculado.Trim()                                  //11-ImportePagado                                                  
-                        //                                              + "|" + "0"                                            //12 ImporteSaldoInsoluto
-                        //                                              + "|" + "01"
-                        //                                              + "| \r\n");
-                        //                                    }
-                        //                                    else
-                        //                                    {
-                        //                                        cpagdoc = cpagdoc + ("CPAG20DOC"                           //1-Tipo De Registro
-                        //                                          + "|" + iddelpago.Trim()                                      //2-IdentificadorDelPago
-                        //                                                                                                        //+ "|" + rowIdent["IdentificadorDelDocumentoPagado"].ToString()                            //3-IdentificadorDelDocumentoPagado                                              
-                        //                                          + "|" + Tuuid.Trim()                                          //3-IdentificadorDelDocumentoPagado                                              
-                        //                                          + "|" + serieinvoice.Trim()                                  //4-Seriecpag
-                        //                                          + "|" + idcomprobante.Trim()                                     //5-Foliocpag
-                        //                                          + "|" + monedascpadgoc.Trim()                                //6-Monedacpag
-                        //                                          + "|" + tipocambiocpag                                             //7-TipoCambiocpagdpc
-                        //                                          + "|" + MetdodoPago.Trim()                            //8-MetodoDePago
-                        //                                          + "|" + numerodeparcialidad.Trim()                            //9-NumeroDeParcialidad
-                        //                                          + "|" + basecalculado2.Trim()                                  //10-ImporteSaldoAnterior
-                        //                                          + "|" + basecalculado.Trim()                                //11-ImportePagado                                                  
-                        //                                          + "|" + basecalculado3.Trim()                                            //12 ImporteSaldoInsoluto
-                        //                                          + "|" + "02"
-                        //                                          + "| \r\n");
-                        //                                    }
-
-
-                        //                                }
-                        //                                //else
-                        //                                //{
-                        //                                //    string msg = "Error: Los folios relacionados no existen en el canal de Tralix";
-                        //                                //    formularioT.Visible = false;
-                        //                                //    Div1.Visible = true;
-                        //                                //    ScriptManager.RegisterStartupScript(this, GetType(), "swal", "swal('" + msg + "', 'Error con los folios relacionados ', 'error');setTimeout(function(){window.location.href ='Listado.aspx'}, 10000)", true);
-
-                        //                                //}
-                        //                                //AQUI FALTA AGREGAR LO QUE TIENE EL XML Y FORMAR EL TXT
-
-                        //                            }
-
-                        //                        }
-
-                        //                        //ME FALTA ESTA DE PROBAR Y GENERAR TXT
-                        //                        else
-                        //                        {
-                        //                            DataTable invoiceresult = facLabControler.getDatosInvoice(k3);
-                        //                            if (invoiceresult.Rows.Count > 0)
-                        //                            {
-                        //                                foreach (DataRow rowInvoice in invoiceresult.Rows)
-                        //                                {
-
-                        //                                    norden = rowInvoice["ord_hdrnumber"].ToString();
-                        //                                    DataTable segmentoresult = facLabControler.getDatosSegmentos(norden);
-                        //                                    foreach (DataRow seg in segmentoresult.Rows)
-                        //                                    {
-                        //                                        string Segmento = seg["Segmento"].ToString();
-
-                        //                                        var request2819 = (HttpWebRequest)WebRequest.Create("https://canal1.xsa.com.mx:9050/bf2e1036-ba47-49a0-8cd9-e04b36d5afd4/cfdis?folioEspecifico=" + Segmento + "&rfc=" + txtRFC.Text);
-                        //                                        var response2819 = (HttpWebResponse)request2819.GetResponse();
-                        //                                        var responseString2819 = new StreamReader(response2819.GetResponseStream()).ReadToEndAsync();
-
-                        //                                        List<ModelFact> separados819 = JsonConvert.DeserializeObject<List<ModelFact>>(await responseString2819);
-
-                        //                                        if (separados819 != null)
-                        //                                        {
-                        //                                            foreach (var item in separados819)
-                        //                                            {
-                        //                                                string uuid = item.uuid;
-                        //                                                string xmld = item.xmlDownload;
-                        //                                                serieinvoice = item.serie;
-
-                        //                                                uid = item.uuid;
-                        //                                                serier = item.serie;
-                        //                                                folior = item.folio;
-                        //                                                uuidpagadas += uid + "\r\n";
-
-                        //                                                Foliosrelacionados += "Serie: " + serier + " " + "Folio: " + folior + " " + "UUID: " + uid + "\r\n";
-
-                        //                                                XmlDocument xDoc = new XmlDocument();
-                        //                                                xDoc.Load("https://canal1.xsa.com.mx:9050" + xmld);
-                        //                                                var xmlTexto = xDoc.InnerXml.ToString();
-                        //                                                DataSet dataSet1 = new DataSet();
-                        //                                                XmlTextReader xtr = new XmlTextReader(xDoc.OuterXml, XmlNodeType.Element, null);
-                        //                                                dataSet1.ReadXml(xtr);
-
-                        //                                                if (xmlTexto.Contains("MetodoPago=\"PPD\""))
-                        //                                                {
-                        //                                                    MetdodoPago = "PPD";
-                        //                                                    contadorPPD++;
-                        //                                                }
-                        //                                                else if (xmlTexto.Contains("MetodoPago=\"PUE\""))
-                        //                                                {
-                        //                                                    txtMetodoPago.Text = "PUE";
-                        //                                                    MetdodoPago = "PUE";
-                        //                                                    contadorPUE++;
-                        //                                                }
-                        //                                                if (MetdodoPago == "PPD")
-                        //                                                {
-
-                        //                                                    foreach (DataRow rowsr in (InternalDataCollectionBase)dataSet1.Tables["Conceptos"].Rows)
-                        //                                                    {
-                        //                                                        foreach (DataRow rowsrc in (InternalDataCollectionBase)dataSet1.Tables["Concepto"].Rows)
-                        //                                                        {
-                        //                                                            importe = rowsrc["Importe"].ToString();
-                        //                                                            valorunitario = rowsrc["ValorUnitario"].ToString();
-                        //                                                            try
-                        //                                                            {
-                        //                                                                importePagos3 = importePagos3 + Convert.ToDecimal(importe);
-                        //                                                                importe = importePagos3.ToString("F");
-
-                        //                                                                valorunitarios = valorunitarios + Convert.ToDecimal(valorunitario);
-                        //                                                                valorunitario = valorunitarios.ToString("F");
-                        //                                                            }
-                        //                                                            catch (Exception ex)
-                        //                                                            {
-                        //                                                                string errors = ex.Message;
-                        //                                                            }
-
-                        //                                                            //descripcion = rowsrc["Descripcion"].ToString();
-                        //                                                            //claveunidad = rowsrc["ClaveUnidad"].ToString();
-                        //                                                            //cantidad = rowsrc["Cantidad"].ToString();
-                        //                                                            //claveproductoservicio = rowsrc["ClaveProdServ"].ToString();
-                        //                                                        }
-                        //                                                    }
-                        //                                                    foreach (DataRow rowCC in (InternalDataCollectionBase)dataSet1.Tables["Comprobante"].Rows)
-                        //                                                    {
-                        //                                                        lugarexpedicion = rowCC["LugarExpedicion"].ToString();
-                        //                                                        //tipocomprobante = rowCC["TipoDeComprobante"].ToString();
-                        //                                                        total = rowCC["Total"].ToString();
-                        //                                                        monedascpadgoc = rowCC["Moneda"].ToString();
-                        //                                                        formadepago = rowCC["FormaPago"].ToString();
-                        //                                                        if (formadepago == null || formadepago == "99") { formadepago = row["Formadepagocpag"].ToString(); }
-                        //                                                        else { formadepago = row["Formadepagocpag"].ToString(); }
-                        //                                                        //string Ccertificado = rowCC["Certificado"].ToString();
-                        //                                                        //string Cnocertificado = rowCC["NoCertificado"].ToString();
-                        //                                                        //string Csello = rowCC["Sello"].ToString();
-                        //                                                        //tipocambiocpag = rowCC["TipoCambio"].ToString();
-                        //                                                        idcomprobante = rowCC["Folio"].ToString();
-                        //                                                        serie = rowCC["Serie"].ToString();
-                        //                                                    }
-                        //                                                    foreach (DataRow rowsr1 in (InternalDataCollectionBase)dataSet1.Tables["Complemento"].Rows)
-                        //                                                    {
-                        //                                                        foreach (DataRow rowsrct in (InternalDataCollectionBase)dataSet1.Tables["TimbreFiscalDigital"].Rows)
-                        //                                                        {
-                        //                                                            string Trfcprovcertif = rowsrct["RfcProvCertif"].ToString();
-                        //                                                            string Tsellosat = rowsrct["SelloSAT"].ToString();
-                        //                                                            string Tsellocfd = rowsrct["SelloCFD"].ToString();
-                        //                                                            string Tnocertidicadosat = rowsrct["NoCertificadoSAT"].ToString();
-                        //                                                            Tuuid = rowsrct["UUID"].ToString();
-                        //                                                            string Tfechatimbrado = rowsrct["FechaTimbrado"].ToString();
-
-
-
-                        //                                                        }
-                        //                                                    }
-                        //                                                    //FolioUUIDTxt.Text += identpag;
-                        //                                                    try
-                        //                                                    {
-                        //                                                        importePagos4 = importePagos4 + Convert.ToDecimal(basecalculado);
-                        //                                                        txtTotal.Text = importePagos4.ToString();
-                        //                                                    }
-                        //                                                    catch (Exception ex)
-                        //                                                    {
-                        //                                                        string errors = ex.Message;
-                        //                                                    }
-                        //                                                    if (monedascpadgoc.Trim() == "USD")
-                        //                                                    {
-                        //                                                        try
-                        //                                                        {
-                        //                                                            importePagos22 = importePagos22 + Convert.ToDecimal(basecalculado);
-                        //                                                            txtTotal.Text = importePagos22.ToString();
-                        //                                                        }
-                        //                                                        catch (Exception ex)
-                        //                                                        {
-                        //                                                            string errors = ex.Message;
-                        //                                                        }
-
-                        //                                                        cpagdoc = cpagdoc + ("CPAG20DOC"                           //1-Tipo De Registro
-                        //                                                          + "|" + iddelpago                                       //2-IdentificadorDelPago
-                        //                                                                                                                  //+ "|" + rowIdent["IdentificadorDelDocumentoPagado"].ToString()                            //3-IdentificadorDelDocumentoPagado                                              
-                        //                                                          + "|" + Tuuid                                            //3-IdentificadorDelDocumentoPagado                                              
-                        //                                                          + "|" + serieinvoice                                   //4-Seriecpag
-                        //                                                          + "|" + idcomprobante                                      //5-Foliocpag
-                        //                                                          + "|" + monedascpadgoc                                  //6-Monedacpag
-                        //                                                          + "|"  //+ tipocambiocpag                                       //7-TipoCambiocpagdpc
-
-                        //                                                          + "|" + numerodeparcialidad                            //9-NumeroDeParcialidad
-                        //                                                          + "|" + basecalculado.Trim()                                  //10-ImporteSaldoAnterior
-                        //                                                          + "|" + basecalculado.Trim()                                  //11-ImportePagado                                                  
-                        //                                                          + "|" + "0"                                            //12 ImporteSaldoInsoluto
-                        //                                                          + "|" + "01"
-                        //                                                          + "| \r\n");
-                        //                                                    }
-                        //                                                    else
-                        //                                                    {
-                        //                                                        cpagdoc = cpagdoc + ("CPAG20DOC"                           //1-Tipo De Registro
-                        //                                                          + "|" + iddelpago.Trim()                                    //2-IdentificadorDelPago
-                        //                                                                                                                      //+ "|" + rowIdent["IdentificadorDelDocumentoPagado"].ToString()                            //3-IdentificadorDelDocumentoPagado                                              
-                        //                                                          + "|" + Tuuid.Trim()                                         //3-IdentificadorDelDocumentoPagado                                              
-                        //                                                          + "|" + serieinvoice.Trim()                                 //4-Seriecpag
-                        //                                                          + "|" + idcomprobante.Trim()                                    //5-Foliocpag
-                        //                                                          + "|" + monedascpadgoc.Trim()                                 //6-Monedacpag
-                        //                                                          + "|" + tipocambiocpag                                             //7-TipoCambiocpagdpc
-                        //                                                          + "|" + MetdodoPago.Trim()                            //8-MetodoDePago
-                        //                                                          + "|" + numerodeparcialidad.Trim()                          //9-NumeroDeParcialidad
-                        //                                                          + "|" + basecalculado.Trim()                                   //10-ImporteSaldoAnterior
-                        //                                                          + "|" + basecalculado.Trim()                                  //11-ImportePagado                                                  
-                        //                                                          + "|" + basecalculado.Trim()                                            //12 ImporteSaldoInsoluto
-                        //                                                          + "|" + "02"
-                        //                                                          + "| \r\n");
-                        //                                                    }
-
-                        //                                                }
-                        //                                            }
-                        //                                        }
-                        //                                    }
-                        //                                }
-
-                        //                            }
-
-                        //                        }
-                        //                        if (uid == "" && serieinvoice == "TDRA")
-                        //                        {
-                        //                            var request23 = (HttpWebRequest)WebRequest.Create("https://canal1.xsa.com.mx:9050/bf2e1036-ba47-49a0-8cd9-e04b36d5afd4/cfdis?folioEspecifico=" + folio + "&serie=" + "SAEM");
-                        //                            var response23 = (HttpWebResponse)request23.GetResponse();
-                        //                            var responseString23 = new StreamReader(response23.GetResponseStream()).ReadToEndAsync();
-
-                        //                            List<ModelFact> separados23 = JsonConvert.DeserializeObject<List<ModelFact>>(await responseString23);
-
-                        //                            foreach (var item23 in separados23)
-                        //                            {
-                        //                                uid = item23.uuid;
-
-
-                        //                                string UUID = item23.xmlDownload;
-
-                        //                                XmlDocument xDoc = new XmlDocument();
-                        //                                xDoc.Load("https://canal1.xsa.com.mx:9050" + UUID);
-                        //                                var xmlTexto = xDoc.InnerXml.ToString();
-                        //                                DataSet dataSet1 = new DataSet();
-                        //                                XmlTextReader xtr = new XmlTextReader(xDoc.OuterXml, XmlNodeType.Element, null);
-                        //                                dataSet1.ReadXml(xtr);
-                        //                                if (xmlTexto.Contains("MetodoPago=\"PPD\""))
-                        //                                {
-                        //                                    MetdodoPago = "PPD";
-                        //                                    contadorPPD++;
-                        //                                }
-                        //                                else if (xmlTexto.Contains("MetodoPago=\"PUE\""))
-                        //                                {
-                        //                                    txtMetodoPago.Text = "PUE";
-                        //                                    MetdodoPago = "PUE";
-                        //                                    contadorPUE++;
-                        //                                }
-
-                        //                            }
-                        //                        }
-
-                        //                    }
-
-
-
-
-
-
-                        //                }
-                        //            }
-                        //        }
-
-                        //        decimal totalds = importePagos2 + importePagos7 + importePagos4;
-                        //        txtTotal.Text = totalds.ToString();
-
-                        //        //AQUI TERMINA GP ---------------------
-
-
-
-
-                        //        //CPAGDOC-----------------------------------------------------------------------------------------------------------------------
-                        //        //DataTable detalleIdent = facLabControler.getDatosCPAGDOC(row["IdentificadorDelPago"].ToString());
-
-                        //        //foreach (DataRow rowIdent in detalleIdent.Rows)
-                        //        //{
-                        //        //    folio = Regex.Replace(rowIdent["Foliocpag"].ToString().Replace("TDR", "").Trim(), @"[A-Z]", "");
-
-                        //        //    //txtTotal.Text = importePagos.ToString();
-                        //        //    //txtTotal.Text = rowIdent["ImportePagado"].ToString();
-                        //        //    string receptor = txtIdCliente.Text.ToString().Trim();
-                        //        //    string serieinvoice = "";
-                        //        //    if (receptor.Equals("LIVERPOL") || receptor.Equals("LIVERDED") || receptor.Equals("ALMLIVER") || receptor.Equals("LIVERTIJ") || receptor.Equals("SFERALIV") || receptor.Equals("GLOBALIV") || receptor.Equals("SETRALIV") || receptor.Equals("FACTUMLV"))
-                        //        //    {
-                        //        //        serieinvoice = "TDRL";
-                        //        //    }
-                        //        //    else
-                        //        //    {
-                        //        //        serieinvoice = rowIdent["Seriecpag"].ToString();
-                        //        //    }
-                        //        //    folio = Regex.Replace(rowIdent["Foliocpag"].ToString().Replace("TDR", "").Trim(), @"[A-Z]", "");
-                        //        //    if (folio.Length == 7 && folio.StartsWith("99"))
-                        //        //    {
-                        //        //        folio = folio.Substring(folio.Length - 6, 6);
-                        //        //    }
-                        //        //    else if (folio.Length == 8)
-                        //        //    {
-                        //        //        folio = folio.Substring(folio.Length - 7, 7);
-                        //        //    }
-                        //        //    folio = folio.Replace("-", "");
-                        //        //    //validar con la serie el id de sucursal-serie
-
-                        //        //    MetdodoPago = "";
-
-
-
-
-
-                        //        //    DataTable datosMaster = facLabControler.getDatosMaster(folio);
-                        //        //    if (datosMaster.Rows.Count > 0)
-                        //        //    {
-
-                        //        //        foreach (DataRow rowMaster in datosMaster.Rows)
-                        //        //        {
-                        //        //            string invoiceMaster = Regex.Replace(rowMaster[0].ToString(), @"[A-Z]", "");
-                        //        //            folio = invoiceMaster;
-
-                        //        //            var request27 = (HttpWebRequest)WebRequest.Create("https://canal1.xsa.com.mx:9050/bf2e1036-ba47-49a0-8cd9-e04b36d5afd4/cfdis?folioEspecifico=" + invoiceMaster + "&serie=" + serieinvoice);
-                        //        //            var response27 = (HttpWebResponse)request27.GetResponse();
-                        //        //            var responseString27 = new StreamReader(response27.GetResponseStream()).ReadToEnd();
-
-                        //        //            List<ModelFact> separados7 = JsonConvert.DeserializeObject<List<ModelFact>>(responseString27);
-                        //        //            foreach (var item in separados7)
-                        //        //            {
-
-
-
-                        //        //                uid = item.uuid;
-                        //        //                serier = item.serie;
-                        //        //                folior = item.folio;
-                        //        //                uuidpagadas += uid + "\r\n";
-
-                        //        //                Foliosrelacionados += "Serie: " + serier + " " + "Folio: " + folior + " " + "UUID: " + uid + "\r\n";
-
-                        //        //                if (serieinvoice != "TDRL")
-                        //        //                {
-                        //        //                    string UUID = item.xmlDownload;
-
-                        //        //                    XmlDocument xDoc = new XmlDocument();
-                        //        //                    xDoc.Load("https://canal1.xsa.com.mx:9050" + UUID);
-                        //        //                    var xmlTexto = xDoc.InnerXml.ToString();
-                        //        //                    DataSet dataSet1 = new DataSet();
-                        //        //                    XmlTextReader xtr = new XmlTextReader(xDoc.OuterXml, XmlNodeType.Element, null);
-                        //        //                    dataSet1.ReadXml(xtr);
-                        //        //                    if (xmlTexto.Contains("MetodoPago=\"PPD\""))
-                        //        //                    {
-                        //        //                        MetdodoPago = "PPD";
-                        //        //                        contadorPPD++;
-                        //        //                    }
-                        //        //                    else if (xmlTexto.Contains("MetodoPago=\"PUE\""))
-                        //        //                    {
-                        //        //                        txtMetodoPago.Text = "PUE";
-                        //        //                        MetdodoPago = "PUE";
-                        //        //                        contadorPUE++;
-                        //        //                    }
-                        //        //                }
-                        //        //            }
-
-                        //        //        }
-                        //        //    }
-                        //        //    else
-                        //        //    {
-                        //        //        //INICIO DE CODIGO
-
-                        //        //        var request2 = (HttpWebRequest)WebRequest.Create("https://canal1.xsa.com.mx:9050/bf2e1036-ba47-49a0-8cd9-e04b36d5afd4/cfdis?folioEspecifico=" + folio + "&serie=" + serieinvoice);
-                        //        //        var response2 = (HttpWebResponse)request2.GetResponse();
-                        //        //        var responseString2 = new StreamReader(response2.GetResponseStream()).ReadToEnd();
-
-                        //        //        List<ModelFact> separados = JsonConvert.DeserializeObject<List<ModelFact>>(responseString2);
-                        //        //        //PONER UNA CONDICION POR SI SEPADOS ES NULL
-                        //        //        if (separados != null)
-                        //        //        {
-                        //        //            foreach (var item in separados)
-                        //        //            {
-
-
-
-                        //        //                uid = item.uuid;
-                        //        //                serier = item.serie;
-                        //        //                folior = item.folio;
-                        //        //                uuidpagadas += uid + "\r\n";
-                        //        //                Foliosrelacionados += "Serie: " + serier + " " + "Folio: " + folior + " " + "UUID: " + uid + "\r\n";
-                        //        //                if (serieinvoice != "TDRL")
-                        //        //                {
-                        //        //                    string UUID = item.xmlDownload;
-
-                        //        //                    XmlDocument xDoc = new XmlDocument();
-                        //        //                    xDoc.Load("https://canal1.xsa.com.mx:9050" + UUID);
-                        //        //                    var xmlTexto = xDoc.InnerXml.ToString();
-                        //        //                    DataSet dataSet1 = new DataSet();
-                        //        //                    XmlTextReader xtr = new XmlTextReader(xDoc.OuterXml, XmlNodeType.Element, null);
-                        //        //                    dataSet1.ReadXml(xtr);
-                        //        //                    if (xmlTexto.Contains("MetodoPago=\"PPD\""))
-                        //        //                    {
-                        //        //                        MetdodoPago = "PPD";
-                        //        //                        contadorPPD++;
-                        //        //                    }
-                        //        //                    else if (xmlTexto.Contains("MetodoPago=\"PUE\""))
-                        //        //                    {
-                        //        //                        txtMetodoPago.Text = "PUE";
-                        //        //                        MetdodoPago = "PUE";
-                        //        //                        contadorPUE++;
-                        //        //                    }
-                        //        //                }
-                        //        //            }
-
-                        //        //        }
-
-
-
-
-
-                        //        //        // FIN DE MI CODIGO 
-
-                        //        //        if (uid == "" && serieinvoice == "TDRA")
-                        //        //        {
-                        //        //            var request23 = (HttpWebRequest)WebRequest.Create("https://canal1.xsa.com.mx:9050/bf2e1036-ba47-49a0-8cd9-e04b36d5afd4/cfdis?folioEspecifico=" + folio + "&serie=" + "SAEM");
-                        //        //            var response23 = (HttpWebResponse)request23.GetResponse();
-                        //        //            var responseString23 = new StreamReader(response23.GetResponseStream()).ReadToEnd();
-
-                        //        //            List<ModelFact> separados23 = JsonConvert.DeserializeObject<List<ModelFact>>(responseString2);
-
-                        //        //            foreach (var item23 in separados23)
-                        //        //            {
-                        //        //                uid = item23.uuid;
-                        //        //                if (serieinvoice != "TDRL")
-                        //        //                {
-                        //        //                    string UUID = item23.xmlDownload;
-
-                        //        //                    XmlDocument xDoc = new XmlDocument();
-                        //        //                    xDoc.Load("https://canal1.xsa.com.mx:9050" + UUID);
-                        //        //                    var xmlTexto = xDoc.InnerXml.ToString();
-                        //        //                    DataSet dataSet1 = new DataSet();
-                        //        //                    XmlTextReader xtr = new XmlTextReader(xDoc.OuterXml, XmlNodeType.Element, null);
-                        //        //                    dataSet1.ReadXml(xtr);
-                        //        //                    if (xmlTexto.Contains("MetodoPago=\"PPD\""))
-                        //        //                    {
-                        //        //                        MetdodoPago = "PPD";
-                        //        //                        contadorPPD++;
-                        //        //                    }
-                        //        //                    else if (xmlTexto.Contains("MetodoPago=\"PUE\""))
-                        //        //                    {
-                        //        //                        txtMetodoPago.Text = "PUE";
-                        //        //                        MetdodoPago = "PUE";
-                        //        //                        contadorPUE++;
-                        //        //                    }
-                        //        //                }
-                        //        //            }
-                        //        //        }
-
-                        //        //    }
-
-                        //        //    if (MetdodoPago == "PPD")
-                        //        //    {
-
-                        //        //        identpag = rowIdent["IdentificadorDelPago"].ToString();
-                        //        //        //txtFechaIniOP.Text = "\r\n" +rowIdent["IdentificadorDelDocumentoPagado"].ToString();
-                        //        //        seriecpag = rowIdent["Seriecpag"].ToString();
-                        //        //        foliocpag = rowIdent["Foliocpag"].ToString();
-                        //        //        monedacpagdoc = rowIdent["Monedacpagdoc"].ToString();
-                        //        //        tipocambiocpag = rowIdent["TipodeCambiocpagdpc"].ToString();
-                        //        //        txtMetodoPago.Text = rowIdent["MedotoDePago"].ToString();
-                        //        //        numerodeparcialidad = rowIdent["NumeroDeParcialidad"].ToString();
-                        //        //        importeSaldoAnterior = rowIdent["ImporteSaldoAnterior"].ToString();
-                        //        //        importepago = rowIdent["ImportePagado"].ToString();
-                        //        //        importesaldoinsoluto = rowIdent["ImporteSaldoInsoluto"].ToString();
-                        //        //        //FolioUUIDTxt.Text += identpag;
-                        //        //        try
-                        //        //        {
-                        //        //            importePagos = importePagos + Convert.ToDecimal(importepago);
-                        //        //            txtTotal.Text = importePagos.ToString();
-                        //        //        }
-                        //        //        catch (Exception ex)
-                        //        //        {
-                        //        //            string errors = ex.Message;
-                        //        //        }
-
-                        //        //        //txtFechaIniOP.Text = txtFechaIniOP.Text + "\r\n" + rowIdent["IdentificadorDelDocumentoPagado"].ToString();
-                        //        //        //txtFechaIniOP.Text = txtFechaIniOP.Text + "\r\n" + uid;
-                        //        //        //FolioUUIDTxt.Text = FolioUUIDTxt.Text + "\r\n" + "Serie:" + serieinvoice + " Folio:" + folio + " UUID:" + uid;
-
-
-
-                        //        //        if (monedacpagdoc.Trim() == "USD")
-                        //        //        {
-                        //        //            cpagdoc = cpagdoc + ("CPAGDOC"                           //1-Tipo De Registro
-                        //        //              + "|" + identpag                                       //2-IdentificadorDelPago
-                        //        //                                                                     //+ "|" + rowIdent["IdentificadorDelDocumentoPagado"].ToString()                            //3-IdentificadorDelDocumentoPagado                                              
-                        //        //              + "|" + uid                                            //3-IdentificadorDelDocumentoPagado                                              
-                        //        //              + "|" + serieinvoice                                   //4-Seriecpag
-                        //        //              + "|" + foliocpag                                      //5-Foliocpag
-                        //        //              + "|" + monedacpagdoc                                  //6-Monedacpag
-                        //        //              + "|" + ""                                             //7-TipoCambiocpagdpc
-                        //        //              + "|" + txtMetodoPago.Text                             //8-MetodoDePago
-                        //        //              + "|" + numerodeparcialidad                            //9-NumeroDeParcialidad
-                        //        //              + "|" + importepago                                    //10-ImporteSaldoAnterior
-                        //        //              + "|" + importepago                                    //11-ImportePagado                                                  
-                        //        //              + "|" + "0"                                            //12 ImporteSaldoInsoluto
-                        //        //              + "| \r\n");
-                        //        //        }
-                        //        //        else
-                        //        //        {
-                        //        //            //----------------------------------------Seccion CPAG20PAGO -------------------------------------------------------------------
-
-                        //        //            //CPAG20PAGO (1:N)
-                        //        //            //escritor.WriteLine(
-                        //        //            //"CPAG20PAGO"                        //1-Tipo De Registro
-                        //        //            //+ "|" + identpag                    //2-IdentificadorDelPago
-                        //        //            //+ "|" + fechapago                   //3-FechaPago                                              
-                        //        //            //+ "|"  + formadepagocpag            //4-Forma de pago
-                        //        //            //+ "|" + moneda                      //5-Moneda
-                        //        //            //+ "|"                               //6-TipoDeCambiocpag
-                        //        //            //+ "|" + monto                       //7-Monto
-                        //        //            //+ "|"                               //8-NumeroOperacion
-                        //        //            //+ "|"                               //9-RFCEmisorCuentaOrdenante
-                        //        //            //+ "|"                               //10-Nombre del Banco
-                        //        //            //+ "|"                               //11-Número de Cuenta Ordenante
-                        //        //            //+ "|"                               //12-RFC Emisor Cuenta Beneficiario
-                        //        //            //+ "|"                               //13-Número de Cuenta Beneficiario
-                        //        //            //+ "|"                               //14-Tipo Cadena Pago
-                        //        //            //+ "|"                               //15-Certificado Pago
-                        //        //            //+ "|"                               //16-Cadena Pago
-                        //        //            //+ "|"                               //17-Sello de Pago                                                                                                 
-                        //        //            //+ "|"                               //Fin Del Registro
-                        //        //            //);
-
-                        //        //            //escrituraFactura += "CPAG20PAGO"    //1-Tipo De Registro
-                        //        //            //+ "|" + identpag                    //2-IdentificadorDelPago
-                        //        //            //+ "|" + fechapago                   //3-FechaPago                                              
-                        //        //            //+ "|"  + formadepagocpag            //4-Forma de pago
-                        //        //            //+ "|" + moneda                      //5-Moneda
-                        //        //            //+ "|"                               //6-TipoDeCambiocpag
-                        //        //            //+ "|" + monto                       //7-Monto
-                        //        //            //+ "|"                               //8-NumeroOperacion
-                        //        //            //+ "|"                               //9-RFCEmisorCuentaOrdenante
-                        //        //            //+ "|"                               //10-Nombre del Banco
-                        //        //            //+ "|"                               //11-Número de Cuenta Ordenante
-                        //        //            //+ "|"                               //12-RFC Emisor Cuenta Beneficiario
-                        //        //            //+ "|"                               //13-Número de Cuenta Beneficiario
-                        //        //            //+ "|"                               //14-Tipo Cadena Pago
-                        //        //            //+ "|"                               //15-Certificado Pago
-                        //        //            //+ "|"                               //16-Cadena Pago
-                        //        //            //+ "|"                               //17-Sello de Pago                                                                                                 
-                        //        //            //+ "|";                               //Fin Del Registro
-                        //        //            // -------------------------- CPAG20DOC ------------------------------------------
-                        //        //            //cpagdoc = cpagdoc + ("CPAG20DOC"                       //1-Tipo De Registro
-                        //        //            //+ "|" + identpag                                       //2-IdentificadorDelPago
-                        //        //            //+ "|" + rowIdent["IdentificadorDelDocumentoPagado"].ToString()                            //3-IdentificadorDelDocumentoPagado                                              
-                        //        //            //+ "|" + uid                            //3-IdentificadorDelDocumentoPagado                                              
-                        //        //            //+ "|" + serieinvoice                                      //4-Seriecpag
-                        //        //            //+ "|" + foliocpag                                      //5-Foliocpag
-                        //        //            //+ "|" + monedacpagdoc                                  //6-Monedacpag
-                        //        //            //+ "|" + tipocambiocpag                                 //7-TipoCambiocpagdpc Equivalencia                          
-                        //        //            //+ "|" + numerodeparcialidad                            //9-NumeroDeParcialidad
-                        //        //            //+ "|" + importeSaldoAnterior                           //10-ImporteSaldoAnterior
-                        //        //            //+ "|" + importepago                                    //11-ImportePagado                                                  
-                        //        //            //+ "|" + importesaldoinsoluto                           //12 ImporteSaldoInsoluto
-                        //        //            //+ "| \r\n");
-
-
-                        //        //            cpagdoc = cpagdoc + ("CPAGDOC"                                              //1-Tipo De Registro
-                        //        //              + "|" + identpag                                       //2-IdentificadorDelPago
-                        //        //                                                                     //+ "|" + rowIdent["IdentificadorDelDocumentoPagado"].ToString()                            //3-IdentificadorDelDocumentoPagado                                              
-                        //        //              + "|" + uid                            //3-IdentificadorDelDocumentoPagado                                              
-                        //        //              + "|" + serieinvoice                                      //4-Seriecpag
-                        //        //              + "|" + foliocpag                                      //5-Foliocpag
-                        //        //              + "|" + monedacpagdoc                                  //6-Monedacpag
-                        //        //              + "|" + tipocambiocpag                                 //7-TipoCambiocpagdpc
-                        //        //              + "|" + txtMetodoPago.Text                             //8-MetodoDePago
-                        //        //              + "|" + numerodeparcialidad                            //9-NumeroDeParcialidad
-                        //        //              + "|" + importeSaldoAnterior                           //10-ImporteSaldoAnterior
-                        //        //              + "|" + importepago                                    //11-ImportePagado                                                  
-                        //        //              + "|" + importesaldoinsoluto                           //12 ImporteSaldoInsoluto
-                        //        //              + "| \r\n");
-                        //        //        }
-                        //        //    }
-                        //        //    //else
-                        //        //    //{
-                        //        //    //    string msg = "Error: Los folios relacionados no existen en el canal de Tralix";
-                        //        //    //    formularioT.Visible = false;
-                        //        //    //    Div1.Visible = true;
-                        //        //    //    ScriptManager.RegisterStartupScript(this, GetType(), "swal", "swal('" + msg + "', 'Error con los folios relacionados ', 'error');setTimeout(function(){window.location.href ='Listado.aspx'}, 10000)", true);
-
-                        //        //    //}
-
-                        //        //}
-
-
-                        //    }
-                        //}
-
-
-                    }
-
-
-
-                    //AQUI VOY -------------------------------
-
-
-                    if (contadorPPD == 0 && contadorPUE > 0)
-                    {
-                        string msg = "¡La factura es PUE!, es libre de todo PPD";
-
-                        Div1.Visible = false;
-                        ScriptManager.RegisterStartupScript(this, GetType(), "swal", "swal('" + msg + "', 'La factura es PUE ', 'success');setTimeout(function(){window.location.href ='Listado.aspx'}, 10000)", true);
-                        //ScriptManager.RegisterStartupScript(this, GetType(), "swal", "swal('La factura es PUE!! y es libre de todo PPD', 'success');", true);
-                        //PopupMsg.Message1 = "La factura es PUE!! y es libre de todo PPD";
-                        //PopupMsg.ShowPopUp(0);
-                    }
-                    else
-                    {
-                        var uuidpagadas2 = uuidpagadas;
-
-                        if (uuidpagadas2 == null)
+                        if (contadorPPD == 0 && contadorPUE > 0)
                         {
-                            string msg = "Error: El o los folios relacionados no existen en el canal de Tralix";
-                            formularioT.Visible = false;
-                            Div1.Visible = true;
-                            ScriptManager.RegisterStartupScript(this, GetType(), "swal", "swal('" + msg + "', 'Error con los folios relacionados ', 'error');setTimeout(function(){window.location.href ='Listado.aspx'}, 10000)", true);
+                            string msg = "¡La factura es PUE!, es libre de todo PPD";
+
+                            Div1.Visible = false;
+                            ScriptManager.RegisterStartupScript(this, GetType(), "swal", "swal('" + msg + "', 'La factura es PUE ', 'success');setTimeout(function(){window.location.href ='Listado.aspx'}, 10000)", true);
+                            //ScriptManager.RegisterStartupScript(this, GetType(), "swal", "swal('La factura es PUE!! y es libre de todo PPD', 'success');", true);
+                            //PopupMsg.Message1 = "La factura es PUE!! y es libre de todo PPD";
+                            //PopupMsg.ShowPopUp(0);
                         }
                         else
                         {
+                            var uuidpagadas2 = uuidpagadas;
+
+                            if (uuidpagadas2 == null)
+                            {
+                                string msg = "Error: El o los folios relacionados no existen en el canal de Tralix";
+                                formularioT.Visible = false;
+                                Div1.Visible = true;
+                                ScriptManager.RegisterStartupScript(this, GetType(), "swal", "swal('" + msg + "', 'Error con los folios relacionados ', 'error');setTimeout(function(){window.location.href ='Listado.aspx'}, 10000)", true);
+                            }
+                            else
+                            {
 
 
-                            txtFechaIniOP.Text = uuidpagadas;
-                            FolioUUIDTxt.Text = Foliosrelacionados;
+                                txtFechaIniOP.Text = uuidpagadas;
+                                FolioUUIDTxt.Text = Foliosrelacionados;
 
-                            txtFechaHasta.Text = "Complemento Pago";
-
-
-                            txtFechaDesde.Text = "Complemento Pago";
+                                txtFechaHasta.Text = "Complemento Pago";
 
 
-                            txtTipoCobro.Text = "Complemento Pago";
-                            //generaTXTCP();
+                                txtFechaDesde.Text = "Complemento Pago";
 
 
+                                txtTipoCobro.Text = "Complemento Pago";
+                                //generaTXTCP();
+
+
+                            }
                         }
+
+
+                        //OTROS-------------------------------------------------------------------------------------------------------------------------
+
+                        // creamos el FolioUUID
+
+
+
                     }
-
-
-                    //OTROS-------------------------------------------------------------------------------------------------------------------------
-
-                    // creamos el FolioUUID
-
-
-
                 }
             }
+
+                //DESDE AQUI EMPIZA EL TXT DE PRODUCCION
+              
 
 
             //AQUI TERMINA TXT PRODUCCIION

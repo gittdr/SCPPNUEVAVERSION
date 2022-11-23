@@ -58,6 +58,10 @@ namespace CARGAR_EXCEL.Controllers
         {
             return this.modelFact.getDatosFacturas(fact,IdRecep);
         }
+        public DataTable detalleFacturasV(string fact, string IdRecep)
+        {
+            return this.modelFact.getDatosFacturasV(fact, IdRecep);
+        }
         public DataTable getDatosCPAGDOCTRL(string identificador, string foliocpag)
         {
             return this.modelFact.getDatosCPAGDOCTRL(identificador, foliocpag);

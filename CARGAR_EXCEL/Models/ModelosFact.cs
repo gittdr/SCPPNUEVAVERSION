@@ -449,6 +449,34 @@ namespace CARGAR_EXCEL.Models
             }
             return dataTable;
         }
+        public DataTable getDatosFacturasV(string fact, string IdRecep)
+        {
+            DataTable dataTable = new DataTable();
+            string cadena = @"Data source=172.24.16.113; Initial Catalog=TDR; User ID=sa; Password=tdr9312;Trusted_Connection=false;MultipleActiveResultSets=true";
+            using (SqlConnection connection = new SqlConnection(cadena))
+            {
+                using (SqlCommand selectCommand = new SqlCommand("select * from vista_fe_copago where folio = @factura and medotodepago = 'PPD' and IdReceptor = @IdRecep union select * from vista_fe_copago_Enviados where folio = @factura and medotodepago = 'PPD' and IdReceptor = @IdRecep", connection))
+                {
+                    selectCommand.CommandType = CommandType.Text;
+                    selectCommand.CommandTimeout = 1000;
+                    selectCommand.Parameters.AddWithValue("@factura", (object)fact);
+                    selectCommand.Parameters.AddWithValue("@IdRecep", (object)IdRecep);
+                    using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(selectCommand))
+                    {
+                        try
+                        {
+                            selectCommand.Connection.Open();
+                            sqlDataAdapter.Fill(dataTable);
+                        }
+                        catch (SqlException ex)
+                        {
+                            string message = ex.Message;
+                        }
+                    }
+                }
+            }
+            return dataTable;
+        }
 
         public DataTable getDatosCPAGDOC(string identificador, string IdRecep)
         {
