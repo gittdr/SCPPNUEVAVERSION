@@ -78,7 +78,7 @@ namespace CARGAR_EXCEL.Models
                 try
                 {
                     cn.Open();
-                    using (SqlCommand cmd = new SqlCommand("sp_nomostrarsiexiste_JC", cn))
+                    using (SqlCommand cmd = new SqlCommand("sp_nomostrarsiexisteCP_JC", cn))
                     {
                         //Le indico que es del itpo procedure
                         cmd.CommandType = CommandType.StoredProcedure;

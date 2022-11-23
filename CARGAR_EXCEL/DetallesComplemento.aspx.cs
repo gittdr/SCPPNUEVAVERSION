@@ -5962,7 +5962,8 @@ namespace CARGAR_EXCEL
                 txtTipoCobro.CssClass = "readOnlyTextBox";
                 generaTXT2();
                 //generadorTXT();
-                //facLabControler.Elist(txtFolio.Text);
+                string nFolioR = IdRecep + lblFact.Text;
+                facLabControler.Elist(nFolioR);
                 string msg = "¡Se genero correctamente el TXT!";
                 ScriptManager.RegisterStartupScript(this, GetType(), "swal", "swal('" + msg + "', 'Success', 'success');setTimeout(function(){window.location.href ='DownloadTxt.aspx'}, 10000)", true);
 

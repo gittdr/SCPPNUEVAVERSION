@@ -66,7 +66,10 @@ namespace CARGAR_EXCEL
             foreach (DataRow item in cargaStops.Rows)
             {
                 string folio = item["Folio"].ToString();
-                string idreceptor = item["idreceptor"].ToString();
+                //string folio = "41503";
+                //string idreceptor = "PEÑATECA";
+                string idreceptor = item["idreceptor"].ToString().Trim();
+                string uf = idreceptor + folio;
                 var request28 = (HttpWebRequest)WebRequest.Create("https://canal1.xsa.com.mx:9050/bf2e1036-ba47-49a0-8cd9-e04b36d5afd4/cfdis?folioEspecifico=" + folio);
                 var response28 = (HttpWebResponse)request28.GetResponse();
                 var responseString28 = new StreamReader(response28.GetResponseStream()).ReadToEndAsync();
@@ -74,7 +77,7 @@ namespace CARGAR_EXCEL
                 List<ModelFact> separados8 = JsonConvert.DeserializeObject<List<ModelFact>>(await responseString28);
                 if (separados8 != null)
                 {
-                    DataTable sae_ar = facLabControler.Elist2(folio);
+                    DataTable sae_ar = facLabControler.Elist2(uf);
                     if (sae_ar.Rows.Count == 0)
                     {
                         TableRow r = new TableRow();
@@ -160,7 +163,7 @@ namespace CARGAR_EXCEL
             //encabezado
 
 
-            int numCells = 3;
+            int numCells = 4;
             int rownum = 0;
             //cargaStops = cargaStops.Orde
             foreach (DataRow row in dv.ToTable().Rows)

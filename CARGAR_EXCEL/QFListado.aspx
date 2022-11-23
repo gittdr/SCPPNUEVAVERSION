@@ -186,12 +186,17 @@ nav li#user-info > span:after{
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="form-row">
-                                <div class="form-group col-sm-10">
+                                <div class="form-group col-sm-6">
                                   <label for="FileUpload1"><b>Folio</b></label>
-                                    <asp:TextBox ID="Folio" CssClass="form-control-file" runat="server" required="true"></asp:TextBox>
+                                    <asp:TextBox ID="Folio" CssClass="form-control" runat="server" required="true"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="FValidator" runat="server" ErrorMessage="RequiredFielValidator" ControlToValidate="Folio" Display="Dynamic" ForeColor="Red" SetFocusOnError="True">* Campo requerido</asp:RequiredFieldValidator>
                                 </div>
-                                <div class="form-group col-sm-2">
+                                <div class="form-group col-sm-6">
+                                  <label for="Billto"><b>Billto</b></label>
+                                    <asp:TextBox ID="Billto" CssClass="form-control" runat="server" required="true"></asp:TextBox>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="RequiredFielValidator" ControlToValidate="Billto" Display="Dynamic" ForeColor="Red" SetFocusOnError="True">* Campo requerido</asp:RequiredFieldValidator>
+                                </div>
+                                <div class="form-group col-sm-12">
                                   <asp:Button ID="Button1" runat="server" Text="Registrar" CssClass="btn btn-block btn-success mt-4" OnClick="Button1_Click" />
                                 </div>
                             </div>

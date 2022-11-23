@@ -24,14 +24,16 @@ namespace CARGAR_EXCEL
         }
         protected void Button1_Click(object sender, EventArgs e)
         {
-            string numero = Folio.Text;
+            string numero = Folio.Text.Trim();
+            string billto = Billto.Text.Trim();
+            string folio = billto + numero;
             //string merror = "<br> <br>";
             //ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "successalert("+merror+");", true);
             //string msg = "pariatur";
             //ScriptManager.RegisterStartupScript(this, GetType(), "swal", "swal('" + msg + "', 'Factura timbrada ', 'success');setTimeout(function(){window.location.href ='Listado.aspx'}, 10000)", true);
             //pop(numero);
 
-            valida(numero);
+            valida(folio);
         }
 
         public void valida(string folio)

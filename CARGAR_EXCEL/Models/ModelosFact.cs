@@ -77,7 +77,7 @@ namespace CARGAR_EXCEL.Models
             using (SqlConnection connection = new SqlConnection(cadena2))
             {
 
-                using (SqlCommand selectCommand = new SqlCommand("sp_insertaComplemento_JC", connection))
+                using (SqlCommand selectCommand = new SqlCommand("sp_insertaComplementoPagos_JC", connection))
                 {
 
                     selectCommand.CommandType = CommandType.StoredProcedure;

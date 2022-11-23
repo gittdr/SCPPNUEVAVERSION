@@ -238,6 +238,9 @@ nav li#user-info > span:after{
                                                     </asp:TableCell><asp:TableCell HorizontalAlign="Center">
                                                         <b>Cliente</b>
                                                     </asp:TableCell>
+                                                    <asp:TableCell HorizontalAlign="Center">
+                                                        <b>Billto</b>
+                                                    </asp:TableCell>
                                                 </asp:TableRow>
 
                                             </asp:Table>

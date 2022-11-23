@@ -34,7 +34,7 @@ namespace CARGAR_EXCEL
         private async Task okTralix()
         {
             DataTable cargaStops = facLabControler.facturasSinRfc();
-            int numCells = 3;
+            int numCells = 4;
             int rownum = 0;
             foreach (DataRow item in cargaStops.Rows)
             {
@@ -79,7 +79,7 @@ namespace CARGAR_EXCEL
             //encabezado
 
 
-            int numCells = 3;
+            int numCells = 4;
             int rownum = 0;
             //cargaStops = cargaStops.Orde
             foreach (DataRow row in dv.ToTable().Rows)
