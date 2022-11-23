@@ -26,7 +26,7 @@ namespace CARGAR_EXCEL
         , ivadeiva, ivaderet, retderet, conceptoretencion, consecutivoconcepto, claveproductoservicio, valorunitario, importe, descuento, cantidadletra, uuidrel
         , identificador, version, fechapago, monedacpag, tipodecambiocpag, monto, numerooperacion, rfcemisorcuenta, nombrebanco, numerocuentaord, rfcemisorcuentaben, numcuentaben
         , tipocadenapago, certpago, cadenadelpago, sellodelpago, identpag, identdocpago, seriecpag, foliocpag, monedacpagdoc, tipocambiocpag, metododepago, numerodeparcialidad
-        , importeSaldoAnterior, importepago, importesaldoinsoluto, total, subt, ivat, rett, cond, tipoc, seriee, folioe, sfolio, Foliosrelacionados, serier, folior, uuidpagadas, IdentificadorDelDocumentoPagado, ipagado, nparcialidades, folio, MetdodoPago, Dserie, monedascpadgoc, interiorsaldoanterior, isaldoinsoluto, identificaciondpago, folioscpag, k1, k3, norden, tmoneda, idcomprobante, cantidad, descripcion, Tuuid, iddelpago, iipagado, basecalculado, basecalculado2, basecalculado3, impSaldoAnterior, impSaldoInsoluto, fechap, fechaemision, f03, totaliva, totalisr, if05, f08, if06, TotaldeRe, TotaldeIva, f07, importePagosTotal, subtotalfinal,totalfinaldeiva, regimenfiscal, tipodecambiocpagd, totaenpesos;
+        , importeSaldoAnterior, importepago, IdRecep, importesaldoinsoluto, total, subt, ivat, rett, cond, tipoc, seriee, folioe, sfolio, Foliosrelacionados, serier, folior, uuidpagadas, IdentificadorDelDocumentoPagado, ipagado, nparcialidades, folio, MetdodoPago, Dserie, monedascpadgoc, interiorsaldoanterior, isaldoinsoluto, identificaciondpago, folioscpag, k1, k3, norden, tmoneda, idcomprobante, cantidad, descripcion, Tuuid, iddelpago, iipagado, basecalculado, basecalculado2, basecalculado3, impSaldoAnterior, impSaldoInsoluto, fechap, fechaemision, f03, totaliva, totalisr, if05, f08, if06, TotaldeRe, TotaldeIva, f07, importePagosTotal, subtotalfinal,totalfinaldeiva, regimenfiscal, tipodecambiocpagd, totaenpesos;
 
         public bool error = false;
 
@@ -103,7 +103,7 @@ namespace CARGAR_EXCEL
             imgFDesde.Visible = false;
             imgFHasta.Visible = false;
             lblFact.Text = Request.QueryString["factura"];
-            //lblFact.Text = "41381";
+            IdRecep = Request.QueryString["idreceptor"];
             //foliot = Request.QueryString["factura"];
             if (IsPostBack)
             {
@@ -163,7 +163,7 @@ namespace CARGAR_EXCEL
 
 
             //DESDE AQUI EMPIZA EL TXT DE PRODUCCION
-            DataTable td = facLabControler.detalleFacturas(lblFact.Text);
+            DataTable td = facLabControler.detalleFacturas(lblFact.Text,IdRecep);
             Div1.Visible = false;
             //Obtencion de datos------------------------------------------------------------------------------------------------------------------------ -
 
@@ -314,7 +314,7 @@ namespace CARGAR_EXCEL
                     // AQUI VOY-------------------------
                     if (txtRFC.Text != "")
                     {
-                        DataTable detalleIdent2 = facLabControler.getDatosCPAGDOC(row["IdentificadorDelPago"].ToString());
+                        DataTable detalleIdent2 = facLabControler.getDatosCPAGDOC(row["IdentificadorDelPago"].ToString(),IdRecep);
                         if (detalleIdent2.Rows.Count > 0)
                         {
                             //CPADOC DESDE GP ----------------------
@@ -3379,8 +3379,11 @@ namespace CARGAR_EXCEL
                 }
             }
             txtConcepto.Text = validaCampo(txtConcepto.Text.Trim());
-
-            string path = System.Web.Configuration.WebConfigurationManager.AppSettings["dir2"] + lblFact.Text + ".txt";
+            //DateTime aDate = DateTime.Now;
+            //string ndir = aDate.ToString("dd-MM-yyyHHmmss") +"-"+ lblFact.Text;
+            //string path = System.Web.Configuration.WebConfigurationManager.AppSettings["dir2"] + ndir + ".txt";
+            string narcg = IdRecep + lblFact.Text;
+            string path = System.Web.Configuration.WebConfigurationManager.AppSettings["dir2"] + narcg + ".txt";
 
             using (System.IO.StreamWriter escritor = new System.IO.StreamWriter(path))
 
@@ -5959,7 +5962,7 @@ namespace CARGAR_EXCEL
                 txtTipoCobro.CssClass = "readOnlyTextBox";
                 generaTXT2();
                 //generadorTXT();
-                facLabControler.Elist(txtFolio.Text);
+                //facLabControler.Elist(txtFolio.Text);
                 string msg = "¡Se genero correctamente el TXT!";
                 ScriptManager.RegisterStartupScript(this, GetType(), "swal", "swal('" + msg + "', 'Success', 'success');setTimeout(function(){window.location.href ='DownloadTxt.aspx'}, 10000)", true);
 

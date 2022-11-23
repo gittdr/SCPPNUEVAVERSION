@@ -61,11 +61,12 @@ namespace CARGAR_EXCEL
         private async Task okTralix()
         {
             DataTable cargaStops = facLabControler.facturas();
-            int numCells = 3;
+            int numCells = 4;
             int rownum = 0;
             foreach (DataRow item in cargaStops.Rows)
             {
                 string folio = item["Folio"].ToString();
+                string idreceptor = item["idreceptor"].ToString();
                 var request28 = (HttpWebRequest)WebRequest.Create("https://canal1.xsa.com.mx:9050/bf2e1036-ba47-49a0-8cd9-e04b36d5afd4/cfdis?folioEspecifico=" + folio);
                 var response28 = (HttpWebResponse)request28.GetResponse();
                 var responseString28 = new StreamReader(response28.GetResponseStream()).ReadToEndAsync();
@@ -84,7 +85,7 @@ namespace CARGAR_EXCEL
                                 HyperLink hp1 = new HyperLink();
                                 hp1.ID = "hpIndex" + rownum.ToString();
                                 hp1.Text = "<button type='button' class='btn btn-primary'>" + item[i].ToString() + "</button>";
-                                hp1.NavigateUrl = "DetallesComplemento.aspx?factura=" + item[i].ToString();
+                                hp1.NavigateUrl = "DetallesComplemento.aspx?factura=" + item[i].ToString()+"&idreceptor="+idreceptor;
                                 TableCell c = new TableCell();
                                 c.Controls.Add(hp1);
                                 r.Cells.Add(c);
