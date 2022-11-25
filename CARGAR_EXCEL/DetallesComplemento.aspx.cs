@@ -6113,7 +6113,7 @@ namespace CARGAR_EXCEL
                                                 var responseString281 = new StreamReader(response281.GetResponseStream()).ReadToEndAsync();
 
                                                 List<ModelFact> separados81 = JsonConvert.DeserializeObject<List<ModelFact>>(await responseString281);
-                                                int totalra = separados81.Count;
+                                               
                                                 if (separados81 != null)
                                                 {
                                                     contadortralix = 1;
