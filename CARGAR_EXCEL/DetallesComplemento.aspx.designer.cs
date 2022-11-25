@@ -114,6 +114,42 @@ namespace CARGAR_EXCEL
         protected global::System.Web.UI.WebControls.Button btnGenerarTxt;
 
         /// <summary>
+        /// Control montos.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl montos;
+
+        /// <summary>
+        /// Control Mpagado.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Mpagado;
+
+        /// <summary>
+        /// Control Suuid.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Suuid;
+
+        /// <summary>
+        /// Control Faltan.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Faltan;
+
+        /// <summary>
         /// Control txtFolio.
         /// </summary>
         /// <remarks>

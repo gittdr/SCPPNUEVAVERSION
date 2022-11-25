@@ -102,14 +102,32 @@
                                 <div class="card-header">
                                       <div class="form-row">
                                 
-                                    <div class="form-group col-md-6">
-                                        <label>Complemento de Pago - </label>
-                                        <asp:Label Style="font-weight:700" ID="lblFact" runat="server" Text="Label"></asp:Label>
+                                            <div class="form-group col-md-6">
+                                                <label>Complemento de Pago - </label>
+                                                <asp:Label Style="font-weight:700" ID="lblFact" runat="server" Text="Label"></asp:Label>
+                                            </div>
+                                            <div class="form-form-group col-md-6" style="text-align:right">
+                                                <asp:Button ID="btnGenerarTxt" runat="server" CssClass="btn btn-primary" OnClick="btnGenerarTxt_Click" Text="Generar TXT" />
+                                            </div>
                                     </div>
-                                    <div class="form-form-group col-md-6" style="text-align:right">
-                                        <asp:Button ID="btnGenerarTxt" runat="server" CssClass="btn btn-primary" OnClick="btnGenerarTxt_Click" Text="Generar TXT" />
+                                    <div class="form-row">
+                                
+                                            <div class="form-group col-md-12 bg-red alert alert-danger text-center" role="alert" runat="server" id="montos">
+                                                <h1>¡Atención!</h1>
+                                                <table class="table">
+                                                    <tr>
+                                                        <td>Monto Pagado</td>
+                                                        <td>Suma de los UUID relacionados</td>
+                                                        <td>Faltan</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><asp:Label Style="font-weight:700" ID="Mpagado" runat="server" Text="Label"></asp:Label></td>
+                                                        <td><asp:Label Style="font-weight:700" ID="Suuid" runat="server" Text="Label"></asp:Label></td>
+                                                        <td><asp:Label Style="font-weight:700" ID="Faltan" runat="server" Text="Label"></asp:Label></td>
+                                                    </tr>
+                                                </table>
+                                            </div>
                                     </div>
-                                </div>
                                 </div>
                                 <div class="card-body">
                                     <div class="form-row">
