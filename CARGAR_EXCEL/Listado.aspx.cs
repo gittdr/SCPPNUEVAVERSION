@@ -22,6 +22,7 @@ namespace CARGAR_EXCEL
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            
             if (!IsPostBack)
             {
                 
@@ -57,9 +58,10 @@ namespace CARGAR_EXCEL
         //                {
         //                    foreach (var item in separados8)
         //                    {
-
+        
         private async Task okTralix()
         {
+          
             DataTable cargaStops = facLabControler.facturas();
             int numCells = 4;
             int rownum = 0;
@@ -85,6 +87,7 @@ namespace CARGAR_EXCEL
                         {
                             if (i == 0)
                             {
+                                
                                 HyperLink hp1 = new HyperLink();
                                 hp1.ID = "hpIndex" + rownum.ToString();
                                 hp1.Text = "<button type='button' class='btn btn-primary'>" + item[i].ToString() + "</button>";

@@ -181,6 +181,38 @@ namespace CARGAR_EXCEL.Models
             }
             return dataTablee;
         }
+        public DataTable getBillto(string billto)
+        {
+            string cadena = @"Data source=172.24.16.113; Initial Catalog=TDR; User ID=sa; Password=tdr9312;Trusted_Connection=false;MultipleActiveResultSets=true";
+            DataTable dataTable = new DataTable();
+            using (SqlConnection connection = new SqlConnection(cadena))
+            {
+                connection.Open();
+                using (SqlCommand selectCommand = new SqlCommand("sp_getBillto_JC", connection))
+                {
+
+                    selectCommand.CommandType = CommandType.StoredProcedure;
+                    selectCommand.CommandTimeout = 100000;
+                    selectCommand.Parameters.AddWithValue("@billto", billto);
+                    selectCommand.ExecuteNonQuery();
+                    using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(selectCommand))
+                    {
+                        try
+                        {
+                            //selectCommand.Connection.Open();
+                            sqlDataAdapter.Fill(dataTable);
+                        }
+                        catch (SqlException ex)
+                        {
+                            connection.Close();
+                            string message = ex.Message;
+                        }
+                    }
+                }
+            }
+            return dataTable;
+        }
+        
         public DataTable getCartasPorte(string factura)
         {
             DataTable dataTable = new DataTable();

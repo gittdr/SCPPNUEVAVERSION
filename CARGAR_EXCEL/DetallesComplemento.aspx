@@ -108,6 +108,7 @@
                                             </div>
                                             <div class="form-form-group col-md-6" style="text-align:right">
                                                 <asp:Button ID="btnGenerarTxt" runat="server" CssClass="btn btn-primary" OnClick="btnGenerarTxt_Click" Text="Generar TXT" />
+                                                <asp:Button ID="btnGTE" runat="server" CssClass="btn btn-primary" OnClick="btnGenerarTxtE_Click" Text="Generar TXT VACIO" />
                                             </div>
                                     </div>
                                     <div class="form-row">

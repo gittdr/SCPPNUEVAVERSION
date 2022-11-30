@@ -53,7 +53,10 @@ namespace CARGAR_EXCEL.Controllers
         //{
         //    return this.modelFact.getFacturasListado();
         //}
-
+        public DataTable getBillto(string billto)
+        {
+            return this.modelFact.getBillto(billto);
+        }
         public DataTable detalleFacturas(string fact, string IdRecep)
         {
             return this.modelFact.getDatosFacturas(fact,IdRecep);

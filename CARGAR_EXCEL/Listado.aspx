@@ -131,6 +131,52 @@ nav li#user-info > span:after{
         visibility:hidden;
     }
 }
+span.fancy-checkbox-toggle {
+    position: relative;
+    
+    padding: 0 0 0 29px;
+    cursor: pointer;
+    /* Make text & control un-selectable, otherwise it will
+       sometimes get selected if the user repeatedly clicks quickly */
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+/* ASP.Net CheckBoxList - Rendered in a TABLE */
+
+.fancy-checkbox-toggle input {
+    display: none;
+}
+.fancy-checkbox-toggle label {
+    cursor: pointer;
+    padding-left: 0;
+    font-weight: normal;
+}
+.fancy-checkbox-toggle input[type="checkbox"] + label:before {
+    position: absolute;
+    top: -1px;
+    left: 0;
+    font-family: FontAwesome;
+    content: "\f204";
+    font-size: 22px;
+    line-height: 1;
+    color: #aaa;
+}
+.fancy-checkbox-toggle input[type="checkbox"]:checked + label:before {
+    content: "\f205";
+    color: #4285f4;
+}
+.fancy-checkbox-toggle input[type="checkbox"]:disabled + label:before {
+    color: #ccccdd;
+}
+.fancy-checkbox-toggle.aspNetDisabled label,
+.fancy-checkbox-toggle .aspNetDisabled label {
+    cursor: not-allowed;
+}
+
 
     </style>
 </head>
@@ -181,7 +227,7 @@ nav li#user-info > span:after{
         <div class="container-fluid mt-4">
              <div class="card" style="box-shadow: 1px 1px 82px -2px rgba(0,0,0,0.75);-webkit-box-shadow: 1px 1px 82px -2px rgba(0,0,0,0.75);-moz-box-shadow: 1px 1px 82px -2px rgba(0,0,0,0.75);">
                   <div class="card-header">
-                    <b>Complementos de Pago</b> 
+                    <b>Complementos de Pago</b>
                   </div>
                   <div class="card-body">
                     <div class="row">
@@ -198,6 +244,20 @@ nav li#user-info > span:after{
                                   <label for="txtName">Numero de orden</label>
                                     <asp:TextBox ID="txtName" CssClass="form-control" runat="server" Width="140" />
                                     
+                                </div>--%>
+                               <%-- <div class="form-group col-sm-12" style="text-align:center">
+                                    
+                                    <table class="table" style="text-align:center;">
+                                        <tr>
+                                            <td style="background-color:#dee2e6"><b>Forma de pago 02</b></td>
+                                            <td>
+                                                
+                                              <asp:CheckBox ID="chkSelect" runat="server" Text="Aplicar" CssClass="fancy-checkbox-toggle" AutoPostBack="true" OnCheckedChanged="ChkSlot_CheckedChanged1"/>
+                                                    
+                                            </td>
+                                        </tr>
+                                        
+                                    </table>
                                 </div>--%>
                                  <div class="form-group col-sm-12">
                                    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
