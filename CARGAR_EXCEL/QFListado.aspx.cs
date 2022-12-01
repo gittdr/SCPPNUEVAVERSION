@@ -32,7 +32,7 @@ namespace CARGAR_EXCEL
         protected void Button1_Click(object sender, EventArgs e)
         {
             string numero = Folio.Text.Trim();
-            string billto = Billto.Text.Trim();
+            string billto = Billto.Text.Trim().ToUpper();
             string folio = billto + numero;
             //string merror = "<br> <br>";
             //ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "successalert("+merror+");", true);
