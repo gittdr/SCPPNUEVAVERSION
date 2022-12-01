@@ -136,6 +136,9 @@
     <Content Include="Content\Site.css" />
     <Content Include="CSinRfc.aspx" />
     <Content Include="Cartaporte.aspx" />
+    <Content Include="DeleteBillto.aspx" />
+    <Content Include="DeleteBilltoPapelera.aspx" />
+    <Content Include="DeleteBilltoFp.aspx" />
     <Content Include="DownloadTxt.aspx" />
     <Content Include="images\56Z_2111.w012.n001.13B.p12.13.jpg" />
     <Content Include="images\alala.png" />
@@ -158,6 +161,7 @@
     <Content Include="images\loading.gif" />
     <Content Include="images\login.png" />
     <Content Include="images\logo.png" />
+    <Content Include="FDPago.aspx" />
     <Content Include="QFListado.aspx" />
     <Content Include="Listado.aspx" />
     <Content Include="Login.aspx" />
@@ -186,6 +190,27 @@
     </Compile>
     <Compile Include="Cartaporte.aspx.designer.cs">
       <DependentUpon>Cartaporte.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DeleteBillto.aspx.cs">
+      <DependentUpon>DeleteBillto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DeleteBillto.aspx.designer.cs">
+      <DependentUpon>DeleteBillto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DeleteBilltoPapelera.aspx.cs">
+      <DependentUpon>DeleteBilltoPapelera.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DeleteBilltoPapelera.aspx.designer.cs">
+      <DependentUpon>DeleteBilltoPapelera.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DeleteBilltoFp.aspx.cs">
+      <DependentUpon>DeleteBilltoFp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DeleteBilltoFp.aspx.designer.cs">
+      <DependentUpon>DeleteBilltoFp.aspx</DependentUpon>
     </Compile>
     <Compile Include="DownloadTxt.aspx.cs">
       <DependentUpon>DownloadTxt.aspx</DependentUpon>
@@ -231,6 +256,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="FDPago.aspx.cs">
+      <DependentUpon>FDPago.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FDPago.aspx.designer.cs">
+      <DependentUpon>FDPago.aspx</DependentUpon>
     </Compile>
     <Compile Include="QFListado.aspx.cs">
       <DependentUpon>QFListado.aspx</DependentUpon>

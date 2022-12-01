@@ -155,7 +155,10 @@ nav li#user-info > span:after{
         <asp:HyperLink ID="HyperLink4" CssClass="text-white" Style="text-decoration:none;padding-right: 20px;"  runat="server" NavegateUrl="DownloadTxt.aspx" NavigateUrl="~/DownloadTxt.aspx"> &nbsp;<i class="fa fa-arrow-circle-down" aria-hidden="true"></i> Descargas</asp:HyperLink>
       </li>
          <li class="nav-item">
-        <asp:HyperLink ID="HyperLink5" CssClass="text-white" Style="text-decoration:none;"  runat="server" NavegateUrl="QFListado.aspx" NavigateUrl="~/QFListado.aspx"> &nbsp;<i class="fa fa-trash" style="color:#f2c43e" aria-hidden="true"></i> Papelera</asp:HyperLink>
+        <asp:HyperLink ID="HyperLink5" CssClass="text-white" Style="text-decoration:none;padding-right: 20px;"  runat="server" NavegateUrl="QFListado.aspx" NavigateUrl="~/QFListado.aspx"> &nbsp;<i class="fa fa-trash" style="color:#f2c43e" aria-hidden="true"></i> Papelera</asp:HyperLink>
+      </li>
+         <li class="nav-item">
+        <asp:HyperLink ID="HyperLink6" CssClass="text-white" Style="text-decoration:none;"  runat="server" NavegateUrl="FDPago.aspx" NavigateUrl="~/FDPago.aspx"> &nbsp;<i class="fa fa-plus-square" aria-hidden="true"></i> Forma de Pago</asp:HyperLink>
       </li>
     </ul>
     <%--<ul class="navbar-nav mr-auto ml-auto">
@@ -180,7 +183,7 @@ nav li#user-info > span:after{
         <div class="container-fluid mt-4">
                  <div class="card">
                   <div class="card-header">
-                    <b>Papelera</b>
+                    <b><i class="fa fa-plus-square btn btn-success" aria-hidden="true"></i> Papelera</b>
                   </div>
                   <div class="card-body">
                     <div class="row">
@@ -217,11 +220,50 @@ nav li#user-info > span:after{
                   </div>
 
                 </div>
+            <div class="card mt-4">
+                    <div class="card-header">
+                        <b><i class="fa fa-list btn btn-success" aria-hidden="true"></i> Listado de clientes</b>
+                    </div>
+                    <div class="card-body">
+                         <div class="form-group col-sm-12">
+                                   <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+                                    <asp:UpdatePanel ID="UpdatePanel1" UpdateMode="Conditional" runat="server">
+                                        <ContentTemplate>
+                                            <script type="text/javascript">
+                                                function save() {
+                                                    var brk = document.getElementById('<%= hdFiltrar2.ClientID %>')
+                                                    brk.value = "entra"
+                                                    // alert("Guardando")
+                                                }
+                                            </script>
+                                            <center>
+                                            <td><asp:HiddenField ID="hdFiltrar2" runat="server" /></td>
+
+                                            
+          
+                                           
+                                             <asp:Table id="tablaStops" class="table table-striped text-center mt-4" runat="server" Font-Names="ARIAL">
+                                                <asp:TableRow>
+                                                    <asp:TableCell HorizontalAlign="Center">
+                                                        <b>#</b>
+                                                    </asp:TableCell>
+                                                    <asp:TableCell HorizontalAlign="Center">
+                                                        <b>Billto</b>
+                                                    </asp:TableCell>
+                                                </asp:TableRow>
+
+                                            </asp:Table>
+                         </center>   
+                                        </ContentTemplate>
+                                    </asp:UpdatePanel>
+                                </div>
+                    </div>
+                </div>
         </div>
     </form>
     
      <footer id="sticky-footer" class="flex-shrink-0 py-4 bg-dark text-white-50" style="position: relative;
-    margin-top: 100vh;background:rgba(0, 8, 20, 0.9) !important;">
+    margin-top: 70vh;background:rgba(0, 8, 20, 0.9) !important;">
     <div class="container text-center text-white">
         <a href="#form1" style="font-size:28px;text-decoration:none;color:white"><i class="fa fa-arrow-circle-up" aria-hidden="true"></i></a><br />
       <small>2022 Copyright &copy; TDR Soluciones Logísticas</small>

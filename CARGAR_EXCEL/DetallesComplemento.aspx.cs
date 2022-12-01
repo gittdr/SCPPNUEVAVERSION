@@ -26,7 +26,7 @@ namespace CARGAR_EXCEL
         , ivadeiva, ivaderet, retderet, conceptoretencion, consecutivoconcepto, claveproductoservicio, valorunitario, importe, descuento, cantidadletra, uuidrel
         , identificador, version, fechapago, monedacpag, tipodecambiocpag, monto, numerooperacion, rfcemisorcuenta, nombrebanco, numerocuentaord, rfcemisorcuentaben, numcuentaben
         , tipocadenapago, certpago, cadenadelpago, sellodelpago, identpag, identdocpago, seriecpag, foliocpag, monedacpagdoc, tipocambiocpag, metododepago, numerodeparcialidad
-        , importeSaldoAnterior, importepago, IdRecep, rbilto,importesaldoinsoluto, total, subt, ivat, rett, cond, tipoc, seriee, folioe, sfolio, Foliosrelacionados, serier, folior, uuidpagadas, IdentificadorDelDocumentoPagado, ipagado, nparcialidades, folio, MetdodoPago, Dserie, monedascpadgoc, interiorsaldoanterior, isaldoinsoluto, identificaciondpago, folioscpag, k1, k3, norden, tmoneda, idcomprobante, cantidad, descripcion, Tuuid, iddelpago, iipagado, basecalculado, basecalculado2, basecalculado3, impSaldoAnterior, impSaldoInsoluto, fechap, fechaemision, f03, totaliva, totalisr, if05, f08, if06, TotaldeRe, TotaldeIva, f07, importePagosTotal, subtotalfinal,totalfinaldeiva, regimenfiscal, tipodecambiocpagd, totaenpesos;
+        , importeSaldoAnterior, importepago, if05a, if06a, cpagdoc2, f07a, f08a, IdRecep, rbilto,importesaldoinsoluto, total, subt, ivat, rett, cond, tipoc, seriee, folioe, sfolio, Foliosrelacionados, serier, folior, uuidpagadas, IdentificadorDelDocumentoPagado, ipagado, nparcialidades, folio, MetdodoPago, Dserie, monedascpadgoc, interiorsaldoanterior, isaldoinsoluto, identificaciondpago, folioscpag, k1, k3, norden, tmoneda, idcomprobante, cantidad, descripcion, Tuuid, iddelpago, iipagado, basecalculado, basecalculado2, basecalculado3, impSaldoAnterior, impSaldoInsoluto, fechap, fechaemision, f03, totaliva, totalisr, if05, f08, if06, TotaldeRe, TotaldeIva, f07, importePagosTotal, subtotalfinal,totalfinaldeiva, regimenfiscal, tipodecambiocpagd, totaenpesos;
 
         public bool error = false;
 
@@ -9801,7 +9801,7 @@ namespace CARGAR_EXCEL
             //DateTime aDate = DateTime.Now;
             //string ndir = aDate.ToString("dd-MM-yyyHHmmss") +"-"+ lblFact.Text;
             //string path = System.Web.Configuration.WebConfigurationManager.AppSettings["dir2"] + ndir + ".txt";
-            string narcg = IdRecep + lblFact.Text;
+            string narcg = IdRecep + lblFact.Text+"Vacio";
             string path = System.Web.Configuration.WebConfigurationManager.AppSettings["dir2"] + narcg + ".txt";
 
             using (System.IO.StreamWriter escritor = new System.IO.StreamWriter(path))
@@ -9812,7 +9812,60 @@ namespace CARGAR_EXCEL
             {
                 string f1 = txtFechaDesde.Text;
                 string factura = txtFolio.Text;
+                if05a = "CPAG20DOCIMPRET"
+                      + "|"
+                      + "|"
+                      + "|"
+                      + "|"
+                      + "|"
+                      + "|"
+                      + "|"
+                      + "| \r\n";
 
+                if06a = "CPAG20DOCIMPTRA"
+                      + "|"
+                      + "|"
+                      + "|"
+                      + "|"
+                      + "|"
+                      + "|"
+                      + "|"
+                      + "| \r\n";
+
+
+                cpagdoc2 = cpagdoc2 + (
+                            "CPAG20DOC"                           //1-Tipo De Registro
+                      + "|"                     //2-IdentificadorDelPago  
+                      + "|"                         //3-IdentificadorDelDocumentoPagado                                              
+                      + "|"                  //4-Seriecpag
+                      + "|"                 //5-Foliocpag
+                      + "|"                //6-Monedacpag
+                      + "|"                                     //7-Equivalencia
+                      + "|"           //8-NumeroDeParcialidad
+                      + "|"                //9-ImporteSaldoAnterior
+                      + "|"                 //10-ImportePagado                                                  
+                      + "|"                //11-ImporteSaldoInsoluto
+                      + "|"                                 //12-ObjetoDeImpuesto
+                      + "| \r\n")
+                      + if05a
+                      + if06a;
+
+                f07a = "CPAG20IMPRET"
+                      + "|"
+                      + "|"
+                      + "|"
+                      + "|";
+
+
+
+                f08a = "CPAG20IMPTRA"
+                      + "|"
+                      + "|"
+                      + "|"
+                      + "|"
+                      + "|"
+                      + "|"
+                      + "|";
 
                 //----------------------------------------Seccion De Datos Generales del CFDI-----------------------------------------------------------------------------------------
                 //string f01 = "01"   // LISTO
@@ -10094,7 +10147,7 @@ namespace CARGAR_EXCEL
                     + "|"                                    //Fin Del Registro
                     + "|";
 
-                    escritor.WriteLine(cpagdoc
+                    escritor.WriteLine(cpagdoc2
                    //"CPAGDOC"                                              //1-Tipo De Registro
                    //+ "|" + identpag                                       //2-IdentificadorDelPago
                    //+ "|" + txtFechaIniOP.Text                             //3-IdentificadorDelDocumentoPagado                                              
@@ -10111,7 +10164,7 @@ namespace CARGAR_EXCEL
                    );
 
 
-                    escrituraFactura += cpagdoc;
+                    escrituraFactura += cpagdoc2;
 
                 }
                 else
@@ -10274,7 +10327,7 @@ namespace CARGAR_EXCEL
                     + "|"                                    //Fin Del Registro
                     + "|";
 
-                    escritor.WriteLine(cpagdoc
+                    escritor.WriteLine(cpagdoc2
                    //"CPAGDOC"                                              //1-Tipo De Registro
                    //+ "|" + identpag                                       //2-IdentificadorDelPago
                    //+ "|" + txtFechaIniOP.Text                             //3-IdentificadorDelDocumentoPagado                                              
@@ -10291,7 +10344,7 @@ namespace CARGAR_EXCEL
                    );
 
 
-                    escrituraFactura += cpagdoc;
+                    escrituraFactura += cpagdoc2;
                     //escrituraFactura = escrituraFactura.Replace("||02|", "||\\n02|");
                     //escrituraFactura = escrituraFactura.Replace("||04|", "||\\n04|");
                     //escrituraFactura = escrituraFactura.Replace("| \r\n", "|");
@@ -10304,10 +10357,10 @@ namespace CARGAR_EXCEL
                 if (nodeToFind == true && nodeToFind2 == true)
                 {
                     escrituraFactura = escrituraFactura.Replace(Environment.NewLine, "");
-                    escritor.WriteLine(f07);
-                    escrituraFactura += f07;
-                    escritor.WriteLine(f08);
-                    escrituraFactura += f08;
+                    escritor.WriteLine(f07a);
+                    escrituraFactura += f07a;
+                    escritor.WriteLine(f08a);
+                    escrituraFactura += f08a;
                 }
                 if (nodeToFind == true && nodeToFind2 == false)
                 {
@@ -10319,27 +10372,27 @@ namespace CARGAR_EXCEL
                     //}
                     if (usdmoneda == 1)
                     {
-                        f07 = "";
-                        f08 = "";
-                        escritor.WriteLine(f07);
-                        escrituraFactura += f07;
-                        escritor.WriteLine(f08);
-                        escrituraFactura += f08;
+                        f07a = "";
+                        f08a = "";
+                        escritor.WriteLine(f07a);
+                        escrituraFactura += f07a;
+                        escritor.WriteLine(f08a);
+                        escrituraFactura += f08a;
                     }
                     else
                     {
                         if (rtiva == 1 && rtisr == 1)
                         {
                             escrituraFactura = escrituraFactura.Replace(Environment.NewLine, "");
-                            escritor.WriteLine(f07);
-                            escrituraFactura += f07;
-                            escritor.WriteLine(f08);
-                            escrituraFactura += f08;
+                            escritor.WriteLine(f07a);
+                            escrituraFactura += f07a;
+                            escritor.WriteLine(f08a);
+                            escrituraFactura += f08a;
                         }
                         else
                         {
-                            escritor.WriteLine(f08);
-                            escrituraFactura += f08;
+                            escritor.WriteLine(f08a);
+                            escrituraFactura += f08a;
                         }
                     }
                     //else
@@ -10355,15 +10408,15 @@ namespace CARGAR_EXCEL
                     if (rtiva == 1 && rtisr == 1)
                     {
                         escrituraFactura = escrituraFactura.Replace("| \r\n", "");
-                        escritor.WriteLine(f07);
-                        escrituraFactura += f07;
-                        escritor.WriteLine(f08);
-                        escrituraFactura += f08;
+                        escritor.WriteLine(f07a);
+                        escrituraFactura += f07a;
+                        escritor.WriteLine(f08a);
+                        escrituraFactura += f08a;
                     }
                     else
                     {
-                        escritor.WriteLine(f07);
-                        escrituraFactura += f07;
+                        escritor.WriteLine(f07a);
+                        escrituraFactura += f07a;
                     }
                     //if (srtisr == 2)
                     //{
@@ -10372,17 +10425,17 @@ namespace CARGAR_EXCEL
                     //}
                     if (usdmoneda == 1)
                     {
-                        f07 = "";
-                        f08 = "";
-                        escritor.WriteLine(f07);
-                        escrituraFactura += f07;
-                        escritor.WriteLine(f08);
-                        escrituraFactura += f08;
+                        f07a = "";
+                        f08a = "";
+                        escritor.WriteLine(f07a);
+                        escrituraFactura += f07a;
+                        escritor.WriteLine(f08a);
+                        escrituraFactura += f08a;
                     }
                     else
                     {
-                        escritor.WriteLine(f07);
-                        escrituraFactura += f07;
+                        escritor.WriteLine(f07a);
+                        escrituraFactura += f07a;
                     }
 
                 }
@@ -13128,7 +13181,8 @@ namespace CARGAR_EXCEL
                 txtConcepto.CssClass = "readOnlyTextBox";
                 txtTipoCobro.CssClass = "readOnlyTextBox";
                 generaTXTEstructura();
-                //facLabControler.Elist(nFolioR);
+                string nFolioR = IdRecep + lblFact.Text;
+                facLabControler.Elist(nFolioR);
                 string msg = "¡Se genero correctamente el TXT VACIO!";
                 ScriptManager.RegisterStartupScript(this, GetType(), "swal", "swal('" + msg + "', 'Success', 'success');setTimeout(function(){window.location.href ='DownloadTxt.aspx'}, 10000)", true);
 

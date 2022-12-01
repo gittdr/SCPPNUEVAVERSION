@@ -17,6 +17,14 @@ namespace CARGAR_EXCEL.Controllers
         {
             return this.modelFact.getFacturas();
         }
+        public DataTable billtoFp()
+        {
+            return this.modelFact.billtoFp();
+        }
+        public DataTable billtoPapelera()
+        {
+            return this.modelFact.billtoPapelera();
+        }
         public DataTable tipoCambio()
         {
             return this.modelFact.tipoCambio();
@@ -32,6 +40,18 @@ namespace CARGAR_EXCEL.Controllers
         public void Elist(string identificador)
         {
             this.modelFact.Elist(identificador);
+        }
+        public void IFpago(string billto)
+        {
+            this.modelFact.IFpago(billto);
+        }
+        public void IFpagoDelete(string idnum)
+        {
+            this.modelFact.IFpagoDelete(idnum);
+        }
+        public void IFpagoDeletePapelera(string idnum)
+        {
+            this.modelFact.IFpagoDeletePapelera(idnum);
         }
         public DataTable facturasClientes()
         {

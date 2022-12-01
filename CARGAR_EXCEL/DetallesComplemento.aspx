@@ -70,7 +70,10 @@
         <asp:HyperLink ID="HyperLink4" CssClass="text-white" Style="text-decoration:none;padding-right: 20px;"  runat="server" NavegateUrl="DownloadTxt.aspx" NavigateUrl="~/DownloadTxt.aspx"> &nbsp;<i class="fa fa-arrow-circle-down" aria-hidden="true"></i> Descargas</asp:HyperLink>
       </li>
          <li class="nav-item">
-        <asp:HyperLink ID="HyperLink5" CssClass="text-white" Style="text-decoration:none;"  runat="server" NavegateUrl="QFListado.aspx" NavigateUrl="~/QFListado.aspx"> &nbsp;<i class="fa fa-trash" aria-hidden="true"></i> Papelera</asp:HyperLink>
+        <asp:HyperLink ID="HyperLink5" CssClass="text-white" Style="text-decoration:none;padding-right: 20px;"  runat="server" NavegateUrl="QFListado.aspx" NavigateUrl="~/QFListado.aspx"> &nbsp;<i class="fa fa-trash" aria-hidden="true"></i> Papelera</asp:HyperLink>
+      </li>
+         <li class="nav-item">
+        <asp:HyperLink ID="HyperLink6" CssClass="text-white" Style="text-decoration:none;"  runat="server" NavegateUrl="FDPago.aspx" NavigateUrl="~/FDPago.aspx"> &nbsp;<i class="fa fa-plus-square" aria-hidden="true"></i> Forma de Pago</asp:HyperLink>
       </li>
     </ul>
                 <%--<ul class="navbar-nav mr-auto ml-auto">
@@ -108,7 +111,7 @@
                                             </div>
                                             <div class="form-form-group col-md-6" style="text-align:right">
                                                 <asp:Button ID="btnGenerarTxt" runat="server" CssClass="btn btn-primary" OnClick="btnGenerarTxt_Click" Text="Generar TXT" />
-                                                <asp:Button ID="btnGTE" runat="server" CssClass="btn btn-primary" OnClick="btnGenerarTxtE_Click" Text="Generar TXT VACIO" />
+                                                <asp:Button ID="btnGTE" runat="server" CssClass="btn btn-info" OnClick="btnGenerarTxtE_Click" Text="Generar TXT VACIO" />
                                             </div>
                                     </div>
                                     <div class="form-row">
